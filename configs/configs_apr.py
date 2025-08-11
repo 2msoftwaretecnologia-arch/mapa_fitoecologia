@@ -6,7 +6,7 @@ def texto_config_Apr(nome):
 
     # Configurações
     nome_original = "APR"  # Nome da camada no mapa (ou caminho completo se necessário)
-    novo_nome = "{nome} - APR"
+    novo_nome = "{nome} - A.P.R"
     caminho_lyr = r"C:\\Users\\USUARIO\\Desktop\\automacoes\\mapa_fitoecologia_envimap\\cores_style\\APR.lyr"
 
     try:

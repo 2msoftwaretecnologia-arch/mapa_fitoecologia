@@ -62,13 +62,3 @@ def fazer_nota_tencnica():
     escrever_texto('3,2552')
     enter()
     limpar_area_transferencia()
-
-
-
-
-
-
-
-
-
-

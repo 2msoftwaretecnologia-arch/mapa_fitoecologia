@@ -6,8 +6,8 @@ def texto_config_Aii():
 
     # Configurações
     nome_original = "AII"  # Nome da camada no mapa (ou caminho completo se necessário)
-    novo_nome = "Área de Influência Indireta - AII"
-    caminho_lyr = r"C:\\Users\\USUARIO\\Desktop\\automacoes\\mapa_fitoecologia_envimap\\cores_style\\AII.lyr"
+    novo_nome = "Área de Influência Indireta - A.I.I"
+    caminho_lyr = r"C:\\Users\\USUARIO\\Desktop\\automacoes\\envimap\\mapa_fitofisionomia\\cores_style\\AII.lyr"
 
     try:
         # Acessar o mapa atual
