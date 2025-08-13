@@ -15,6 +15,16 @@ class coordinates:
         y_escala: int,
         x_espaco_Branco: int,
         y_espaco_Branco: int,
+        x_retangulo: int,
+        y_retangulo: int,
+        x_desenhar_quadradro: int,
+        y_desenhar_quadradro: int,
+        x_symbol_quadrado: int,
+        y_symbol_quadrado: int,
+        x_fill_color_quadrado: int,
+        y_fill_color_quadrado: int,
+        x_out_line_color_quadrado: int,
+        y_out_line_color_quadrado: int,
         
     ):
         self._fechar_console_x = fechar_console_x
@@ -23,6 +33,20 @@ class coordinates:
         self._y_console_quadro = y_console_quadro
         self._x_camada = x_camada
         self._y_camada = y_camada
+        self.x_escala = x_escala
+        self.y_escala = y_escala
+        self.x_espaco_Branco = x_espaco_Branco
+        self.y_espaco_Branco = y_espaco_Branco
+        self.x_retangulo = x_retangulo
+        self.y_retangulo = y_retangulo
+        self.x_desenhar_quadradro = x_desenhar_quadradro
+        self.y_desenhar_quadradro = y_desenhar_quadradro
+        self.x_symbol_quadrado = x_symbol_quadrado
+        self.y_symbol_quadrado = y_symbol_quadrado
+        self.x_fill_color_quadrado = x_fill_color_quadrado
+        self.y_fill_color_quadrado = y_fill_color_quadrado
+        self.x_out_line_color_quadrado = x_out_line_color_quadrado
+        self.y_out_line_color_quadrado = y_out_line_color_quadrado
 
     @property
     def fechar_console_x(self) -> int:
@@ -104,3 +128,84 @@ class coordinates:
     @y_espaco_Branco.setter
     def y_espaco_Branco(self, nova_y_espaco_Branco: int) -> None:
         self._y_espaco_Branco = nova_y_espaco_Branco
+
+    @property
+    def x_retangulo(self) -> int:
+        return self._x_retangulo
+    
+    @x_retangulo.setter
+    def x_retangulo(self, novo_x_retangulo: int) -> None:
+        self._x_retangulo = novo_x_retangulo
+
+    @property
+    def y_retangulo(self) -> int:
+        return self._y_retangulo
+    
+    @y_retangulo.setter
+    def y_retangulo(self, nova_y_retangulo: int) -> None:
+        self._y_retangulo = nova_y_retangulo
+
+    @property
+    def x_desenhar_quadradro(self) -> int:
+        return self._x_desenhar_quadradro
+    
+    @x_desenhar_quadradro.setter
+    def x_desenhar_quadradro(self, novo_x_desenhar_quadradro: int) -> None:
+        self._x_desenhar_quadradro = novo_x_desenhar_quadradro
+
+    @property
+    def y_desenhar_quadradro(self) -> int:
+        return self._y_desenhar_quadradro
+    
+    @y_desenhar_quadradro.setter
+    def y_desenhar_quadradro(self, nova_y_desenhar_quadradro: int) -> None:
+        self._y_desenhar_quadradro = nova_y_desenhar_quadradro
+
+    @property
+    def x_symbol_quadrado(self) -> int:
+        return self._x_symbol_quadrado
+    
+    @x_symbol_quadrado.setter
+    def x_symbol_quadrado(self, novo_x_symbol_quadrado: int) -> None:
+        self._x_symbol_quadrado = novo_x_symbol_quadrado
+
+    @property
+    def y_symbol_quadrado(self) -> int:
+        return self._y_symbol_quadrado
+    
+    @y_symbol_quadrado.setter
+    def y_symbol_quadrado(self, nova_y_symbol_quadrado: int) -> None:
+        self._y_symbol_quadrado = nova_y_symbol_quadrado
+
+    @property
+    def x_fill_color_quadrado(self) -> int:
+        return self._x_fill_color_quadrado
+    
+    @x_fill_color_quadrado.setter
+    def x_fill_color_quadrado(self, novo_x_fill_color_quadrado: int) -> None:
+        self._x_fill_color_quadrado = novo_x_fill_color_quadrado
+
+    @property
+    def y_fill_color_quadrado(self) -> int:
+        return self._y_fill_color_quadrado
+    
+    @y_fill_color_quadrado.setter
+    def y_fill_color_quadrado(self, nova_y_fill_color_quadrado: int) -> None:
+        self._y_fill_color_quadrado = nova_y_fill_color_quadrado
+
+    @property
+    def x_out_line_color_quadrado(self) -> int:
+        return self._x_out_line_color_quadrado
+    
+    @x_out_line_color_quadrado.setter
+    def x_out_line_color_quadrado(self, novo_x_out_line_color_quadrado: int) -> None:
+        self._x_out_line_color_quadrado = novo_x_out_line_color_quadrado
+
+    @property
+    def y_out_line_color_quadrado(self) -> int:
+        return self._y_out_line_color_quadrado
+    
+    @y_out_line_color_quadrado.setter
+    def y_out_line_color_quadrado(self, nova_y_out_line_color_quadrado: int) -> None:
+        self._y_out_line_color_quadrado = nova_y_out_line_color_quadrado
+

@@ -1,4 +1,5 @@
-from mouseinfo import mouseInfo
+lista1 = [1, 2, 3, 4]
+lista2 = ['a', 'b']
 
-
-mouseInfo()
+for x, y in zip(lista1, lista2):
+    print(x, y)

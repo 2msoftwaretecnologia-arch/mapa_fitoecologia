@@ -23,3 +23,4 @@ def encontrar_index(lista, item):
     except ValueError:
         return print(f"Item '{item}' não encontrado na lista.")
 
+

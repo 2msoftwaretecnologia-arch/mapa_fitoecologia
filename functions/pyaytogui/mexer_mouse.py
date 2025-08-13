@@ -40,7 +40,7 @@ def mover_mouse(lado, duracao, distancia,click=False,botao='left'):
 # Função para desenhar um quadrado com base apenas no canto superior esquerdo
 def desenhar_quadrado(x1, y1, largura=166, altura=120, duracao=0.2):
     # Move para o canto superior esquerdo
-    pyautogui.moveTo(x1, y1, duration=0.5)
+    pyautogui.moveTo(x1, y1, duration=duracao)
     
     # Calcula o canto inferior direito
     x2 = x1 + largura

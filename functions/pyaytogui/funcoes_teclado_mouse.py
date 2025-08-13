@@ -29,7 +29,7 @@ def apertar_home():
       
 def apertar_Tab(quantidade=1,tempo_espera=0.3):
     """Pressiona a tecla Tab."""
-    for i in range(quantidade):
+    for _ in range(quantidade):
         pyautogui.press('tab')
         time.sleep(tempo_espera)
 
@@ -60,8 +60,10 @@ def direita(quantidade=1,tempo=0.1):
         time.sleep(tempo)
     
 
-def cima():
-    pyautogui.press('up')
+def cima(quantidade=1,tempo=0.2):
+    for _ in range(quantidade):
+        pyautogui.press('up')
+        time.sleep(tempo)
 
 def insert(quantidade=1):
     for _ in range(quantidade):
