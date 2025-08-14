@@ -6,9 +6,9 @@ def texto_substituir_nomes(proprietario, matricula, cidade):
 
     # Dicionário de substituições (chave: valor antigo, valor: novo texto)
     substitutions = {{
-        "#name_propri": u"{proprietario}",
-        "#matricula": u"{matricula}",
-        "#cidade": u"{cidade}"
+        "#128975": u"{proprietario}",
+        "#61748": u"{matricula}",
+        "#8192": u"{cidade}"
     }}
 
     mxd = arcpy.mapping.MapDocument("CURRENT")  # Trabalha no MXD atual

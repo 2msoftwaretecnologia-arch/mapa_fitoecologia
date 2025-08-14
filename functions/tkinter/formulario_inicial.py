@@ -8,7 +8,6 @@ from functions.pyaytogui.funcoes_teclado_mouse import *
 from functions.pyaytogui.mexer_mouse import * 
 from functions.outras_funcoes.helpers import *
 from functions.pyaytogui.localizacao import *
-from configs.limites_federacao_config import *
 from functions.pyaytogui.encontrar_cor import * 
 from functions.manipular_arcgis.listar_camadas import *
 from functions.manipular_arcgis.manipular_camadas import *

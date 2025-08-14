@@ -39,4 +39,11 @@ estilos_fitoecologias = {
     "Rio" : [168 , 214 , 255]
 }
 
+limites_texto_informacoes = {
+    "proprietario":29,
+    "matricula":14,
+    "cidade":17,
+}
+
+
 
