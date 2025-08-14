@@ -61,6 +61,5 @@ def colar_scripts():
     #janela_dinamica("verifique se a janela do console fechou, se não fechou, clique no botão de fechar console")
 
 
-colar_scripts()
-    
+
     
