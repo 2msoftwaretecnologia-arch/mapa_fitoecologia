@@ -7,12 +7,8 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 
-def click(x,y,tempo=0.2,clicks_quant=1):
-    pyautogui.click(x, y, duration=tempo,clicks=clicks_quant)   
-
-def clicar_botao(botao='left'):
-   
-    pyautogui.click(button=botao,interval=0.25)
+def click(x,y,tempo=0.2,clicks_quant=1,botao='left'):
+    pyautogui.click(x, y, duration=tempo,clicks=clicks_quant, button=botao)   
 
 def clicar_centro_tela(quantidade=1):
     for _ in range(quantidade):
@@ -65,10 +61,10 @@ def cima(quantidade=1,tempo=0.2):
         pyautogui.press('up')
         time.sleep(tempo)
 
-def insert(quantidade=1):
+def insert(quantidade=1,tempo=0.2):
     for _ in range(quantidade):
         pyautogui.press('insert')
-        time.sleep(0.1)
+        time.sleep(tempo)
 
 def colar():
     pyautogui.hotkey('ctrl', 'v')

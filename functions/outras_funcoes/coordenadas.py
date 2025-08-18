@@ -27,6 +27,8 @@ class coordinates:
         y_out_line_color_quadrado: int,
         x_grid: int,
         y_grid: int,
+        x_incio: int,
+        y_incio: int,
         
     ):
         self._fechar_console_x = fechar_console_x
@@ -51,6 +53,8 @@ class coordinates:
         self.y_out_line_color_quadrado = y_out_line_color_quadrado
         self.x_grid = x_grid
         self.y_grid = y_grid
+        self.x_incio = x_incio
+        self.y_incio = y_incio
 
     @property
     def fechar_console_x(self) -> int:
@@ -228,4 +232,20 @@ class coordinates:
     @y_grid.setter
     def y_grid(self, nova_y_grid: int) -> None:
         self._y_grid = nova_y_grid
+
+    @property
+    def x_incio(self) -> int:
+        return self._x_incio
+    
+    @x_incio.setter
+    def x_incio(self, novo_x_incio: int) -> None:
+        self._x_incio = novo_x_incio
+
+    @property
+    def y_incio(self) -> int:
+        return self._y_incio
+    
+    @y_incio.setter
+    def y_incio(self, nova_y_incio: int) -> None:
+        self._y_incio = nova_y_incio
 

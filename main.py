@@ -12,6 +12,7 @@ from functions.manipular_arcgis.scritpts_leves import *
 from functions.manipular_arcgis.colar_ia_texto import *
 from functions.manipular_arcgis.ajustar_nota_Tecnica import *
 from functions.manipular_arcgis.ajustar_quadrados import *
+from functions.manipular_arcgis.ajustar_legendas_propriedade import *
 from functions.outras_funcoes.helpers import *
 from functions.tkinter.input_Texto_dinamico import *
 from functions.tkinter.campo_dinamico_opcoes import *
@@ -26,8 +27,9 @@ if Fechar == "Sim":
     fazer_grid()
     ajustar_escala()
     ajustar_quadrados_fitoecologia()
-    fazer_legenda_com_ia()
+    ajustar_info_propriedade()
     fazer_nota_tencnica()
+    #fazer_legenda_com_ia()
     
     
     

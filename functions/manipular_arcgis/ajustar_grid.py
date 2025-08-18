@@ -23,17 +23,17 @@ def fazer_grid():
         insert(2)
         clicar_centro_tela(1)
         esperar(0.5)
-        clicar_botao("right")
+        pyautogui.click(button="right")#TODO: ajustar essa função aqui depois
         esperar(0.5)
         cima()
         enter()
         
         janela_dinamica("espere a janela de propriedades abrir")
         if not isinstance(coordinates.x_grid, int):
-            janela_dinamica("aperte no grid")
-            x_grid , y_grid = capturar_clique("aperte novamente no grid pls")
+            x_grid , y_grid = capturar_clique("aperte no grid duas vezes rapido")
             coordinates.x_grid = x_grid
             coordinates.y_grid = y_grid
+            esperar(1)
             click(x_grid , y_grid,clicks_quant=3)
         else:
             click(coordinates.x_grid , coordinates.y_grid,clicks_quant=3)

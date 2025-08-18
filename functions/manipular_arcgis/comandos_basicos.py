@@ -15,10 +15,13 @@ def abrir_console():
 def apertar_ctrl_home():
     pyautogui.hotkey('ctrl', 'home')
     
-def apertar_ctrl_end():
+def apertar_ctrl_end(tempo=0.1):
     pyautogui.hotkey('ctrl', 'end')
+    esperar(tempo)
 
 def renomear_arcgis():
     pyautogui.press('f2')
     esperar(0.2)
     
+def abrir_textos():
+    pyautogui.hotkey('ctrl','h')

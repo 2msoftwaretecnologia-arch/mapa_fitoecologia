@@ -20,7 +20,7 @@ def manipulacao_layers(posicao_final):
     apertar_ctrl_home()
     
     # Percorre a lista de trás pra frente
-    for i in range(len(Text_infos.lista_camadas) - 1, posicao_final , -1):
+    for _ in range(len(Text_infos.lista_camadas) - 1, posicao_final , -1):
         
         apertar_pra_baixo()
         # Aqui você pode colocar a lógica de manipulação do item

@@ -9,7 +9,6 @@ from functions.pyaytogui.mexer_mouse import *
 from functions.outras_funcoes.helpers import *
 from functions.pyaytogui.localizacao import *
 from functions.pyaytogui.protecao import *
-from configs.substituir_textos_config import *
 from functions.pyaytogui.encontrar_cor import * 
 from functions.manipular_arcgis.listar_camadas import *
 from functions.manipular_arcgis.manipular_camadas import *
@@ -26,8 +25,8 @@ from functions.tkinter.alerta_simples import *
 def fazer_nota_tencnica():
     texto = f"""Nota Técnica
 
-    O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha as formações vegetais da área, com destaque para a {Text_infos.tipo_dominante}.
-    Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
+O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha as formações vegetais da área, com destaque para a {Text_infos.tipo_dominante}.
+Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
     abrir_documento(caminho_word_nota_tecnica)
     janela_dinamica("espere o word abrir e aperte em OK")
     clicar_centro_tela()
@@ -45,20 +44,24 @@ def fazer_nota_tencnica():
     copiar()
     janela_dinamica("abra o arcgis")
     janela_de_protecao()
-    clicar_centro_tela()
-    esperar(0.5)
+    click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
+    esperar(0.3)
     colar()
-    show_alert_dinamic("Va nas propriedades da legenda em\n'size and Position' e desative todas as checkbox")
-    janela_de_protecao()
-    x_random, y_random = capturar_clique("clique no eixo 'x' pra eu saber onde e")
-    esperar(0.5)
-    selecionar_tudo(tempo=0.5)
-    escrever_texto('0,4987')
-    apertar_Tab()
-    escrever_texto('0,435')
-    apertar_Tab(3,tempo_espera=0.1)
-    escrever_texto('6,2787')
-    apertar_Tab()
-    escrever_texto('3,2552')
+    esperar(1)
+    click(coordinates.x_incio,coordinates.y_incio,botao='right')
+    esperar(0.6)
+    apertar_ctrl_end()
     enter()
-    limpar_area_transferencia()
+    x_primeiro,y_primeiro = capturar_clique("clique em 'size and position' pra eu entender como fica")
+    click(x_primeiro,y_primeiro,clicks_quant=3)
+    apertar_Tab(tempo_espera=0.1)
+    escrever_texto("0,4171")
+    apertar_Tab(tempo_espera=0.1)
+    escrever_texto("0,224")
+    apertar_Tab(3,tempo_espera=0.1)
+    escrever_texto("6,3856")
+    apertar_Tab(tempo_espera=0.1)
+    esperar(0.3)
+    selecionar_tudo()
+    escrever_texto("3,6142")
+    enter(tempo=0.5)

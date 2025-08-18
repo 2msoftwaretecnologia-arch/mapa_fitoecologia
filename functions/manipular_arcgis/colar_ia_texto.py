@@ -9,7 +9,7 @@ from functions.pyaytogui.mexer_mouse import *
 from functions.outras_funcoes.helpers import *
 from functions.pyaytogui.localizacao import *
 from functions.pyaytogui.protecao import *
-from configs.substituir_textos_config import *
+
 from functions.pyaytogui.encontrar_cor import * 
 from functions.manipular_arcgis.listar_camadas import *
 from functions.manipular_arcgis.manipular_camadas import *
