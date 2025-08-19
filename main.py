@@ -9,7 +9,7 @@ from functions.pyaytogui.localizacao import *
 from functions.manipular_arcgis.ajustar_grid import *
 from functions.manipular_arcgis.ajustar_escala import *
 from functions.manipular_arcgis.scritpts_leves import *
-from functions.manipular_arcgis.colar_ia_texto import *
+from functions.manipular_arcgis.fazer_legenda_fitoecologias import *
 from functions.manipular_arcgis.ajustar_nota_Tecnica import *
 from functions.manipular_arcgis.ajustar_quadrados import *
 from functions.manipular_arcgis.ajustar_legendas_propriedade import *
@@ -29,7 +29,6 @@ if Fechar == "Sim":
     ajustar_quadrados_fitoecologia()
     ajustar_info_propriedade()
     fazer_nota_tencnica()
-    #fazer_legenda_com_ia()
     
     
     

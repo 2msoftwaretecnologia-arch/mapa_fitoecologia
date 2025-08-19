@@ -97,3 +97,4 @@ def centralizar_texto_Word():
 def escolher_fonte_Word():
     pyautogui.hotkey('ctrl', 'shift', 'f')
     time.sleep(0.5)
+

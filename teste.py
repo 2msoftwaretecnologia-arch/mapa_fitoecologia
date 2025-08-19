@@ -1,2 +1,2 @@
-texto = "nova aliança do"
+texto = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 print(len(texto))
