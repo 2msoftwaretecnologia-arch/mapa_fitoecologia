@@ -98,3 +98,8 @@ def escolher_fonte_Word():
     pyautogui.hotkey('ctrl', 'shift', 'f')
     time.sleep(0.5)
 
+def abrir_margen_pagina_Word(quantidade=1,tempo=0.2):
+    for _ in range(quantidade):
+        pyautogui.hotkey("ctrl","l")
+        time.sleep(tempo)
+    
