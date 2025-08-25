@@ -21,64 +21,71 @@ from functions.outras_funcoes.coordenadas import *
 from functions.manipular_arcgis.scritpts_leves import *
 from functions.tkinter.alerta_simples import *
 from text.regioes_fitoecologicas import *
+from functions.tkinter.checkbox_mulptipla import *
+from functions.manipular_arcgis.helpers_arcgis import *
+from functions.outras_funcoes.outras_infos import *
 
 
 
-fazer = "sim"
-borda = input_texto_dinamico("qual o tamaho da borda")
-while fazer == "sim":
-    abrir_documento(caminho_legenda_fitoecologia)
-    esperar(0.3)
-    #janela_dinamica("espere o word abrir e aperte em OK")
-    clicar_centro_tela()
-    esperar(0.5)
-    abrir_margen_pagina_Word(4)
-    
-    apertar_Tab(3,tempo_espera=0.1)
-    escrever_texto(borda)
-    esperar(0.3)
-    enter(tempo=0.5)
-    esperar(0.5)
-    selecionar_tudo_Word()
-    escolher_fonte_Word()
-    escrever_texto("Times New Roman",)
-    esperar(0.3)
-    enter(tempo=0.3)    
-    for i in range(2):
-        escrever_texto(tamanhos_regioes_fito_ecologias["Savana Gramíneo Lenhosa"]["2 vezes"]["descricao"],velocidade=0.001)
-        enter(2)
-    esperar(0.2)
-    selecionar_tudo_Word()
-    copiar()
-    #x_arcgis,y_arcgis = capturar_clique("clique na janela do arcgis apenas pra eu saber onde fica")
-    click(892,745)#clica na janela do arcgis
-    esperar(0.5)
-    click(1249,311)#clicar em nada
-    esperar(0.5)
-    colar()
-    esperar(1)
-    click(867,393,botao='right')
-    esperar(0.5)
-    apertar_ctrl_end(tempo=0.2)
-    enter()
-    esperar(0.5)
-    #x_primeiro,y_primeiro = capturar_clique("clique em 'size and position' pra eu entender como fica")
-    click(652,158,clicks_quant=3)
-    apertar_Tab(tempo_espera=0.1)
-    escrever_texto(tamanho2["x1"])
-    apertar_Tab(tempo_espera=0.1)
-    escrever_texto(tamanho2["y1"])
-    apertar_Tab(3,tempo_espera=0.1)
-    escrever_texto(tamanho2["tx"])
-    apertar_Tab(tempo_espera=0.1)
-    esperar(0.3)
-    selecionar_tudo()
-    escrever_texto(tamanho2["ty"])
-    enter(tempo=0.5)
-    pressionar_tecla("delete")
-    fazer = selecionar_resposta("Deseja ajustar o grid?", ["sim", "não"])
-    if fazer == "sim":
-        borda = input_texto_dinamico(f"qual o tamaho da borda o valor \nque tava era {borda}")
+# Seleção e tamanhos
+fito_ecologias = get_user_selections()
+tamanho_numero = len(fito_ecologias)
 
+abrir_documento(caminho_legenda_fitoecologia)
+esperar(0.3)
+clicar_centro_tela()
+esperar(0.5)
+abrir_margen_pagina_Word(4)
 
-print(borda)
+apertar_Tab(3, tempo_espera=0.1)
+escrever_texto(tamanhos_regioes_fito_ecologias[fito_ecologias[0]][f"{tamanho_numero} time"]["borda"])
+esperar(0.3)
+enter(tempo=0.5)
+esperar(0.5)
+
+selecionar_tudo_Word()
+escolher_fonte_Word()
+escrever_texto("Times New Roman")
+esperar(0.3)
+enter(tempo=0.3)
+
+for ecolgia in fito_ecologias:
+    escrever_texto(
+        tamanhos_regioes_fito_ecologias[ecolgia][f"{tamanho_numero} time"]["descricao"],
+        velocidade=0.001
+    )
+    # duas quebras de linha (ajuste se sua função aceitar 'vezes=')
+    enter(quantidade=2,tempo=0.1)
+pressionar_tecla("backspace",quantidade=2)
+esperar(0.2)
+selecionar_tudo_Word()
+copiar()
+
+click(892, 745)  # foca na janela do ArcGIS
+esperar(0.5)
+click(1249, 311) # clica “em nada”
+esperar(0.5)
+colar()
+esperar(1)
+click(867, 393, botao='right')
+esperar(0.5)
+apertar_ctrl_end(tempo=0.2)
+enter()
+esperar(0.5)
+
+# "Size and Position"
+click(652, 158, clicks_quant=3)
+apertar_Tab(tempo_espera=0.1)
+
+sel = tamanhos[tamanho_numero]  # usa o tamanho correspondente
+escrever_texto(str(sel["x1"]))
+apertar_Tab(tempo_espera=0.1)
+escrever_texto(str(sel["y1"]))
+apertar_Tab(3, tempo_espera=0.1)
+escrever_texto(str(sel["tx"]))
+apertar_Tab(tempo_espera=0.1)
+esperar(0.3)
+selecionar_tudo()
+escrever_texto(str(sel["ty"]))
+enter(tempo=0.5)
+pressionar_tecla("delete")
