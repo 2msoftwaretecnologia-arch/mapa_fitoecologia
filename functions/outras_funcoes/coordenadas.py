@@ -29,6 +29,10 @@ class coordinates:
         y_grid: int,
         x_incio: int,
         y_incio: int,
+        x_arcgis: int,
+        Y_arcgis: int,
+        x_size_position: int,
+        y_size_position: int,
         
     ):
         self._fechar_console_x = fechar_console_x
@@ -55,6 +59,8 @@ class coordinates:
         self.y_grid = y_grid
         self.x_incio = x_incio
         self.y_incio = y_incio
+        self.x_arcgis = x_arcgis
+        self.Y_arcgis = Y_arcgis
 
     @property
     def fechar_console_x(self) -> int:
@@ -248,4 +254,36 @@ class coordinates:
     @y_incio.setter
     def y_incio(self, nova_y_incio: int) -> None:
         self._y_incio = nova_y_incio
+
+    @property
+    def x_arcgis(self) -> int:
+        return self._x_arcgis
+    
+    @x_arcgis.setter
+    def x_arcgis(self, novo_x_arcgis: int) -> None:
+        self._x_arcgis = novo_x_arcgis
+
+    @property
+    def y_arcgis(self) -> int:
+        return self._y_arcgis
+    
+    @y_arcgis.setter
+    def y_arcgis(self, nova_y_arcgis: int) -> None:
+        self._y_arcgis = nova_y_arcgis
+
+    @property
+    def x_size_position(self) -> int:
+        return self._x_size_position
+    
+    @x_size_position.setter
+    def x_size_position(self, novo_x_size_position: int) -> None:
+        self._x_size_position = novo_x_size_position
+
+    @property
+    def y_size_position(self) -> int:
+        return self._y_size_position
+    
+    @y_size_position.setter
+    def y_size_position(self, nova_y_size_position: int) -> None:
+        self._y_size_position = nova_y_size_position
 

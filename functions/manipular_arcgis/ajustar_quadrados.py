@@ -25,6 +25,7 @@ from functions.outras_funcoes.helpers import *
 
 def ajustar_quadrados_fitoecologia():
     fito_ecologias = get_user_selections()
+    Text_infos.fito_ecologias = fito_ecologias
     x_tamanho,y_tamanho = tamano_quadrados(len(fito_ecologias))
     lista_posicao = posicao_quadrados(len(fito_ecologias))
     click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco)

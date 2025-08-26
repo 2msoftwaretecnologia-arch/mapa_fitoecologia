@@ -22,6 +22,9 @@ from functions.tkinter.alerta_simples import *
 
 
 def colar_scripts():
+    x_arcgis,y_arcgis = capturar_clique("clique na janela no arcgis para eu saber onde fica")
+    coordinates.x_arcgis = x_arcgis
+    coordinates.y_arcgis = y_arcgis
     formulario_incial()
     esperar(1)
     clicar_centro_tela(1)

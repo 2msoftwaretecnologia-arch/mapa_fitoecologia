@@ -42,8 +42,8 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
     enter()
     esperar(0.5)
     copiar()
-    janela_dinamica("abra o arcgis")
-    janela_de_protecao()
+    click(coordinates.x_arcgis,coordinates.y_arcgis)#clicando na janela do arggis
+    esperar(0.7)
     click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
     esperar(0.3)
     colar()
@@ -52,8 +52,11 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
     esperar(0.6)
     apertar_ctrl_end()
     enter()
-    x_primeiro,y_primeiro = capturar_clique("clique em 'size and position' pra eu entender como fica")
-    click(x_primeiro,y_primeiro,clicks_quant=3)
+    x_size_position,y_size_position = capturar_clique("clique em 'size and position' pra eu entender como fica")
+    esperar(0.3)
+    coordinates.x_arcgis = x_size_position
+    coordinates.y_arcgis = y_size_position
+    click(coordinates.x_arcgis,coordinates.y_arcgis,clicks_quant=3)
     apertar_Tab(tempo_espera=0.1)
     escrever_texto("0,4171")
     apertar_Tab(tempo_espera=0.1)

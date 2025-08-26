@@ -21,7 +21,7 @@ from functions.tkinter.alerta_simples import *
 
 Fechar = selecionar_resposta("Realmente deseja abrir a automação?\ndo mapa de Fitosionomia?", ["Sim", "não"])
 if Fechar == "Sim":
-    janela_dinamica("abra o arcgis")
+    
     show_alert_dinamic("ATENÇÃO!!!, se atente a todos as mensagens de texto que ira aparecer na sua tela")
     colar_scripts()
     fazer_grid()
@@ -29,6 +29,7 @@ if Fechar == "Sim":
     ajustar_quadrados_fitoecologia()
     ajustar_info_propriedade()
     fazer_nota_tencnica()
+    fazer_parte_legenda()
     
     
     

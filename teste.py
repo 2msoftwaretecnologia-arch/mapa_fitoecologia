@@ -1,4 +1,4 @@
-import pyautogui
+from mouseinfo import mouseInfo
 
 
-pyautogui.click(892,745)#clica na janela do arcgis
+mouseInfo()

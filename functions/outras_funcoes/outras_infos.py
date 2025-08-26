@@ -10,7 +10,8 @@ class Text_infos:
         matricula: str,
         cidade_uf: str,
         nome_propriedade: str,
-        tipo_dominante: str
+        tipo_dominante: str,
+        fito_ecologias: list,
     ):
         
         self._lista_camadas = lista_camadas
@@ -19,6 +20,7 @@ class Text_infos:
         self.cidade_uf = cidade_uf
         self.nome_propriedade = nome_propriedade
         self.tipo_dominante = tipo_dominante
+        self.fito_ecologias = fito_ecologias
         
 
     @property
@@ -68,3 +70,11 @@ class Text_infos:
     @tipo_dominante.setter
     def tipo_dominante(self, novo_tipo_dominante: str) -> None:
         self._tipo_dominante = novo_tipo_dominante
+
+    @property
+    def fito_ecologias(self) -> str:
+        return self._fito_ecologias
+    
+    @fito_ecologias.setter
+    def fito_ecologias(self, novo_fito_ecologias: str) -> None:
+        self._fito_ecologias = novo_fito_ecologias
