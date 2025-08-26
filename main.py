@@ -30,6 +30,4 @@ if Fechar == "Sim":
     ajustar_info_propriedade()
     fazer_nota_tencnica()
     fazer_parte_legenda()
-    
-    
-    
+    janela_de_protecao

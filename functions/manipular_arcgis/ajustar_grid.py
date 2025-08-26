@@ -5,13 +5,14 @@ from functions.tkinter.input_Texto_dinamico import *
 from functions.tkinter.campo_dinamico_opcoes import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
-from functions.outras_funcoes.helpers import *
 from functions.pyaytogui.localizacao import *
+from functions.pyaytogui.protecao import *
+from functions.outras_funcoes.helpers import *
 from functions.outras_funcoes.helpers import *
 from functions.manipular_windos.capturar_click import *
 from functions.outras_funcoes.coordenadas import *
 from functions.tkinter.alerta_simples import *
-
+from functions.tkinter.alerta_dinamico import *
 
 def fazer_grid():
     fazer = "sim"
@@ -30,6 +31,8 @@ def fazer_grid():
         
         janela_dinamica("espere a janela de propriedades abrir")
         if not isinstance(coordinates.x_grid, int):
+            show_alert_dinamic("ATENÇÃO!!!, aperte no grid ate que ele fique embaixo")
+            janela_de_protecao()
             x_grid , y_grid = capturar_clique("aperte no grid duas vezes rapido")
             coordinates.x_grid = x_grid
             coordinates.y_grid = y_grid
