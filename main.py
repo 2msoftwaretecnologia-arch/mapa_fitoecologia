@@ -21,7 +21,7 @@ from functions.tkinter.alerta_simples import *
 
 Fechar = selecionar_resposta("Realmente deseja abrir a automação?\ndo mapa de Fitosionomia?", ["Sim", "não"])
 if Fechar == "Sim":
-    
+
     show_alert_dinamic("ATENÇÃO!!!, se atente a todos as mensagens de texto que ira aparecer na sua tela")
     colar_scripts()
     fazer_grid()

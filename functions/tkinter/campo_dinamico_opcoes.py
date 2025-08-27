@@ -8,7 +8,8 @@ class RespostaDinamica:
         self.texto_pergunta = texto_pergunta
         self.opcoes = opcoes
 
-        self.resposta_var = tk.StringVar()
+        # Garantir que a variável esteja vinculada à janela principal
+        self.resposta_var = tk.StringVar(master=self.root)
         self.resposta_escolhida = None
 
         # Calcular altura da janela baseada na quantidade de opções

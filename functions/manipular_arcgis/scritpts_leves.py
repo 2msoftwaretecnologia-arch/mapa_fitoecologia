@@ -46,4 +46,3 @@ def colar_scripts():
     x_fechar_console, y_fechar_console = capturar_clique("clique em fechar console pra eu saber onde fica!")
     coordinates.fechar_console_x = x_fechar_console
     coordinates.fechar_console_y = y_fechar_console
-    click(x=coordinates.fechar_console_x, y=coordinates.fechar_console_y)

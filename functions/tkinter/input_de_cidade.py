@@ -43,7 +43,7 @@ class EstadoCidadeSelector(tk.Tk):
         # Estado
         state_frame = ttk.Labelframe(container, text="Estado", padding=10)
         state_frame.pack(fill='x', pady=(0, 15))
-        self.state_var = tk.StringVar()
+        self.state_var = tk.StringVar(self)
         self.state_entry = ttk.Entry(state_frame, textvariable=self.state_var, style="TEntry")
         self.state_entry.pack(fill='x', pady=(0, 8))
         self.state_entry.bind("<KeyRelease>", lambda e: (self.update_state_list(), self.verificar_selecao()))
@@ -57,7 +57,7 @@ class EstadoCidadeSelector(tk.Tk):
         # Cidade
         city_frame = ttk.Labelframe(container, text="Cidade", padding=10)
         city_frame.pack(fill='x')
-        self.city_var = tk.StringVar()
+        self.city_var = tk.StringVar(self)
         self.city_entry = ttk.Entry(city_frame, textvariable=self.city_var, style="TEntry", state='disabled')
         self.city_entry.pack(fill='x', pady=(0, 8))
         self.city_entry.bind("<KeyRelease>", lambda e: (self.update_city_list(), self.verificar_selecao()))

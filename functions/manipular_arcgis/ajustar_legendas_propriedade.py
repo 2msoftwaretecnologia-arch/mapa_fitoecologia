@@ -26,7 +26,7 @@ from functions.outras_funcoes.helpers import *
 
 
 def ajustar_info_propriedade():
-    janela_dinamica("testando code")
+    
     click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
     insert(tempo=0.2)
     abrir_textos()
@@ -34,13 +34,13 @@ def ajustar_info_propriedade():
     selecionar_tudo()
     escrever_texto(Text_infos.proprietario)
     enter(tempo=0.5)
-    x_texto,y_texto = capturar_clique("cique sobre texto para eu enteder onde fica")
+    x_texto,y_texto = capturar_clique("clique sobre texto para eu enteder onde fica")
     coordinates.x_incio = x_texto
-    coordinates.x_incio = y_texto
+    coordinates.y_incio = y_texto
     esperar(0.3)
     click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
     esperar(0.3)
-    click(coordinates.x_incio,coordinates.x_incio,botao='right')
+    click(coordinates.x_incio,coordinates.y_incio,botao='right')
     esperar(0.6)
     apertar_ctrl_end()
     enter()

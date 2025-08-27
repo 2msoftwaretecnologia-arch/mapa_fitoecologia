@@ -33,7 +33,8 @@ class CheckboxApp:
         
         # Criar checkboxes
         for option in self.options:
-            var = tk.IntVar()
+            # Vincula cada IntVar à janela principal para evitar problemas com threads
+            var = tk.IntVar(master=self.root)
             self.check_vars.append((option, var))
             cb = tk.Checkbutton(self.main_frame, text=option, variable=var,
                               command=lambda v=var: self.update_selection(v))
