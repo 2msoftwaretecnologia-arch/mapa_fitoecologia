@@ -14,15 +14,15 @@ from functions.manipular_arcgis.ajustar_nota_Tecnica import *
 from functions.manipular_arcgis.ajustar_quadrados import *
 from functions.manipular_arcgis.ajustar_legendas_propriedade import *
 from functions.outras_funcoes.helpers import *
-from functions.tkinter.input_Texto_dinamico import *
-from functions.tkinter.campo_dinamico_opcoes import *
-from functions.tkinter.alerta_dinamico import *
-from functions.tkinter.alerta_simples import *
+from functions.kivy.input_Texto_dinamico import *
+from functions.kivy.campo_dinamico_opcoes import *
+from functions.kivy.alerta_dinamico import *
+from functions.kivy.alerta_simples import *
 
-Fechar = selecionar_resposta("Realmente deseja abrir a automação?\ndo mapa de Fitosionomia?", ["Sim", "não"])
-if Fechar == "Sim":
+Fechar = selecionar_resposta(title="Realmente deseja abrir a automação?\ndo mapa de Fitosionomia?", options_list=["Sim", "não"])
+if Fechar[0] == "Sim":
 
-    show_alert_dinamic("ATENÇÃO!!!, se atente a todos as mensagens de texto que ira aparecer na sua tela")
+    show_alert_dinamic(texto='ATENÇÃO!!!,\n se atente a todos as mensagens de texto que ira aparecer na sua tela').run()
     colar_scripts()
     fazer_grid()
     ajustar_escala()

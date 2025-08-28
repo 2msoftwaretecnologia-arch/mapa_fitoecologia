@@ -1,9 +1,9 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from functions.tkinter.input_Texto_dinamico import *
-from functions.tkinter.campo_dinamico_opcoes import *
-from functions.tkinter.alerta_dinamico import *
+from functions.kivy.input_Texto_dinamico import *
+from functions.kivy.campo_dinamico_opcoes import *
+from functions.kivy.alerta_dinamico import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
 from functions.outras_funcoes.helpers import *
@@ -19,7 +19,7 @@ from functions.manipular_arcgis.comandos_basicos import *
 from functions.manipular_textos.manipular_textos import *
 from functions.outras_funcoes.coordenadas import *
 from functions.manipular_arcgis.scritpts_leves import *
-from functions.tkinter.alerta_simples import *
+from functions.kivy.alerta_simples import *
 
 
 def fazer_nota_tencnica():
@@ -28,7 +28,7 @@ def fazer_nota_tencnica():
 O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha as formações vegetais da área, com destaque para a {Text_infos.tipo_dominante}.
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
     abrir_documento(caminho_word_nota_tecnica)
-    janela_dinamica("espere o word abrir e aperte em OK")
+    janela_dinamica("espere o word abrir e aperte em OK").run()
     clicar_centro_tela()
     esperar(0.5)
     selecionar_tudo_Word()

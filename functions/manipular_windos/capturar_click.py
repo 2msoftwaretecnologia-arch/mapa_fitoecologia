@@ -5,12 +5,12 @@ from pynput import mouse
 import threading
 from functions.outras_funcoes.helpers import *
 from functions.pyaytogui.funcoes_teclado_mouse import *
-from functions.tkinter.alerta_simples import *
+from functions.kivy.alerta_simples import *
 
 
 def capturar_clique(texto):
     # MOSTRAR ALERTA (main thread)
-    janela_dinamica(texto)
+    janela_dinamica(texto).run()
 
     coordenadas = {}
     done = threading.Event()

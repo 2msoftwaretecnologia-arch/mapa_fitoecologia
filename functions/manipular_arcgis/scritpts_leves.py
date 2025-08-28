@@ -1,9 +1,9 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from functions.tkinter.input_Texto_dinamico import *
-from functions.tkinter.campo_dinamico_opcoes import *
-from functions.tkinter.formulario_inicial import *
+from functions.kivy.input_Texto_dinamico import *
+from functions.kivy.campo_dinamico_opcoes import *
+from functions.kivy.formulario_inicial import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
 from functions.outras_funcoes.helpers import *
@@ -18,7 +18,7 @@ from functions.manipular_arcgis.helpers_arcgis import *
 from functions.manipular_windos.manipular_windos import *
 from functions.manipular_windos.capturar_click import *
 from functions.outras_funcoes.coordenadas import *
-from functions.tkinter.alerta_simples import *
+from functions.kivy.alerta_simples import *
 
 
 def colar_scripts():

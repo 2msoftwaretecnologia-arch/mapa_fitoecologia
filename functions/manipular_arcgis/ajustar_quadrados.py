@@ -1,11 +1,10 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from functions.tkinter.input_Texto_dinamico import *
-from functions.tkinter.campo_dinamico_opcoes import *
-from functions.tkinter.alerta_dinamico import *
-from functions.tkinter.alerta_simples import *
-from functions.tkinter.checkbox_mulptipla import *
+from functions.kivy.input_Texto_dinamico import *
+from functions.kivy.campo_dinamico_opcoes import *
+from functions.kivy.alerta_dinamico import *
+from functions.kivy.alerta_simples import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
 from functions.pyaytogui.localizacao import *
@@ -24,7 +23,7 @@ from functions.outras_funcoes.outras_infos import *
 from functions.outras_funcoes.helpers import *
 
 def ajustar_quadrados_fitoecologia():
-    fito_ecologias = get_user_selections()
+    fito_ecologias = selecionar_resposta()
     Text_infos.fito_ecologias = fito_ecologias
     x_tamanho,y_tamanho = tamano_quadrados(len(fito_ecologias))
     lista_posicao = posicao_quadrados(len(fito_ecologias))

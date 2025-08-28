@@ -1,16 +1,15 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from functions.tkinter.campo_dinamico_opcoes import *
+from functions.kivy.campo_dinamico_opcoes import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
 from functions.outras_funcoes.helpers import *
 from functions.manipular_windos.manipular_windos import *
-from functions.tkinter.alerta_simples import *
+from functions.kivy.alerta_simples import *
 
 def abrir_console():
     pyautogui.hotkey('ctrl','m')
-    janela_dinamica("Espere abrir o console do python e aperte ok")    
 
 def apertar_ctrl_home():
     pyautogui.hotkey('ctrl', 'home')

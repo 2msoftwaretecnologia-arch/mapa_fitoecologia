@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from configs.escala_config import *
-from functions.tkinter.campo_dinamico_opcoes import *
+from functions.kivy.campo_dinamico_opcoes import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
 from functions.outras_funcoes.helpers import *
@@ -10,7 +10,7 @@ from functions.manipular_windos.manipular_windos import *
 from functions.manipular_windos.capturar_click import *
 from functions.manipular_arcgis.comandos_basicos import *
 from functions.outras_funcoes.coordenadas import *
-from functions.tkinter.alerta_simples import *
+from functions.kivy.alerta_simples import *
 
 
 def ajustar_escala():
@@ -18,12 +18,12 @@ def ajustar_escala():
     esperar(1)
     clicar_centro_tela(1)
     insert(2)
-    janela_dinamica("agora ajeitar a escala")
+    janela_dinamica("agora ajeitar a escala").run()
     texto_escala_padrao = escala_padrao()
     copiar_para_area_transferencia(texto_escala_padrao)
     esperar(1)
     abrir_console()
-    janela_dinamica("verifique se o console está aberto, se não estiver, clique no botão de abrir console")
+    janela_dinamica("verifique se o console está aberto, se não estiver, clique no botão de abrir console").run()
     click(x=coordinates.x_console_quadro, y=coordinates.y_console_quadro)
     apertar_ctrl_home()#apertando pra ele focar no console e não apertar duaz vezes
     esperar(0.5)
@@ -33,12 +33,12 @@ def ajustar_escala():
     limpar_area_transferencia()
     esperar(1)
     click(x=coordinates.fechar_console_x, y=coordinates.fechar_console_y)
-    janela_dinamica("verifique se a janela do console fechou, se não fechou, clique no botão de fechar console")
+    janela_dinamica("verifique se a janela do console fechou, se não fechou, clique no botão de fechar console").run()
 
 
 
-    refazer_escala = selecionar_resposta("Deseja substituir a escala?", ["sim", "não"])
-    if refazer_escala == "sim":
+    refazer_escala = selecionar_resposta(title="Deseja substituir a escala?", options_list=["sim", "não"])
+    if refazer_escala[0] == "sim":
         x_escala, y_escala = capturar_clique("clique em escala para eu saber onde fica")
         coordinates.x_escala = x_escala
         coordinates.y_escala = y_escala
@@ -47,10 +47,10 @@ def ajustar_escala():
         fazer_novamente = None
 
         while fazer_novamente != "não":
-            ajuste_escala = selecionar_resposta("Deseja aumentar ou diminuir a escala?", ["Aumentar", "Diminiuir"])
-            if ajuste_escala == "Aumentar":
+            ajuste_escala = selecionar_resposta(title="Deseja aumentar ou diminuir a escala?", options_list=["Aumentar", "Diminiuir"])
+            if ajuste_escala[0] == "Aumentar":
                 numero_padrao += 5000
-            elif ajuste_escala == "Diminiuir":
+            elif ajuste_escala[0] == "Diminiuir":
                 numero_padrao -= 5000
 
             texto = escala_padrao(numero_padrao)
@@ -63,5 +63,5 @@ def ajustar_escala():
             limpar_area_transferencia()
             esperar(1.5)
             clicar_centro_tela(1)
-            fazer_novamente = selecionar_resposta("Deseja substituir a escala?", ["sim", "não"])
+            fazer_novamente = selecionar_resposta(title="Deseja substituir a escala?", options_list=["sim", "não"])
 

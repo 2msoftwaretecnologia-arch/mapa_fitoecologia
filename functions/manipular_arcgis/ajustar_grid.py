@@ -1,8 +1,8 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from functions.tkinter.input_Texto_dinamico import *
-from functions.tkinter.campo_dinamico_opcoes import *
+from functions.kivy.input_Texto_dinamico import *
+from functions.kivy.campo_dinamico_opcoes import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
 from functions.pyaytogui.localizacao import *
@@ -11,8 +11,8 @@ from functions.outras_funcoes.helpers import *
 from functions.outras_funcoes.helpers import *
 from functions.manipular_windos.capturar_click import *
 from functions.outras_funcoes.coordenadas import *
-from functions.tkinter.alerta_simples import *
-from functions.tkinter.alerta_dinamico import *
+from functions.kivy.alerta_simples import *
+from functions.kivy.alerta_dinamico import *
 
 def fazer_grid():
     try:
@@ -30,9 +30,9 @@ def fazer_grid():
             cima()
             enter()
             
-            janela_dinamica("espere a janela de propriedades abrir")
+            janela_dinamica("espere a janela de propriedades abrir").run()
             if not isinstance(coordinates.x_grid, int):
-                show_alert_dinamic("ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi")
+                show_alert_dinamic(texto='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi').run()
                 x_grid , y_grid = capturar_clique("aperte no grid ")
                 coordinates.x_grid = x_grid
                 coordinates.y_grid = y_grid
@@ -46,7 +46,7 @@ def fazer_grid():
             esperar(0.5)
             
             grid_atual = input_texto_dinamico("Digite o valor do grid lembrando\n que esse valor vai ser multiplicado por 100 ")
-            tipo_formato = selecionar_resposta("Qual o formato da escala que deseja?",["000000","00000"])
+            tipo_formato = selecionar_resposta(title="Qual o formato da escala que deseja?",options_list=["000000","00000"])
             
             apertar_Tab(1)
             grid_atual = int(grid_atual)*100
@@ -62,6 +62,6 @@ def fazer_grid():
             enter()
             esperar(0.5)
             click(coordinates.x_espaco_Branco, coordinates.y_espaco_Branco)
-            fazer = selecionar_resposta("Deseja ajustar o grid?", ["sim", "não"])
+            fazer = selecionar_resposta(title="Deseja ajustar o grid?",options_list=["sim", "não"])
     except Exception as e:
         print(f"Erro ao ajustar o grid: {e}")
