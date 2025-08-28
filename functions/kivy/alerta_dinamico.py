@@ -15,7 +15,7 @@ class show_alert_dinamic(App):
         Window.clearcolor = (1, 0, 0, 1)  # Vermelho inicial
         
         # Layout principal
-        layout = BoxLayout(orientation='vertical', padding=50, spacing=30)
+        layout = BoxLayout(orientation='vertical', padding=50, spacing=30, size=(800, 600))
         
         # Label com mensagem de alerta
         self.label = Label(

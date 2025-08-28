@@ -6,17 +6,17 @@ from kivy.uix.button import Button
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.togglebutton import ToggleButton
+from kivy.core.window import Window
 
 class SelectionDialog(BoxLayout):
     def __init__(self, options_list, multi_select=False, title="Seleção", **kwargs):
-        super().__init__(orientation='vertical', padding=10, spacing=10, **kwargs)
+        super().__init__(orientation='vertical', padding=10, spacing=10, size=(800, 600), **kwargs)
         
         self.options_list = options_list
         self.multi_select = multi_select
         self.result = None
         self.selected_options = set()
         
-        # Título
         title_label = Label(
             text=f"{title}\n{'Selecione uma ou mais opções:' if multi_select else 'Selecione uma opção:'}",
             size_hint_y=None,
@@ -25,10 +25,8 @@ class SelectionDialog(BoxLayout):
         )
         self.add_widget(title_label)
         
-        # Área de scroll para as opções
         scroll = ScrollView(size_hint=(1, 0.8))
         
-        # Layout para os botões/checkboxes
         if multi_select:
             options_layout = GridLayout(cols=1, size_hint_y=None, spacing=5)
             options_layout.bind(minimum_height=options_layout.setter('height'))
@@ -63,7 +61,6 @@ class SelectionDialog(BoxLayout):
         scroll.add_widget(options_layout)
         self.add_widget(scroll)
         
-        # Botões de ação
         button_layout = BoxLayout(size_hint_y=None, height=50, spacing=10)
         
         self.confirm_btn = Button(text='Confirmar', background_color=(0, 0.7, 0, 1))
@@ -96,6 +93,7 @@ class SelectionApp(App):
         self.result = None
     
     def build(self):
+        Window.size = (800, 600)
         self.root = SelectionDialog(self.options_list, self.multi_select, self.title)
         self.root.confirm_btn.bind(on_press=self.confirm)
         self.root.cancel_btn.bind(on_press=self.cancel)
@@ -116,3 +114,5 @@ def selecionar_resposta(options_list, multi_select=False, title="Seleção"):
     app = SelectionApp(options_list, multi_select, title)
     app.run()
     return app.result
+
+teste = selecionar_resposta(title="Selecione uma ou mais opções", options_list=["Opção 1", "Opção 2", "Opção 3"], multi_select=True)
