@@ -19,10 +19,10 @@ from functions.outras_funcoes.outras_infos import *
 
 
 def formulario_incial():
-    nome_propriedade = input_texto_dinamico("Digite o nome da propriedade")
-    proprietario = input_texto_dinamico("Digite o nome do proprietário")
-    matricula = input_texto_dinamico("Digite a matrícula")
-    cidade = selecionar_estado_cidade()
+    nome_propriedade = input_texto_dinamico(texto="Digite o nome da propriedade")
+    proprietario = input_texto_dinamico(texto="Digite o nome do proprietário")
+    matricula = input_texto_dinamico(texto="Digite a matrícula")
+    cidade = input_texto_dinamico(texto="Digite a cidade - estado")
 
     Text_infos.proprietario = proprietario
     Text_infos.matricula = matricula

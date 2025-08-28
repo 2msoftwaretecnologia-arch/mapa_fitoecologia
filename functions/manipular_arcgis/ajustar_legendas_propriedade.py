@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from functions.kivy.input_Texto_dinamico import *
 from functions.kivy.campo_dinamico_opcoes import *
-from functions.kivy.alerta_dinamico import *
+
 from functions.kivy.alerta_simples import *
 
 from functions.pyaytogui.funcoes_teclado_mouse import * 
@@ -68,7 +68,7 @@ def ajustar_info_propriedade():
     enter(tempo=0.5)
     click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
     esperar(0.3)
-    click(coordinates.x_incio,coordinates.x_incio,botao='right')
+    click(coordinates.x_incio,coordinates.y_incio,botao='right')
     esperar(0.6)
     apertar_ctrl_end()
     enter(tempo=0.5)

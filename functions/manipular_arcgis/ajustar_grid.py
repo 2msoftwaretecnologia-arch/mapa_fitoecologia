@@ -12,7 +12,7 @@ from functions.outras_funcoes.helpers import *
 from functions.manipular_windos.capturar_click import *
 from functions.outras_funcoes.coordenadas import *
 from functions.kivy.alerta_simples import *
-from functions.kivy.alerta_dinamico import *
+
 
 def fazer_grid():
     try:
@@ -20,6 +20,7 @@ def fazer_grid():
         x_espaco_vazio, y_espaco_vazio =  capturar_clique("clique em um espaço vazio fora do mapa para eu saber onde fica")
         coordinates.x_espaco_Branco = x_espaco_vazio
         coordinates.y_espaco_Branco = y_espaco_vazio
+        esperar(1)
         while fazer == 'sim':
             clicar_centro_tela(1)
             insert(1)
@@ -30,9 +31,9 @@ def fazer_grid():
             cima()
             enter()
             
-            janela_dinamica("espere a janela de propriedades abrir").run()
+            janela_dinamica("espere a janela de propriedades abrir")
             if not isinstance(coordinates.x_grid, int):
-                show_alert_dinamic(texto='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi').run()
+                janela_dinamica(texto='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi')
                 x_grid , y_grid = capturar_clique("aperte no grid ")
                 coordinates.x_grid = x_grid
                 coordinates.y_grid = y_grid
@@ -46,7 +47,8 @@ def fazer_grid():
             esperar(0.5)
             
             grid_atual = input_texto_dinamico("Digite o valor do grid lembrando\n que esse valor vai ser multiplicado por 100 ")
-            tipo_formato = selecionar_resposta(title="Qual o formato da escala que deseja?",options_list=["000000","00000"])
+            
+            tipo_formato = pyautogui.confirm(title="Confirmação",text="Qual o formato da escala que deseja?",buttons=["000000","00000"])
             
             apertar_Tab(1)
             grid_atual = int(grid_atual)*100
@@ -62,6 +64,6 @@ def fazer_grid():
             enter()
             esperar(0.5)
             click(coordinates.x_espaco_Branco, coordinates.y_espaco_Branco)
-            fazer = selecionar_resposta(title="Deseja ajustar o grid?",options_list=["sim", "não"])
+            fazer = pyautogui.confirm(title="Confirmação",text="deseja ajustar grid??",buttons=["sim","Não"])
     except Exception as e:
         print(f"Erro ao ajustar o grid: {e}")

@@ -88,7 +88,7 @@ def pressionar_tecla(tecla, quantidade=1, tempo=0.1):
 
 def selecionar_tudo_Word():
     pyautogui.hotkey('ctrl', 't')
-    time.sleep(0.2)
+    time.sleep(0.5)
 
 def centralizar_texto_Word():
     pyautogui.hotkey('ctrl', 'e')

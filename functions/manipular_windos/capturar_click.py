@@ -10,7 +10,7 @@ from functions.kivy.alerta_simples import *
 
 def capturar_clique(texto):
     # MOSTRAR ALERTA (main thread)
-    janela_dinamica(texto).run()
+    janela_dinamica(texto)
 
     coordenadas = {}
     done = threading.Event()
@@ -27,7 +27,7 @@ def capturar_clique(texto):
     # Espera somente o evento, não mexe com Tk aqui
     done.wait()
     listener.stop()
-
+    esperar(0.5)  # Pequena espera para garantir que o listener pare completamente
     return coordenadas['x'], coordenadas['y']
 
 

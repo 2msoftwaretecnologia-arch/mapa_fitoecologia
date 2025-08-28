@@ -16,13 +16,13 @@ from functions.manipular_arcgis.ajustar_legendas_propriedade import *
 from functions.outras_funcoes.helpers import *
 from functions.kivy.input_Texto_dinamico import *
 from functions.kivy.campo_dinamico_opcoes import *
-from functions.kivy.alerta_dinamico import *
+
 from functions.kivy.alerta_simples import *
 
-Fechar = selecionar_resposta(title="Realmente deseja abrir a automação?\ndo mapa de Fitosionomia?", options_list=["Sim", "não"])
-if Fechar[0] == "Sim":
+Fechar = pyautogui.confirm(title="Confirmação",text="começar??",buttons=["sim","Não"])
+if Fechar == "sim":
 
-    show_alert_dinamic(texto='ATENÇÃO!!!,\n se atente a todos as mensagens de texto que ira aparecer na sua tela').run()
+    janela_dinamica(texto='ATENÇÃO!!!,\n se atente a todos as mensagens de texto que ira aparecer na sua tela')
     colar_scripts()
     fazer_grid()
     ajustar_escala()
@@ -30,4 +30,3 @@ if Fechar[0] == "Sim":
     ajustar_info_propriedade()
     fazer_nota_tencnica()
     fazer_parte_legenda()
-    janela_de_protecao

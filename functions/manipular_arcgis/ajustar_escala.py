@@ -18,12 +18,12 @@ def ajustar_escala():
     esperar(1)
     clicar_centro_tela(1)
     insert(2)
-    janela_dinamica("agora ajeitar a escala").run()
+    janela_dinamica("agora ajeitar a escala")
     texto_escala_padrao = escala_padrao()
     copiar_para_area_transferencia(texto_escala_padrao)
     esperar(1)
     abrir_console()
-    janela_dinamica("verifique se o console está aberto, se não estiver, clique no botão de abrir console").run()
+    janela_dinamica("verifique se o console está aberto, se não estiver, clique no botão de abrir console")
     click(x=coordinates.x_console_quadro, y=coordinates.y_console_quadro)
     apertar_ctrl_home()#apertando pra ele focar no console e não apertar duaz vezes
     esperar(0.5)
@@ -33,12 +33,12 @@ def ajustar_escala():
     limpar_area_transferencia()
     esperar(1)
     click(x=coordinates.fechar_console_x, y=coordinates.fechar_console_y)
-    janela_dinamica("verifique se a janela do console fechou, se não fechou, clique no botão de fechar console").run()
+    janela_dinamica("verifique se a janela do console fechou, se não fechou, clique no botão de fechar console")
 
 
 
-    refazer_escala = selecionar_resposta(title="Deseja substituir a escala?", options_list=["sim", "não"])
-    if refazer_escala[0] == "sim":
+    refazer_escala = pyautogui.confirm(text="Deseja substituir a escala?", buttons=["sim", "não"])
+    if refazer_escala == "sim":
         x_escala, y_escala = capturar_clique("clique em escala para eu saber onde fica")
         coordinates.x_escala = x_escala
         coordinates.y_escala = y_escala
@@ -47,10 +47,10 @@ def ajustar_escala():
         fazer_novamente = None
 
         while fazer_novamente != "não":
-            ajuste_escala = selecionar_resposta(title="Deseja aumentar ou diminuir a escala?", options_list=["Aumentar", "Diminiuir"])
-            if ajuste_escala[0] == "Aumentar":
+            ajuste_escala = pyautogui.confirm(text="Deseja aumentar ou diminuir a escala?", buttons=["Aumentar", "Diminiuir"])
+            if ajuste_escala == "Aumentar":
                 numero_padrao += 5000
-            elif ajuste_escala[0] == "Diminiuir":
+            elif ajuste_escala == "Diminiuir":
                 numero_padrao -= 5000
 
             texto = escala_padrao(numero_padrao)
@@ -63,5 +63,5 @@ def ajustar_escala():
             limpar_area_transferencia()
             esperar(1.5)
             clicar_centro_tela(1)
-            fazer_novamente = selecionar_resposta(title="Deseja substituir a escala?", options_list=["sim", "não"])
+            fazer_novamente = pyautogui.confirm(text="Deseja substituir a escala?", buttons=["sim", "não"])
 

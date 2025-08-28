@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from functions.kivy.input_Texto_dinamico import *
 from functions.kivy.campo_dinamico_opcoes import *
-from functions.kivy.alerta_dinamico import *
+
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
 from functions.outras_funcoes.helpers import *

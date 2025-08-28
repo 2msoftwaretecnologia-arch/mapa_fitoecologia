@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from functions.kivy.input_Texto_dinamico import *
 from functions.kivy.campo_dinamico_opcoes import *
-from functions.kivy.alerta_dinamico import *
+
 from functions.kivy.alerta_simples import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
@@ -23,7 +23,7 @@ from functions.outras_funcoes.outras_infos import *
 from functions.outras_funcoes.helpers import *
 
 def ajustar_quadrados_fitoecologia():
-    fito_ecologias = selecionar_resposta()
+    fito_ecologias = selecionar_resposta(options_list=['Floresta Estacional', 'Floresta Ombrófila Aberta', 'Floresta Ombrófila Densa', 'Savana Gramíneo Lenhosa', 'Savana Arborizada/Arbórea', 'Savana Florestada', 'Savana Parque', 'Rio'],multi_select=True)
     Text_infos.fito_ecologias = fito_ecologias
     x_tamanho,y_tamanho = tamano_quadrados(len(fito_ecologias))
     lista_posicao = posicao_quadrados(len(fito_ecologias))
@@ -50,7 +50,7 @@ def ajustar_quadrados_fitoecologia():
             x_fill_color_quadrado , y_fill_color_quadrado =  capturar_clique("Clique em 'fill color'")
             coordinates.x_fill_color_quadrado = x_fill_color_quadrado
             coordinates.y_fill_color_quadrado = y_fill_color_quadrado
-            cima(3)
+            cima(2)
             esperar(0.5)
             enter()
             escrever_texto(str(estilos_fitoecologias[fito_ecologia][0]))
@@ -62,7 +62,7 @@ def ajustar_quadrados_fitoecologia():
             x_out_line_color_quadrado , y_out_line_color_quadrado =  capturar_clique("Clique em 'outline color'")
             coordinates.x_out_line_color_quadrado = x_out_line_color_quadrado
             coordinates.y_out_line_color_quadrado = y_out_line_color_quadrado
-            cima(2)
+            cima(1)
             enter()
             apertar_Tab()
             escrever_texto("0,40")

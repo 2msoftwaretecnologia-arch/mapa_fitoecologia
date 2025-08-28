@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from functions.kivy.input_Texto_dinamico import *
 from functions.kivy.campo_dinamico_opcoes import *
-from functions.kivy.alerta_dinamico import *
+
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
 from functions.outras_funcoes.helpers import *
@@ -23,12 +23,14 @@ from functions.kivy.alerta_simples import *
 
 
 def fazer_nota_tencnica():
+    fito_predominante = pyautogui.confirm(title="Fitofisionomia Predominante",text="Qual a fitofisionomia predominante da propriedade?",buttons=Text_infos.fito_ecologias)
+    Text_infos.tipo_dominante = fito_predominante
     texto = f"""Nota Técnica
 
 O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha as formações vegetais da área, com destaque para a {Text_infos.tipo_dominante}.
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
     abrir_documento(caminho_word_nota_tecnica)
-    janela_dinamica("espere o word abrir e aperte em OK").run()
+    janela_dinamica("espere o word abrir e aperte em OK")
     clicar_centro_tela()
     esperar(0.5)
     selecionar_tudo_Word()
@@ -54,17 +56,17 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
     enter()
     x_size_position,y_size_position = capturar_clique("clique em 'size and position' pra eu entender como fica")
     esperar(0.3)
-    coordinates.x_arcgis = x_size_position
-    coordinates.y_arcgis = y_size_position
+    coordinates.x_size_position = x_size_position
+    coordinates.y_size_position = y_size_position
     click(coordinates.x_arcgis,coordinates.y_arcgis,clicks_quant=3)
     apertar_Tab(tempo_espera=0.1)
-    escrever_texto("0,4171")
+    escrever_texto("0,4145")
     apertar_Tab(tempo_espera=0.1)
-    escrever_texto("0,224")
+    escrever_texto("0,5287")
     apertar_Tab(3,tempo_espera=0.1)
-    escrever_texto("6,3856")
+    escrever_texto("6,5696")
     apertar_Tab(tempo_espera=0.1)
     esperar(0.3)
     selecionar_tudo()
-    escrever_texto("3,6142")
+    escrever_texto("3,1902")
     enter(tempo=0.5)
