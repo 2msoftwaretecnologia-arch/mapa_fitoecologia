@@ -126,25 +126,3 @@ def criar_interface_opcoes(opcoes_disponiveis):
     root.mainloop()
     
     return selecoes
-
-# Lista de opções disponíveis (você pode personalizar esta lista)
-opcoes = [
-    "Opção 1", "Opção 2", "Opção 3", "Opção 4", "Opção 5",
-    "Opção 6", "Opção 7", "Opção 8", "Opção 9", "Opção 10",
-    "Opção 11", "Opção 12", "Opção 13", "Opção 14", "Opção 15"
-]
-
-# Chamar a interface e armazenar o resultado em uma variável
-opcoes_selecionadas = criar_interface_opcoes(opcoes)
-
-# Mostrar o resultado
-print("Opções selecionadas:", opcoes_selecionadas)
-print("Tipo de retorno:", type(opcoes_selecionadas))
-
-# Exemplo de como usar as opções selecionadas
-if opcoes_selecionadas:
-    print("\nVocê selecionou:")
-    for i, opcao in enumerate(opcoes_selecionadas, 1):
-        print(f"{i}. {opcao}")
-else:
-    print("Nenhuma opção foi selecionada.")

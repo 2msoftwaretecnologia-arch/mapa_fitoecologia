@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from functions.interfaces.input_Texto_dinamico import *
 from functions.interfaces.campo_dinamico_opcoes import *
-
+from functions.interfaces.multiplas_opcoes import *
 from functions.interfaces.alerta_simples import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
@@ -23,7 +23,7 @@ from functions.outras_funcoes.outras_infos import *
 from functions.outras_funcoes.helpers import *
 
 def ajustar_quadrados_fitoecologia():
-    fito_ecologias = selecionar_resposta(options_list=['Floresta Estacional', 'Floresta Ombrófila Aberta', 'Floresta Ombrófila Densa', 'Savana Gramíneo Lenhosa', 'Savana Arborizada/Arbórea', 'Savana Florestada', 'Savana Parque', 'Rio'],multi_select=True)
+    fito_ecologias = criar_interface_opcoes(opcoes_disponiveis=['Floresta Estacional', 'Floresta Ombrófila Aberta', 'Floresta Ombrófila Densa', 'Savana Gramíneo Lenhosa', 'Savana Arborizada/Arbórea', 'Savana Florestada', 'Savana Parque', 'Rio'])
     Text_infos.fito_ecologias = fito_ecologias
     x_tamanho,y_tamanho = tamano_quadrados(len(fito_ecologias))
     lista_posicao = posicao_quadrados(len(fito_ecologias))
