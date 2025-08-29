@@ -1,8 +1,8 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from functions.kivy.input_Texto_dinamico import *
-from functions.kivy.campo_dinamico_opcoes import *
+from functions.interfaces.input_Texto_dinamico import *
+from functions.interfaces.campo_dinamico_opcoes import *
 
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
@@ -21,7 +21,7 @@ from functions.manipular_windos.capturar_click import *
 from functions.manipular_windos.abrir_documentos import *
 from functions.manipular_textos.manipular_textos import *
 from functions.outras_funcoes.coordenadas import *
-from functions.kivy.alerta_simples import *
+from functions.interfaces.alerta_simples import *
 from text.regioes_fitoecologicas import *
 from functions.outras_funcoes.outras_infos import *
 

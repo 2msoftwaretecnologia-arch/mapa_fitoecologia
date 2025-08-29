@@ -14,10 +14,10 @@ from functions.manipular_arcgis.ajustar_nota_Tecnica import *
 from functions.manipular_arcgis.ajustar_quadrados import *
 from functions.manipular_arcgis.ajustar_legendas_propriedade import *
 from functions.outras_funcoes.helpers import *
-from functions.kivy.input_Texto_dinamico import *
-from functions.kivy.campo_dinamico_opcoes import *
+from functions.interfaces.input_Texto_dinamico import *
+from functions.interfaces.campo_dinamico_opcoes import *
 
-from functions.kivy.alerta_simples import *
+from functions.interfaces.alerta_simples import *
 
 Fechar = pyautogui.confirm(title="Confirmação",text="começar??",buttons=["sim","Não"])
 if Fechar == "sim":

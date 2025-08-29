@@ -8,7 +8,7 @@ from functions.manipular_windos.capturar_click import *
 from functions.outras_funcoes.coordenadas import *
 from functions.outras_funcoes.outras_infos import *
 import pyperclip
-from functions.kivy.alerta_simples import *
+from functions.interfaces.alerta_simples import *
 
 def obter_lista(primeiro_uso=True):
     if primeiro_uso == True:

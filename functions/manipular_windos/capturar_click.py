@@ -5,7 +5,7 @@ from pynput import mouse
 import threading
 from functions.outras_funcoes.helpers import *
 from functions.pyaytogui.funcoes_teclado_mouse import *
-from functions.kivy.alerta_simples import *
+from functions.interfaces.alerta_simples import *
 
 
 def capturar_clique(texto):
