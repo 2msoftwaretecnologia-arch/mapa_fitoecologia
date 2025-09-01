@@ -42,7 +42,7 @@ def colar_scripts():
     esperar(0.5)
     enter(3, tempo=0.1)
     limpar_area_transferencia()
-    click(x=coordinates.x_console_quadro, y=coordinates.y_console_quadro)
+    #click(x=coordinates.x_console_quadro, y=coordinates.y_console_quadro)
     x_fechar_console, y_fechar_console = capturar_clique("clique em fechar console pra eu saber onde fica!")
     coordinates.fechar_console_x = x_fechar_console
     coordinates.fechar_console_y = y_fechar_console

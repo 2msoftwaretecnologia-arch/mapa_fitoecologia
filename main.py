@@ -16,13 +16,12 @@ from functions.manipular_arcgis.ajustar_legendas_propriedade import *
 from functions.outras_funcoes.helpers import *
 from functions.interfaces.input_Texto_dinamico import *
 from functions.interfaces.campo_dinamico_opcoes import *
-
 from functions.interfaces.alerta_simples import *
 
 Fechar = pyautogui.confirm(title="Confirmação",text="começar??",buttons=["sim","Não"])
 if Fechar == "sim":
-
     janela_dinamica(texto='ATENÇÃO!!!,\n se atente a todos as mensagens de texto que ira aparecer na sua tela')
+    abrir_documento(caminho_word_nota_tecnica)
     colar_scripts()
     fazer_grid()
     ajustar_escala()
