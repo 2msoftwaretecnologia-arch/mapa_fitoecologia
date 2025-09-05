@@ -46,16 +46,16 @@ def fazer_grid():
             
             esperar(0.5)
             
-            grid_atual = input_texto_dinamico("Digite o valor do grid lembrando\n que esse valor vai ser multiplicado por 100 ")
+            grid_atual = input_texto_dinamico("Digite o valor do grid lembrando\n que esse valor vai ser multiplicado por 100")
             
-            grid_atual = int(grid_atual)*1000000
+            apertar_Tab(1)
+            grid_atual = int(grid_atual)*100
             escrever_texto(str(grid_atual))
-            # escrevendo apenas o número sem o formato extra
+            escrever_texto(str(".000000"))
             esperar(0.2)
             apertar_Tab(2,0)
             escrever_texto(str(grid_atual))
-            enter()
-
+            escrever_texto(str(".000000"))
             enter()
             esperar(0.5)
             apertar_Tab(2,tempo_espera=0.1)
