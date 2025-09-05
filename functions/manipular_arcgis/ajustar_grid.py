@@ -48,16 +48,14 @@ def fazer_grid():
             
             grid_atual = input_texto_dinamico("Digite o valor do grid lembrando\n que esse valor vai ser multiplicado por 100 ")
             
-            tipo_formato = pyautogui.confirm(title="Confirmação",text="Qual o formato da escala que deseja?",buttons=["000000","00000"])
-            
-            apertar_Tab(1)
-            grid_atual = int(grid_atual)*100
+            grid_atual = int(grid_atual)*1000000
             escrever_texto(str(grid_atual))
-            escrever_texto(f",{tipo_formato}")
+            # escrevendo apenas o número sem o formato extra
             esperar(0.2)
             apertar_Tab(2,0)
             escrever_texto(str(grid_atual))
-            escrever_texto(f",{tipo_formato}")
+            enter()
+
             enter()
             esperar(0.5)
             apertar_Tab(2,tempo_espera=0.1)
