@@ -36,18 +36,21 @@ def fazer_parte_legenda():
     esperar(0.5)
     abrir_margen_pagina_Word(4)
     
+    #colocar a borda no word
     apertar_Tab(3, tempo_espera=0.1)
     escrever_texto(tamanhos_regioes_fito_ecologias[Text_infos.fito_ecologias[0]][f"{tamanho_numero} time"]["borda"])
     esperar(0.3)
     enter(tempo=0.5)
     esperar(0.5)
 
+    #colocar a fonte da letra no word
     selecionar_tudo_Word()
     escolher_fonte_Word()
     escrever_texto("Times New Roman")
     esperar(0.3)
     enter(tempo=0.3)
 
+    #escrever as fito ecologias
     for ecolgia in Text_infos.fito_ecologias:
         escrever_texto(
             tamanhos_regioes_fito_ecologias[ecolgia][f"{tamanho_numero} time"]["descricao"],
@@ -55,10 +58,12 @@ def fazer_parte_legenda():
         )
         # duas quebras de linha (ajuste se sua função aceitar 'vezes=')
         enter(quantidade=2,tempo=0.1)
+    #apertar pra apgar duas ves no final e copiar a legenda
     pressionar_tecla("backspace",quantidade=2)
     esperar(0.2)
     selecionar_tudo_Word()
     copiar()
+
 
     click(coordinates.x_arcgis,coordinates.y_arcgis)  # foca na janela do ArcGIS
     esperar(0.5)
@@ -87,3 +92,21 @@ def fazer_parte_legenda():
     selecionar_tudo()
     escrever_texto(str(sel["ty"]))
     enter(tempo=0.5)
+
+
+x_arcgis,y_arcgis = 0,0
+coordinates.x_arcgis = x_arcgis
+coordinates.y_arcgis = y_arcgis
+x_espaco_Branco,y_espaco_Branco = 0,0
+coordinates.x_espaco_Branco = x_espaco_Branco
+coordinates.y_espaco_Branco = y_espaco_Branco
+x_incio,y_incio = 0,0
+coordinates.x_incio = x_incio
+coordinates.y_incio = y_incio
+x_size_position,y_size_position = 0,0
+coordinates.x_size_position = x_size_position
+coordinates.y_size_position = y_size_position
+
+fazer_parte_legenda()
+fito_ecologias = criar_interface_opcoes(opcoes_disponiveis=['Floresta Estacional', 'Floresta Ombrófila Aberta', 'Floresta Ombrófila Densa', 'Savana Gramíneo Lenhosa', 'Savana Arborizada/Arbórea', 'Savana Florestada', 'Savana Parque', 'Rio'])
+Text_infos.fito_ecologias = fito_ecologias
