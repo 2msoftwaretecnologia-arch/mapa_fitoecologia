@@ -5,7 +5,7 @@ def criar_interface_opcoes(opcoes_disponiveis):
     """
     Cria uma interface gráfica para selecionar até 4 opções
     
-    Args:
+    Args:aaaa
         opcoes_disponiveis (list): Lista de opções disponíveis para seleção
     
     Returns:
