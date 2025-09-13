@@ -32,5 +32,5 @@ if Fechar == "sim":
     ajustar_quadrados_mapa(Text_infos.tipo_mapa)
     ajustar_info_propriedade()
     fazer_nota_tencnica()
-    fazer_parte_legenda()
+    fazer_parte_legenda(Text_infos.tipo_mapa)
     selecionar_apr()

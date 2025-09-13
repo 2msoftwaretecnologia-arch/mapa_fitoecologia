@@ -22,14 +22,15 @@ from functions.manipular_windos.abrir_documentos import *
 from functions.manipular_textos.manipular_textos import *
 from functions.outras_funcoes.coordenadas import *
 from functions.interfaces.alerta_simples import *
-from text.regioes_fitoecologicas import *
+from text.tamanhos_e_descricoes import *
 from functions.outras_funcoes.outras_infos import *
 
 
 
 
-def fazer_parte_legenda():
-    tamanho_numero = len(Text_infos.fito_ecologias)#quantidade de fitoecologias
+def fazer_parte_legenda(mapa):
+    apagar_size_edge = pyautogui.prompt("qual o tamanho da borda")
+    tamanho_numero = Text_infos.quantidade_necessario_mapa_atual #quantidade de itens do mapa atual
     abrir_documento(caminho_word_nota_tecnica)
     esperar(0.5)
     clicar_centro_tela()
@@ -38,7 +39,10 @@ def fazer_parte_legenda():
     
     #colocar a borda no word
     apertar_Tab(3, tempo_espera=0.1)
-    escrever_texto(tamanhos_regioes_fito_ecologias[Text_infos.fito_ecologias[0]][f"{tamanho_numero} time"]["borda"])
+    if mapa == 'Fitoecologia':
+        escrever_texto(tamanhos_regioes_fito_ecologias[Text_infos.fito_ecologias[0]][f"{tamanho_numero} time"][apagar_size_edge])
+    if mapa == 'Geologia':
+        escrever_texto(tamanhos_geologicos[Text_infos.geologias[0]][f"{tamanho_numero} time"][apagar_size_edge])
     esperar(0.3)
     enter(tempo=0.5)
     esperar(0.5)
@@ -50,14 +54,26 @@ def fazer_parte_legenda():
     esperar(0.3)
     enter(tempo=0.3)
 
-    #escrever as fito ecologias
-    for ecolgia in Text_infos.fito_ecologias:
-        escrever_texto(
-            tamanhos_regioes_fito_ecologias[ecolgia][f"{tamanho_numero} time"]["descricao"],
-            velocidade=0.001
-        )
-        # duas quebras de linha (ajuste se sua função aceitar 'vezes=')
-        enter(quantidade=2,tempo=0.1)
+    if mapa == 'Fitoecologia':
+        #escrever a descrição da legenda
+        for ecolgia in Text_infos.fito_ecologias:
+            escrever_texto(
+                tamanhos_regioes_fito_ecologias[ecolgia][f"{tamanho_numero} time"]["descricao"],
+                velocidade=0.001
+            )
+            # duas quebras de linha (ajuste se sua função aceitar 'vezes=')
+            enter(quantidade=2,tempo=0.1)
+    
+    if mapa == 'Geologia':
+        #escrever a descrição da legenda
+        for Geologia in Text_infos.fito_ecologias:
+            escrever_texto(
+                tamanhos_geologicos[Geologia][f"{tamanho_numero} time"]["descricao"],
+                velocidade=0.001
+            )
+            # duas quebras de linha (ajuste se sua função aceitar 'vezes=')
+            enter(quantidade=2,tempo=0.1)
+
     #apertar pra apgar duas ves no final e copiar a legenda
     pressionar_tecla("backspace",quantidade=2)
     esperar(0.2)
@@ -70,7 +86,7 @@ def fazer_parte_legenda():
     click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco) # clica “em nada”
     esperar(0.5)
     colar()
-    esperar(1)
+    esperar(1.5)
     click(coordinates.x_incio,coordinates.y_incio, botao='right')#lugar no arcgis que as coisas vão quando são coladas
     esperar(0.5)
     apertar_ctrl_end(tempo=0.2)
@@ -92,21 +108,29 @@ def fazer_parte_legenda():
     selecionar_tudo()
     escrever_texto(str(sel["ty"]))
     enter(tempo=0.5)
+    pressionar_tecla("delete")
+    print(apagar_size_edge)
 
-"""
-x_arcgis,y_arcgis = 949,744
+x_arcgis,y_arcgis = 1249,1049
 coordinates.x_arcgis = x_arcgis
 coordinates.y_arcgis = y_arcgis
-x_espaco_Branco,y_espaco_Branco = 378,234
+x_espaco_Branco,y_espaco_Branco = 535,445
 coordinates.x_espaco_Branco = x_espaco_Branco
 coordinates.y_espaco_Branco = y_espaco_Branco
-x_incio,y_incio = 835,387
+x_incio,y_incio = 1170,568
 coordinates.x_incio = x_incio
 coordinates.y_incio = y_incio
-x_size_position,y_size_position = 601,204
+x_size_position,y_size_position = 918,262
 coordinates.x_size_position = x_size_position
 coordinates.y_size_position = y_size_position
 
-fazer_parte_legenda()
-fito_ecologias = criar_interface_opcoes(opcoes_disponiveis=['Floresta Estacional', 'Floresta Ombrófila Aberta', 'Floresta Ombrófila Densa', 'Savana Gramíneo Lenhosa', 'Savana Arborizada/Arbórea', 'Savana Florestada', 'Savana Parque', 'Rio'])
-Text_infos.fito_ecologias = fito_ecologias"""
+
+itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=["Cráton Amazônico","Faixa Brasília","Grupo Bambuí","Bacia do Parnaíba","Coberturas Cenozóicas","Província Aurífera","Províncias de Níquel e Cromo","Depósitos de Fosfato e Calcário"])
+Text_infos.fito_ecologias = itens_mapa_atual
+estilo_atual = estilos_regioes_geologicas
+Text_infos.descricao_mapa_atual = tamanhos_geologicos
+
+Fechar = pyautogui.confirm(title="Confirmação",text="recomeçar??",buttons=["sim","Não"])
+
+while Fechar != "Não":
+    fazer_parte_legenda('Geologia')

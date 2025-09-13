@@ -14,6 +14,8 @@ class Text_infos:
         fito_ecologias: list,
         geologias: list,
         tipo_mapa: str,
+        quantidade_necessario_mapa_atual: int,
+        descricao_mapa_atual: dict,
     ):
         
         self._lista_camadas = lista_camadas
@@ -25,6 +27,8 @@ class Text_infos:
         self.fito_ecologias = fito_ecologias
         self.geologias = geologias
         self.tipo_mapa = tipo_mapa
+        self.quantidade_necessario_mapa_atual = quantidade_necessario_mapa_atual
+        self.descricao_mapa_atual = descricao_mapa_atual
         
 
     @property
@@ -34,6 +38,14 @@ class Text_infos:
     @lista_camadas.setter
     def lista_camadas(self, nova_lista_camadas: list) -> None:
         self._lista_camadas = nova_lista_camadas
+
+    @property
+    def descricao_mapa_atual(self) -> list:
+        return self._descricao_mapa_atual
+
+    @descricao_mapa_atual.setter
+    def descricao_mapa_atual(self, nova_descricao_mapa_atual: list) -> None:
+        self._descricao_mapa_atual = nova_descricao_mapa_atual
 
     @property
     def proprietario(self) -> str:
@@ -98,3 +110,11 @@ class Text_infos:
     @tipo_mapa.setter
     def tipo_mapa(self, novo_tipo_mapa: str) -> None:
         self._tipo_mapa = novo_tipo_mapa
+
+    @property
+    def quantidade_necessario_mapa_atual(self) -> str:
+        return self._quantidade_necessario_mapa_atual
+    
+    @quantidade_necessario_mapa_atual.setter
+    def quantidade_necessario_mapa_atual(self, novo_quantidade_necessario_mapa_atual: str) -> None:
+        self._quantidade_necessario_mapa_atual = novo_quantidade_necessario_mapa_atual
