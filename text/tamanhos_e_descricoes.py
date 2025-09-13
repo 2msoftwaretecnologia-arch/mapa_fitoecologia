@@ -89,13 +89,13 @@ tamanhos_regioes_fito_ecologias = {
 tamanhos_geologicos = {
     "Cráton Amazônico": {
         "1 time": {"descricao":"O Cráton Amazônico é um dos mais antigos e importantes blocos geológicos da América do Sul, formado no Pré-Cambriano, entre 3,0 e 1,0 bilhão de anos atrás. Ele ocupa grande parte do norte do Brasil e se estende por países vizinhos como Venezuela, Guiana, Suriname, Guiana Francesa, Colômbia, Bolívia e Peru. Sua composição é marcada por rochas ígneas e metamórficas, como granitos, gnaisses e quartzitos, que registram antigos processos orogênicos e consolidaram sua estabilidade tectônica ao longo de bilhões de anos. Essa estabilidade resultou na formação de amplas áreas de escudos cristalinos, como o Escudo das Guianas ao norte e o Escudo Brasileiro ao sul. Além do valor científico por preservar parte da história primitiva da Terra, o cráton possui grande importância econômica, pois concentra expressivas jazidas minerais, incluindo ouro, ferro, manganês, bauxita, cobre, níquel, cassiterita e diamantes. Atualmente, grande parte de sua área está coberta pela Floresta Amazônica, o que dificulta o acesso direto a alguns recursos, mas contribui para a preservação de sua estrutura geológica e de sua relevância ambiental.",
-                  "borda":"10"},
+                  "borda":"9"},
         "2 time": {"descricao":"O Cráton Amazônico é um dos mais antigos e importantes blocos geológicos da América do Sul, formado no Pré-Cambriano, entre 3,0 e 1,0 bilhão de anos atrás. Ele ocupa grande parte do norte do Brasil e se estende por países vizinhos como Venezuela, Guiana, Suriname, Guiana Francesa, Colômbia, Bolívia e Peru. Sua composição é marcada por rochas ígneas e metamórficas, como granitos, gnaisses e quartzitos, que registram antigos processos orogênicos e consolidaram sua estabilidade tectônica ao longo de bilhões de anos. Essa estabilidade resultou na formação de amplas áreas de escudos cristalinos, como o Escudo das Guianas ao norte e o Escudo Brasileiro ao sul.",
-                    "borda":"8"},
+                    "borda":"8,05"},
         "3 time": {"descricao":"O Cráton Amazônico é um dos mais antigos e importantes blocos geológicos da América do Sul, formado no Pré-Cambriano, entre 3,0 e 1,0 bilhão de anos atrás. Ele ocupa grande parte do norte do Brasil e se estende por países vizinhos como Venezuela, Guiana, Suriname, Guiana Francesa, Colômbia, Bolívia e Peru. Sua composição é marcada por rochas ígneas e metamórficas, como granitos, gnaisses e quartzitos, que registram antigos processos orogênicos.",
-                    "borda":"6,75"},
+                    "borda":"7,55"},
         "4 time": {"descricao":"O Cráton Amazônico é um dos mais antigos e importantes blocos geológicos da América do Sul, formado no Pré-Cambriano, entre 3,0 e 1,0 bilhão de anos atrás. Ele ocupa grande parte do norte do Brasil e se estende por países vizinhos como Venezuela, Guiana, Suriname, Guiana Francesa, Colômbia, Bolívia e Peru.",
-                    "borda":"6,15"}
+                    "borda":"8,3"}
     },
     "Faixa Brasília": {
         "1 time": {"descricao":"A Faixa Brasília é uma importante província geológica localizada na região central do Brasil, formada durante o Neoproterozoico, há cerca de 900 a 600 milhões de anos, no contexto do ciclo orogênico Brasiliano, que consolidou o supercontinente Gondwana. Trata-se de um cinturão orogênico resultante da colisão entre o Cráton Amazônico e o Cráton São Francisco, responsável pela geração de intensos processos de deformação, metamorfismo e intrusão magmática. Sua composição é marcada por rochas metamórficas de médio a alto grau, como quartzitos, filitos, xistos e gnaisses, além de granitos e sequências vulcano-sedimentares. A Faixa Brasília abriga importantes recursos minerais, destacando-se depósitos de níquel, cobre, ouro, fosfato, nióbio e quartzo, que sustentam parte da mineração no Brasil Central. Geograficamente, estende-se por Goiás, Tocantins, Minas Gerais e parte do Distrito Federal, onde influencia diretamente a geologia do Planalto Central. Além da relevância econômica, possui grande importância científica por registrar os processos de colisão continental e a evolução da crosta sul-americana no final do Pré-Cambriano.",
@@ -170,9 +170,9 @@ tamanhos_geologicos = {
 }
 
 tamanhos = {
-    1: {"x1": "22,730", "y1": "4,7244", "tx": "6,4500", "ty": "7,2859"},
-    2: {"x1": "22,730", "y1": "4,3987", "tx": "6,6900", "ty": "7,6116"},
-    3: {"x1": "22,730", "y1": "4,3987", "tx": "6,4600", "ty": "7,6116"},
-    4: {"x1": "22,730", "y1": "4,3987", "tx": "6,5900", "ty": "7,6116"},
+    1: {"x1": "22,8838", "y1": "4,7244", "tx": "6,4500", "ty": "7,2859"},
+    2: {"x1": "22,8838", "y1": "4,3987", "tx": "6,6900", "ty": "7,6116"},
+    3: {"x1": "22,8838", "y1": "4,3987", "tx": "6,4600", "ty": "7,6116"},
+    4: {"x1": "22,8838", "y1": "4,3987", "tx": "6,5900", "ty": "7,6116"},
 }
 

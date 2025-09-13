@@ -14,7 +14,7 @@ def criar_interface_opcoes(opcoes_disponiveis):
     selecoes = []
     root = tk.Tk()
     root.title("Seleção de Opções")
-    root.geometry("400x500")
+    root.geometry("400x600")
     
     # Variáveis para os checkbuttons
     var_opcoes = {opcao: tk.BooleanVar() for opcao in opcoes_disponiveis}

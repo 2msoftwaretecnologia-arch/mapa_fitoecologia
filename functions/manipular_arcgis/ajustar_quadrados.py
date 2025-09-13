@@ -28,7 +28,7 @@ def ajustar_quadrados_mapa(mapa):
         itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=['Floresta Estacional', 'Floresta Ombrófila Aberta', 'Floresta Ombrófila Densa', 'Savana Gramíneo Lenhosa', 'Savana Arborizada/Arbórea', 'Savana Florestada', 'Savana Parque', 'Rio'])
         Text_infos.fito_ecologias = itens_mapa_atual
         estilo_atual = estilos_fitoecologias
-        Text_infos.quantidade_necessario_mapa_atual = len(itens_mapa_atual)
+        
         Text_infos.descricao_mapa_atual = tamanhos_regioes_fito_ecologias
     
 
@@ -36,8 +36,9 @@ def ajustar_quadrados_mapa(mapa):
         itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=["Cráton Amazônico","Faixa Brasília","Grupo Bambuí","Bacia do Parnaíba","Coberturas Cenozóicas","Província Aurífera","Províncias de Níquel e Cromo","Depósitos de Fosfato e Calcário"])
         Text_infos.fito_ecologias = itens_mapa_atual
         estilo_atual = estilos_regioes_geologicas
+        
         Text_infos.descricao_mapa_atual = tamanhos_geologicos
-
+    Text_infos.quantidade_necessario_mapa_atual = len(itens_mapa_atual)
     x_tamanho,y_tamanho = tamano_quadrados(Text_infos.quantidade_necessario_mapa_atual)
     lista_posicao = posicao_quadrados(Text_infos.quantidade_necessario_mapa_atual)
     click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco)

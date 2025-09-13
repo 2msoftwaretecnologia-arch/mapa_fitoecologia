@@ -112,9 +112,9 @@ class Text_infos:
         self._tipo_mapa = novo_tipo_mapa
 
     @property
-    def quantidade_necessario_mapa_atual(self) -> str:
+    def quantidade_necessario_mapa_atual(self) -> int:
         return self._quantidade_necessario_mapa_atual
     
     @quantidade_necessario_mapa_atual.setter
-    def quantidade_necessario_mapa_atual(self, novo_quantidade_necessario_mapa_atual: str) -> None:
+    def quantidade_necessario_mapa_atual(self, novo_quantidade_necessario_mapa_atual: int) -> None:
         self._quantidade_necessario_mapa_atual = novo_quantidade_necessario_mapa_atual
