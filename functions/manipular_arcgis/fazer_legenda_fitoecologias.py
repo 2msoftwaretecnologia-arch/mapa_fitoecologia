@@ -93,20 +93,20 @@ def fazer_parte_legenda():
     escrever_texto(str(sel["ty"]))
     enter(tempo=0.5)
 
-
-x_arcgis,y_arcgis = 0,0
+"""
+x_arcgis,y_arcgis = 949,744
 coordinates.x_arcgis = x_arcgis
 coordinates.y_arcgis = y_arcgis
-x_espaco_Branco,y_espaco_Branco = 0,0
+x_espaco_Branco,y_espaco_Branco = 378,234
 coordinates.x_espaco_Branco = x_espaco_Branco
 coordinates.y_espaco_Branco = y_espaco_Branco
-x_incio,y_incio = 0,0
+x_incio,y_incio = 835,387
 coordinates.x_incio = x_incio
 coordinates.y_incio = y_incio
-x_size_position,y_size_position = 0,0
+x_size_position,y_size_position = 601,204
 coordinates.x_size_position = x_size_position
 coordinates.y_size_position = y_size_position
 
 fazer_parte_legenda()
 fito_ecologias = criar_interface_opcoes(opcoes_disponiveis=['Floresta Estacional', 'Floresta Ombrófila Aberta', 'Floresta Ombrófila Densa', 'Savana Gramíneo Lenhosa', 'Savana Arborizada/Arbórea', 'Savana Florestada', 'Savana Parque', 'Rio'])
-Text_infos.fito_ecologias = fito_ecologias
+Text_infos.fito_ecologias = fito_ecologias"""
