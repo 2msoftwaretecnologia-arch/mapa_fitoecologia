@@ -18,15 +18,18 @@ from functions.interfaces.input_Texto_dinamico import *
 from functions.interfaces.campo_dinamico_opcoes import *
 from functions.interfaces.alerta_simples import *
 from functions.manipular_arcgis.selecao_apr import *
+from functions.outras_funcoes.outras_infos import *
 
 Fechar = pyautogui.confirm(title="Confirmação",text="começar??",buttons=["sim","Não"])
+tipo_mapa = pyautogui.confirm(title="Confirmação",text="Qual o tipo do mapa?",buttons=["Fitoecologia","Geologia"])
+Text_infos.tipo_mapa = tipo_mapa
 if Fechar == "sim":
     janela_dinamica(texto='ATENÇÃO!!!,\n se atente a todos as mensagens de texto que ira aparecer na sua tela')
     abrir_documento(caminho_word_nota_tecnica)
     colar_scripts()
     fazer_grid()
     ajustar_escala()
-    ajustar_quadrados_fitoecologia()
+    ajustar_quadrados_mapa(Text_infos.tipo_mapa)
     ajustar_info_propriedade()
     fazer_nota_tencnica()
     fazer_parte_legenda()

@@ -39,6 +39,17 @@ estilos_fitoecologias = {
     "Rio" : [168 , 214 , 255]
 }
 
+estilos_regioes_geologicas = {
+    "Cráton Amazônico" : [112, 128, 144],
+    "Faixa Brasília" : [70, 130, 180],
+    "Grupo Bambuí" : [245, 222, 179],
+    "Bacia do Parnaíba" : [205, 133, 63],
+    "Coberturas Cenozóicas" : [218, 165, 32],
+    "Província Aurífera" : [255, 215, 0],
+    "Províncias de Níquel e Cromo" : [34, 139, 34],
+    "Depósitos de Fosfato e Calcário" : [245, 245, 245]
+}
+
 limites_texto_informacoes = {
     "proprietario":29,
     "matricula":14,

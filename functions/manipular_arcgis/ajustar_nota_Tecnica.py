@@ -24,10 +24,10 @@ from functions.interfaces.alerta_simples import *
 
 def fazer_nota_tencnica():
     fito_predominante = pyautogui.confirm(title="Fitofisionomia Predominante",text="Qual a fitofisionomia predominante da propriedade?",buttons=Text_infos.fito_ecologias)
-    Text_infos.tipo_dominante = fito_predominante
+    Text_infos.tipo_dominante_fitoecologia = fito_predominante
     texto = f"""Nota Técnica
 
-O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha as formações vegetais da área, com destaque para a {Text_infos.tipo_dominante}.
+O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha as formações vegetais da área, com destaque para a {Text_infos.tipo_dominante_fitoecologia}.
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
     abrir_documento(caminho_word_nota_tecnica)
     janela_dinamica("espere o word abrir e aperte em OK")

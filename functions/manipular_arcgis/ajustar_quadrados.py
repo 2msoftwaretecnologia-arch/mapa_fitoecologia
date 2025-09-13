@@ -22,11 +22,17 @@ from functions.outras_funcoes.coordenadas import *
 from functions.outras_funcoes.outras_infos import *
 from functions.outras_funcoes.helpers import *
 
-def ajustar_quadrados_fitoecologia():
-    fito_ecologias = criar_interface_opcoes(opcoes_disponiveis=['Floresta Estacional', 'Floresta Ombrófila Aberta', 'Floresta Ombrófila Densa', 'Savana Gramíneo Lenhosa', 'Savana Arborizada/Arbórea', 'Savana Florestada', 'Savana Parque', 'Rio'])
-    Text_infos.fito_ecologias = fito_ecologias
-    x_tamanho,y_tamanho = tamano_quadrados(len(fito_ecologias))
-    lista_posicao = posicao_quadrados(len(fito_ecologias))
+def ajustar_quadrados_mapa(mapa):
+    if mapa == 'Fitoecologia':
+        mapa_atual = criar_interface_opcoes(opcoes_disponiveis=['Floresta Estacional', 'Floresta Ombrófila Aberta', 'Floresta Ombrófila Densa', 'Savana Gramíneo Lenhosa', 'Savana Arborizada/Arbórea', 'Savana Florestada', 'Savana Parque', 'Rio'])
+        Text_infos.fito_ecologias = mapa_atual
+        estilo_atual = estilo_atual
+    if mapa == 'Geologia':
+        mapa_atual = criar_interface_opcoes(opcoes_disponiveis=["Cráton Amazônico","Faixa Brasília","Grupo Bambuí","Bacia do Parnaíba","Coberturas Cenozóicas","Província Aurífera","Províncias de Níquel e Cromo","Depósitos de Fosfato e Calcário"])
+        Text_infos.fito_ecologias = mapa_atual
+        estilo_atual = estilos_regioes_geologicas
+    x_tamanho,y_tamanho = tamano_quadrados(len(mapa_atual))
+    lista_posicao = posicao_quadrados(len(mapa_atual))
     click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco)
     insert(2)
     esperar(0.5)
@@ -36,7 +42,7 @@ def ajustar_quadrados_fitoecologia():
     x_desenhar_quadradro, y_desenhar_quadradro = capturar_clique("Clique em um lugar para desenhar o quadrado")
     coordinates.x_desenhar_quadradro = x_desenhar_quadradro
     coordinates.y_desenhar_quadradro = y_desenhar_quadradro
-    for posicoes,fito_ecologia in zip(lista_posicao,fito_ecologias):
+    for posicoes,tipo in zip(lista_posicao,mapa_atual):
         click(coordinates.x_retangulo,coordinates.y_retangulo,tempo=0.2)
         pressionar_tecla('r')
         desenhar_quadrado(coordinates.x_desenhar_quadradro,coordinates.y_desenhar_quadradro,largura=80)
@@ -53,11 +59,11 @@ def ajustar_quadrados_fitoecologia():
             cima(2)
             esperar(0.5)
             enter()
-            escrever_texto(str(estilos_fitoecologias[fito_ecologia][0]))
+            escrever_texto(str(estilo_atual[tipo][0]))
             apertar_Tab(tempo_espera=0.1)
-            escrever_texto(str(estilos_fitoecologias[fito_ecologia][1]))
+            escrever_texto(str(estilo_atual[tipo][1]))
             apertar_Tab(tempo_espera=0.1)
-            escrever_texto(str(estilos_fitoecologias[fito_ecologia][2]))
+            escrever_texto(str(estilo_atual[tipo][2]))
             enter()
             x_out_line_color_quadrado , y_out_line_color_quadrado =  capturar_clique("Clique em 'outline color'")
             coordinates.x_out_line_color_quadrado = x_out_line_color_quadrado
@@ -75,11 +81,11 @@ def ajustar_quadrados_fitoecologia():
             esperar(0.5)
             cima(2)
             enter(tempo=0.5)
-            escrever_texto(str(estilos_fitoecologias[fito_ecologia][0]))
+            escrever_texto(str(estilo_atual[tipo][0]))
             apertar_Tab(tempo_espera=0.1)
-            escrever_texto(str(estilos_fitoecologias[fito_ecologia][1]))
+            escrever_texto(str(estilo_atual[tipo][1]))
             apertar_Tab(tempo_espera=0.1)
-            escrever_texto(str(estilos_fitoecologias[fito_ecologia][2]))
+            escrever_texto(str(estilo_atual[tipo][2]))
             enter()
             click(coordinates.x_out_line_color_quadrado,coordinates.y_out_line_color_quadrado,tempo=0.1)
             cima(1)
