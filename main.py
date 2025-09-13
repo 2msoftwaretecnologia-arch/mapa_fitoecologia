@@ -17,6 +17,7 @@ from functions.outras_funcoes.helpers import *
 from functions.interfaces.input_Texto_dinamico import *
 from functions.interfaces.campo_dinamico_opcoes import *
 from functions.interfaces.alerta_simples import *
+from functions.manipular_arcgis.selecao_apr import *
 
 Fechar = pyautogui.confirm(title="Confirmação",text="começar??",buttons=["sim","Não"])
 if Fechar == "sim":
@@ -29,3 +30,4 @@ if Fechar == "sim":
     ajustar_info_propriedade()
     fazer_nota_tencnica()
     fazer_parte_legenda()
+    selecionar_apr()

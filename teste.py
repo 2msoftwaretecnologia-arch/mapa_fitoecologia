@@ -1,4 +1,3 @@
-from mouseinfo import mouseInfo
+from functions.manipular_arcgis.selecao_apr import *
 
-
-mouseInfo()
+selecionar_apr()
