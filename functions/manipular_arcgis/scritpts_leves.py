@@ -22,29 +22,18 @@ from functions.interfaces.alerta_simples import *
 
 
 def colar_scripts():
-    x_arcgis,y_arcgis = capturar_clique("clique na janela no arcgis para eu saber onde fica")
-    coordinates.x_arcgis = x_arcgis
-    coordinates.y_arcgis = y_arcgis
-    formulario_incial()
-    esperar(1)
-    clicar_centro_tela(1)
-    insert(2)
-    
-    #não sera mais necessario
-    texto_apr = texto_config_Apr(Text_infos.nome_propriedade)
-    esperar(1)
-    abrir_console()
-    x_janela_python, y_janela_python = capturar_clique("clique na janela do python para eu saber onde é a janela")
-    coordinates.x_console_quadro = x_janela_python
-    coordinates.y_console_quadro = y_janela_python
-    copiar_para_area_transferencia(texto_apr)
-    apertar_ctrl_end()
+    nome_propriedade = input_texto_dinamico(texto="Digite o nome da propriedade para renomear a APR:")
+    x_layer, y_layer = capturar_clique("Clique na região do layer principal")
+    coordinates.x_layer_principal = x_layer
+    coordinates.y_layer_principal = y_layer
+    click(x_layer, y_layer)
     esperar(0.5)
-    colar()
-    esperar(0.5)
-    enter(3, tempo=0.1)
-    limpar_area_transferencia()
-    #click(x=coordinates.x_console_quadro, y=coordinates.y_console_quadro)
-    x_fechar_console, y_fechar_console = capturar_clique("clique em fechar console pra eu saber onde fica!")
-    coordinates.fechar_console_x = x_fechar_console
-    coordinates.fechar_console_y = y_fechar_console
+    apertar_ctrl_home()
+    esperar(0.2)
+    apertar_pra_baixo(1)
+    esperar(0.2)
+    renomear_arcgis()
+    esperar(0.2)
+    escrever_texto(nome_propriedade)
+    enter(1)
+    esperar(0.2)
