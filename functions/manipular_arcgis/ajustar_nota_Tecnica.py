@@ -28,16 +28,16 @@ def fazer_nota_tencnica(mapa):
         Text_infos.tipo_dominante_fitoecologia = fito_predominante
         texto = f"""Nota Técnica
 
-    O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha as formações vegetais da área, com destaque para a {Text_infos.tipo_dominante_fitoecologia}.
-    Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
+O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha as formações vegetais da área, com destaque para a {Text_infos.tipo_dominante_fitoecologia}.
+Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
     
     if mapa == 'Geologia':
         geologia_predominante = pyautogui.confirm(title="Geologia Predominante",text="Qual a Geologia predominante da propriedade?",buttons=Text_infos.geologias)
         Text_infos.tipo_dominante_geologia = geologia_predominante        
         texto= f"""Nota Técnica
 
-    O mapa geológico da propriedade {Text_infos.nome_propriedade} detalha as formações litológicas presentes na área, com destaque para a {Text_infos.tipo_dominante}.
-    Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
+O mapa geológico da propriedade {Text_infos.nome_propriedade} detalha as formações litológicas presentes na área, com destaque para a {Text_infos.tipo_dominante_geologia}.
+Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
 
     abrir_documento(caminho_word_nota_tecnica)
     janela_dinamica("espere o word abrir e aperte em OK")
