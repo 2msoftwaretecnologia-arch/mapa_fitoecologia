@@ -20,9 +20,8 @@ from functions.manipular_windos.capturar_click import *
 from functions.outras_funcoes.coordenadas import *
 from functions.interfaces.alerta_simples import *
 
-
 def colar_scripts():
-    nome_propriedade = input_texto_dinamico(texto="Digite o nome da propriedade para renomear a APR:")
+    formulario_incial()
     x_layer, y_layer = capturar_clique("Clique na região do layer principal")
     coordinates.x_layer_principal = x_layer
     coordinates.y_layer_principal = y_layer
@@ -34,6 +33,6 @@ def colar_scripts():
     esperar(0.2)
     renomear_arcgis()
     esperar(0.2)
-    escrever_texto(nome_propriedade)
+    escrever_texto(str(Text_infos.nome_propriedade))
     enter(1)
     esperar(0.2)
