@@ -29,6 +29,8 @@ def colar_scripts():
     esperar(1)
     clicar_centro_tela(1)
     insert(2)
+    
+    #não sera mais necessario
     texto_apr = texto_config_Apr(Text_infos.nome_propriedade)
     esperar(1)
     abrir_console()

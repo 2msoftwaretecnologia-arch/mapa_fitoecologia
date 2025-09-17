@@ -33,35 +33,26 @@ def selecionar_apr():
         var_apr = var_apr.replace("/","\\")
         var_aii = var_aii.replace("/","\\")
         x, y = capturar_clique("Clique na lista onde fica a Layer principal do mapa")
-  
         esperar(0.5)
-
         apertar_ctrl_home()
         esperar(0.5)
-
         apertar_pra_baixo(1)
         esperar(0.2)
-
         enter()
         esperar(0.5)
-
         x_source, y_source = capturar_clique("Clique no botão 'Source'")
         click(x_source, y_source, clicks_quant=3)
         esperar(0.5)
-
         apertar_Tab(6,tempo_espera=0.1)
-
         enter()
- 
         esperar(1)
         escrever_texto(var_apr)
         enter()
-        
         esperar(0.2)
         apertar_Tab(1)
         esperar(0.2)
         enter()
-        
+        #aqui tu vai inserir antes de ele apertar pra baixo pra ele clicar f2 e digitar o nome da propriedade
         apertar_pra_baixo(2)
         esperar(0.2)
             
@@ -92,6 +83,8 @@ def selecionar_apr():
         ######
 
         apertar_pra_baixo(16)
+        #depois daqui voce vai chegar na primera aper da segunda camada
+        #renomeia tambem
         esperar(0.2)
 
         enter()

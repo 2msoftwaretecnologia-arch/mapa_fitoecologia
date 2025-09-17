@@ -11,6 +11,7 @@ class Text_infos:
         cidade_uf: str,
         nome_propriedade: str,
         tipo_dominante_fitoecologia: str,
+        tipo_dominante_geologia: str,
         fito_ecologias: list,
         geologias: list,
         tipo_mapa: str,
@@ -24,6 +25,7 @@ class Text_infos:
         self.cidade_uf = cidade_uf
         self.nome_propriedade = nome_propriedade
         self.tipo_dominante_fitoecologia = tipo_dominante_fitoecologia
+        self.tipo_dominante_geologia = tipo_dominante_geologia
         self.fito_ecologias = fito_ecologias
         self.geologias = geologias
         self.tipo_mapa = tipo_mapa
@@ -86,6 +88,14 @@ class Text_infos:
     @tipo_dominante_fitoecologia.setter
     def tipo_dominante_fitoecologia(self, novo_tipo_dominante_fitoecologia: str) -> None:
         self._tipo_dominante_fitoecologia = novo_tipo_dominante_fitoecologia
+
+    @property
+    def tipo_dominante_geologia(self) -> str:
+        return self._tipo_dominante_geologia
+    
+    @tipo_dominante_geologia.setter
+    def tipo_dominante_geologia(self, novo_tipo_dominante_geologia: str) -> None:
+        self._tipo_dominante_geologia = novo_tipo_dominante_geologia
 
     @property
     def fito_ecologias(self) -> str:
