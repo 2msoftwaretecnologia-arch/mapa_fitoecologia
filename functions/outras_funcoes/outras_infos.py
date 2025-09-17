@@ -96,11 +96,11 @@ class Text_infos:
         self._fito_ecologias = novo_fito_ecologias
 
     @property
-    def geologias(self) -> str:
+    def geologias(self) -> list:
         return self._geologias
     
     @geologias.setter
-    def geologias(self, novo_geologias: str) -> None:
+    def geologias(self, novo_geologias: list) -> None:
         self._geologias = novo_geologias
 
     @property

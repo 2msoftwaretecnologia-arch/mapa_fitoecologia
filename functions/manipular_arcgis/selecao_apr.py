@@ -30,8 +30,8 @@ from functions.tkinter.escolher_shpy import *
 
 def selecionar_apr():
     try:
-        var_apr = escolher_shp()
-        var_aii = escolher_shp()
+        var_apr = escolher_shp("escolha o shp da apr")
+        var_aii = escolher_shp("escolha o shp da aii")
         var_apr = var_apr.replace("/","\\")
         var_aii = var_aii.replace("/","\\")
         x, y = capturar_clique("Clique na lista onde fica a Layer principal do mapa")

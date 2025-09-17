@@ -23,7 +23,7 @@ from functions.interfaces.alerta_simples import *
 
 
 def fazer_nota_tencnica():
-    fito_predominante = pyautogui.confirm(title="Fitofisionomia Predominante",text="Qual a fitofisionomia predominante da propriedade?",buttons=Text_infos.fito_ecologias)
+    fito_predominante = pyautogui.confirm(title="Fitofisionomia Predominante",text="Qual a fitofisionomia predominante da propriedade?",buttons=Text_infos.geologias)
     Text_infos.tipo_dominante_fitoecologia = fito_predominante
     texto = f"""Nota Técnica
 

@@ -34,7 +34,7 @@ def ajustar_quadrados_mapa(mapa):
 
     if mapa == 'Geologia':
         itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=["Cráton Amazônico","Faixa Brasília","Grupo Bambuí","Bacia do Parnaíba","Coberturas Cenozóicas","Província Aurífera","Províncias de Níquel e Cromo","Depósitos de Fosfato e Calcário"])
-        Text_infos.fito_ecologias = itens_mapa_atual
+        Text_infos.geologias = itens_mapa_atual
         estilo_atual = estilos_regioes_geologicas
         
         Text_infos.descricao_mapa_atual = tamanhos_geologicos
