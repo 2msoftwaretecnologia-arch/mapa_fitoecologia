@@ -1,5 +1,3 @@
-import pyautogui
-import time
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
@@ -31,7 +29,7 @@ from functions.tkinter.escolher_shpy import *
 def selecionar_apr():
     try:
         var_apr = escolher_shp("escolha o shp da apr")
-        var_aii = escolher_shp("escolha o shp da aii")
+        var_aii = esperar_aii(var_apr)
         var_apr = var_apr.replace("/","\\")
         var_aii = var_aii.replace("/","\\")
         x, y = capturar_clique("Clique na lista onde fica a Layer principal do mapa")
