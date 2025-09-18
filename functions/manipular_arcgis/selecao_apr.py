@@ -52,82 +52,60 @@ def selecionar_apr():
         apertar_Tab(1)
         esperar(0.2)
         enter()
-        #aqui tu vai inserir antes de ele apertar pra baixo pra ele clicar f2 e digitar o nome da propriedade
+        pressionar_tecla("f2",tempo=0.4)
+        escrever_texto(f'{Text_infos.nome_propriedade} - A.P.R')
+        enter(tempo=0.5)
         apertar_pra_baixo(2)
         esperar(0.2)
-            
-        #click(x, y)
-        esperar(0.5)
-        
         enter()
         janela_dinamica("Espere a seleção ser concluída e aperte Entendi")
-
         click(x_source, y_source, clicks_quant=3)
         esperar(0.5)
-
         apertar_Tab(6,tempo_espera=0.1)
-
         enter()
-        
-
         esperar(0.5)
         escrever_texto(var_aii)
         enter()
-        
         esperar(0.2)
         apertar_Tab(1)
         esperar(0.2)
         enter()
         esperar(1)
         
-        ######
-
-        apertar_pra_baixo(16)
-        #depois daqui voce vai chegar na primera aper da segunda camada
-        #renomeia tambem
+        #modificando a camada de baixo
+        if Text_infos.tipo_mapa == 'Fitoecologia':
+            apertar_pra_baixo(16)
+        if Text_infos.tipo_mapa == 'Geologia':
+            apertar_pra_baixo(8)
+        
         esperar(0.2)
-
         enter()
-        esperar(0.5)
-
         janela_dinamica("Espere a seleção ser concluída e aperte Entendi")
         click(x_source, y_source, clicks_quant=3)
         esperar(0.5)
-
         apertar_Tab(6,tempo_espera=0.1)
-
         enter()
- 
         esperar(1)
         escrever_texto(var_apr)
         enter()
-        
         esperar(0.2)
         apertar_Tab(1)
         esperar(0.2)
         enter()
-        
+        pressionar_tecla("f2",tempo=0.4)
+        escrever_texto(f'{Text_infos.nome_propriedade} - A.P.R')
+        enter(tempo=0.5)
         apertar_pra_baixo(2)
         esperar(0.2)
-            
-        #click(x, y)
-        esperar(0.5)
-        
         enter()
         janela_dinamica("Espere a seleção ser concluída e aperte Entendi")
-
         click(x_source, y_source, clicks_quant=3)
-        esperar(0.5)
-
+        esperar(0.2)
         apertar_Tab(6,tempo_espera=0.1)
-
         enter()
-        
-
         esperar(0.5)
         escrever_texto(var_aii)
         enter()
-        
         esperar(0.2)
         apertar_Tab(1)
         esperar(0.2)

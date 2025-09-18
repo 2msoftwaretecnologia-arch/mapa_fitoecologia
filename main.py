@@ -24,10 +24,12 @@ Fechar = pyautogui.confirm(title="Confirmação",text="começar??",buttons=["sim
 tipo_mapa = pyautogui.confirm(title="Confirmação",text="Qual o tipo do mapa?",buttons=["Fitoecologia","Geologia"])
 Text_infos.tipo_mapa = tipo_mapa
 if Fechar == "sim":
+    
     if Text_infos.tipo_mapa == 'Fitoecologia':
         abrir_documento(caminho_mapa_fitoecologia)
     if Text_infos.tipo_mapa == 'Geologia':
         abrir_documento(caminho_mapa_geologia)
+
     abrir_documento(caminho_word_nota_tecnica)
     janela_dinamica(texto='ATENÇÃO!!!,\n se atente a todos as mensagens de texto que ira aparecer na sua tela')
     janela_dinamica(texto='ATENÇÃO!!!,\n espere carregar todos os documentos e depois aperte ok')
