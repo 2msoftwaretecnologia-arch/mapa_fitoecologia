@@ -18,12 +18,11 @@ from functions.manipular_windos.abrir_documentos import *
 from functions.manipular_arcgis.comandos_basicos import *
 from functions.manipular_textos.manipular_textos import *
 from functions.outras_funcoes.coordenadas import *
-from functions.manipular_arcgis.scritpts_leves import *
 from functions.interfaces.alerta_simples import *
 
 
-def fazer_nota_tencnica(mapa):
-    if mapa == 'Fitoecologia':
+def fazer_nota_tencnica():
+    if Text_infos.tipo_mapa == 'Fitoecologia':
         fito_predominante = pyautogui.confirm(title="Fitofisionomia Predominante",text="Qual a fitofisionomia predominante da propriedade?",buttons=Text_infos.fito_ecologias)
         Text_infos.tipo_dominante_fitoecologia = fito_predominante
         texto = f"""Nota Técnica
@@ -31,7 +30,7 @@ def fazer_nota_tencnica(mapa):
 O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha as formações vegetais da área, com destaque para a {Text_infos.tipo_dominante_fitoecologia}.
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
     
-    if mapa == 'Geologia':
+    if Text_infos.tipo_mapa == 'Geologia':
         geologia_predominante = pyautogui.confirm(title="Geologia Predominante",text="Qual a Geologia predominante da propriedade?",buttons=Text_infos.geologias)
         Text_infos.tipo_dominante_geologia = geologia_predominante        
         texto= f"""Nota Técnica

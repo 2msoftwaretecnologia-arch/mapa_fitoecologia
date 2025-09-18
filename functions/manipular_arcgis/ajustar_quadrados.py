@@ -23,8 +23,8 @@ from functions.outras_funcoes.outras_infos import *
 from functions.outras_funcoes.helpers import *
 from text.tamanhos_e_descricoes import *
 
-def ajustar_quadrados_mapa(mapa):
-    if mapa == 'Fitoecologia':
+def ajustar_quadrados_mapa():
+    if Text_infos.tipo_mapa == 'Fitoecologia':
         itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=['Floresta Estacional', 'Floresta Ombrófila Aberta', 'Floresta Ombrófila Densa', 'Savana Gramíneo Lenhosa', 'Savana Arborizada/Arbórea', 'Savana Florestada', 'Savana Parque', 'Rio'])
         Text_infos.fito_ecologias = itens_mapa_atual
         estilo_atual = estilos_fitoecologias
@@ -32,7 +32,7 @@ def ajustar_quadrados_mapa(mapa):
         Text_infos.descricao_mapa_atual = tamanhos_regioes_fito_ecologias
     
 
-    if mapa == 'Geologia':
+    if Text_infos.tipo_mapa == 'Geologia':
         itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=["Cráton Amazônico","Faixa Brasília","Grupo Bambuí","Bacia do Parnaíba","Coberturas Cenozóicas","Província Aurífera","Províncias de Níquel e Cromo","Depósitos de Fosfato e Calcário"])
         Text_infos.geologias = itens_mapa_atual
         estilo_atual = estilos_regioes_geologicas

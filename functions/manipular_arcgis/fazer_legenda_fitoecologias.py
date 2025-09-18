@@ -13,7 +13,6 @@ from functions.pyaytogui.encontrar_cor import *
 from functions.manipular_arcgis.listar_camadas import *
 from functions.manipular_arcgis.manipular_camadas import *
 from functions.manipular_arcgis.comandos_basicos import *
-from functions.manipular_arcgis.scritpts_leves import *
 from functions.manipular_arcgis.helpers_arcgis import *
 from functions.manipular_arcgis.ajustar_quadrados import *
 from functions.manipular_windos.manipular_windos import *
@@ -28,7 +27,7 @@ from functions.outras_funcoes.outras_infos import *
 
 
 
-def fazer_parte_legenda(mapa):
+def fazer_parte_legenda():
     
     tamanho_numero = Text_infos.quantidade_necessario_mapa_atual #quantidade de itens do mapa atual
     abrir_documento(caminho_word_nota_tecnica)
@@ -39,9 +38,9 @@ def fazer_parte_legenda(mapa):
     
     #colocar a borda no word
     apertar_Tab(3, tempo_espera=0.1)
-    if mapa == 'Fitoecologia':
+    if Text_infos.tipo_mapa == 'Fitoecologia':
         escrever_texto(tamanhos_regioes_fito_ecologias[Text_infos.fito_ecologias[0]][f"{tamanho_numero} time"]["borda"])
-    if mapa == 'Geologia':
+    if Text_infos.tipo_mapa == 'Geologia':
         escrever_texto(tamanhos_geologicos[Text_infos.geologias[0]][f"{tamanho_numero} time"]["borda"])
     esperar(0.3)
     enter(tempo=0.5)
@@ -54,7 +53,7 @@ def fazer_parte_legenda(mapa):
     esperar(0.3)
     enter(tempo=0.3)
 
-    if mapa == 'Fitoecologia':
+    if Text_infos.tipo_mapa == 'Fitoecologia':
         #escrever a descrição da legenda
         for ecolgia in Text_infos.fito_ecologias:
             escrever_texto(
@@ -64,7 +63,7 @@ def fazer_parte_legenda(mapa):
             # duas quebras de linha (ajuste se sua função aceitar 'vezes=')
             enter(quantidade=2,tempo=0.1)
     
-    if mapa == 'Geologia':
+    if Text_infos.tipo_mapa == 'Geologia':
         #escrever a descrição da legenda
         for Geologia in Text_infos.geologias:
             escrever_texto(
