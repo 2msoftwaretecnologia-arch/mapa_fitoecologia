@@ -87,7 +87,7 @@ tamanhos_regioes_fito_ecologias = {
 }
 
 tamanhos_geologicos = {
-    "Cráton Amazônico": {
+    "Cabeceiras do Parnaíba": {
         "1 time": {"descricao":"O Cráton Amazônico é um dos mais antigos e importantes blocos geológicos da América do Sul, formado no Pré-Cambriano, entre 3,0 e 1,0 bilhão de anos atrás. Ele ocupa grande parte do norte do Brasil e se estende por países vizinhos como Venezuela, Guiana, Suriname, Guiana Francesa, Colômbia, Bolívia e Peru. Sua composição é marcada por rochas ígneas e metamórficas, como granitos, gnaisses e quartzitos, que registram antigos processos orogênicos e consolidaram sua estabilidade tectônica ao longo de bilhões de anos. Essa estabilidade resultou na formação de amplas áreas de escudos cristalinos, como o Escudo das Guianas ao norte e o Escudo Brasileiro ao sul. Além do valor científico por preservar parte da história primitiva da Terra, o cráton possui grande importância econômica, pois concentra expressivas jazidas minerais, incluindo ouro, ferro, manganês, bauxita, cobre, níquel, cassiterita e diamantes. Atualmente, grande parte de sua área está coberta pela Floresta Amazônica, o que dificulta o acesso direto a alguns recursos, mas contribui para a preservação de sua estrutura geológica e de sua relevância ambiental.",
                   "borda":"9"},
         "2 time": {"descricao":"O Cráton Amazônico é um dos mais antigos e importantes blocos geológicos da América do Sul, formado no Pré-Cambriano, entre 3,0 e 1,0 bilhão de anos atrás. Ele ocupa grande parte do norte do Brasil e se estende por países vizinhos como Venezuela, Guiana, Suriname, Guiana Francesa, Colômbia, Bolívia e Peru. Sua composição é marcada por rochas ígneas e metamórficas, como granitos, gnaisses e quartzitos, que registram antigos processos orogênicos e consolidaram sua estabilidade tectônica ao longo de bilhões de anos. Essa estabilidade resultou na formação de amplas áreas de escudos cristalinos, como o Escudo das Guianas ao norte e o Escudo Brasileiro ao sul.",
@@ -176,3 +176,32 @@ tamanhos = {
     4: {"x1": "22,8838", "y1": "4,3987", "tx": "6,5900", "ty": "7,6116"},
 }
 
+
+Regioes_geologicas = [
+    "Cabeceiras do Parnaíba",
+    "Chapada das Mangabeiras",
+    "Chapadas e Planos do Rio Farinha",
+    "Chapadão Ocidental Baiano",
+    "Chapadões do Alto Parnaíba",
+    "Complexo Montanhoso Veadeiro - Arrái",
+    "Depressão de Cristalândia",
+    "Depressão de Imperatriz",
+    "Depressão do Alto Tocantins",
+    "Depressão do Médio Tocantins",
+    "Depressão do Médio e Baixo Araguaia",
+    "Patamar de Porto Franco -- Fortaleza dos Nogueiras",
+    "Patamares das Mangabeiras",
+    "Patamares do Araguaia",
+    "Patamares do Chapadão Ocidental Baiano",
+    "Planalto Dissecado do Tocantins",
+    "Planalto do Alto Tocantins -- Paranaíba",
+    "Planalto do Interflúvio Tocantins -- Araguaia",
+    "Planície do Araguaia -- Javaés",
+    "Planícies Fluviais",
+    "Serra Malhada Alta",
+    "Serra da Natividade",
+    "Serras das Andorinhas -- Xambioá -- Lontras",
+    "Serras de Arraias e da Canoa",
+    "Serras de Santo Antônio -- João Damião",
+    "Vãos da Bacia do Alto Parnaíba"
+]
