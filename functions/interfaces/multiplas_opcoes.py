@@ -3,7 +3,7 @@ from tkinter import messagebox
 
 def criar_interface_opcoes(opcoes_disponiveis):
     """
-    Cria uma interface gráfica para selecionar até 4 opções
+    Cria uma interface gráfica para selecionar até 4 opções com scrollbar
     
     Args:
         opcoes_disponiveis (list): Lista de opções disponíveis para seleção
@@ -87,6 +87,16 @@ def criar_interface_opcoes(opcoes_disponiveis):
     canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
     canvas.configure(yscrollcommand=scrollbar.set)
     
+    # Suporte ao scroll do mouse
+    def _on_mousewheel(event):
+        canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
+    
+    # Windows
+    canvas.bind_all("<MouseWheel>", _on_mousewheel)
+    # Linux
+    canvas.bind_all("<Button-4>", lambda e: canvas.yview_scroll(-1, "units"))
+    canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
+    
     # Criar checkboxes
     checkboxes = {}
     for opcao in opcoes_disponiveis:
@@ -97,9 +107,13 @@ def criar_interface_opcoes(opcoes_disponiveis):
         cb.pack(anchor="w", pady=2)
         checkboxes[opcao] = cb
     
-    # Frame para botões
+    # Empacotar canvas e scrollbar
+    canvas.pack(side="left", fill="both", expand=True)
+    scrollbar.pack(side="right", fill="y")
+    
+    # Frame para botões (SEPARADO do scroll)
     frame_botoes = tk.Frame(main_frame)
-    frame_botoes.pack(pady=20)
+    frame_botoes.pack(pady=10)
     
     # Botões
     btn_confirmar = tk.Button(frame_botoes, text="Confirmar", 
@@ -111,10 +125,6 @@ def criar_interface_opcoes(opcoes_disponiveis):
                             command=cancelar, bg="red", fg="white",
                             font=("Arial", 12), width=10)
     btn_cancelar.pack(side=tk.LEFT, padx=10)
-    
-    # Empacotar canvas e scrollbar
-    canvas.pack(side="left", fill="both", expand=True)
-    scrollbar.pack(side="right", fill="y")
     
     # Inicializar contador
     atualizar_contador()
