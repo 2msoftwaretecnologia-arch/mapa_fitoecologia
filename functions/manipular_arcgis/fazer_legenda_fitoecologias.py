@@ -106,7 +106,10 @@ def fazer_parte_legenda():
     apertar_ctrl_end(tempo=0.2)
     enter()
     esperar(0.5)
-
+    x_size_position,y_size_position = capturar_clique("clique em 'size and position' pra eu entender como fica")
+    esperar(0.3)
+    coordinates.x_size_position = x_size_position
+    coordinates.y_size_position = y_size_position
     # "Size and Position"
     click(coordinates.x_size_position,coordinates.y_size_position, clicks_quant=3)
     apertar_Tab(tempo_espera=0.1)

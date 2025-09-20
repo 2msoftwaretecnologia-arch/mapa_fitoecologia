@@ -23,7 +23,7 @@ from functions.interfaces.alerta_simples import *
 
 def fazer_nota_tencnica():
     if Text_infos.tipo_mapa == 'Fitoecologia':
-        fito_predominante = pyautogui.confirm(title="Fitofisionomia Predominante",text="Qual a fitofisionomia predominante da propriedade?",buttons=Text_infos.fito_ecologias)
+        fito_predominante = pyautogui.confirm(title="Fitofisionomia Predominante",text="Qual a fitofisionomia predominante da propriedade?",buttons=Text_infos.itens_atuais)
         Text_infos.tipo_dominante_fitoecologia = fito_predominante
         texto = f"""Nota Técnica
 
@@ -31,7 +31,7 @@ O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha a
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
     
     if Text_infos.tipo_mapa == 'Geologia':
-        geologia_predominante = pyautogui.confirm(title="Geologia Predominante",text="Qual a Geologia predominante da propriedade?",buttons=Text_infos.geologias)
+        geologia_predominante = pyautogui.confirm(title="Geologia Predominante",text="Qual a Geologia predominante da propriedade?",buttons=Text_infos.itens_atuais)
         Text_infos.tipo_dominante_geologia = geologia_predominante        
         texto= f"""Nota Técnica
 
@@ -41,6 +41,11 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
     abrir_documento(caminho_word_nota_tecnica)
     janela_dinamica("espere o word abrir e aperte em OK")
     clicar_centro_tela()
+    esperar(0.5)
+    abrir_margen_pagina_Word(4)
+    apertar_Tab(3, tempo_espera=0.1)
+    escrever_texto('7,5')
+    enter()
     esperar(0.5)
     selecionar_tudo_Word()
     esperar(0.5)
@@ -63,19 +68,14 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
     esperar(0.6)
     apertar_ctrl_end()
     enter()
-    x_size_position,y_size_position = capturar_clique("clique em 'size and position' pra eu entender como fica")
-    esperar(0.3)
-    coordinates.x_size_position = x_size_position
-    coordinates.y_size_position = y_size_position
-    click(coordinates.x_arcgis,coordinates.y_arcgis,clicks_quant=3)
+    click(coordinates.x_size_position,coordinates.y_size_position,clicks_quant=3)
     apertar_Tab(tempo_espera=0.1)
     escrever_texto("0,4822 cm")
     apertar_Tab(tempo_espera=0.1)
     escrever_texto("0,1517 cm")
     apertar_Tab(3,tempo_espera=0.1)
     escrever_texto("6,3994 cm")
-    apertar_Tab(tempo_espera=0.1)
-    esperar(0.3)
+    apertar_Tab(tempo_espera=0.4)
     selecionar_tudo()
     escrever_texto("3,7103 cm")
     enter(tempo=0.5)

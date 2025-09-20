@@ -34,3 +34,11 @@ quarto tokens 307
 
 
 no máximo 10 tokens de diferença
+
+
+altura da linha 
+
+tamanho1 = 0,32034
+tamanho2 = 0,32034
+tamanho3 = 0,32034
+tamanho4 = 0,32034
