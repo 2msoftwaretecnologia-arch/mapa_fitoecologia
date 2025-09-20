@@ -1,5 +1,6 @@
 shps/
 __pycache__/
+contagem.py
 functions/manipular_windos/abrir_documentos.py
 Mapa A4- Fitofisionomias.mxd
 teste.py
