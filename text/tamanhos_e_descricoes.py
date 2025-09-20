@@ -1,6 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from functions.outras_funcoes.outras_infos import *
 
 #"borda":"6,5"
 #"borda":"6"
@@ -172,40 +173,20 @@ tamanhos_geologicos = {
     }
 }
 
+def tamanhos():
+    if Text_infos.tipo_mapa == 'Fitoecologia':
+        return{
+            1: {"x1": "22,8838", "y1": "4,7244", "tx": "6,4500", "ty": "7,2859"},
+            2: {"x1": "22,8838", "y1": "4,3987", "tx": "6,6900", "ty": "7,6116"},
+            3: {"x1": "22,8838", "y1": "4,3987", "tx": "6,4600", "ty": "7,6116"},
+            4: {"x1": "22,8838", "y1": "4,3987", "tx": "6,5900", "ty": "7,6116"},
+        } 
 
-tamanhos = {
-    1: {"x1": "22,8838", "y1": "4,7244", "tx": "6,4500", "ty": "7,2859"},
-    2: {"x1": "22,8838", "y1": "4,3987", "tx": "6,6900", "ty": "7,6116"},
-    3: {"x1": "22,8838", "y1": "4,3987", "tx": "6,4600", "ty": "7,6116"},
-    4: {"x1": "22,8838", "y1": "4,3987", "tx": "6,5900", "ty": "7,6116"},
-}
+    if Text_infos.tipo_mapa == 'Geologia':
+        return{
+            1: {"x1": "22,885 cm", "y1": "5 cm", "tx": "6,4475 cm", "ty": "6,8862 cm"},
+            2: {"x1": "23 cm", "y1": "4,3233 cm", "tx": "6,2506 cm", "ty": "7,6116"},
+            3: {"x1": "23 cm", "y1": "4,3987 cm", "tx": "6,13 cm", "ty": "7,6116 cm"},
+            4: {"x1": "22,8331 cm", "y1": "4,5669 cm", "tx": "6,6098 cm", "ty": "7,368 cm"},
+        }   
 
-
-Regioes_geologicas = [
-    "Cabeceiras do Parnaíba",
-    "Chapada das Mangabeiras",
-    "Chapadas e Planos do Rio Farinha",
-    "Chapadão Ocidental Baiano",
-    "Chapadões do Alto Parnaíba",
-    "Complexo Montanhoso Veadeiro - Arrái",
-    "Depressão de Cristalândia",
-    "Depressão de Imperatriz",
-    "Depressão do Alto Tocantins",
-    "Depressão do Médio Tocantins",
-    "Depressão do Médio e Baixo Araguaia",
-    "Patamar de Porto Franco -- Fortaleza dos Nogueiras",
-    "Patamares das Mangabeiras",
-    "Patamares do Araguaia",
-    "Patamares do Chapadão Ocidental Baiano",
-    "Planalto Dissecado do Tocantins",
-    "Planalto do Alto Tocantins -- Paranaíba",
-    "Planalto do Interflúvio Tocantins -- Araguaia",
-    "Planície do Araguaia -- Javaés",
-    "Planícies Fluviais",
-    "Serra Malhada Alta",
-    "Serra da Natividade",
-    "Serras das Andorinhas -- Xambioá -- Lontras",
-    "Serras de Arraias e da Canoa",
-    "Serras de Santo Antônio -- João Damião",
-    "Vãos da Bacia do Alto Parnaíba"
-]

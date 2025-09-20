@@ -1,0 +1,36 @@
+1 - padrao
+22,885 cm
+5 cm
+6,4475 cm
+6,8862 cm
+
+2 padrao
+23 cm 
+4,3233 cm
+6,2506 cm
+7,6116 cm
+
+3 padrao
+23 cm
+4,3987 cm
+6,13 cm
+7,6116 cm
+
+4 padrao
+22,8331 cm
+4,5669 cm
+6,6098 cm
+7,368 cm
+
+primeiro borda 6,5
+segundo borda 6
+terceiro borda 5,75
+quarto borda 6,25
+
+primeiro tokens 1129
+segundo tokens 622
+terceiro tokens 448
+quarto tokens 307
+
+
+no máximo 10 tokens de diferença

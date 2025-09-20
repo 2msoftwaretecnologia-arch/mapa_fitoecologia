@@ -12,8 +12,8 @@ class Text_infos:
         nome_propriedade: str,
         tipo_dominante_fitoecologia: str,
         tipo_dominante_geologia: str,
-        fito_ecologias: list,
-        geologias: list,
+        
+        itens_atuais: list,
         tipo_mapa: str,
         quantidade_necessario_mapa_atual: int,
         descricao_mapa_atual: dict,
@@ -26,8 +26,8 @@ class Text_infos:
         self.nome_propriedade = nome_propriedade
         self.tipo_dominante_fitoecologia = tipo_dominante_fitoecologia
         self.tipo_dominante_geologia = tipo_dominante_geologia
-        self.fito_ecologias = fito_ecologias
-        self.geologias = geologias
+        
+        self.itens_atuais = itens_atuais
         self.tipo_mapa = tipo_mapa
         self.quantidade_necessario_mapa_atual = quantidade_necessario_mapa_atual
         self.descricao_mapa_atual = descricao_mapa_atual
@@ -98,20 +98,12 @@ class Text_infos:
         self._tipo_dominante_geologia = novo_tipo_dominante_geologia
 
     @property
-    def fito_ecologias(self) -> str:
-        return self._fito_ecologias
+    def itens_atuais(self) -> list:
+        return self._itens_atuais
     
-    @fito_ecologias.setter
-    def fito_ecologias(self, novo_fito_ecologias: str) -> None:
-        self._fito_ecologias = novo_fito_ecologias
-
-    @property
-    def geologias(self) -> list:
-        return self._geologias
-    
-    @geologias.setter
-    def geologias(self, novo_geologias: list) -> None:
-        self._geologias = novo_geologias
+    @itens_atuais.setter
+    def itens_atuais(self, novo_itens_atuais: list) -> None:
+        self._itens_atuais = novo_itens_atuais
 
     @property
     def tipo_mapa(self) -> str:

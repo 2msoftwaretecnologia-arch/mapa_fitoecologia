@@ -28,6 +28,21 @@ from functions.outras_funcoes.outras_infos import *
 
 
 def fazer_parte_legenda():
+    if Text_infos.tipo_mapa == 'Fitoecologia':
+        itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=regioes_fitoecologias)
+        Text_infos.itens_atuais = itens_mapa_atual
+                
+        Text_infos.descricao_mapa_atual = tamanhos_regioes_fito_ecologias
+    
+
+    if Text_infos.tipo_mapa == 'Geologia':
+        itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=Regioes_geologicas)
+        Text_infos.itens_atuais = itens_mapa_atual
+        
+        
+        Text_infos.descricao_mapa_atual = tamanhos_geologicos
+
+    Text_infos.quantidade_necessario_mapa_atual = len(Text_infos.itens_atuais)
     
     tamanho_numero = Text_infos.quantidade_necessario_mapa_atual #quantidade de itens do mapa atual
     abrir_documento(caminho_word_nota_tecnica)
@@ -39,9 +54,9 @@ def fazer_parte_legenda():
     #colocar a borda no word
     apertar_Tab(3, tempo_espera=0.1)
     if Text_infos.tipo_mapa == 'Fitoecologia':
-        escrever_texto(tamanhos_regioes_fito_ecologias[Text_infos.fito_ecologias[0]][f"{tamanho_numero} time"]["borda"])
+        escrever_texto(tamanhos_regioes_fito_ecologias[Text_infos.itens_atuais[0]][f"{Text_infos.quantidade_necessario_mapa_atual} time"]["borda"])
     if Text_infos.tipo_mapa == 'Geologia':
-        escrever_texto(tamanhos_geologicos[Text_infos.geologias[0]][f"{tamanho_numero} time"]["borda"])
+        escrever_texto(tamanhos_geologicos[Text_infos.itens_atuais[0]][f"{Text_infos.quantidade_necessario_mapa_atual} time"]["borda"])
     esperar(0.3)
     enter(tempo=0.5)
     esperar(0.5)
@@ -55,9 +70,9 @@ def fazer_parte_legenda():
 
     if Text_infos.tipo_mapa == 'Fitoecologia':
         #escrever a descrição da legenda
-        for ecolgia in Text_infos.fito_ecologias:
+        for ecolgia in Text_infos.itens_atuais:
             escrever_texto(
-                tamanhos_regioes_fito_ecologias[ecolgia][f"{tamanho_numero} time"]["descricao"],
+                tamanhos_regioes_fito_ecologias[ecolgia][f"{Text_infos.quantidade_necessario_mapa_atual} time"]["descricao"],
                 velocidade=0.001
             )
             # duas quebras de linha (ajuste se sua função aceitar 'vezes=')
@@ -65,9 +80,9 @@ def fazer_parte_legenda():
     
     if Text_infos.tipo_mapa == 'Geologia':
         #escrever a descrição da legenda
-        for Geologia in Text_infos.geologias:
+        for Geologia in Text_infos.itens_atuais:
             escrever_texto(
-                tamanhos_geologicos[Geologia][f"{tamanho_numero} time"]["descricao"],
+                tamanhos_geologicos[Geologia][f"{Text_infos.quantidade_necessario_mapa_atual} time"]["descricao"],
                 velocidade=0.001
             )
             # duas quebras de linha (ajuste se sua função aceitar 'vezes=')
@@ -96,7 +111,8 @@ def fazer_parte_legenda():
     click(coordinates.x_size_position,coordinates.y_size_position, clicks_quant=3)
     apertar_Tab(tempo_espera=0.1)
 
-    sel = tamanhos[tamanho_numero]  # usa o tamanho correspondente
+    tamanho_filtrado = tamanhos()
+    sel = tamanho_filtrado[Text_infos.quantidade_necessario_mapa_atual]  # usa o tamanho correspondente
     escrever_texto(str(sel["x1"]))
     apertar_Tab(tempo_espera=0.1)
     escrever_texto(str(sel["y1"]))

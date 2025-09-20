@@ -23,7 +23,11 @@ def formulario_incial():
     proprietario = input_texto_dinamico(texto="Digite o nome do proprietário")
     matricula = input_texto_dinamico(texto="Digite a matrícula")
     cidade = input_texto_dinamico(texto="Digite a cidade - estado")
+    x_arcgis , y_arcgis = capturar_clique("clique no arcgis pra eu saber onde fica")
 
+    
+    coordinates.x_arcgis = x_arcgis
+    coordinates.y_arcgis = y_arcgis
     Text_infos.proprietario = proprietario
     Text_infos.matricula = matricula
     Text_infos.cidade_uf = cidade
