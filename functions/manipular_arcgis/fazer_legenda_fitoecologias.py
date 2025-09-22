@@ -44,7 +44,7 @@ def fazer_parte_legenda():
 
     Text_infos.quantidade_necessario_mapa_atual = len(Text_infos.itens_atuais)
     
-    tamanho_numero = Text_infos.quantidade_necessario_mapa_atual #quantidade de itens do mapa atual
+    
     abrir_documento(caminho_word_nota_tecnica)
     esperar(0.5)
     clicar_centro_tela()
