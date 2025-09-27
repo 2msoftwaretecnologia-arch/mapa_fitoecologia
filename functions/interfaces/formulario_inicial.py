@@ -16,19 +16,16 @@ from functions.manipular_windos.capturar_click import *
 from functions.manipular_arcgis.comandos_basicos import *
 from functions.outras_funcoes.coordenadas import *
 from functions.outras_funcoes.outras_infos import *
+from functions.interfaces.janela_input_propriedade import *
 
 
 def formulario_incial():
-    nome_propriedade = input_texto_dinamico(texto="Digite o nome da propriedade")
-    proprietario = input_texto_dinamico(texto="Digite o nome do proprietário")
-    matricula = input_texto_dinamico(texto="Digite a matrícula")
-    cidade = input_texto_dinamico(texto="Digite a cidade - estado")
+    campos = abrir_janela_input_propriedade()
+    Text_infos.nome_propriedade = campos['nome_propriedade']
+    Text_infos.proprietario = campos['proprietario']
+    Text_infos.matricula = campos['matricula']
+    Text_infos.cidade_uf = campos['cidade_uf']
     x_arcgis , y_arcgis = capturar_clique("clique no arcgis pra eu saber onde fica")
 
-    
     coordinates.x_arcgis = x_arcgis
     coordinates.y_arcgis = y_arcgis
-    Text_infos.proprietario = proprietario
-    Text_infos.matricula = matricula
-    Text_infos.cidade_uf = cidade
-    Text_infos.nome_propriedade = nome_propriedade
