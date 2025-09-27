@@ -20,6 +20,8 @@ from functions.interfaces.formulario_inicial import *
 from functions.manipular_arcgis.selecao_apr import *
 from functions.outras_funcoes.outras_infos import *
 
+
+janela_dinamica("teste")
 Fechar = pyautogui.confirm(title="Confirmação",text="começar??",buttons=["sim","Não"])
 tipo_mapa = pyautogui.confirm(title="Confirmação",text="Qual o tipo do mapa?",buttons=["Fitoecologia","Geologia"])
 Text_infos.tipo_mapa = tipo_mapa

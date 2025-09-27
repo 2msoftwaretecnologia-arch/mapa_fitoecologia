@@ -1,3 +1,8 @@
-lista = [1,2,4]
+import tkinter as tk
 
-print(lista[1]+[2])
+
+
+
+# Exemplo de uso
+if __name__ == "__main__":
+    abrir_checkbox_saida()

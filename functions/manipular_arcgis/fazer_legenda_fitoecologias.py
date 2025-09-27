@@ -23,7 +23,7 @@ from functions.outras_funcoes.coordenadas import *
 from functions.interfaces.alerta_simples import *
 from text.tamanhos_e_descricoes import *
 from functions.outras_funcoes.outras_infos import *
-
+from functions.tkinter.aviso_checbox import *
 
 
 
@@ -50,13 +50,9 @@ def fazer_parte_legenda():
     clicar_centro_tela()
     esperar(0.5)
     abrir_margen_pagina_Word(4)
-    
     #colocar a borda no word
     apertar_Tab(3, tempo_espera=0.1)
-    if Text_infos.tipo_mapa == 'Fitoecologia':
-        escrever_texto(tamanhos_regioes_fito_ecologias[Text_infos.itens_atuais[0]][f"{Text_infos.quantidade_necessario_mapa_atual} time"]["borda"])
-    if Text_infos.tipo_mapa == 'Geologia':
-        escrever_texto(tamanhos_geologicos[Text_infos.itens_atuais[0]][f"{Text_infos.quantidade_necessario_mapa_atual} time"]["borda"])
+    escrever_texto("6,5")
     esperar(0.3)
     enter(tempo=0.5)
     esperar(0.5)
@@ -68,32 +64,13 @@ def fazer_parte_legenda():
     esperar(0.3)
     enter(tempo=0.3)
 
-    if Text_infos.tipo_mapa == 'Fitoecologia':
-        #escrever a descrição da legenda
-        for ecolgia in Text_infos.itens_atuais:
-            escrever_texto(
-                tamanhos_regioes_fito_ecologias[ecolgia][f"{Text_infos.quantidade_necessario_mapa_atual} time"]["descricao"],
-                velocidade=0.001
-            )
-            # duas quebras de linha (ajuste se sua função aceitar 'vezes=')
-            enter(quantidade=2,tempo=0.1)
-    
-    if Text_infos.tipo_mapa == 'Geologia':
-        #escrever a descrição da legenda
-        for Geologia in Text_infos.itens_atuais:
-            escrever_texto(
-                tamanhos_geologicos[Geologia][f"{Text_infos.quantidade_necessario_mapa_atual} time"]["descricao"],
-                velocidade=0.001
-            )
-            # duas quebras de linha (ajuste se sua função aceitar 'vezes=')
-            enter(quantidade=2,tempo=0.1)
-
-    #apertar pra apgar duas ves no final e copiar a legenda
-    pressionar_tecla("backspace",quantidade=2)
+    janela_dinamica("Faça a descrição do seu texto entre 1100 e 1200 caractes")
+    abrir_checkbox_saida()
+    clicar_centro_tela()
     esperar(0.2)
     selecionar_tudo_Word()
     copiar()
-
+    esperar(0.2)
 
     click(coordinates.x_arcgis,coordinates.y_arcgis)  # foca na janela do ArcGIS
     esperar(0.5)
@@ -106,6 +83,7 @@ def fazer_parte_legenda():
     apertar_ctrl_end(tempo=0.2)
     enter()
     esperar(0.5)
+    janela_dinamica("Desative o 'preserve aspect radio' se estiver ativo")
     x_size_position,y_size_position = capturar_clique("clique em 'size and position' pra eu entender como fica")
     esperar(0.3)
     coordinates.x_size_position = x_size_position
@@ -114,15 +92,15 @@ def fazer_parte_legenda():
     click(coordinates.x_size_position,coordinates.y_size_position, clicks_quant=3)
     apertar_Tab(tempo_espera=0.1)
 
-    tamanho_filtrado = tamanhos()
-    sel = tamanho_filtrado[Text_infos.quantidade_necessario_mapa_atual]  # usa o tamanho correspondente
-    escrever_texto(str(sel["x1"]))
+    #tamanho_filtrado = tamanhos()
+    #sel = tamanho_filtrado[Text_infos.quantidade_necessario_mapa_atual]  # usa o tamanho correspondente
+    escrever_texto("22,8838")
     apertar_Tab(tempo_espera=0.1)
-    escrever_texto(str(sel["y1"]))
+    escrever_texto("4,7244")
     apertar_Tab(3, tempo_espera=0.1)
-    escrever_texto(str(sel["tx"]))
+    escrever_texto("6,4500")
     apertar_Tab(tempo_espera=0.1)
     esperar(0.3)
     selecionar_tudo()
-    escrever_texto(str(sel["ty"]))
+    escrever_texto("7,2859")
     enter(tempo=0.5)

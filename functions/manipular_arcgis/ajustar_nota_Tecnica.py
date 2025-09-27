@@ -50,6 +50,7 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
     selecionar_tudo_Word()
     esperar(0.5)
     escrever_texto(texto,velocidade=0.005)
+    esperar(0.2)
     apertar_ctrl_home()
     centralizar_texto_Word()
     selecionar_tudo_Word()
