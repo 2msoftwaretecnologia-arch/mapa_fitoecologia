@@ -7,9 +7,7 @@ from functions.interfaces.multiplas_opcoes import *
 from functions.interfaces.alerta_simples import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
-from functions.pyaytogui.localizacao import *
 from functions.pyaytogui.protecao import *
-from functions.pyaytogui.encontrar_cor import * 
 from functions.manipular_arcgis.listar_camadas import *
 from functions.manipular_arcgis.manipular_camadas import *
 from functions.manipular_arcgis.helpers_arcgis import *
@@ -21,7 +19,6 @@ from functions.manipular_textos.manipular_textos import *
 from functions.outras_funcoes.coordenadas import *
 from functions.outras_funcoes.outras_infos import *
 from functions.outras_funcoes.helpers import *
-from text.tamanhos_e_descricoes import *
 
 def ajustar_quadrados_mapa():
     estilo_atual = estilos_atuais()

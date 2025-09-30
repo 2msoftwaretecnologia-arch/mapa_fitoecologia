@@ -5,7 +5,6 @@ from functions.interfaces.input_Texto_dinamico import *
 from functions.interfaces.campo_dinamico_opcoes import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
-from functions.pyaytogui.localizacao import *
 from functions.pyaytogui.protecao import *
 from functions.outras_funcoes.helpers import *
 from functions.outras_funcoes.helpers import *

@@ -7,9 +7,7 @@ from functions.interfaces.campo_dinamico_opcoes import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
 from functions.outras_funcoes.helpers import *
-from functions.pyaytogui.localizacao import *
 from functions.pyaytogui.protecao import *
-from functions.pyaytogui.encontrar_cor import * 
 from functions.manipular_arcgis.listar_camadas import *
 from functions.manipular_arcgis.manipular_camadas import *
 from functions.manipular_arcgis.comandos_basicos import *
@@ -21,7 +19,6 @@ from functions.manipular_windos.abrir_documentos import *
 from functions.manipular_textos.manipular_textos import *
 from functions.outras_funcoes.coordenadas import *
 from functions.interfaces.alerta_simples import *
-from text.tamanhos_e_descricoes import *
 from functions.outras_funcoes.outras_infos import *
 from functions.tkinter.aviso_checbox import *
 
@@ -32,15 +29,11 @@ def fazer_parte_legenda():
         itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=regioes_fitoecologias)
         Text_infos.itens_atuais = itens_mapa_atual
                 
-        Text_infos.descricao_mapa_atual = tamanhos_regioes_fito_ecologias
-    
 
     if Text_infos.tipo_mapa == 'Geologia':
         itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=Regioes_geologicas)
         Text_infos.itens_atuais = itens_mapa_atual
         
-        
-        Text_infos.descricao_mapa_atual = tamanhos_geologicos
 
     Text_infos.quantidade_necessario_mapa_atual = len(Text_infos.itens_atuais)
     
@@ -92,8 +85,6 @@ def fazer_parte_legenda():
     click(coordinates.x_size_position,coordinates.y_size_position, clicks_quant=3)
     apertar_Tab(tempo_espera=0.1)
 
-    #tamanho_filtrado = tamanhos()
-    #sel = tamanho_filtrado[Text_infos.quantidade_necessario_mapa_atual]  # usa o tamanho correspondente
     escrever_texto("22,8838")
     apertar_Tab(tempo_espera=0.1)
     escrever_texto("4,7244")

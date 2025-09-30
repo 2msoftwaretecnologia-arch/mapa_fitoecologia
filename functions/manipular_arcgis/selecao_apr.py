@@ -7,9 +7,7 @@ from functions.interfaces.multiplas_opcoes import *
 from functions.interfaces.alerta_simples import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
-from functions.pyaytogui.localizacao import *
-from functions.pyaytogui.protecao import *
-from functions.pyaytogui.encontrar_cor import * 
+from functions.pyaytogui.protecao import * 
 from functions.manipular_arcgis.listar_camadas import *
 from functions.manipular_arcgis.manipular_camadas import *
 from functions.manipular_arcgis.helpers_arcgis import *

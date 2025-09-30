@@ -4,7 +4,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 from functions.interfaces.campo_dinamico_opcoes import *
 from functions.pyaytogui.funcoes_teclado_mouse import * 
 from functions.pyaytogui.mexer_mouse import * 
-from functions.pyaytogui.encontrar_cor import * 
 from functions.outras_funcoes.helpers import *
 from functions.manipular_windos.manipular_windos import *
 from functions.manipular_windos.capturar_click import *
