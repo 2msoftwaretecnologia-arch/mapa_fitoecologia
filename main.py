@@ -23,7 +23,8 @@ from functions.outras_funcoes.outras_infos import *
 Fechar = pyautogui.confirm(title="Confirmação",text="começar??",buttons=["sim","Não"])
 if Fechar == "sim":
     tipo_mapa = pyautogui.confirm(title="Confirmação",text="Qual o tipo do mapa?",buttons=["Fitoecologia","Geologia"])
-    Text_infos.tipo_mapa = tipo_mapa
+    Text_infos.tipo_mapa = tipo_mapa                        
+    
 
     if Text_infos.tipo_mapa == 'Fitoecologia':
         abrir_documento(caminho_mapa_fitoecologia)
