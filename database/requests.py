@@ -1,4 +1,6 @@
 import json
+from functions.manipular_windos.capturar_click import *
+
 
 ARQUIVO = "config/coordinates.json"
 
@@ -41,3 +43,13 @@ def request(action: str, objeto_id: int, x: int = None, y: int = None, default=(
                     return {"status": "erro", "message": "Para SET é necessário passar x e y"}
     
     return {"status": "erro", "message": f"Objeto {objeto_id} não encontrado"}
+
+
+def get_or_set_coordinate(objeto_id: int, mensagem: str) -> tuple[int, int]:
+    """Busca coordenada no JSON. Se não existir, captura clique e grava."""
+    coords = request("get", objeto_id=objeto_id)
+    if coords == (0, 0):
+        x, y = capturar_clique(mensagem)
+        request("set", objeto_id=objeto_id, x=x, y=y)
+        coords = request("get", objeto_id=objeto_id)
+    return coords

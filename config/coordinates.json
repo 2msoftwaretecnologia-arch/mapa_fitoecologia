@@ -68,8 +68,8 @@
             "id": 9,
             "nome": "incio",
             "coordenadas": {
-                "x": 0,
-                "y": 0
+                "x": 1184,
+                "y": 564
             }
         },
         {
@@ -94,6 +94,14 @@
             "coordenadas": {
                 "x": 704,
                 "y": 280
+            }
+        },
+        {
+            "id": 13,
+            "nome": "text",
+            "coordenadas": {
+                "x": 792,
+                "y": 360
             }
         }
     ]
