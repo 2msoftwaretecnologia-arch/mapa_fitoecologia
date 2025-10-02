@@ -20,40 +20,40 @@
             "id": 3,
             "nome": "retangulo",
             "coordenadas": {
-                "x": 0,
-                "y": 0
+                "x": 172,
+                "y": 995
             }
         },
         {
             "id": 4,
             "nome": "desenhar_quadradro",
             "coordenadas": {
-                "x": 0,
-                "y": 0
+                "x": 516,
+                "y": 291
             }
         },
         {
             "id": 5,
             "nome": "symbol_quadrado",
             "coordenadas": {
-                "x": 0,
-                "y": 0
+                "x": 792,
+                "y": 380
             }
         },
         {
             "id": 6,
             "nome": "fill_color_quadrado",
             "coordenadas": {
-                "x": 0,
-                "y": 0
+                "x": 900,
+                "y": 438
             }
         },
         {
             "id": 7,
             "nome": "out_line_color_quadrado",
             "coordenadas": {
-                "x": 0,
-                "y": 0
+                "x": 897,
+                "y": 481
             }
         },
         {
