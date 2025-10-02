@@ -21,7 +21,7 @@ from functions.outras_funcoes.coordenadas import *
 from functions.interfaces.alerta_simples import *
 from functions.outras_funcoes.outras_infos import *
 from functions.tkinter.aviso_checbox import *
-
+from database.requests import *
 
 
 def fazer_parte_legenda():
@@ -44,11 +44,11 @@ def fazer_parte_legenda():
     esperar(0.5)
     abrir_margen_pagina_Word(4)
     #colocar a borda no word
-    apertar_Tab(3, tempo_espera=0.1)
+    apertar_Tab(3, tempo_espera=0.01)
     escrever_texto("6,5")
     esperar(0.3)
     enter(tempo=0.5)
-    esperar(0.5)
+    esperar(1)
 
     #colocar a fonte da letra no word
     selecionar_tudo_Word()
@@ -67,24 +67,23 @@ def fazer_parte_legenda():
 
     click(coordinates.x_arcgis,coordinates.y_arcgis)  # foca na janela do ArcGIS
     esperar(0.5)
-    click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco) # clica “em nada”
+    espaco_branco_coordenadas = get_or_set_coordinate(2,"aperte no espaço em branco pra eu saber onde fica")
+    ponto_incial_coordenadas = get_or_set_coordinate(9,"clique sobre texto para eu enteder onde fica")
+    click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1],tempo=0.1) # clica “em nada”
     esperar(0.5)
     colar()
     esperar(1.5)
-    click(coordinates.x_incio,coordinates.y_incio, botao='right')#lugar no arcgis que as coisas vão quando são coladas
+    click(ponto_incial_coordenadas[0],ponto_incial_coordenadas[1],botao="right")#lugar no arcgis que as coisas vão quando são coladas
     esperar(0.5)
     apertar_ctrl_end(tempo=0.2)
     enter()
     esperar(0.5)
     janela_dinamica("Desative o 'preserve aspect radio' se estiver ativo")
-    x_size_position,y_size_position = capturar_clique("clique em 'size and position' pra eu entender como fica")
+    size_position_coordenadas = get_or_set_coordinate(11,"clique em 'size and position' pra eu entender como fica")
     esperar(0.3)
-    coordinates.x_size_position = x_size_position
-    coordinates.y_size_position = y_size_position
     # "Size and Position"
-    click(coordinates.x_size_position,coordinates.y_size_position, clicks_quant=3)
+    click(size_position_coordenadas[0],size_position_coordenadas[1], clicks_quant=3)
     apertar_Tab(tempo_espera=0.1)
-
     escrever_texto("22,8838")
     apertar_Tab(tempo_espera=0.1)
     escrever_texto("4,7244")
