@@ -4,8 +4,8 @@
             "id": 1,
             "nome": "camada",
             "coordenadas": {
-                "x": 1055,
-                "y": 1077
+                "x": 125,
+                "y": 377
             }
         },
         {
@@ -20,8 +20,8 @@
             "id": 3,
             "nome": "retangulo",
             "coordenadas": {
-                "x": 222,
-                "y": 111
+                "x": 0,
+                "y": 0
             }
         },
         {
@@ -90,10 +90,10 @@
         },
         {
             "id": 12,
-            "nome": "soruce",
+            "nome": "source",
             "coordenadas": {
-                "x": 0,
-                "y": 0
+                "x": 704,
+                "y": 280
             }
         }
     ]
