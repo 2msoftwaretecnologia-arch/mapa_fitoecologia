@@ -11,14 +11,19 @@ from functions.outras_funcoes.helpers import *
 from functions.manipular_windos.capturar_click import *
 from functions.outras_funcoes.coordenadas import *
 from functions.interfaces.alerta_simples import *
-
+from database.requests import *
 
 def fazer_grid():
     try:
         fazer = "sim"
-        x_espaco_vazio, y_espaco_vazio =  capturar_clique("clique em um espaço vazio fora do mapa para eu saber onde fica")
-        coordinates.x_espaco_Branco = x_espaco_vazio
-        coordinates.y_espaco_Branco = y_espaco_vazio
+        espaco_branco_coordenadas = request("get",objeto_id=2)
+        if espaco_branco_coordenadas == (0,0):
+            x_espaco_vazio, y_espaco_vazio =  capturar_clique("clique em um espaço vazio fora do mapa para eu saber onde fica")
+            request("set",objeto_id=2,x=x_espaco_vazio,y=y_espaco_vazio)
+            espaco_branco_coordenadas = request("get",objeto_id=2)
+        else:
+            esperar(0.2)
+            click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1])
         esperar(1)
         while fazer == 'sim':
             clicar_centro_tela(1)
@@ -31,16 +36,18 @@ def fazer_grid():
             enter()
             
             janela_dinamica("espere a janela de propriedades abrir")
-            if not isinstance(coordinates.x_grid, int):
-                janela_dinamica(texto='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi')
+            janela_dinamica(texto='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi')
+            grid_coordenadas = request("get",objeto_id=8)
+            if grid_coordenadas == (0,0):
                 x_grid , y_grid = capturar_clique("aperte no grid ")
-                coordinates.x_grid = x_grid
-                coordinates.y_grid = y_grid
+                request("set",objeto_id=8,x=x_grid,y=y_grid)
+                grid_coordenadas = request("get",objeto_id=8)
                 esperar(1)
-                click(x_grid , y_grid,clicks_quant=3)
+                click(grid_coordenadas[0] , grid_coordenadas[1],clicks_quant=3)
             else:
-                click(coordinates.x_grid , coordinates.y_grid,clicks_quant=3)
-            apertar_Tab(5,tempo_espera=0.1)
+                esperar(0.2)
+                click(grid_coordenadas[0] , grid_coordenadas[1],clicks_quant=3)
+            apertar_Tab(5,tempo_espera=0.01)
             enter()
             
             esperar(0.5)
@@ -57,10 +64,10 @@ def fazer_grid():
             escrever_texto(str(".000000"))
             enter()
             esperar(0.5)
-            apertar_Tab(2,tempo_espera=0.1)
+            apertar_Tab(2,tempo_espera=0.01)
             enter()
             esperar(0.5)
-            click(coordinates.x_espaco_Branco, coordinates.y_espaco_Branco)
+            click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1])
             fazer = pyautogui.confirm(title="Confirmação",text="deseja ajustar grid??",buttons=["sim","Não"])
     except Exception as e:
         print(f"Erro ao ajustar o grid: {e}")

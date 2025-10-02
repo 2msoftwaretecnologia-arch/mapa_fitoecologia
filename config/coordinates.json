@@ -12,8 +12,8 @@
             "id": 2,
             "nome": "espaco_Branco",
             "coordenadas": {
-                "x": 0,
-                "y": 0
+                "x": 536,
+                "y": 550
             }
         },
         {
@@ -60,8 +60,8 @@
             "id": 8,
             "nome": "grid",
             "coordenadas": {
-                "x": 0,
-                "y": 0
+                "x": 1155,
+                "y": 247
             }
         },
         {
