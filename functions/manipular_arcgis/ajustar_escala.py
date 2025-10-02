@@ -9,16 +9,21 @@ from functions.manipular_windos.capturar_click import *
 from functions.manipular_arcgis.comandos_basicos import *
 from functions.outras_funcoes.coordenadas import *
 from functions.interfaces.alerta_simples import *
-
+from database.requests import *
 
 
 def ajustar_escala():
 
     refazer_escala = pyautogui.confirm(text="Deseja substituir a escala?", buttons=["sim", "não"])
     if refazer_escala == "sim":
-        x_escala, y_escala = capturar_clique("clique em escala para eu saber onde fica")
-        coordinates.x_escala = x_escala
-        coordinates.y_escala = y_escala
+        escala_coordenadas = request("get",objeto_id=10)
+        if escala_coordenadas == (0,0):
+            x_escala, y_escala = capturar_clique("clique em escala para eu saber onde fica")
+            request("set",objeto_id=10,x=x_escala,y=y_escala)
+            escala_coordenadas = request("get",objeto_id=10)
+        else:
+            esperar(0.3)
+            click(escala_coordenadas[0],escala_coordenadas[1])
         clicar_centro_tela(1)
         fazer_novamente = None
 
@@ -28,7 +33,7 @@ def ajustar_escala():
                 fazer_novamente = "não"
             else:
                 esperar(1)
-                click(coordinates.x_escala, coordinates.y_escala)
+                click(escala_coordenadas[0],escala_coordenadas[1])
                 selecionar_tudo()
                 escrever_texto(str(ajuste_escala))
                 enter(1)

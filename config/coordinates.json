@@ -74,10 +74,10 @@
         },
         {
             "id": 10,
-            "nome": "arcgis",
+            "nome": "escala",
             "coordenadas": {
-                "x": 0,
-                "y": 0
+                "x": 348,
+                "y": 60
             }
         },
         {
