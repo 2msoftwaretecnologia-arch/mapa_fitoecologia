@@ -15,7 +15,7 @@ from functions.manipular_arcgis.comandos_basicos import *
 from functions.manipular_textos.manipular_textos import *
 from functions.outras_funcoes.coordenadas import *
 from functions.interfaces.alerta_simples import *
-
+from database.requests import *
 
 def fazer_nota_tencnica():
     if Text_infos.tipo_mapa == 'Fitoecologia':
@@ -57,15 +57,19 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
     copiar()
     click(coordinates.x_arcgis,coordinates.y_arcgis)#clicando na janela do arggis
     esperar(0.7)
-    click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
+    espaco_branco_coordenadas = get_or_set_coordinate(2,"aperte no espaço em branco pra eu saber onde fica")
+    click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1],tempo=0.1)
     esperar(0.3)
     colar()
     esperar(1)
-    click(coordinates.x_incio,coordinates.y_incio,botao='right')
+    ponto_incial_coordenadas = get_or_set_coordinate(9,"clique sobre texto para eu enteder onde fica")
+    click(ponto_incial_coordenadas[0],ponto_incial_coordenadas[1],botao='right')
     esperar(0.6)
     apertar_ctrl_end()
     enter()
-    click(coordinates.x_size_position,coordinates.y_size_position,clicks_quant=3)
+    esperar(0.3)
+    size_position_coordenadas = get_or_set_coordinate(11,"clique em 'size and position' pra eu entender como fica")
+    click(size_position_coordenadas[0],size_position_coordenadas[1], clicks_quant=3)
     apertar_Tab(tempo_espera=0.1)
     escrever_texto("0,4822 cm")
     apertar_Tab(tempo_espera=0.1)

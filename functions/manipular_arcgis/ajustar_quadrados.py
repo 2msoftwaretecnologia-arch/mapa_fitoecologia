@@ -20,7 +20,10 @@ from functions.outras_funcoes.coordenadas import *
 from functions.outras_funcoes.outras_infos import *
 from functions.outras_funcoes.helpers import *
 from database.requests import *
+
+
 def ajustar_quadrados_mapa():
+    janela_dinamica("espere o arcgis se normalizar e parte ok")
     estilo_atual = estilos_atuais()
     x_tamanho,y_tamanho = tamano_quadrados(Text_infos.quantidade_necessario_mapa_atual)
     lista_posicao = posicao_quadrados(Text_infos.quantidade_necessario_mapa_atual)
