@@ -1,108 +1,115 @@
 {
-    "objetos": [
+    "resolucoes": [
         {
-            "id": 1,
-            "nome": "camada",
-            "coordenadas": {
-                "x": 125,
-                "y": 377
-            }
-        },
-        {
-            "id": 2,
-            "nome": "espaco_Branco",
-            "coordenadas": {
-                "x": 536,
-                "y": 550
-            }
-        },
-        {
-            "id": 3,
-            "nome": "retangulo",
-            "coordenadas": {
-                "x": 172,
-                "y": 995
-            }
-        },
-        {
-            "id": 4,
-            "nome": "desenhar_quadradro",
-            "coordenadas": {
-                "x": 516,
-                "y": 291
-            }
-        },
-        {
-            "id": 5,
-            "nome": "symbol_quadrado",
-            "coordenadas": {
-                "x": 792,
-                "y": 380
-            }
-        },
-        {
-            "id": 6,
-            "nome": "fill_color_quadrado",
-            "coordenadas": {
-                "x": 900,
-                "y": 438
-            }
-        },
-        {
-            "id": 7,
-            "nome": "out_line_color_quadrado",
-            "coordenadas": {
-                "x": 897,
-                "y": 481
-            }
-        },
-        {
-            "id": 8,
-            "nome": "grid",
-            "coordenadas": {
-                "x": 1155,
-                "y": 247
-            }
-        },
-        {
-            "id": 9,
-            "nome": "incio",
-            "coordenadas": {
-                "x": 1184,
-                "y": 564
-            }
-        },
-        {
-            "id": 10,
-            "nome": "escala",
-            "coordenadas": {
-                "x": 348,
-                "y": 60
-            }
-        },
-        {
-            "id": 11,
-            "nome": "size_position",
-            "coordenadas": {
-                "x": 933,
-                "y": 313
-            }
-        },
-        {
-            "id": 12,
-            "nome": "source",
-            "coordenadas": {
-                "x": 704,
-                "y": 280
-            }
-        },
-        {
-            "id": 13,
-            "nome": "text",
-            "coordenadas": {
-                "x": 792,
-                "y": 360
-            }
+            "nome": "original",
+            "largura": 1920,
+            "altura": 1080,
+            "objetos": [
+                {
+                    "id": 1,
+                    "nome": "camada",
+                    "coordenadas": {
+                        "x": 125,
+                        "y": 377
+                    }
+                },
+                {
+                    "id": 2,
+                    "nome": "espaco_Branco",
+                    "coordenadas": {
+                        "x": 536,
+                        "y": 550
+                    }
+                },
+                {
+                    "id": 3,
+                    "nome": "retangulo",
+                    "coordenadas": {
+                        "x": 172,
+                        "y": 995
+                    }
+                },
+                {
+                    "id": 4,
+                    "nome": "desenhar_quadradro",
+                    "coordenadas": {
+                        "x": 516,
+                        "y": 291
+                    }
+                },
+                {
+                    "id": 5,
+                    "nome": "symbol_quadrado",
+                    "coordenadas": {
+                        "x": 792,
+                        "y": 380
+                    }
+                },
+                {
+                    "id": 6,
+                    "nome": "fill_color_quadrado",
+                    "coordenadas": {
+                        "x": 900,
+                        "y": 438
+                    }
+                },
+                {
+                    "id": 7,
+                    "nome": "out_line_color_quadrado",
+                    "coordenadas": {
+                        "x": 897,
+                        "y": 481
+                    }
+                },
+                {
+                    "id": 8,
+                    "nome": "grid",
+                    "coordenadas": {
+                        "x": 1155,
+                        "y": 247
+                    }
+                },
+                {
+                    "id": 9,
+                    "nome": "incio",
+                    "coordenadas": {
+                        "x": 1184,
+                        "y": 564
+                    }
+                },
+                {
+                    "id": 10,
+                    "nome": "escala",
+                    "coordenadas": {
+                        "x": 348,
+                        "y": 60
+                    }
+                },
+                {
+                    "id": 11,
+                    "nome": "size_position",
+                    "coordenadas": {
+                        "x": 933,
+                        "y": 313
+                    }
+                },
+                {
+                    "id": 12,
+                    "nome": "source",
+                    "coordenadas": {
+                        "x": 704,
+                        "y": 280
+                    }
+                },
+                {
+                    "id": 13,
+                    "nome": "text",
+                    "coordenadas": {
+                        "x": 792,
+                        "y": 360
+                    }
+                }
+            ]
         }
     ]
 }

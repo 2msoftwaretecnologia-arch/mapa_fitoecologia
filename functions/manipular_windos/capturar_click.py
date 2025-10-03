@@ -1,12 +1,10 @@
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from functions.manipular_windos.manipular_windos import *
+from functions.interfaces.alerta_simples import *
 from pynput import mouse
 import threading
-from functions.outras_funcoes.helpers import *
-from functions.pyaytogui.funcoes_teclado_mouse import *
-from functions.interfaces.alerta_simples import *
-from functions.manipular_windos.manipular_windos import *
 
 
 def capturar_clique(texto):

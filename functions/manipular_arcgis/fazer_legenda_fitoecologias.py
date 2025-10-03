@@ -1,27 +1,9 @@
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from functions.interfaces.input_Texto_dinamico import *
-from functions.interfaces.campo_dinamico_opcoes import *
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from functions.pyaytogui.funcoes_teclado_mouse import * 
-from functions.pyaytogui.mexer_mouse import * 
-from functions.outras_funcoes.helpers import *
-from functions.pyaytogui.protecao import *
-from functions.manipular_arcgis.listar_camadas import *
-from functions.manipular_arcgis.manipular_camadas import *
-from functions.manipular_arcgis.comandos_basicos import *
-from functions.manipular_arcgis.helpers_arcgis import *
 from functions.manipular_arcgis.ajustar_quadrados import *
-from functions.manipular_windos.manipular_windos import *
-from functions.manipular_windos.capturar_click import *
-from functions.manipular_windos.abrir_documentos import *
-from functions.manipular_textos.manipular_textos import *
-from functions.outras_funcoes.coordenadas import *
-from functions.interfaces.alerta_simples import *
-from functions.outras_funcoes.outras_infos import *
 from functions.tkinter.aviso_checbox import *
-from database.requests import *
 
 
 def fazer_parte_legenda():

@@ -1,10 +1,6 @@
 import pyautogui
 import keyboard
 import time
-#importar pastas dentro de pastas
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 
 def click(x,y,tempo=0.2,clicks_quant=1,botao='left'):
