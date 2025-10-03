@@ -1,9 +1,9 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from functions.pyautogui.protecao import *
+from functions.functions_pyautogui.protecao import *
 from functions.outras_funcoes.helpers import *
-from functions.pyautogui.funcoes_teclado_mouse import *
+from functions.functions_pyautogui.funcoes_teclado_mouse import *
 from functions.interfaces.input_Texto_dinamico import *
 from database.requests import *
 

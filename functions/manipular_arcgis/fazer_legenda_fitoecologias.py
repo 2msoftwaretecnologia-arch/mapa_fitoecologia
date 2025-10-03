@@ -5,7 +5,7 @@ from functions.manipular_windos.abrir_documentos import *
 from functions.manipular_arcgis.ajustar_quadrados import *
 from functions.interfaces.multiplas_opcoes import *
 from functions.manipular_arcgis.comandos_basicos import *
-from functions.tkinter.aviso_checbox import *
+from functions.functions_tkinter.aviso_checbox import *
 
 
 def fazer_parte_legenda():

@@ -2,9 +2,9 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
-from functions.pyautogui.mexer_mouse import * 
+from functions.functions_pyautogui.mexer_mouse import * 
 from functions.manipular_arcgis.helpers_arcgis import *
-from functions.pyautogui.funcoes_teclado_mouse import *
+from functions.functions_pyautogui.funcoes_teclado_mouse import *
 from database.requests import *
 
 
@@ -15,7 +15,6 @@ def ajustar_quadrados_mapa():
     lista_posicao = posicao_quadrados(Text_infos.quantidade_necessario_mapa_atual)
     espaco_branco_coordenadas = get_or_set_coordinate(2,"aperte no espaço em branco pra eu saber onde fica")
     click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1],tempo=0.1)
-    insert(2)
     esperar(0.5)
     retangulo_coordenadas = get_or_set_coordinate(3,"Clique na seta do retangulo pra eu saber onde fica") #local que pega a forma geometrica  do retangulo
     quadrado_coordenadas = get_or_set_coordinate(4,"Clique em um lugar para desenhar o quadrado") #local que vai ser desenhado o quadrado

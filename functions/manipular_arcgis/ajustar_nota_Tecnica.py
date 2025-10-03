@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from functions.manipular_windos.abrir_documentos import *
 from functions.manipular_arcgis.comandos_basicos import *
-from functions.pyautogui.funcoes_teclado_mouse import *
+from functions.functions_pyautogui.funcoes_teclado_mouse import *
 from outras_funcoes.outras_infos import *
 from database.requests import *
 
@@ -12,7 +12,7 @@ def fazer_nota_tencnica():
     if Text_infos.tipo_mapa == 'Fitoecologia':
         fito_predominante = pyautogui.confirm(title="Fitofisionomia Predominante",text="Qual a fitofisionomia predominante da propriedade?",buttons=Text_infos.itens_atuais)
         Text_infos.tipo_dominante_fitoecologia = fito_predominante
-        texto = f"""Nota Técnica
+        texto_nota_tecnica = f"""Nota Técnica
 
 O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha as formações vegetais da área, com destaque para a {Text_infos.tipo_dominante_fitoecologia}.
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
@@ -20,7 +20,7 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
     if Text_infos.tipo_mapa == 'Geologia':
         geologia_predominante = pyautogui.confirm(title="Geologia Predominante",text="Qual a Geologia predominante da propriedade?",buttons=Text_infos.itens_atuais)
         Text_infos.tipo_dominante_geologia = geologia_predominante        
-        texto= f"""Nota Técnica
+        texto_nota_tecnica= f"""Nota Técnica
 
 O mapa geológico da propriedade {Text_infos.nome_propriedade} detalha as formações litológicas presentes na área, com destaque para a {Text_infos.tipo_dominante_geologia}.
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
@@ -36,7 +36,7 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
     esperar(0.5)
     selecionar_tudo_Word()
     esperar(0.5)
-    escrever_texto(texto,velocidade=0.005)
+    escrever_texto(texto=texto_nota_tecnica,velocidade=0.005)
     esperar(0.2)
     apertar_ctrl_home()
     centralizar_texto_Word()

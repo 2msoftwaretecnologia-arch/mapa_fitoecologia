@@ -27,7 +27,7 @@ def apertar_Tab(quantidade=1,tempo_espera=0.3):
 
 
 def escrever_texto(texto,velocidade=0.01):
-    keyboard.write(texto,delay=velocidade)
+    keyboard.write(text=texto,delay=velocidade)
 
 def apertar_espaco():
     pyautogui.press('space')

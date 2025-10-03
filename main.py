@@ -14,7 +14,26 @@ from functions.manipular_arcgis.selecao_apr import *
 
 
 #ver qual o monitor correto a se utilizar
-import ajustar_monitores
+from ajustar_monitores import *
+
+# ============================
+# Execução
+# ============================
+if __name__ == "__main__":
+    largura_atual, altura_atual = pyautogui.size()
+    coordinates.largura_atual = largura_atual
+    coordinates.altura_atual = altura_atual
+    dados = carregar_dados()
+
+    # Verifica se já existe a resolução atual
+    existe = any(r.get("largura") == largura_atual and r.get("altura") == altura_atual for r in dados["resolucoes"])
+
+    if not existe:
+        root = tk.Tk()
+        app = App(root)
+        root.mainloop()
+    else:
+        print(f"✅ Resolução atual {largura_atual}x{altura_atual} já está cadastrada. Interface não aberta.")
 
 Fechar = pyautogui.confirm(title="Confirmação",text="começar??",buttons=["sim","Não"])
 if Fechar == "sim":
