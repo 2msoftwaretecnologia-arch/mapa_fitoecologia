@@ -1,8 +1,10 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+from functions.manipular_windos.abrir_documentos import *
 from functions.manipular_arcgis.ajustar_quadrados import *
+from functions.interfaces.multiplas_opcoes import *
+from functions.manipular_arcgis.comandos_basicos import *
 from functions.tkinter.aviso_checbox import *
 
 

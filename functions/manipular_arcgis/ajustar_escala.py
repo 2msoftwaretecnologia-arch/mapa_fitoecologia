@@ -1,8 +1,9 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+from pyautogui.funcoes_teclado_mouse import *
 from functions.manipular_arcgis.comandos_basicos import *
+from functions.interfaces.input_Texto_dinamico import *
 from database.requests import *
 
 

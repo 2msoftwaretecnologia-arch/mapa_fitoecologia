@@ -3,6 +3,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from functions.manipular_arcgis.comandos_basicos import *
+from functions.pyautogui.funcoes_teclado_mouse import *
 from functions.manipular_textos.manipular_textos import *
 from functions.outras_funcoes.outras_infos import *
 from database.requests import *
