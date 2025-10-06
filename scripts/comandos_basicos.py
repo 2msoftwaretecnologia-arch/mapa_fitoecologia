@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from functions.manipular_windos.manipular_windos import *
+from buildkite.Windows.manipular_windos import *
 import pyautogui
 
 def abrir_console():

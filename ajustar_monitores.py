@@ -2,14 +2,14 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from functions.outras_funcoes.coordenadas import *
+from database.coordenadas import *
 import json
 import os
 import tkinter as tk
 from tkinter import simpledialog, messagebox, Listbox, END
 import pyautogui  # <--- IMPORTADO AQUI
 
-ARQUIVO = "config/coordinates.json"
+ARQUIVO = "database/coordinates.json"
 
 # ============================
 # Modelo fixo de objetos (zerados)

@@ -2,23 +2,26 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from functions.manipular_arcgis.ajustar_grid import *
-from functions.manipular_arcgis.ajustar_escala import *
-from functions.manipular_arcgis.fazer_legenda_fitoecologias import *
-from functions.manipular_arcgis.ajustar_nota_Tecnica import *
-from functions.manipular_arcgis.ajustar_quadrados import *
-from functions.manipular_arcgis.ajustar_legendas_propriedade import *
-from functions.interfaces.alerta_simples import *
-from functions.interfaces.formulario_inicial import *
-from functions.manipular_arcgis.selecao_apr import *
+from scripts.ajustar_grid import *
+from scripts.ajustar_escala import *
+from scripts.fazer_legenda_fitoecologias import *
+from scripts.ajustar_nota_Tecnica import *
+from scripts.ajustar_quadrados import *
+from scripts.ajustar_legendas_propriedade import *
+from scripts.selecao_apr import *
+from buildkite.interfaces.alerta_simples import *
+from buildkite.interfaces.formulario_inicial import *
+from buildkite.Windows.abrir_documentos import *
+from database.coordenadas import *
+from database.text_infos import *
 
 
 #ver qual o monitor correto a se utilizar
 from ajustar_monitores import *
 
-# ============================
-# Execução
-# ============================
+# ==================================
+# Executando a logica dos monitores
+# ==================================
 if __name__ == "__main__":
     largura_atual, altura_atual = pyautogui.size()
     coordinates.largura_atual = largura_atual

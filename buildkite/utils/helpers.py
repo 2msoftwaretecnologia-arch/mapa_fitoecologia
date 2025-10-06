@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from functions.interfaces.alerta_simples import *
+from buildkite.interfaces.alerta_simples import *
 
 
 def esperar_aii(shp_path: str,) -> str:

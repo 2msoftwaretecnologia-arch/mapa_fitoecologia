@@ -2,13 +2,13 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from functions.manipular_arcgis.comandos_basicos import *
-from functions.outras_funcoes.outras_infos import *
-from functions.manipular_windos.capturar_click import *
-from functions.interfaces.alerta_simples import *
-from functions.functions_tkinter.escolher_shpy import *
-from functions.functions_pyautogui.funcoes_teclado_mouse import *
-from outras_funcoes.helpers import *
+from scripts.comandos_basicos import *
+from database.text_infos import *
+from buildkite.Windows.capturar_click import *
+from buildkite.interfaces.alerta_simples import *
+from buildkite.functions_tkinter.interfaces import *
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
+from buildkite.utils.helpers import *
 from database.requests import *
 
 def selecionar_apr():
@@ -18,7 +18,6 @@ def selecionar_apr():
     var_apr = var_apr.replace("/","\\")
     var_aii = var_aii.replace("/","\\")
     camada_cordenadas = get_or_set_coordinate(objeto_id=1,mensagem="Clique na lista onde fica a Layer principal do mapa")
-    print(camada_cordenadas)
     clicar_centro_tela()
     esperar(0.2)
     click(camada_cordenadas[0],camada_cordenadas[1])

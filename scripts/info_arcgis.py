@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from functions.outras_funcoes.outras_infos import *
+from database.text_infos import *
 
 def tamano_quadrados(quantidade):
     

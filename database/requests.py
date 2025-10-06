@@ -2,12 +2,12 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from functions.outras_funcoes.coordenadas import *
-from functions.manipular_windos.capturar_click import *
+from buildkite.Windows.capturar_click import *
+from database.coordenadas import *
 import json
 
 
-ARQUIVO = "config/coordinates.json"
+ARQUIVO = "database/coordinates.json"
 
 def request(action: str, objeto_id: int,x: int = None, y: int = None, default=(0, 0)):
     """

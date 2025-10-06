@@ -1,8 +1,8 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from functions.manipular_windos.manipular_windos import *
-from functions.interfaces.alerta_simples import *
+from buildkite.Windows.manipular_windos import *
+from buildkite.interfaces.alerta_simples import *
 from pynput import mouse
 import threading
 

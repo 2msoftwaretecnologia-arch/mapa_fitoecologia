@@ -2,10 +2,11 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
-from functions.functions_pyautogui.mexer_mouse import * 
-from functions.manipular_arcgis.helpers_arcgis import *
-from functions.functions_pyautogui.funcoes_teclado_mouse import *
+from buildkite.functions_pyautogui.mexer_mouse import * 
+from scripts.info_arcgis import *
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
 from database.requests import *
+from database.text_infos import *
 
 
 def ajustar_quadrados_mapa():

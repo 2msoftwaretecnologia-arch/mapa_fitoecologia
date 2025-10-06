@@ -1,11 +1,11 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from functions.manipular_windos.abrir_documentos import *
-from functions.manipular_arcgis.ajustar_quadrados import *
-from functions.interfaces.multiplas_opcoes import *
-from functions.manipular_arcgis.comandos_basicos import *
-from functions.functions_tkinter.aviso_checbox import *
+from buildkite.Windows.abrir_documentos import *
+from scripts.ajustar_quadrados import *
+from buildkite.interfaces.multiplas_opcoes import *
+from scripts.comandos_basicos import *
+from buildkite.functions_tkinter.interfaces import *
 
 
 def fazer_parte_legenda():

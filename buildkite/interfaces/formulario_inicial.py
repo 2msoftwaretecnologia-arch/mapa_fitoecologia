@@ -2,10 +2,10 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from functions.manipular_windos.capturar_click import *
-from functions.outras_funcoes.coordenadas import *
-from functions.outras_funcoes.outras_infos import *
-from functions.interfaces.janela_input_propriedade import *
+from buildkite.interfaces.janela_input_propriedade import *
+from buildkite.Windows.capturar_click import *
+from database.coordenadas import *
+from database.text_infos import *
 
 
 def formulario_incial():

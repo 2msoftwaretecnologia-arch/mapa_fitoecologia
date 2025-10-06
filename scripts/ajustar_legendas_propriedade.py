@@ -2,10 +2,10 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from functions.manipular_arcgis.comandos_basicos import *
-from functions.functions_pyautogui.funcoes_teclado_mouse import *
-from functions.manipular_textos.manipular_textos import *
-from functions.outras_funcoes.outras_infos import *
+from scripts.comandos_basicos import *
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
+from buildkite.manipular_textos.manipular_textos import *
+from database.text_infos import *
 from database.requests import *
 
 def ajustar_info_propriedade():
@@ -14,7 +14,7 @@ def ajustar_info_propriedade():
         ("27,8184","1,8989","0,8466","0,3125")]
     informacoes = [Text_infos.proprietario,Text_infos.matricula]
     for posicao,informacao in zip(posicoes,informacoes):
-        espaco_branco_coordenadas = get_or_set_coordinate(2,"aperte no espaçõ em branco pra eu saber onde fica")
+        espaco_branco_coordenadas = get_or_set_coordinate(2,"aperte no espaço em branco pra eu saber onde fica")
         click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1],tempo=0.1)
         insert(tempo=0.2)
         abrir_textos()
