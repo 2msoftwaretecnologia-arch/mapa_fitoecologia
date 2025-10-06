@@ -1,17 +1,15 @@
-import os
-import sys
-import tkinter as tk
-import pyautogui
+# ==========================================
+# Imports organizados por responsabilidade
+# ==========================================
 
 # ==========================================
 # Configurações de caminho dinâmico do projeto
 # ==========================================
+import os
+import sys
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(BASE_DIR)
 
-# ==========================================
-# Imports organizados por responsabilidade
-# ==========================================
 # Scripts principais
 from scripts.ajustar_grid import fazer_grid
 from scripts.ajustar_escala import ajustar_escala
@@ -28,10 +26,6 @@ from buildkite.Windows.abrir_documentos import *
 
 # Ajuste de monitores
 from ajustar_monitores import *
-
-
-
-
 
 
 def executar_fluxo_principal():
