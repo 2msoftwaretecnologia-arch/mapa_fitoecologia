@@ -16,7 +16,7 @@ def ajustar_info_propriedade():
     for posicao,informacao in zip(posicoes,informacoes):
         espaco_branco_coordenadas = get_or_set_coordinate(2,"aperte no espaço em branco pra eu saber onde fica")
         click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1],tempo=0.1)
-        insert(tempo=0.2)
+        esperar(0.2)
         abrir_textos()
         esperar(0.3)
         selecionar_tudo()
