@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from buildkite.utils.helpers import *
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
-from buildkite.interfaces.input_Texto_dinamico import *
+from buildkite.interfaces.janelas_dinamicas import *
 from database.requests import *
 
 def fazer_grid():

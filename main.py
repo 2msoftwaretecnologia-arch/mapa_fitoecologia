@@ -1,57 +1,44 @@
-import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import sys
+import tkinter as tk
+import pyautogui
 
-from scripts.ajustar_grid import *
-from scripts.ajustar_escala import *
-from scripts.fazer_legenda_fitoecologias import *
-from scripts.ajustar_nota_Tecnica import *
-from scripts.ajustar_quadrados import *
-from scripts.ajustar_legendas_propriedade import *
-from scripts.selecao_apr import *
-from buildkite.interfaces.alerta_simples import *
-from buildkite.interfaces.formulario_inicial import *
+# ==========================================
+# Configurações de caminho dinâmico do projeto
+# ==========================================
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(BASE_DIR)
+
+# ==========================================
+# Imports organizados por responsabilidade
+# ==========================================
+# Scripts principais
+from scripts.ajustar_grid import fazer_grid
+from scripts.ajustar_escala import ajustar_escala
+from scripts.fazer_legenda_fitoecologias import fazer_parte_legenda
+from scripts.ajustar_nota_Tecnica import fazer_nota_tencnica
+from scripts.ajustar_quadrados import ajustar_quadrados_mapa
+from scripts.ajustar_legendas_propriedade import ajustar_info_propriedade
+from scripts.selecao_apr import selecionar_apr
+
+# Interface e janelas
+from buildkite.interfaces.janelas_dinamicas import *
+from buildkite.interfaces.formulario_inicial import formulario_incial
 from buildkite.Windows.abrir_documentos import *
-from database.coordenadas import *
-from database.text_infos import *
 
-
-#ver qual o monitor correto a se utilizar
+# Ajuste de monitores
 from ajustar_monitores import *
 
-# ==================================
-# Executando a logica dos monitores
-# ==================================
-if __name__ == "__main__":
-    largura_atual, altura_atual = pyautogui.size()
-    coordinates.largura_atual = largura_atual
-    coordinates.altura_atual = altura_atual
-    dados = carregar_dados()
 
-    # Verifica se já existe a resolução atual
-    existe = any(r.get("largura") == largura_atual and r.get("altura") == altura_atual for r in dados["resolucoes"])
 
-    if not existe:
-        root = tk.Tk()
-        app = App(root)
-        root.mainloop()
-    else:
-        print(f"✅ Resolução atual {largura_atual}x{altura_atual} já está cadastrada. Interface não aberta.")
 
-Fechar = pyautogui.confirm(title="Confirmação",text="começar??",buttons=["sim","Não"])
-if Fechar == "sim":
-    tipo_mapa = pyautogui.confirm(title="Confirmação",text="Qual o tipo do mapa?",buttons=["Fitoecologia","Geologia"])
-    Text_infos.tipo_mapa = tipo_mapa                        
+
+
+def executar_fluxo_principal():
+    """Executa toda a automação na ordem correta."""
+    janela_dinamica(texto='⚠️ ATENÇÃO: siga as instruções exibidas na tela com atenção.')
+    janela_dinamica(texto='⚙️ Aguarde o carregamento completo dos documentos antes de prosseguir.')
     
-
-    if Text_infos.tipo_mapa == 'Fitoecologia':
-        abrir_documento(caminho_mapa_fitoecologia)
-    if Text_infos.tipo_mapa == 'Geologia':
-        abrir_documento(caminho_mapa_geologia)
-
-    abrir_documento(caminho_word_nota_tecnica)
-    janela_dinamica(texto='ATENÇÃO!!!,\n se atente a todos as mensagens de texto que ira aparecer na sua tela')
-    janela_dinamica(texto='ATENÇÃO!!!,\n espere carregar todos os documentos e depois aperte ok')
     formulario_incial()
     selecionar_apr()
     ajustar_escala()
@@ -60,3 +47,19 @@ if Fechar == "sim":
     fazer_parte_legenda()
     ajustar_quadrados_mapa()
     fazer_nota_tencnica()
+
+# ==========================================
+# Execução principal
+# ==========================================
+if __name__ == "__main__":
+    verificar_resolucao()
+    
+    if confirmar_inicio():
+        tipo = escolher_tipo_mapa()
+        caminho = caminho_atual_mapa()
+        abrir_documento(caminho)
+        abrir_documento(caminho_word_nota_tecnica)
+        executar_fluxo_principal()
+        print("✅ Processo concluído com sucesso.")
+    else:
+        print("❌ Processo cancelado pelo usuário.")

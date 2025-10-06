@@ -8,11 +8,11 @@ class Text_infos:
         nome_propriedade: str,
         tipo_dominante_fitoecologia: str,
         tipo_dominante_geologia: str,
-        
         itens_atuais: list,
         tipo_mapa: str,
         quantidade_necessario_mapa_atual: int,
         descricao_mapa_atual: dict,
+        caminho_mapa_atual: str,
     ):
         
         self._lista_camadas = lista_camadas
@@ -22,11 +22,11 @@ class Text_infos:
         self.nome_propriedade = nome_propriedade
         self.tipo_dominante_fitoecologia = tipo_dominante_fitoecologia
         self.tipo_dominante_geologia = tipo_dominante_geologia
-        
         self.itens_atuais = itens_atuais
         self.tipo_mapa = tipo_mapa
         self.quantidade_necessario_mapa_atual = quantidade_necessario_mapa_atual
         self.descricao_mapa_atual = descricao_mapa_atual
+        self.caminho_mapa_atual = caminho_mapa_atual
         
 
     @property
@@ -44,6 +44,14 @@ class Text_infos:
     @descricao_mapa_atual.setter
     def descricao_mapa_atual(self, nova_descricao_mapa_atual: list) -> None:
         self._descricao_mapa_atual = nova_descricao_mapa_atual
+
+    @property
+    def caminho_mapa_atual(self) -> str:
+        return self._caminho_mapa_atual
+
+    @caminho_mapa_atual.setter
+    def caminho_mapa_atual(self, nova_caminho_mapa_atual: str) -> None:
+        self._caminho_mapa_atual = nova_caminho_mapa_atual
 
     @property
     def proprietario(self) -> str:

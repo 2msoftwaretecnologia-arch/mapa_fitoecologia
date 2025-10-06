@@ -184,3 +184,24 @@ class App:
                 messagebox.showwarning("Aviso", f"Resolução '{nome}' não encontrada (já removida?).")
             self.atualizar_lista()
 
+
+
+def verificar_resolucao():
+    """Verifica se a resolução atual já está cadastrada, caso contrário abre a interface de cadastro."""
+    largura_atual, altura_atual = pyautogui.size()
+    coordinates.largura_atual = largura_atual
+    coordinates.altura_atual = altura_atual
+    dados = carregar_dados()
+
+    existe = any(
+        r.get("largura") == largura_atual and r.get("altura") == altura_atual
+        for r in dados.get("resolucoes", [])
+    )
+
+    if not existe:
+        root = tk.Tk()
+        app = App(root)
+        root.mainloop()
+    else:
+        print(f"✅ Resolução atual {largura_atual}x{altura_atual} já está cadastrada.")
+    return largura_atual, altura_atual
