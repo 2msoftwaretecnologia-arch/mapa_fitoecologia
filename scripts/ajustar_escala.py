@@ -17,7 +17,7 @@ def ajustar_escala():
         fazer_novamente = None
 
         while fazer_novamente != "não":
-            ajuste_escala = input_texto_dinamico(texto="digite sua escla\nse voce não digitar nada e confirmar com 'ok' ou 'enter'\nvamos confirmar que voce não quer mais ajustar\na escala")
+            ajuste_escala = input_texto_dinamico(mensagem="digite sua escla\nse voce não digitar nada e confirmar com 'ok' ou 'enter'\nvamos confirmar que voce não quer mais ajustar\na escala")
             if ajuste_escala.strip() == "":
                 fazer_novamente = "não"
             else:

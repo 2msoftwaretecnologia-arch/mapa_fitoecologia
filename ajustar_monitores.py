@@ -28,6 +28,7 @@ OBJETOS_PADRAO = [
     {"id": 11, "nome": "size_position", "coordenadas": {"x": 0, "y": 0}},
     {"id": 12, "nome": "source", "coordenadas": {"x": 0, "y": 0}},
     {"id": 13, "nome": "text", "coordenadas": {"x": 0, "y": 0}},
+    {"id": 14, "nome": "input_campo", "coordenadas": {"x": 0, "y": 0}},
 ]
 
 # ============================

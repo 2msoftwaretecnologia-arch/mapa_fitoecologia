@@ -25,7 +25,7 @@ def fazer_grid():
             enter()
             
             janela_dinamica("espere a janela de propriedades abrir")
-            janela_dinamica(texto='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi')
+            janela_dinamica(mensagem='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi')
             grid_coordenadas = get_or_set_coordinate(8,"aperte no grid")
             esperar(0.3)
             click(grid_coordenadas[0] , grid_coordenadas[1],clicks_quant=3)
