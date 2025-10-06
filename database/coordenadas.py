@@ -1,4 +1,40 @@
+# ============================================================
+# 🧩 CLASSE: coordinates
+# ============================================================
+# Representa um conjunto de coordenadas e dimensões da tela do
+# usuário, geralmente utilizadas para automações gráficas (ex:
+# PyAutoGUI, ArcGIS, QGIS, etc.).
+#
+# Essa classe mantém as coordenadas do clique no ArcGIS e também
+# armazena a resolução atual do monitor, permitindo ajustar ações
+# automaticamente conforme o tamanho da tela.
+# ============================================================
 class coordinates:
+    """
+    ============================================================
+    🧠 CLASSE: coordinates
+    ============================================================
+
+    📋 DESCRIÇÃO:
+        Armazena e gerencia informações de posição e dimensão da tela
+        utilizadas em processos de automação (ex: captura de cliques
+        no ArcGIS, posicionamento de elementos, etc.).
+
+    ⚙️ ATRIBUTOS:
+        x_arcgis (int):
+            Coordenada X do ponto de referência capturado no ArcGIS.
+
+        y_arcgis (int):
+            Coordenada Y do ponto de referência capturado no ArcGIS.
+
+        largura_atual (int):
+            Largura atual do monitor do usuário.
+
+        altura_atual (int):
+            Altura atual do monitor do usuário.
+
+    ============================================================
+    """
     def __init__(
         self,
         
@@ -10,6 +46,20 @@ class coordinates:
        
         
     ):
+        """
+        ============================================================
+        🔧 CONSTRUTOR
+        ============================================================
+        Inicializa a classe com as coordenadas e as dimensões
+        atuais do monitor.
+
+        Args:
+            x_arcgis (int): Coordenada X do ponto clicado.
+            y_arcgis (int): Coordenada Y do ponto clicado.
+            largura_atual (int): Largura do monitor em pixels.
+            altura_atual (int): Altura do monitor em pixels.
+        ============================================================
+        """
         self.x_arcgis = x_arcgis
         self.Y_arcgis = Y_arcgis
         self.largura_atual = largura_atual

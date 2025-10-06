@@ -9,14 +9,10 @@ from database.requests import *
 def fazer_grid():
     try:
         fazer = "sim"
-        espaco_branco_coordenadas = request("get",objeto_id=2)
-        if espaco_branco_coordenadas == (0,0):
-            x_espaco_vazio, y_espaco_vazio =  capturar_clique("clique em um espaço vazio fora do mapa para eu saber onde fica")
-            request("set",objeto_id=2,x=x_espaco_vazio,y=y_espaco_vazio)
-            espaco_branco_coordenadas = request("get",objeto_id=2)
-        else:
-            esperar(0.2)
-            click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1])
+        espaco_branco_coordenadas = get_or_set_coordinate(2,"clique em um espaço vazio fora do mapa para eu saber onde fica")
+        clicar_centro_tela()
+        esperar(0.3)
+        click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1])
         esperar(1)
         while fazer == 'sim':
             clicar_centro_tela(1)
@@ -30,16 +26,9 @@ def fazer_grid():
             
             janela_dinamica("espere a janela de propriedades abrir")
             janela_dinamica(texto='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi')
-            grid_coordenadas = request("get",objeto_id=8)
-            if grid_coordenadas == (0,0):
-                x_grid , y_grid = capturar_clique("aperte no grid ")
-                request("set",objeto_id=8,x=x_grid,y=y_grid)
-                grid_coordenadas = request("get",objeto_id=8)
-                esperar(1)
-                click(grid_coordenadas[0] , grid_coordenadas[1],clicks_quant=3)
-            else:
-                esperar(0.2)
-                click(grid_coordenadas[0] , grid_coordenadas[1],clicks_quant=3)
+            grid_coordenadas = get_or_set_coordinate(8,"aperte no grid")
+            esperar(0.3)
+            click(grid_coordenadas[0] , grid_coordenadas[1],clicks_quant=3)
             apertar_Tab(5,tempo_espera=0.01)
             enter()
             

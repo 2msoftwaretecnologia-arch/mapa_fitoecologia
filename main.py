@@ -43,7 +43,7 @@ def executar_fluxo_principal():
     fazer_nota_tencnica()
 
 # ==========================================
-# Execução principal
+#           Execução principal                      
 # ==========================================
 if __name__ == "__main__":
     verificar_resolucao()

@@ -1,4 +1,72 @@
+# ============================================================
+# 🧩 CLASSE: Text_infos
+# ============================================================
+# Classe usada como estrutura central para armazenar informações
+# textuais e contextuais da propriedade, do mapa e dos elementos
+# que compõem a análise atual.
+#
+# Ela serve como um “repositório temporário” para dados que serão
+# usados em várias etapas do sistema — desde geração de mapas até
+# criação de notas técnicas e relatórios automáticos.
+# ============================================================
+
 class Text_infos:
+    """
+    ============================================================
+    🧠 CLASSE: Text_infos
+    ============================================================
+
+    📋 DESCRIÇÃO:
+        Armazena informações principais sobre:
+        - Identificação da propriedade e do proprietário
+        - Contexto geográfico (cidade/UF)
+        - Tipo e características do mapa sendo processado
+        - Camadas e itens de interesse do mapa atual
+
+        É usada como base para comunicação entre diferentes
+        módulos do sistema (interfaces, scripts, banco de dados, etc.)
+        evitando repetições e facilitando o transporte de dados.
+
+    ⚙️ ATRIBUTOS:
+        lista_camadas (list):
+            Lista com os nomes das camadas ativas no mapa atual.
+
+        proprietario (str):
+            Nome do proprietário da área.
+
+        matricula (str):
+            Número da matrícula do imóvel (registro cartorial).
+
+        cidade_uf (str):
+            Cidade e UF onde a propriedade está localizada.
+
+        nome_propriedade (str):
+            Nome oficial da fazenda/propriedade.
+
+        tipo_dominante_fitoecologia (str):
+            Tipo de vegetação predominante (para mapa de fitoecologia).
+
+        tipo_dominante_geologia (str):
+            Tipo de formação predominante (para mapa de geologia/geomorfologia).
+
+        itens_atuais (list):
+            Lista de elementos ativos no mapa atual (ex: polígonos, shapefiles, legendas etc.).
+
+        tipo_mapa (str):
+            Tipo do mapa em uso. Exemplos: "Fitoecologia", "Geologia".
+
+        quantidade_necessario_mapa_atual (int):
+            Número de elementos obrigatórios para o mapa estar completo.
+
+        descricao_mapa_atual (dict):
+            Dicionário com detalhes do mapa (ex: legenda, escala, título).
+
+        caminho_mapa_atual (str):
+            Caminho absoluto do arquivo de mapa atual (.mxd, .shp, etc.).
+
+    ============================================================
+    """
+
     def __init__(
         self,
         lista_camadas: list,
@@ -13,19 +81,50 @@ class Text_infos:
         quantidade_necessario_mapa_atual: int,
         descricao_mapa_atual: dict,
         caminho_mapa_atual: str,
-    ):
-        
+    ) -> None:
+        """
+        ============================================================
+        🔧 CONSTRUTOR
+        ============================================================
+        Inicializa o objeto `Text_infos` com todos os campos
+        necessários para representar o contexto textual de uma
+        propriedade ou de um mapa técnico.
+
+        Args:
+            lista_camadas (list): Lista com nomes das camadas carregadas.
+            proprietario (str): Nome do proprietário.
+            matricula (str): Número da matrícula.
+            cidade_uf (str): Cidade e estado (ex: "Porto Nacional - TO").
+            nome_propriedade (str): Nome da propriedade.
+            tipo_dominante_fitoecologia (str): Vegetação dominante.
+            tipo_dominante_geologia (str): Formação geológica dominante.
+            itens_atuais (list): Lista de itens ativos do mapa.
+            tipo_mapa (str): Tipo do mapa atual ("Fitoecologia", "Geologia", etc.).
+            quantidade_necessario_mapa_atual (int): Quantidade mínima de camadas obrigatórias.
+            descricao_mapa_atual (dict): Informações descritivas (legenda, escala, etc.).
+            caminho_mapa_atual (str): Caminho absoluto do arquivo do mapa atual.
+        ============================================================
+        """
+
+        # ============================================================
+        # 📦 ATRIBUTOS BÁSICOS
+        # ============================================================
         self._lista_camadas = lista_camadas
         self.proprietario = proprietario
         self.matricula = matricula
         self.cidade_uf = cidade_uf
         self.nome_propriedade = nome_propriedade
+
+        # ============================================================
+        # 🌳 INFORMAÇÕES TÉCNICAS DE MAPA
+        # ============================================================
         self.tipo_dominante_fitoecologia = tipo_dominante_fitoecologia
         self.tipo_dominante_geologia = tipo_dominante_geologia
         self.itens_atuais = itens_atuais
         self.tipo_mapa = tipo_mapa
         self.quantidade_necessario_mapa_atual = quantidade_necessario_mapa_atual
         self.descricao_mapa_atual = descricao_mapa_atual
+        self.caminho_mapa_atual = caminho_mapa_atual
         self.caminho_mapa_atual = caminho_mapa_atual
         
 

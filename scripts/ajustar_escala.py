@@ -11,15 +11,9 @@ def ajustar_escala():
 
     refazer_escala = pyautogui.confirm(text="Deseja substituir a escala?", buttons=["sim", "não"])
     if refazer_escala == "sim":
-        escala_coordenadas = request("get",objeto_id=10)
-        if escala_coordenadas == (0,0):
-            x_escala, y_escala = capturar_clique("clique em escala para eu saber onde fica")
-            request("set",objeto_id=10,x=x_escala,y=y_escala)
-            escala_coordenadas = request("get",objeto_id=10)
-        else:
-            esperar(0.3)
-            click(escala_coordenadas[0],escala_coordenadas[1])
-        clicar_centro_tela(1)
+        escala_coordenadas = get_or_set_coordinate(10,"clique em escala para eu saber onde fica")
+        esperar(0.3)
+        clicar_centro_tela()
         fazer_novamente = None
 
         while fazer_novamente != "não":
