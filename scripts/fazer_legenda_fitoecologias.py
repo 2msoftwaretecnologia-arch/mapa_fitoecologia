@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from buildkite.Windows.abrir_documentos import *
 from scripts.ajustar_quadrados import *
 from buildkite.interfaces.multiplas_opcoes import *
-from scripts.comandos_basicos import *
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
 from buildkite.functions_tkinter.interfaces import *
 
 

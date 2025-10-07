@@ -2,7 +2,6 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
-from scripts.comandos_basicos import *
 from buildkite.interfaces.janelas_dinamicas import *
 from database.requests import *
 

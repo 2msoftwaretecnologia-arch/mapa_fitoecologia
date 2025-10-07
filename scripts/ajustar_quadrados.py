@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from buildkite.functions_pyautogui.mause_complexo import * 
-from scripts.info_arcgis import *
+from buildkite.utils.info_arcgis import *
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
 from database.requests import *
 from database.text_infos import *

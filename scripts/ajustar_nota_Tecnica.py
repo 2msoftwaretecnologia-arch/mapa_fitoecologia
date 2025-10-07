@@ -3,7 +3,6 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from buildkite.Windows.abrir_documentos import *
-from scripts.comandos_basicos import *
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
 from database.text_infos import *
 from database.requests import *

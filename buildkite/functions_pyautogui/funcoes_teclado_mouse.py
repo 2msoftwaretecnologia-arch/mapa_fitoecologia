@@ -254,3 +254,21 @@ def abrir_margen_pagina_Word(quantidade: int = 1, tempo: float = 0.2) -> None:
     for _ in range(quantidade):
         pyautogui.hotkey('ctrl', 'l')
         time.sleep(tempo)
+
+# ============================================================
+# FUNÇÕES DE TECLADO ARCGIS
+# ============================================================
+
+def apertar_ctrl_home():
+    pyautogui.hotkey('ctrl', 'home')
+    
+def apertar_ctrl_end(tempo=0.1):
+    pyautogui.hotkey('ctrl', 'end')
+    time.sleep(tempo)
+
+def renomear_arcgis():
+    pyautogui.press('f2')
+    time.sleep(0.2)
+    
+def abrir_textos():
+    pyautogui.hotkey('ctrl','h')
