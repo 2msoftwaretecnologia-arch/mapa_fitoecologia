@@ -1,6 +1,4 @@
-shps/
 __pycache__/
 contagem.py
-functions/manipular_windos/abrir_documentos.py
-Mapa A4- Fitofisionomias.mxd
+buildkite/Windows/abrir_documentos.py
 teste.py
