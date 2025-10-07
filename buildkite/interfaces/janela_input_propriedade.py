@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from functions.interfaces.input_de_cidade import *
+from buildkite.interfaces.input_de_cidade import *
 
 def abrir_janela_input_propriedade():
     resultado = {}
