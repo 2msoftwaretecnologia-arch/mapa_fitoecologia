@@ -5,11 +5,14 @@ from buildkite.utils.helpers import *
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
 from buildkite.interfaces.janelas_dinamicas import *
 from database.requests import *
+from database.coordenadas import *
 
 def fazer_grid():
     try:
         fazer = "sim"
         espaco_branco_coordenadas = get_or_set_coordinate(2,"clique em um espaço vazio fora do mapa para eu saber onde fica")
+        coordinates.x_espaco_Branco = espaco_branco_coordenadas[0]
+        coordinates.y_espaco_Branco = espaco_branco_coordenadas[1]
         clicar_centro_tela()
         esperar(0.3)
         click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1])

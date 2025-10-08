@@ -5,6 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
 from buildkite.manipular_textos.manipular_textos import *
 from database.text_infos import *
+from database.coordenadas import *
 from database.requests import *
 
 def ajustar_info_propriedade():
@@ -13,8 +14,8 @@ def ajustar_info_propriedade():
         ("27,8184","1,8989","0,8466","0,3125")]
     informacoes = [Text_infos.proprietario,Text_infos.matricula]
     for posicao,informacao in zip(posicoes,informacoes):
-        espaco_branco_coordenadas = get_or_set_coordinate(2,"aperte no espaço em branco pra eu saber onde fica")
-        click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1],tempo=0.1)
+        
+        click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
         esperar(0.2)
         abrir_textos()
         esperar(0.3)
@@ -22,10 +23,12 @@ def ajustar_info_propriedade():
         escrever_texto(informacao)
         enter(tempo=0.5)
         ponto_incial_coordenadas = get_or_set_coordinate(9,"clique sobre texto para eu enteder onde fica")
+        coordinates.x_ponto_incial = ponto_incial_coordenadas[0]
+        coordinates.y_ponto_incial = ponto_incial_coordenadas[1]
         esperar(0.3)
         click(ponto_incial_coordenadas[0],ponto_incial_coordenadas[1])
         esperar(0.3)
-        click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1],tempo=0.1)
+        click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
         esperar(0.3)
         click(ponto_incial_coordenadas[0],ponto_incial_coordenadas[1],botao='right')
         esperar(0.6)
@@ -52,7 +55,7 @@ def ajustar_info_propriedade():
     cidade_estado = Text_infos.cidade_uf
     if len(cidade_estado) > 16:
         p1,p2 = quebrar_texto(cidade_estado,16,False,True)
-    click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1],tempo=0.1)
+    click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
     abrir_textos()
     esperar(0.3)
     selecionar_tudo()
@@ -63,7 +66,7 @@ def ajustar_info_propriedade():
     if len(cidade_estado) <= 16:
         escrever_texto(cidade_estado)
     enter(tempo=0.5)
-    click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1],tempo=0.1)
+    click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
     esperar(0.3)
     click(ponto_incial_coordenadas[0],ponto_incial_coordenadas[1],botao='right')
     esperar(0.6)

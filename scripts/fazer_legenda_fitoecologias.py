@@ -51,19 +51,21 @@ def fazer_parte_legenda():
 
     click(coordinates.x_arcgis,coordinates.y_arcgis)  # foca na janela do ArcGIS
     esperar(0.5)
-    espaco_branco_coordenadas = get_or_set_coordinate(2,"aperte no espaço em branco pra eu saber onde fica")
-    ponto_incial_coordenadas = get_or_set_coordinate(9,"clique sobre texto para eu enteder onde fica")
-    click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1],tempo=0.1) # clica “em nada”
+    
+    
+    click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1) # clica “em nada”
     esperar(0.5)
     colar()
     esperar(1.5)
-    click(ponto_incial_coordenadas[0],ponto_incial_coordenadas[1],botao="right")#lugar no arcgis que as coisas vão quando são coladas
+    click(coordinates.x_ponto_incial,coordinates.y_ponto_incial,botao="right")#lugar no arcgis que as coisas vão quando são coladas
     esperar(0.5)
     apertar_ctrl_end(tempo=0.2)
     enter()
     esperar(0.5)
     janela_dinamica("Desative o 'preserve aspect radio' se estiver ativo")
     size_position_coordenadas = get_or_set_coordinate(11,"clique em 'size and position' pra eu entender como fica")
+    coordinates.x_size_position = size_position_coordenadas[0]
+    coordinates.y_size_position = size_position_coordenadas[1]
     esperar(0.3)
     # "Size and Position"
     click(size_position_coordenadas[0],size_position_coordenadas[1], clicks_quant=3)
