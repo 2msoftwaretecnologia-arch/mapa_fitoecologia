@@ -1,15 +1,29 @@
 import tkinter as tk
 from tkinter import ttk
+from buildkite.interfaces.input_de_cidade import *
 
 def abrir_janela_input_propriedade():
     resultado = {}
+
+    def selecionar_cidade_estado():
+        if root.winfo_exists():
+            valor = selecionar_estado_cidade()
+            print("Valor selecionado:", valor)
+            if valor:
+                entry_cidade.delete(0, 'end')
+                entry_cidade.insert(0, valor)
+                resultado['cidade_uf'] = valor  # <-- Atualiza o dicionário imediatamente
+                btn_confirmar.config(state='normal')
 
     def confirmar():
         resultado['nome_propriedade'] = entry_nome.get()
         resultado['proprietario'] = entry_proprietario.get()
         resultado['matricula'] = entry_matricula.get()
         resultado['cidade_uf'] = entry_cidade.get()
-        root.quit()
+        print("Dados coletados:", resultado)
+        btn_selecionar_cidade.config(state='disabled')
+        btn_confirmar.config(state='disabled')
+        root.destroy()
 
     root = tk.Tk()
     root.title("Formulário Inicial")
@@ -27,12 +41,14 @@ def abrir_janela_input_propriedade():
     entry_matricula.grid(row=2, column=1, padx=10, pady=5)
 
     ttk.Label(root, text="Cidade - Estado:").grid(row=3, column=0, padx=10, pady=5, sticky="w")
-    entry_cidade = ttk.Entry(root, width=40)
+    entry_cidade = ttk.Entry(root, width=40, state='readonly')
     entry_cidade.grid(row=3, column=1, padx=10, pady=5)
 
-    btn_confirmar = ttk.Button(root, text="Confirmar", command=confirmar)
-    btn_confirmar.grid(row=4, column=0, columnspan=2, pady=15)
+    btn_selecionar_cidade = ttk.Button(root, text="Selecionar Cidade/Estado", command=selecionar_cidade_estado)
+    btn_selecionar_cidade.grid(row=3, column=2, padx=5, pady=5)
 
+    btn_confirmar = ttk.Button(root, text="Confirmar", command=confirmar, state='disabled')
+    btn_confirmar.grid(row=4, column=0, columnspan=3, pady=15)
+    
     root.mainloop()
-    root.destroy()
     return resultado

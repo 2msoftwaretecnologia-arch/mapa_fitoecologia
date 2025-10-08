@@ -3,9 +3,9 @@ from tkinter import ttk
 import json
 
 
-class EstadoCidadeSelector(tk.Tk):
-    def __init__(self):
-        super().__init__()
+class EstadoCidadeSelector(tk.Toplevel):
+    def __init__(self, master=None):
+        super().__init__(master)
         self.title("Seleção de Estado e Cidade")
         self.geometry("500x520")
         self.configure(bg="#f5f5f5")
@@ -125,14 +125,18 @@ class EstadoCidadeSelector(tk.Tk):
             self.confirm_btn.config(state='disabled')
 
     def confirm_selection(self):
-        if self.selected_state and self.city_var.get():
-            self.resultado = f'{self.city_var.get()} - {self.selected_state}'
+        cidade = self.city_var.get()
+        estado = self.state_var.get()
+        if cidade and estado:
+            self.resultado = f"{cidade} - {estado}"
         else:
             self.resultado = None
         self.destroy()
 
 
-def selecionar_estado_cidade():
-    app = EstadoCidadeSelector()
-    app.mainloop()
+def selecionar_estado_cidade(master=None):
+    app = EstadoCidadeSelector(master)
+    app.grab_set()  # bloqueia interação com a janela principal até fechar
+    app.wait_window()
     return app.resultado
+
