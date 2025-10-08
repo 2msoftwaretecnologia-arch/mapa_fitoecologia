@@ -80,7 +80,7 @@ def abrir_checkbox_saida() -> None:
     --------
     >>> abrir_checkbox_saida()
     # Mostra a janela "Atenção!!!" com a mensagem:
-    # "SÓ APERTE AQUI DEPOIS QUE VOCÊ TERMINAR DE DIGITAR O TEXTO"
+    # "SÓ APERTE AQUI DEPOIS QUE VOCÊ TERMINAR A TAREFA"
     """
     def sair() -> None:
         """Fecha a janela principal ao clicar na checkbox."""
@@ -97,7 +97,7 @@ def abrir_checkbox_saida() -> None:
     # Criação da checkbox interativa
     checkbox = tk.Checkbutton(
         root,
-        text="SÓ APERTE AQUI DEPOIS QUE\nVOCÊ TERMINAR DE DIGITAR O TEXTO",
+        text="SÓ APERTE AQUI DEPOIS QUE\nVOCÊ TERMINAR A TAREFA",
         variable=var,
         command=sair
     )

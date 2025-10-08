@@ -10,7 +10,7 @@ from database.requests import *
 from database.text_infos import *
 
 def salvar_mapas():
-    janela_dinamica("espere o arcgis se normalizar e parte ok")
+    abrir_checkbox_saida()
     clicar_centro_tela()
     salvar_mxj(tempo=1)
     pasta_salvar = selecionar_pasta(Text_infos.caminho_mapa_atual)
