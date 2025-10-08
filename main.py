@@ -18,6 +18,7 @@ from scripts.ajustar_nota_Tecnica import fazer_nota_tencnica
 from scripts.ajustar_quadrados import ajustar_quadrados_mapa
 from scripts.ajustar_legendas_propriedade import ajustar_info_propriedade
 from scripts.selecao_apr import selecionar_apr
+from scripts.salvar_mapa import salvar_mapas
 
 # Interface e janelas
 from buildkite.interfaces.janelas_dinamicas import *
@@ -41,6 +42,7 @@ def executar_fluxo_principal():
     fazer_parte_legenda()
     ajustar_quadrados_mapa()
     fazer_nota_tencnica()
+    salvar_mapas()
 
 # ==========================================
 #           Execução principal                      

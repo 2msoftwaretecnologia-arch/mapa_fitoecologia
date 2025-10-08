@@ -111,10 +111,18 @@
                 },
                 {
                     "id": 14,
-                    "nome": "input_campo",
+                    "nome": "input_campo_selecao_apr",
                     "coordenadas": {
-                        "x": 792,
-                        "y": 360
+                        "x": 870,
+                        "y": 619
+                    }
+                },
+                {
+                    "id": 15,
+                    "nome": "input_campo_salvar_mxd",
+                    "coordenadas": {
+                        "x": 1011,
+                        "y": 677
                     }
                 }
             ]

@@ -16,6 +16,7 @@ def selecionar_apr():
     var_aii = esperar_aii(var_apr)
     var_apr = var_apr.replace("/","\\")
     var_aii = var_aii.replace("/","\\")
+    Text_infos.caminho_mapa_atual = var_apr
     camada_cordenadas = get_or_set_coordinate(objeto_id=1,mensagem="Clique na lista onde fica a Layer principal do mapa")
     clicar_centro_tela()
     esperar(0.2)

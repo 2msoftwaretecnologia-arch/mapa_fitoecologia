@@ -272,3 +272,11 @@ def renomear_arcgis():
     
 def abrir_textos():
     pyautogui.hotkey('ctrl','h')
+
+def salvar_mxj(tempo=0.2):
+    pyautogui.hotkey('ctrl','j')
+    time.sleep(tempo)
+
+def salvar_export_mapa(tempo=0.2):
+    pyautogui.hotkey('ctrl','k')
+    time.sleep(tempo)
