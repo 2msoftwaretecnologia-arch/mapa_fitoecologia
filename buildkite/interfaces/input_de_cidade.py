@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import json
+import os
 
 
 class EstadoCidadeSelector(tk.Toplevel):
@@ -28,7 +29,9 @@ class EstadoCidadeSelector(tk.Toplevel):
                         background=[('active', '#1976d2')],
                         relief=[('pressed', 'sunken'), ('!pressed', 'raised')])
 
-        with open('estados-cidades.json', 'r', encoding='utf-8') as f:
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+        json_path = os.path.join(base_dir, 'estados-cidades.json')
+        with open(json_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         self.states = sorted(item['sigla'] for item in data)
         self.cities_by_state = {item['sigla']: item['cidades'] for item in data}
@@ -140,3 +143,10 @@ def selecionar_estado_cidade(master=None):
     app.wait_window()
     return app.resultado
 
+
+if __name__ == "__main__":
+    # Permite testar apenas o seletor de Estado/Cidade
+    root = tk.Tk()
+    root.withdraw()
+    valor = selecionar_estado_cidade(root)
+    print("Selecionado:", valor)

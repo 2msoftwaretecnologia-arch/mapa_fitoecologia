@@ -10,8 +10,11 @@ def abrir_janela_input_propriedade():
             valor = selecionar_estado_cidade()
             print("Valor selecionado:", valor)
             if valor:
+                # Alterna para 'normal' para permitir atualização visual e volta para 'readonly'
+                entry_cidade.config(state='normal')
                 entry_cidade.delete(0, 'end')
                 entry_cidade.insert(0, valor)
+                entry_cidade.config(state='readonly')
                 resultado['cidade_uf'] = valor  # <-- Atualiza o dicionário imediatamente
                 btn_confirmar.config(state='normal')
 
@@ -52,3 +55,9 @@ def abrir_janela_input_propriedade():
     
     root.mainloop()
     return resultado
+
+
+if __name__ == "__main__":
+    # Teste rápido da janela de formulário isoladamente
+    dados = abrir_janela_input_propriedade()
+    print("Resultado do formulário:", dados)

@@ -11,8 +11,10 @@ Este módulo integra componentes de diferentes partes do projeto:
 import sys
 import os
 
-# Adiciona o diretório pai ao caminho de importação para permitir imports relativos
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Garante que a raiz do projeto esteja no sys.path para permitir imports como 'from buildkite...'
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+if PROJECT_ROOT not in sys.path:
+    sys.path.append(PROJECT_ROOT)
 
 # Imports internos do projeto
 from buildkite.interfaces.janela_input_propriedade import abrir_janela_input_propriedade
@@ -63,15 +65,21 @@ def formulario_incial() -> None:
     # ===============================
     # 2. Armazena os dados textuais
     # ===============================
-    Text_infos.nome_propriedade = campos['nome_propriedade']
-    Text_infos.proprietario = campos['proprietario']
-    Text_infos.matricula = campos['matricula']
-    Text_infos.cidade_uf = campos['cidade_uf']
+    # Suporta cancelamento/fechamento da janela sem confirmar
+    campos = campos or {}
+    Text_infos.nome_propriedade = campos.get('nome_propriedade', '')
+    Text_infos.proprietario = campos.get('proprietario', '')
+    Text_infos.matricula = campos.get('matricula', '')
+    Text_infos.cidade_uf = campos.get('cidade_uf', '')
 
     # ===============================
-    # 3. Captura coordenadas via clique
+    # 3. Captura coordenadas via clique (ou simulação em modo de teste)
     # ===============================
-    x_arcgis, y_arcgis = capturar_clique("Clique no ArcGIS para eu saber onde fica")
+    if os.getenv("FORM_INICIAL_TEST", "0") == "1":
+        # Em modo de teste, gera coordenadas simuladas
+        x_arcgis, y_arcgis = (123.45, 67.89)
+    else:
+        x_arcgis, y_arcgis = capturar_clique("Clique no ArcGIS para eu saber onde fica")
 
     # ===============================
     # 4. Armazena coordenadas globais
