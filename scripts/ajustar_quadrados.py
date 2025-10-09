@@ -11,7 +11,7 @@ from database.coordenadas import *
 
 
 def ajustar_quadrados_mapa():
-    janela_dinamica("espere o arcgis se normalizar e parte ok")
+    janela_pausa("espere o arcgis se normalizar e parte ok")
     estilo_atual = estilos_atuais()
     x_tamanho,y_tamanho = tamano_quadrados(Text_infos.quantidade_necessario_mapa_atual)
     lista_posicao = posicao_quadrados(Text_infos.quantidade_necessario_mapa_atual)

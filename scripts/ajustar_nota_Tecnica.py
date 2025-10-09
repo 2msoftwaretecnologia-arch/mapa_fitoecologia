@@ -25,7 +25,7 @@ O mapa geológico da propriedade {Text_infos.nome_propriedade} detalha as forma�
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
 
     abrir_documento(caminho_word_nota_tecnica)
-    janela_dinamica("espere o word abrir e aperte em OK")
+    janela_pausa("espere o word abrir e aperte em OK")
     clicar_centro_tela()
     esperar(0.5)
     abrir_margen_pagina_Word(4)

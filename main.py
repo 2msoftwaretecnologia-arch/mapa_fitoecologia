@@ -31,8 +31,8 @@ from ajustar_monitores import *
 
 def executar_fluxo_principal():
     """Executa toda a automação na ordem correta."""
-    janela_dinamica(mensagem ='⚠️ ATENÇÃO: siga as instruções exibidas na tela com atenção.')
-    janela_dinamica(mensagem ='⚙️ Aguarde o carregamento completo dos documentos antes de prosseguir.')
+    janela_pausa(mensagem ='⚠️ ATENÇÃO: siga as instruções exibidas na tela com atenção.')
+    janela_pausa(mensagem ='⚙️ Aguarde o carregamento completo dos documentos antes de prosseguir.')
     
     formulario_incial()
     selecionar_apr()

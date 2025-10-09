@@ -34,7 +34,7 @@ def ajustar_info_propriedade():
         esperar(0.6)
         apertar_ctrl_end()
         enter()
-        janela_dinamica("espere abrir e aperte 'OK'")
+        janela_pausa("espere abrir e aperte 'OK'")
         text_coordenadas = get_or_set_coordinate(13,"clique em 'Text' pra eu entender como fica")
         esperar(0.3)
         click(text_coordenadas[0],text_coordenadas[1],clicks_quant=3)

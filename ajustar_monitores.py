@@ -30,6 +30,7 @@ OBJETOS_PADRAO = [
     {"id": 13, "nome": "text", "coordenadas": {"x": 0, "y": 0}},
     {"id": 14, "nome": "input_campo_selecao_apr", "coordenadas": {"x": 0, "y": 0}},
     {"id": 15, "nome": "input_campo_salvar_mxd", "coordenadas": {"x": 0, "y": 0}},
+    {"id": 16, "nome": "input_campo_salvar_pdf_jpeg", "coordenadas": {"x": 0, "y": 0}},
 ]
 
 # ============================

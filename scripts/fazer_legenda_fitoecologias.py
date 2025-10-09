@@ -41,7 +41,7 @@ def fazer_parte_legenda():
     esperar(0.3)
     enter(tempo=0.3)
 
-    janela_dinamica("Faça a descrição do seu texto entre 1100 e 1200 caractes")
+    janela_pausa("Faça a descrição do seu texto entre 1100 e 1200 caractes")
     abrir_checkbox_saida()
     clicar_centro_tela()
     esperar(0.2)
@@ -62,7 +62,7 @@ def fazer_parte_legenda():
     apertar_ctrl_end(tempo=0.2)
     enter()
     esperar(0.5)
-    janela_dinamica("Desative o 'preserve aspect radio' se estiver ativo")
+    janela_pausa("Desative o 'preserve aspect radio' se estiver ativo")
     size_position_coordenadas = get_or_set_coordinate(11,"clique em 'size and position' pra eu entender como fica")
     coordinates.x_size_position = size_position_coordenadas[0]
     coordinates.y_size_position = size_position_coordenadas[1]

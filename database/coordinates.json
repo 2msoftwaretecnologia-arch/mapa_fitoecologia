@@ -124,6 +124,14 @@
                         "x": 1011,
                         "y": 677
                     }
+                },
+                {
+                    "id": 16,
+                    "nome": "input_campo_salvar_pdf_jpeg",
+                    "coordenadas": {
+                        "x": 992,
+                        "y": 523
+                    }
                 }
             ]
         }

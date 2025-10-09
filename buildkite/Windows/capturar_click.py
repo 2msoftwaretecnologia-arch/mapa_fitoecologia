@@ -60,9 +60,9 @@ def capturar_clique(texto: str) -> tuple[int, int]:
     # ============================================================
     # 🪟 MOSTRA UMA JANELA INFORMATIVA
     # ============================================================
-    # A função 'janela_dinamica' exibe uma caixa de diálogo
+    # A função 'janela_pausa' exibe uma caixa de diálogo
     # (janela Tkinter) informando o que o usuário deve fazer.
-    janela_dinamica(texto)
+    janela_pausa(texto)
 
     # ============================================================
     # 🎯 VARIÁVEIS INTERNAS
