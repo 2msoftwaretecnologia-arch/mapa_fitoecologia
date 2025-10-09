@@ -38,7 +38,8 @@ def abrir_janela_input_propriedade():
                 atualizar_estado_confirmar()
 
     def confirmar():
-        # Revalida antes de aceitar
+        if btn_confirmar['state'] == 'disabled':
+            return
         if not todos_campos_validos():
             messagebox.showerror(
                 title="Dados inválidos",
