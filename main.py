@@ -21,12 +21,12 @@ from scripts.selecao_apr import selecionar_apr
 from scripts.salvar_mapa import salvar_mapas
 
 # Interface e janelas
-from buildkite.interfaces.janelas_dinamicas import *
+from buildkite.interfaces.janelas_dinamicas import janela_pausa, confirmar_inicio, escolher_tipo_mapa
 from buildkite.interfaces.formulario_inicial import formulario_incial
-from buildkite.Windows.abrir_documentos import *
+from buildkite.Windows.abrir_documentos import abrir_documento, caminho_atual_mapa, caminho_word_nota_tecnica
 
 # Ajuste de monitores
-from ajustar_monitores import *
+from ajustar_monitores import verificar_resolucao
 
 
 def executar_fluxo_principal():

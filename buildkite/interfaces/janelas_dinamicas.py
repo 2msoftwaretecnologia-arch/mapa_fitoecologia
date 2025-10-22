@@ -13,7 +13,7 @@ if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)  # prioriza o raiz do projeto
 
 
-from database.text_infos import *  #TODO: Evite wildcard import: deixa claro o que usa
+from database.text_infos import Text_infos  # Import específico em vez de wildcard
 
 
 def input_texto_dinamico(mensagem: str, titulo: str = "Entrada de Texto") -> Optional[str]:
