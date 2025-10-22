@@ -1,10 +1,11 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
-from buildkite.interfaces.janelas_dinamicas import *
-from database.requests import *
-
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import clicar_centro_tela,click, selecionar_tudo, escrever_texto, enter
+from buildkite.interfaces.janelas_dinamicas import input_texto_dinamico
+from buildkite.Windows.manipular_windos import esperar , limpar_area_transferencia
+from database.requests import get_or_set_coordinate
+import pyautogui
 
 def ajustar_escala():
 

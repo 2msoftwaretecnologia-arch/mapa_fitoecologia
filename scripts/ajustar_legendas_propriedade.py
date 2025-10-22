@@ -2,11 +2,14 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
-from buildkite.manipular_textos.manipular_textos import *
-from database.text_infos import *
-from database.coordenadas import *
-from database.requests import *
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import click,enter,escrever_texto,apertar_Tab,direita,selecionar_tudo,abrir_textos,apertar_ctrl_end
+from buildkite.manipular_textos.manipular_textos import quebrar_texto
+from buildkite.interfaces.janelas_dinamicas import janela_pausa
+from buildkite.Windows.manipular_windos import esperar
+from database.text_infos import Text_infos
+from database.coordenadas import coordinates
+from database.requests import get_or_set_coordinate
+import pyautogui
 
 def ajustar_info_propriedade():
     posicoes = [

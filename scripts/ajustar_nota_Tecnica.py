@@ -2,10 +2,16 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from buildkite.Windows.abrir_documentos import *
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
-from database.text_infos import *
-from database.requests import *
+from buildkite.Windows.abrir_documentos import abrir_documento,caminho_word_nota_tecnica
+from buildkite.Windows.manipular_windos import esperar
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import (clicar_centro_tela,enter,escrever_texto,apertar_Tab,click,
+                                                                 colar,selecionar_tudo,apertar_ctrl_end,copiar,escolher_fonte_Word,
+                                                                 abrir_margen_pagina_Word,selecionar_tudo_Word,centralizar_texto_Word,
+                                                                 apertar_ctrl_home)
+from database.text_infos import Text_infos
+from database.coordenadas import coordinates
+from buildkite.interfaces.janelas_dinamicas import janela_pausa
+import pyautogui
 
 def fazer_nota_tencnica():
     if Text_infos.tipo_mapa == 'Fitoecologia':
@@ -23,6 +29,15 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
 
 O mapa geológico da propriedade {Text_infos.nome_propriedade} detalha as formações litológicas presentes na área, com destaque para a {Text_infos.tipo_dominante_geologia}.
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
+
+    if Text_infos.tipo_mapa == 'Pedologia':
+        pedologia_predominante = pyautogui.confirm(title="Pedologia Predominante",text="Qual a Pedologia predominante da propriedade?",buttons=Text_infos.itens_atuais)
+        Text_infos.tipo_dominante_pedologia = pedologia_predominante
+        texto_nota_tecnica= f"""Nota Técnica
+
+O mapa pedológico da propriedade {Text_infos.nome_propriedade} detalha as formações solares presentes na área, com destaque para a {Text_infos.tipo_dominante_pedologia}.
+Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
+        
 
     abrir_documento(caminho_word_nota_tecnica)
     janela_pausa("espere o word abrir e aperte em OK")

@@ -9,7 +9,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Importa a função personalizada 'janela_pausa'
-from buildkite.interfaces.janelas_dinamicas import *
+from buildkite.interfaces.janelas_dinamicas import janela_pausa
 
 
 def esperar_aii(shp_path: str) -> str:

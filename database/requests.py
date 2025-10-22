@@ -6,9 +6,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # 🔧 IMPORTAÇÕES INTERNAS
 # ============================================================
 # Módulo que permite capturar um clique do usuário (X,Y)
-from buildkite.Windows.capturar_click import *
+from buildkite.Windows.capturar_click import capturar_clique
 # Objeto 'coordinates' com informações sobre a resolução atual
-from database.coordenadas import *
+from database.coordenadas import coordinates
 import json
 
 

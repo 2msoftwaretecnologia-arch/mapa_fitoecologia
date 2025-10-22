@@ -2,13 +2,13 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from database.text_infos import *
-from buildkite.Windows.capturar_click import *
-from buildkite.interfaces.janelas_dinamicas import *
-from buildkite.functions_tkinter.interfaces import *
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
-from buildkite.utils.helpers import *
-from database.requests import *
+from database.text_infos import Text_infos
+from buildkite.Windows.manipular_windos import esperar
+from buildkite.functions_tkinter.interfaces import escolher_shp
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import (clicar_centro_tela,click,enter,apertar_ctrl_home,
+                                                                 apertar_pra_baixo,apertar_Tab,escrever_texto,pressionar_tecla)
+from buildkite.utils.helpers import esperar_aii,janela_pausa
+from database.requests import get_or_set_coordinate
 
 def selecionar_apr():
     
@@ -69,6 +69,8 @@ def selecionar_apr():
     if Text_infos.tipo_mapa == 'Fitoecologia':
         apertar_pra_baixo(16,tempo_espera=0.002)
     if Text_infos.tipo_mapa == 'Geologia':
+        apertar_pra_baixo(8,tempo_espera=0.002)
+    if Text_infos.tipo_mapa == 'Pedologia':
         apertar_pra_baixo(8,tempo_espera=0.002)
     
     esperar(0.2)

@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from database.text_infos import *
+from database.text_infos import Text_infos
 
 def tamano_quadrados(quantidade):
     
@@ -72,6 +72,22 @@ def estilos_atuais():
             "Serras de Santo Antônio -- João Damião": [192, 192, 192],
             "Vãos da Bacia do Alto Parnaíba": [72, 209, 204]  # Azul esverdeado → várzeas/vãos
         }
+    if Text_infos.tipo_mapa == 'Pedologia':
+        return {
+            "Afl. Rochoso": (230, 25, 25),      # vermelho rochoso
+            "ARGISSOLOS": (241, 163, 64),       # laranja argiloso
+            "Cambissolos": (216, 179, 101),     # marrom claro
+            "Chernossolos": (140, 94, 160),     # roxo acinzentado
+            "Dunas": (255, 255, 0),             # amarelo areia
+            "Gleissolos": (166, 216, 212),      # azul esverdeado úmido
+            "Latossolos": (255, 102, 102),      # vermelho rosado
+            "Luvissolos": (255, 179, 230),      # rosa claro
+            "Neossolos": (242, 226, 210),       # bege arenoso
+            "Nitossolos": (194, 124, 78),       # marrom avermelhado
+            "Planossolos": (182, 227, 182),     # verde claro
+            "Plintossolos": (153, 153, 153)     # cinza plintítico
+        }
+
 
 limites_texto_informacoes = {
     "proprietario":29,
@@ -108,6 +124,21 @@ Regioes_geologicas = [
     "Serras de Arraias e da Canoa",
     "Serras de Santo Antônio -- João Damião",
     "Vãos da Bacia do Alto Parnaíba"
+]
+
+classes_solos_pedologia = [
+    "Afl. Rochoso",
+    "ARGISSOLOS",
+    "Cambissolos",
+    "Chernossolos",
+    "Dunas",
+    "Gleissolos",
+    "Latossolos",
+    "Luvissolos",
+    "Neossolos",
+    "Nitossolos",
+    "Planossolos",
+    "Plintossolos"
 ]
 
 regioes_fitoecologias = ['Floresta Estacional', 'Floresta Ombrófila Aberta', 

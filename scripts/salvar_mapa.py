@@ -2,12 +2,13 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
-from buildkite.interfaces.janelas_dinamicas import *
-from buildkite.functions_tkinter.interfaces import *
-from buildkite.Windows.manipular_windos import *
-from database.requests import *
-from database.text_infos import *
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import (clicar_centro_tela,salvar_mxj,salvar_export_mapa,
+                                                                 click,escrever_texto,selecionar_tudo,enter,apertar_Tab,pressionar_tecla)
+from buildkite.interfaces.janelas_dinamicas import janela_pausa
+from buildkite.functions_tkinter.interfaces import abrir_checkbox_saida,selecionar_pasta
+from buildkite.Windows.manipular_windos import esperar
+from database.requests import get_or_set_coordinate
+from database.text_infos import Text_infos
 
 def salvar_mapas():
     abrir_checkbox_saida()
@@ -22,7 +23,12 @@ def salvar_mapas():
     selecionar_tudo(tempo=0.3)
     escrever_texto(pasta_salvar,velocidade=0.002)
     esperar(0.2)
-    escrever_texto("Mapa A4- Fitofisionomias.mxd")
+    if Text_infos.tipo_mapa == 'Pedologia':
+        escrever_texto("Mapa A4- Fitofisionomias.mxd")
+    if Text_infos.tipo_mapa == 'Geologia':
+        escrever_texto("Mapa A4- Geofomologia.mxd")
+    if Text_infos.tipo_mapa == 'Fitofisionomias':
+        escrever_texto("Mapa A4- Fitofisionomias.mxd")
     enter()
     janela_pausa("espere o globo no canto esquerdo finalizar e aperte ok")
     salvar_export_mapa()
@@ -32,7 +38,12 @@ def salvar_mapas():
     selecionar_tudo(tempo=0.3)
     escrever_texto(pasta_salvar,velocidade=0.002)
     esperar(0.2)
-    escrever_texto("Mapa A4- Fitofisionomias.jpg")
+    if Text_infos.tipo_mapa == 'Pedologia':
+        escrever_texto("Mapa A4- Fitofisionomias.jpg")
+    if Text_infos.tipo_mapa == 'Geologia':
+        escrever_texto("Mapa A4- Geofomologia.jpg")
+    if Text_infos.tipo_mapa == 'Fitofisionomias':
+        escrever_texto("Mapa A4- Fitofisionomias.jpg")
     apertar_Tab(tempo_espera=0.1)
     pressionar_tecla("j",tempo=0.3)
     enter()
@@ -43,7 +54,12 @@ def salvar_mapas():
     selecionar_tudo(tempo=0.3)
     escrever_texto(pasta_salvar,velocidade=0.002)
     esperar(0.2)
-    escrever_texto("Mapa A4- Fitofisionomias.pdf")
+    if Text_infos.tipo_mapa == 'Pedologia':
+        escrever_texto("Mapa A4- Fitofisionomias.pdf")
+    if Text_infos.tipo_mapa == 'Geologia':
+        escrever_texto("Mapa A4- Geofomologia.pdf")
+    if Text_infos.tipo_mapa == 'Fitofisionomias':
+        escrever_texto("Mapa A4- Fitofisionomias.pdf")
     apertar_Tab(tempo_espera=0.1)
     pressionar_tecla("j",tempo=0.2)
     pressionar_tecla("p",quantidade=2,tempo=0.2)

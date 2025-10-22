@@ -7,8 +7,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # ============================================================
 # 'manipular_windos' → funções auxiliares para pausas, janelas, etc.
 # 'janelas_dinamicas' → exibe caixas de diálogo interativas (alertas Tkinter)
-from buildkite.Windows.manipular_windos import *
-from buildkite.interfaces.janelas_dinamicas import *
+from buildkite.Windows.manipular_windos import esperar
+from buildkite.interfaces.janelas_dinamicas import janela_pausa
 
 # ============================================================
 # 📦 IMPORTAÇÕES EXTERNAS

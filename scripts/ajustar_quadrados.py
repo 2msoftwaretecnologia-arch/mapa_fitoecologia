@@ -2,12 +2,14 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
-from buildkite.functions_pyautogui.mause_complexo import * 
-from buildkite.utils.info_arcgis import *
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import *
-from database.requests import *
-from database.text_infos import *
-from database.coordenadas import *
+from buildkite.functions_pyautogui.mause_complexo import desenhar_quadrado
+from buildkite.utils.info_arcgis import estilos_atuais,posicao_quadrados,tamano_quadrados
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import click,escrever_texto,enter,apertar_Tab,cima, pressionar_tecla , direita
+from buildkite.Windows.manipular_windos import esperar
+from buildkite.interfaces.janelas_dinamicas import janela_pausa
+from database.requests import get_or_set_coordinate
+from database.text_infos import Text_infos
+from database.coordenadas import coordinates
 
 
 def ajustar_quadrados_mapa():
