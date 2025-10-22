@@ -41,7 +41,7 @@ def fazer_parte_legenda():
     abrir_margen_pagina_Word(4)
     #colocar a borda no word
     apertar_Tab(3, tempo_espera=0.01)
-    escrever_texto("6,5")
+    escrever_texto("8,5")
     esperar(0.3)
     enter(tempo=0.5)
     esperar(1)
@@ -74,7 +74,7 @@ def fazer_parte_legenda():
     apertar_ctrl_end(tempo=0.2)
     enter()
     esperar(0.5)
-    janela_pausa("Desative o 'preserve aspect radio' se estiver ativo")
+    janela_pausa("Ative o 'preserve aspect radio' se estiver desativo")
     size_position_coordenadas = get_or_set_coordinate(11,"clique em 'size and position' pra eu entender como fica")
     coordinates.x_size_position = size_position_coordenadas[0]
     coordinates.y_size_position = size_position_coordenadas[1]
@@ -82,13 +82,13 @@ def fazer_parte_legenda():
     # "Size and Position"
     click(size_position_coordenadas[0],size_position_coordenadas[1], clicks_quant=3)
     apertar_Tab(tempo_espera=0.1)
-    escrever_texto("22,8838")
+    escrever_texto("22,693")
     apertar_Tab(tempo_espera=0.1)
-    escrever_texto("4,7244")
+    escrever_texto("4,4731")
     apertar_Tab(3, tempo_espera=0.1)
-    escrever_texto("6,4500")
+    escrever_texto("6,6406")
     apertar_Tab(tempo_espera=0.1)
     esperar(0.3)
     selecionar_tudo()
-    escrever_texto("7,2859")
+    escrever_texto("7,4618")
     enter(tempo=0.5)
