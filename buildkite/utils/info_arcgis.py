@@ -87,6 +87,14 @@ def estilos_atuais():
             "Planossolos": (182, 227, 182),     # verde claro
             "Plintossolos": (153, 153, 153)     # cinza plintítico
         }
+    if Text_infos.tipo_mapa == 'Regioes_climaticas':
+        return {
+            "B1wA'a'": (114, 178, 255),  
+            "B2rA'a'": (0, 60, 132),    
+            "C1dA'a'": (250, 112, 1),  
+            "C2rA'a'": (0, 172, 240),  
+            "C2wA'a'": (255, 235, 190) 
+        }
 
 
 limites_texto_informacoes = {
@@ -145,3 +153,12 @@ regioes_fitoecologias = ['Floresta Estacional', 'Floresta Ombrófila Aberta',
                          'Floresta Ombrófila Densa', 'Savana Gramíneo Lenhosa', 
                          'Savana Arborizada/Arbórea', 'Savana Florestada', 
                          'Savana Parque', 'Rio']
+
+
+regioes_climaticas = [
+    "B1wA'a'",
+    "B2rA'a'",
+    "C1dA'a'",
+    "C2rA'a'",
+    "C2wA'a'"
+]

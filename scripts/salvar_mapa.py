@@ -29,6 +29,8 @@ def salvar_mapas():
         escrever_texto("Mapa A4- Geofomologia.mxd")
     if Text_infos.tipo_mapa == 'Fitofisionomias':
         escrever_texto("Mapa A4- Fitofisionomias.mxd")
+    if Text_infos.tipo_mapa == 'Regioes_climaticas':
+        escrever_texto("Mapa A4- Regioes Climaticas.mxd")
     enter()
     janela_pausa("espere o globo no canto esquerdo finalizar e aperte ok")
     salvar_export_mapa()
@@ -44,6 +46,9 @@ def salvar_mapas():
         escrever_texto("Mapa A4- Geofomologia.jpg")
     if Text_infos.tipo_mapa == 'Fitofisionomias':
         escrever_texto("Mapa A4- Fitofisionomias.jpg")
+    if Text_infos.tipo_mapa == 'Regioes_climaticas':
+        escrever_texto("Mapa A4- Regioes Climaticas.jpg")
+    
     apertar_Tab(tempo_espera=0.1)
     pressionar_tecla("j",tempo=0.3)
     enter()
@@ -60,6 +65,9 @@ def salvar_mapas():
         escrever_texto("Mapa A4- Geofomologia.pdf")
     if Text_infos.tipo_mapa == 'Fitofisionomias':
         escrever_texto("Mapa A4- Fitofisionomias.pdf")
+    if Text_infos.tipo_mapa == 'Regioes_climaticas':
+        escrever_texto("Mapa A4- Regioes Climaticas.pdf")
+    
     apertar_Tab(tempo_espera=0.1)
     pressionar_tecla("j",tempo=0.2)
     pressionar_tecla("p",quantidade=2,tempo=0.2)

@@ -37,7 +37,15 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
 
 O mapa pedológico da propriedade {Text_infos.nome_propriedade} detalha as formações solares presentes na área, com destaque para a {Text_infos.tipo_dominante_pedologia}.
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
-        
+
+    if Text_infos.tipo_mapa == 'Regioes_climaticas':
+        regiao_climatica_predominante = pyautogui.confirm(title="Região Climática Predominante",text="Qual a Região Climática predominante da propriedade?",buttons=Text_infos.itens_atuais)
+        Text_infos.tipo_dominante_regiao_climatica = regiao_climatica_predominante
+        texto_nota_tecnica= f"""Nota Técnica 
+
+O mapa de Regiões Climáticas da propriedade {Text_infos.nome_propriedade} detalha as regiões climáticas predominantes na área, com destaque para a {Text_infos.tipo_dominante_regiao_climatica}.
+Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
+
 
     abrir_documento(caminho_word_nota_tecnica)
     janela_pausa("espere o word abrir e aperte em OK")

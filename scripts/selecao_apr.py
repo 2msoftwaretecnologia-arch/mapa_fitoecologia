@@ -72,6 +72,8 @@ def selecionar_apr():
         apertar_pra_baixo(8,tempo_espera=0.002)
     if Text_infos.tipo_mapa == 'Pedologia':
         apertar_pra_baixo(8,tempo_espera=0.002)
+    if Text_infos.tipo_mapa == 'Regioes_climaticas':
+        apertar_pra_baixo(8,tempo_espera=0.002)
     
     esperar(0.2)
     enter()

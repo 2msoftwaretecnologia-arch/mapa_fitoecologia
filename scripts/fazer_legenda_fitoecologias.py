@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from buildkite.Windows.abrir_documentos import abrir_documento,caminho_word_nota_tecnica
-from buildkite.utils.info_arcgis import regioes_fitoecologias,classes_solos_pedologia,Regioes_geologicas
+from buildkite.utils.info_arcgis import regioes_fitoecologias,classes_solos_pedologia,Regioes_geologicas,regioes_climaticas
 from scripts.ajustar_quadrados import Text_infos
 from buildkite.interfaces.multiplas_opcoes import criar_interface_opcoes
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import (clicar_centro_tela,abrir_margen_pagina_Word,selecionar_tudo,escrever_texto,click,
@@ -29,8 +29,12 @@ def fazer_parte_legenda():
     if Text_infos.tipo_mapa == 'Pedologia':
         itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=classes_solos_pedologia)
         Text_infos.itens_atuais = itens_mapa_atual
-                
-                
+
+        
+    if Text_infos.tipo_mapa == 'Regioes_climaticas':
+        itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=regioes_climaticas)
+        Text_infos.itens_atuais = itens_mapa_atual
+                 
     Text_infos.quantidade_necessario_mapa_atual = len(Text_infos.itens_atuais)
     
     
