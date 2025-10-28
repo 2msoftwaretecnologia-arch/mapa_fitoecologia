@@ -110,7 +110,16 @@ def estilos_atuais():
             "CD - Mosaico com predomínio de C sobre D": (0, 130, 0),
             "DC - Mosaico com predomínio de D sobre C": (255, 145, 145),
         }
-    
+    if Text_infos.tipo_mapa == 'Erodibilidade':
+        return {
+            "1 - Muito Fraca a Fraca": (254, 250, 114),
+            "2 - Ligeira": (254, 249, 193),
+            "3 - Moderada": (254, 190, 0),
+            "4 - Forte": (248, 193, 254),
+            "5 - Muito Forte": (252, 125, 254),
+            "6 - Especial": (234, 51, 161),
+        }
+      
 
 
 limites_texto_informacoes = {
@@ -193,4 +202,13 @@ Declividade = [
     "CD - Mosaico com predomínio de C sobre D",
     "DC - Mosaico com predomínio de D sobre C",
 
+]
+
+Erodibilidade = [
+    "1 - Muito Fraca a Fraca",
+    "2 - Ligeira",
+    "3 - Moderada",
+    "4 - Forte",
+    "5 - Muito Forte",
+    "6 - Especial",
 ]

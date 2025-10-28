@@ -76,6 +76,8 @@ def selecionar_apr():
         apertar_pra_baixo(10,tempo_espera=0.002)
     if Text_infos.tipo_mapa == 'Declividade':
         apertar_pra_baixo(10,tempo_espera=0.002)
+    if Text_infos.tipo_mapa == 'Erodibilidade':
+        apertar_pra_baixo(10,tempo_espera=0.002)
     
     esperar(0.2)
     enter()

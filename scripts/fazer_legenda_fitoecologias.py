@@ -2,7 +2,9 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from buildkite.Windows.abrir_documentos import abrir_documento,caminho_word_nota_tecnica
-from buildkite.utils.info_arcgis import regioes_fitoecologias,classes_solos_pedologia,Regioes_geologicas,regioes_climaticas,Declividade
+from buildkite.utils.info_arcgis import (regioes_fitoecologias,classes_solos_pedologia,
+                                        Regioes_geologicas,regioes_climaticas,Declividade,
+                                        Erodibilidade)
 from scripts.ajustar_quadrados import Text_infos
 from buildkite.interfaces.multiplas_opcoes import criar_interface_opcoes
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import (clicar_centro_tela,abrir_margen_pagina_Word,selecionar_tudo,escrever_texto,click,
@@ -39,6 +41,9 @@ def fazer_parte_legenda():
         itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=Declividade)
         Text_infos.itens_atuais = itens_mapa_atual
         
+    if Text_infos.tipo_mapa == 'Erodibilidade':
+        itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=Erodibilidade)
+        Text_infos.itens_atuais = itens_mapa_atual
 
     Text_infos.quantidade_necessario_mapa_atual = len(Text_infos.itens_atuais)
     
@@ -50,7 +55,7 @@ def fazer_parte_legenda():
     abrir_margen_pagina_Word(4)
     #colocar a borda no word
     apertar_Tab(3, tempo_espera=0.01)
-    escrever_texto("8,5")
+    escrever_texto("8,75")
     esperar(0.3)
     enter(tempo=0.5)
     esperar(1)
@@ -91,13 +96,13 @@ def fazer_parte_legenda():
     # "Size and Position"
     click(size_position_coordenadas[0],size_position_coordenadas[1], clicks_quant=3)
     apertar_Tab(tempo_espera=0.1)
-    escrever_texto("22,693")
+    escrever_texto("22,9201 cm")
     apertar_Tab(tempo_espera=0.1)
-    escrever_texto("4,4731")
+    escrever_texto("4,3233 cm")
     apertar_Tab(3, tempo_espera=0.1)
-    escrever_texto("6,6406")
+    escrever_texto("6,475 cm")
     apertar_Tab(tempo_espera=0.1)
     esperar(0.3)
     selecionar_tudo()
-    escrever_texto("7,4618")
+    escrever_texto("7,6116 cm")
     enter(tempo=0.5)

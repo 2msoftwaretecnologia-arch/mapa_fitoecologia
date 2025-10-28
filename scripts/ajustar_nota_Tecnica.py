@@ -54,6 +54,16 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
 O mapa de Declividade da propriedade {Text_infos.nome_propriedade} detalha as declividades predominantes na área, com destaque para a {Text_infos.tipo_dominante_declividade}.
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
 
+    if Text_infos.tipo_mapa == 'Erodibilidade':
+        erodibilidade_predominante = pyautogui.confirm(title="Erodibilidade Predominante",text="Qual a Erodibilidade predominante da propriedade?",buttons=Text_infos.itens_atuais)
+        Text_infos.tipo_dominante_erodibilidade = erodibilidade_predominante
+        texto_nota_tecnica= f"""Nota Técnica
+
+O mapa de Erodibilidade da propriedade {Text_infos.nome_propriedade} detalha as erodibilidades predominantes na área, com destaque para a {Text_infos.tipo_dominante_erodibilidade}.
+Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado.
+"""
+
+
     abrir_documento(caminho_word_nota_tecnica)
     janela_pausa("espere o word abrir e aperte em OK")
     clicar_centro_tela()
