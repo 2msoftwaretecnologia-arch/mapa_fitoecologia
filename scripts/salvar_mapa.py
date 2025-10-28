@@ -31,6 +31,8 @@ def salvar_mapas():
         escrever_texto("Mapa A4- Fitofisionomias.mxd")
     if Text_infos.tipo_mapa == 'Regioes_climaticas':
         escrever_texto("Mapa A4- Regioes Climaticas.mxd")
+    if Text_infos.tipo_mapa == 'Declividade':
+        escrever_texto("Mapa A4- Declividade.mxd")
     enter()
     janela_pausa("espere o globo no canto esquerdo finalizar e aperte ok")
     salvar_export_mapa()
@@ -48,6 +50,8 @@ def salvar_mapas():
         escrever_texto("Mapa A4- Fitofisionomias.jpg")
     if Text_infos.tipo_mapa == 'Regioes_climaticas':
         escrever_texto("Mapa A4- Regioes Climaticas.jpg")
+    if Text_infos.tipo_mapa == 'Declividade':
+        escrever_texto("Mapa A4- Declividade.jpg")
     
     apertar_Tab(tempo_espera=0.1)
     pressionar_tecla("j",tempo=0.3)
@@ -67,6 +71,8 @@ def salvar_mapas():
         escrever_texto("Mapa A4- Fitofisionomias.pdf")
     if Text_infos.tipo_mapa == 'Regioes_climaticas':
         escrever_texto("Mapa A4- Regioes Climaticas.pdf")
+    if Text_infos.tipo_mapa == 'Declividade':
+        escrever_texto("Mapa A4- Declividade.pdf")
     
     apertar_Tab(tempo_espera=0.1)
     pressionar_tecla("j",tempo=0.2)

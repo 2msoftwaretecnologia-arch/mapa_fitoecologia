@@ -95,6 +95,22 @@ def estilos_atuais():
             "C2rA'a'": (0, 172, 240),  
             "C2wA'a'": (255, 235, 190) 
         }
+    if Text_infos.tipo_mapa == 'Declividade':
+        return {
+            "A (declive igual ou inferior a 5%)": (255, 191, 0),
+            "B (declive maior que 5% e igual ou inferior a 10%)": (166, 251, 254),
+            "C (declive maior que 10% e igual ou inferior a 15%)": (194, 254, 192),
+            "D (declive maior que 15% e igual ou inferior a 30%)": (255, 195, 195),
+            "E (declive maior que 30% e igual ou inferior a 45%)": (255, 0, 255),
+            "F (declive maior 45%)": (255, 0, 0),
+            "AB - Mosaico com predomínio de A sobre B": (255, 250, 193),
+            "BA - Mosaico com predomínio de B sobre A": (0, 255, 255),
+            "BC - Mosaico com predomínio de B sobre C": (0, 166, 173),
+            "CB - Mosaico com predomínio de C sobre B": (0, 255, 0),
+            "CD - Mosaico com predomínio de C sobre D": (0, 130, 0),
+            "DC - Mosaico com predomínio de D sobre C": (255, 145, 145),
+        }
+    
 
 
 limites_texto_informacoes = {
@@ -161,4 +177,20 @@ regioes_climaticas = [
     "C1dA'a'",
     "C2rA'a'",
     "C2wA'a'"
+]
+
+Declividade = [
+    "A (declive igual ou inferior a 5%)",
+    "B (declive maior que 5% e igual ou inferior a 10%)",
+    "C (declive maior que 10% e igual ou inferior a 15%)",
+    "D (declive maior que 15% e igual ou inferior a 30%)",
+    "E (declive maior que 30% e igual ou inferior a 45%)",
+    "F (declive maior 45%)",
+    "AB - Mosaico com predomínio de A sobre B",
+    "BA - Mosaico com predomínio de B sobre A",
+    "BC - Mosaico com predomínio de B sobre C",
+    "CB - Mosaico com predomínio de C sobre B",
+    "CD - Mosaico com predomínio de C sobre D",
+    "DC - Mosaico com predomínio de D sobre C",
+
 ]

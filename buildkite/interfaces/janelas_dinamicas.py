@@ -142,7 +142,7 @@ def confirmar_inicio(
 
 
 def escolher_tipo_mapa(
-    opcoes: Sequence[str] = ("Fitoecologia", "Geologia","Pedologia","Regioes_climaticas"),
+    opcoes: Sequence[str] = ("Fitoecologia", "Geologia","Pedologia","Regioes_climaticas","Declividade"),
     titulo: str = "Tipo de Mapa",
     texto: str = "Qual o tipo do mapa?",
     definir_em_text_infos: bool = True,

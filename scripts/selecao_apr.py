@@ -67,13 +67,15 @@ def selecionar_apr():
     
     #modificando a camada de baixo
     if Text_infos.tipo_mapa == 'Fitoecologia':
-        apertar_pra_baixo(16,tempo_espera=0.002)
+        apertar_pra_baixo(18,tempo_espera=0.002)
     if Text_infos.tipo_mapa == 'Geologia':
-        apertar_pra_baixo(8,tempo_espera=0.002)
+        apertar_pra_baixo(10,tempo_espera=0.002)
     if Text_infos.tipo_mapa == 'Pedologia':
-        apertar_pra_baixo(8,tempo_espera=0.002)
+        apertar_pra_baixo(10,tempo_espera=0.002)
     if Text_infos.tipo_mapa == 'Regioes_climaticas':
-        apertar_pra_baixo(8,tempo_espera=0.002)
+        apertar_pra_baixo(10,tempo_espera=0.002)
+    if Text_infos.tipo_mapa == 'Declividade':
+        apertar_pra_baixo(10,tempo_espera=0.002)
     
     esperar(0.2)
     enter()

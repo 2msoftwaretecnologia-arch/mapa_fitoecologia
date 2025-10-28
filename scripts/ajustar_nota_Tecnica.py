@@ -46,6 +46,13 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
 O mapa de Regiões Climáticas da propriedade {Text_infos.nome_propriedade} detalha as regiões climáticas predominantes na área, com destaque para a {Text_infos.tipo_dominante_regiao_climatica}.
 Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
 
+    if Text_infos.tipo_mapa == 'Declividade':
+        declividade_predominante = pyautogui.confirm(title="Declividade Predominante",text="Qual a Declividade predominante da propriedade?",buttons=Text_infos.itens_atuais)
+        Text_infos.tipo_dominante_declividade = declividade_predominante
+        texto_nota_tecnica= f"""Nota Técnica
+
+O mapa de Declividade da propriedade {Text_infos.nome_propriedade} detalha as declividades predominantes na área, com destaque para a {Text_infos.tipo_dominante_declividade}.
+Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
 
     abrir_documento(caminho_word_nota_tecnica)
     janela_pausa("espere o word abrir e aperte em OK")
