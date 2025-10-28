@@ -9,6 +9,7 @@ from buildkite.functions_pyautogui.funcoes_teclado_mouse import (clicar_centro_t
                                                                  apertar_pra_baixo,apertar_Tab,escrever_texto,pressionar_tecla)
 from buildkite.utils.helpers import esperar_aii,janela_pausa
 from database.requests import get_or_set_coordinate
+from utils_info import tipos_de_mapa
 
 def selecionar_apr():
     
@@ -64,20 +65,12 @@ def selecionar_apr():
     esperar(0.2)
     enter()
     esperar(1)
-    
     #modificando a camada de baixo
-    if Text_infos.tipo_mapa == 'Fitoecologia':
-        apertar_pra_baixo(18,tempo_espera=0.002)
-    if Text_infos.tipo_mapa == 'Geologia':
+    if Text_infos.tipo_mapa in tipos_de_mapa:
         apertar_pra_baixo(10,tempo_espera=0.002)
-    if Text_infos.tipo_mapa == 'Pedologia':
-        apertar_pra_baixo(10,tempo_espera=0.002)
-    if Text_infos.tipo_mapa == 'Regioes_climaticas':
-        apertar_pra_baixo(10,tempo_espera=0.002)
-    if Text_infos.tipo_mapa == 'Declividade':
-        apertar_pra_baixo(10,tempo_espera=0.002)
-    if Text_infos.tipo_mapa == 'Erodibilidade':
-        apertar_pra_baixo(10,tempo_espera=0.002)
+    else:
+        if Text_infos.tipo_mapa == 'Fitoecologia':
+            apertar_pra_baixo(18,tempo_espera=0.002)
     
     esperar(0.2)
     enter()
