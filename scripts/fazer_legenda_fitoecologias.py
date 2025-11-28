@@ -7,11 +7,11 @@ from buildkite.utils.info_arcgis import (regioes_fitoecologias,classes_solos_ped
                                         Erodibilidade)
 from scripts.ajustar_quadrados import Text_infos
 from buildkite.interfaces.multiplas_opcoes import criar_interface_opcoes
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import (clicar_centro_tela,abrir_margen_pagina_Word,selecionar_tudo,escrever_texto,click,
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import (click_center_screen,abrir_margen_pagina_Word,selecionar_tudo,escrever_texto,click,
                                                                  selecionar_tudo_Word,escolher_fonte_Word,colar,copiar,apertar_ctrl_end,apertar_Tab,enter)
 
 from buildkite.Windows.manipular_windos import esperar
-from buildkite.interfaces.janelas_dinamicas import janela_pausa
+from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
 from database.coordenadas import coordinates
 from buildkite.functions_tkinter.interfaces import abrir_checkbox_saida
 from database.requests import get_or_set_coordinate
@@ -50,7 +50,7 @@ def fazer_parte_legenda():
     
     abrir_documento(caminho_word_nota_tecnica)
     esperar(0.5)
-    clicar_centro_tela()
+    click_center_screen()
     esperar(0.5)
     abrir_margen_pagina_Word(4)
     #colocar a borda no word
@@ -67,9 +67,9 @@ def fazer_parte_legenda():
     esperar(0.3)
     enter(tempo=0.3)
 
-    janela_pausa("Faça a descrição do seu texto entre 1100 e 1200 caractes")
+    BRAKE_WINDOW("Faça a descrição do seu texto entre 1100 e 1200 caractes")
     abrir_checkbox_saida()
-    clicar_centro_tela()
+    click_center_screen()
     esperar(0.2)
     selecionar_tudo_Word()
     copiar()
@@ -88,7 +88,7 @@ def fazer_parte_legenda():
     apertar_ctrl_end(tempo=0.2)
     enter()
     esperar(0.5)
-    janela_pausa("Ative o 'preserve aspect radio' se estiver desativo")
+    BRAKE_WINDOW("Ative o 'preserve aspect radio' se estiver desativo")
     size_position_coordenadas = get_or_set_coordinate(11,"clique em 'size and position' pra eu entender como fica")
     coordinates.x_size_position = size_position_coordenadas[0]
     coordinates.y_size_position = size_position_coordenadas[1]

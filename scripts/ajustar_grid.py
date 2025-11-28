@@ -1,8 +1,9 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import clicar_centro_tela,cima,enter , click,apertar_Tab,escrever_texto,insert
-from buildkite.interfaces.janelas_dinamicas import janela_pausa,input_texto_dinamico
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import click_center_screen,cima,enter , click,apertar_Tab,escrever_texto,press_insert
+from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW,input_texto_dinamico
+from buildkite.interfaces.simple_interface import simple_choices
 from database.requests import get_or_set_coordinate
 from buildkite.Windows.manipular_windos import esperar
 from database.coordenadas import coordinates
@@ -10,26 +11,26 @@ import pyautogui
 
 def fazer_grid():
     try:
-        fazer = "sim"
         espaco_branco_coordenadas = get_or_set_coordinate(2,"clique em um espaço vazio fora do mapa para eu saber onde fica")
         coordinates.x_espaco_Branco = espaco_branco_coordenadas[0]
         coordinates.y_espaco_Branco = espaco_branco_coordenadas[1]
-        clicar_centro_tela()
+        click_center_screen()
         esperar(0.3)
         click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1])
         esperar(1)
-        while fazer == 'sim':
-            clicar_centro_tela(1)
-            insert(1)
-            clicar_centro_tela(1)
+        build_grid = simple_choices(text_content="Deseja substituir o grid?", choices_buttons=["sim", "não"])
+        while build_grid == 'sim':
+            click_center_screen()
+            press_insert()
+            click_center_screen()
             esperar(0.5)
             pyautogui.click(button="right")#TODO: ajustar essa função aqui depois
             esperar(0.5)
             cima()
             enter()
             
-            janela_pausa("espere a janela de propriedades abrir")
-            janela_pausa(mensagem='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi')
+            BRAKE_WINDOW("espere a janela de propriedades abrir")
+            BRAKE_WINDOW(mensagem='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi')
             grid_coordenadas = get_or_set_coordinate(8,"aperte no grid")
             esperar(0.3)
             click(grid_coordenadas[0] , grid_coordenadas[1],clicks_quant=3)
@@ -54,6 +55,6 @@ def fazer_grid():
             enter()
             esperar(0.5)
             click(espaco_branco_coordenadas[0],espaco_branco_coordenadas[1])
-            fazer = pyautogui.confirm(title="Confirmação",text="deseja ajustar grid??",buttons=["sim","Não"])
+            build_grid = pyautogui.confirm(text="Deseja substituir o grid?", buttons=["sim", "não"])
     except Exception as e:
         print(f"Erro ao ajustar o grid: {e}")

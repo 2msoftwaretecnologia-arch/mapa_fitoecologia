@@ -1,13 +1,3 @@
-"""
-Módulo responsável por exibir o formulário inicial e capturar informações básicas
-sobre a propriedade, além da posição de clique no ArcGIS.
-
-Este módulo integra componentes de diferentes partes do projeto:
-- Interface Tkinter para entrada de dados (janela de formulário)
-- Função para capturar clique na tela (posição no ArcGIS)
-- Módulos de dados globais (`Text_infos` e `coordinates`)
-
-"""
 import sys
 import os
 

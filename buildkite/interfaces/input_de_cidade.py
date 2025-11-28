@@ -88,7 +88,7 @@ class EstadoCidadeSelector(tk.Toplevel):
         self.state_listbox.delete(0, tk.END)
         for state in self.states:
             if search in state.lower():
-                self.state_listbox.insert(tk.END, state)
+                self.state_listbox.press_insert(tk.END, state)
 
     def on_state_select(self, event):
         sel = self.state_listbox.curselection()
@@ -109,7 +109,7 @@ class EstadoCidadeSelector(tk.Toplevel):
         self.city_listbox.delete(0, tk.END)
         for city in cities:
             if search in city.lower():
-                self.city_listbox.insert(tk.END, city)
+                self.city_listbox.press_insert(tk.END, city)
 
     def on_city_select(self, event):
         sel = self.city_listbox.curselection()

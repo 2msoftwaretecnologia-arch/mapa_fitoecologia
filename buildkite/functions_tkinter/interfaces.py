@@ -7,7 +7,7 @@ import os
 # FUNÇÃO: ESCOLHER ARQUIVO SHAPEFILE
 # ============================================================
 
-def escolher_shp(title: str = "Selecione um arquivo Shapefile") -> Optional[str]:
+def find_shp_file(title: str = "Selecione um arquivo Shapefile") -> Optional[str]:
     """
     Abre uma janela de diálogo para o usuário selecionar um arquivo `.shp`.
 
@@ -30,7 +30,7 @@ def escolher_shp(title: str = "Selecione um arquivo Shapefile") -> Optional[str]
 
     Examples
     --------
-    >>> caminho = escolher_shp("Escolha o arquivo de polígono")
+    >>> caminho = find_shp_file("Escolha o arquivo de polígono")
     >>> if caminho:
     ...     print(f"Arquivo selecionado: {caminho}")
     ... else:

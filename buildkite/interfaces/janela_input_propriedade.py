@@ -32,7 +32,7 @@ def abrir_janela_input_propriedade():
                 # Alterna para 'normal' para permitir atualização visual e volta para 'readonly'
                 entry_cidade.config(state='normal')
                 entry_cidade.delete(0, 'end')
-                entry_cidade.insert(0, valor)
+                entry_cidade.press_insert(0, valor)
                 entry_cidade.config(state='readonly')
                 resultado['cidade_uf'] = valor  # <-- Atualiza o dicionário imediatamente
                 atualizar_estado_confirmar()

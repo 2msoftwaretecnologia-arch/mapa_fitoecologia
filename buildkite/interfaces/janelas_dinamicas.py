@@ -10,7 +10,7 @@ import threading
 CURRENT_DIR = os.path.dirname(__file__)                                  # ...\buildkite\interfaces
 ROOT_DIR = os.path.abspath(os.path.join(CURRENT_DIR, '..', '..'))        # ...\map_fitoecologia
 if ROOT_DIR not in sys.path:
-    sys.path.insert(0, ROOT_DIR)  # prioriza o raiz do projeto
+    sys.path.press_insert(0, ROOT_DIR)  # prioriza o raiz do projeto
 
 
 from database.text_infos import Text_infos  # Import específico em vez de wildcard
@@ -43,12 +43,12 @@ def input_texto_dinamico(mensagem: str, titulo: str = "Entrada de Texto") -> Opt
 
 
 
-def janela_pausa(mensagem="Pausa no código"):
+def BRAKE_WINDOW(mensage="Pausa no código"):
     """
     Cria uma janela de pausa que bloqueia a execução até o usuário decidir continuar ou parar.
     
     Args:
-        mensagem (str): Mensagem a ser exibida na janela
+        mensage (str): Mensagem a ser exibida na janela de pausa.
         
     Returns:
         bool: True se continuar, False se parar
@@ -80,7 +80,7 @@ def janela_pausa(mensagem="Pausa no código"):
     frame.pack(fill=tk.BOTH, expand=True)
     
     # Mensagem
-    label_mensagem = tk.Label(frame, text=mensagem, font=("Arial", 12), wraplength=350)
+    label_mensagem = tk.Label(frame, text=mensage, font=("Arial", 12), wraplength=350)
     label_mensagem.pack(pady=20)
     
     # Frame dos botões

@@ -14,7 +14,7 @@ from scripts.selecao_apr import selecionar_apr
 from scripts.salvar_mapa import salvar_mapas
 
 # Interface e janelas
-from buildkite.interfaces.janelas_dinamicas import janela_pausa, confirmar_inicio, escolher_tipo_mapa
+from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW, confirmar_inicio, escolher_tipo_mapa
 from buildkite.interfaces.formulario_inicial import formulario_incial
 from buildkite.Windows.abrir_documentos import abrir_documento, caminho_atual_mapa, caminho_word_nota_tecnica
 
@@ -24,8 +24,8 @@ from ajustar_monitores import verificar_resolucao
 
 def executar_fluxo_principal():
     """Executa toda a automação na ordem correta."""
-    janela_pausa(mensagem ='⚠️ ATENÇÃO: siga as instruções exibidas na tela com atenção.')
-    janela_pausa(mensagem ='⚙️ Aguarde o carregamento completo dos documentos antes de prosseguir.')
+    BRAKE_WINDOW(mensage ='⚠️ ATENÇÃO: siga as instruções exibidas na tela com atenção.')
+    BRAKE_WINDOW(mensage ='⚙️ Aguarde o carregamento completo dos documentos antes de prosseguir.')
     
     formulario_incial()
     selecionar_apr()
@@ -35,7 +35,7 @@ def executar_fluxo_principal():
     fazer_parte_legenda()
     ajustar_quadrados_mapa()
     fazer_nota_tencnica()
-    salvar_mapas()
+    #salvar_mapas()
 
 # ==========================================
 #           Execução principal                      

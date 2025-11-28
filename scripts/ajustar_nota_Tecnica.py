@@ -4,13 +4,13 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from buildkite.Windows.abrir_documentos import abrir_documento,caminho_word_nota_tecnica
 from buildkite.Windows.manipular_windos import esperar
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import (clicar_centro_tela,enter,escrever_texto,apertar_Tab,click,
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import (click_center_screen,enter,escrever_texto,apertar_Tab,click,
                                                                  colar,selecionar_tudo,apertar_ctrl_end,copiar,escolher_fonte_Word,
                                                                  abrir_margen_pagina_Word,selecionar_tudo_Word,centralizar_texto_Word,
-                                                                 apertar_ctrl_home)
+                                                                 press_ctrl_home)
 from database.text_infos import Text_infos
 from database.coordenadas import coordinates
-from buildkite.interfaces.janelas_dinamicas import janela_pausa
+from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
 import pyautogui
 
 def fazer_nota_tencnica():
@@ -65,8 +65,8 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
 
 
     abrir_documento(caminho_word_nota_tecnica)
-    janela_pausa("espere o word abrir e aperte em OK")
-    clicar_centro_tela()
+    BRAKE_WINDOW("espere o word abrir e aperte em OK")
+    click_center_screen()
     esperar(0.5)
     abrir_margen_pagina_Word(4)
     apertar_Tab(3, tempo_espera=0.1)
@@ -77,7 +77,7 @@ Esses dados são fundamentais para o planejamento ambiental, regularização fun
     esperar(0.5)
     escrever_texto(texto=texto_nota_tecnica,velocidade=0.005)
     esperar(0.2)
-    apertar_ctrl_home()
+    press_ctrl_home()
     centralizar_texto_Word()
     selecionar_tudo_Word()
     escolher_fonte_Word()

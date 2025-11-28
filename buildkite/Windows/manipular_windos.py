@@ -41,10 +41,10 @@ def limpar_area_transferencia() -> None:
     print("🧹 Área de transferência limpa.")
 
 
-def esperar(segundos: int) -> None:
+def WAIT(seconds: int) -> None:
     """
     ============================================================
-    🧠 FUNÇÃO: esperar(segundos)
+    🧠 FUNÇÃO: WAIT(seconds)
     ============================================================
 
     📋 DESCRIÇÃO:
@@ -72,4 +72,4 @@ def esperar(segundos: int) -> None:
     ============================================================
     """
     # Usa o módulo 'time' para interromper a execução temporariamente
-    time.sleep(segundos)
+    time.sleep(seconds)

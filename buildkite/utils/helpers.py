@@ -8,14 +8,14 @@ import os
 # módulos da pasta superior (ex: buildkite/interfaces) possam ser importados
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Importa a função personalizada 'janela_pausa'
-from buildkite.interfaces.janelas_dinamicas import janela_pausa
+# Importa a função personalizada 'BRAKE_WINDOW'
+from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
 
 
-def esperar_aii(shp_path: str) -> str:
+def find_aii(shp_path: str) -> str:
     """
     ============================================================
-    🧠 FUNÇÃO: esperar_aii(shp_path)
+    🧠 FUNÇÃO: find_aii(shp_path)
     ============================================================
 
     📋 DESCRIÇÃO:
@@ -27,7 +27,7 @@ def esperar_aii(shp_path: str) -> str:
         e o script precisa aguardar até sua criação.
 
         Enquanto o arquivo não for encontrado:
-        → Abre uma janela interativa (janela_pausa)
+        → Abre uma janela interativa (BRAKE_WINDOW)
           pedindo ao usuário para confirmar se o arquivo foi criado.
 
     ⚙️ PARÂMETROS:
@@ -63,9 +63,9 @@ def esperar_aii(shp_path: str) -> str:
     # O loop continua até o arquivo "aii.shp" ser encontrado na pasta.
     # Em cada iteração, exibe uma janela pedindo confirmação manual.
     while not os.path.isfile(caminho_aii):
-        # Chama a função janela_pausa (interface gráfica)
+        # Chama a função BRAKE_WINDOW (interface gráfica)
         # para alertar o usuário e solicitar que ele confirme quando o arquivo existir
-        janela_pausa(
+        BRAKE_WINDOW(
             "O 'AII.shp' não foi encontrado na pasta.\n"
             "Confirme se o nome está em CAIXA ALTA e se o arquivo está na pasta\n"
             "antes de clicar em 'OK'."

@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import click,enter,escrever_texto,apertar_Tab,direita,selecionar_tudo,abrir_textos,apertar_ctrl_end
 from buildkite.manipular_textos.manipular_textos import quebrar_texto
-from buildkite.interfaces.janelas_dinamicas import janela_pausa
+from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
 from buildkite.Windows.manipular_windos import esperar
 from database.text_infos import Text_infos
 from database.coordenadas import coordinates
@@ -37,7 +37,7 @@ def ajustar_info_propriedade():
         esperar(0.6)
         apertar_ctrl_end()
         enter()
-        janela_pausa("espere abrir e aperte 'OK'")
+        BRAKE_WINDOW("espere abrir e aperte 'OK'")
         text_coordenadas = get_or_set_coordinate(13,"clique em 'Text' pra eu entender como fica")
         esperar(0.3)
         click(text_coordenadas[0],text_coordenadas[1],clicks_quant=3)

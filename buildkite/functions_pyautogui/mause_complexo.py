@@ -1,17 +1,5 @@
-"""
-Módulo para desenho automatizado de formas geométricas usando PyAutoGUI.
-
-Atualmente, contém uma função principal:
-    - desenhar_quadrado: desenha um retângulo (ou quadrado) na tela,
-      a partir do canto superior esquerdo e dimensões definidas.
-
-Dependência:
-------------
-- pyautogui
-"""
-
 import pyautogui
-
+from typing import Literal
 
 def desenhar_quadrado(
     x1: int,
@@ -64,3 +52,37 @@ def desenhar_quadrado(
     
     # Realiza o arrasto simulando o desenho do quadrado
     pyautogui.dragTo(x2, y2, duration=duracao, button='left')
+
+def click(
+    x: int | None = None,
+    y: int | None = None,
+    wait_time: float = 0.2,
+    amount_click: int = 1,
+    button_side: Literal["left", "right"] = "left"
+) -> None:
+    """
+    Realiza um clique (ou cliques) na tela.
+
+    Parameters
+    ----------
+    x : int, optional
+        Coordenada X (horizontal) onde clicar. Se None, clica na posição atual.
+    y : int, optional
+        Coordenada Y (vertical) onde clicar. Se None, clica na posição atual.
+    wait_time : float, optional
+        Tempo em segundos para mover o mouse até (x, y) antes de clicar (padrão: 0.2).
+    amount_click : int, optional
+        Número de cliques a realizar (padrão: 1).
+    button_side : Literal["left", "right"], optional
+        Botão do mouse a usar (padrão: "left").
+
+    Returns
+    -------
+    None
+    """
+    if x is None and y is None:
+        pyautogui.click(clicks=amount_click, button=button_side)
+    elif x is not None and y is not None:
+        pyautogui.click(x, y, duration=wait_time, clicks=amount_click, button=button_side)
+    else:
+        raise ValueError("Ambos x e y devem ser fornecidos ou ambos devem ser None.")

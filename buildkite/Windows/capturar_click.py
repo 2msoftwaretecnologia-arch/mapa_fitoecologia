@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # 'manipular_windos' → funções auxiliares para pausas, janelas, etc.
 # 'janelas_dinamicas' → exibe caixas de diálogo interativas (alertas Tkinter)
 from buildkite.Windows.manipular_windos import esperar
-from buildkite.interfaces.janelas_dinamicas import janela_pausa
+from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
 
 # ============================================================
 # 📦 IMPORTAÇÕES EXTERNAS
@@ -60,9 +60,9 @@ def capturar_clique(texto: str) -> tuple[int, int]:
     # ============================================================
     # 🪟 MOSTRA UMA JANELA INFORMATIVA
     # ============================================================
-    # A função 'janela_pausa' exibe uma caixa de diálogo
+    # A função 'BRAKE_WINDOW' exibe uma caixa de diálogo
     # (janela Tkinter) informando o que o usuário deve fazer.
-    janela_pausa(texto)
+    BRAKE_WINDOW(texto)
 
     # ============================================================
     # 🎯 VARIÁVEIS INTERNAS

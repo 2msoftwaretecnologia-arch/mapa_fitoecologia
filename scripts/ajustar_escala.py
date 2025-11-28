@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import clicar_centro_tela,click, selecionar_tudo, escrever_texto, enter
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import click_center_screen,click, selecionar_tudo, escrever_texto, enter
 from buildkite.interfaces.janelas_dinamicas import input_texto_dinamico
 from buildkite.Windows.manipular_windos import esperar , limpar_area_transferencia
 from database.requests import get_or_set_coordinate
@@ -13,7 +13,7 @@ def ajustar_escala():
     if refazer_escala == "sim":
         escala_coordenadas = get_or_set_coordinate(10,"clique em escala para eu saber onde fica")
         esperar(0.3)
-        clicar_centro_tela()
+        click_center_screen()
         fazer_novamente = None
 
         while fazer_novamente != "não":
@@ -28,5 +28,5 @@ def ajustar_escala():
                 enter(1)
                 limpar_area_transferencia()
                 esperar(1.5)
-                clicar_centro_tela(1)
+                click_center_screen()
 

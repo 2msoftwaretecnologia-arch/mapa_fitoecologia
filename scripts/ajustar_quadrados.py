@@ -6,14 +6,14 @@ from buildkite.functions_pyautogui.mause_complexo import desenhar_quadrado
 from buildkite.utils.info_arcgis import estilos_atuais,posicao_quadrados,tamano_quadrados
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import click,escrever_texto,enter,apertar_Tab,cima, pressionar_tecla , direita
 from buildkite.Windows.manipular_windos import esperar
-from buildkite.interfaces.janelas_dinamicas import janela_pausa
+from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
 from database.requests import get_or_set_coordinate
 from database.text_infos import Text_infos
 from database.coordenadas import coordinates
 
 
 def ajustar_quadrados_mapa():
-    janela_pausa("espere o arcgis se normalizar e parte ok")
+    BRAKE_WINDOW("espere o arcgis se normalizar e parte ok")
     estilo_atual = estilos_atuais()
     x_tamanho,y_tamanho = tamano_quadrados(Text_infos.quantidade_necessario_mapa_atual)
     lista_posicao = posicao_quadrados(Text_infos.quantidade_necessario_mapa_atual)
