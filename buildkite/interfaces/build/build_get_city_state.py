@@ -1,18 +1,26 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 import json
 import os
+from pathlib import Path
 
 
-class EstadoCidadeSelector(tk.Toplevel):
+class GetCityStateBuild(tk.Toplevel):
     def __init__(self, master=None):
         super().__init__(master)
         self.title("Seleção de Estado e Cidade")
         self.geometry("500x520")
         self.configure(bg="#f5f5f5")
-        self.resultado = None
+        self.result = None
 
-        # Estilo
+        self.init_style()
+        self.load_data()
+        self.create_widgets()
+        self.bind_events()
+        self.refresh_state_list()
+
+    # Estilo
+    def init_style(self):
         self.style = ttk.Style(self)
         self.style.theme_use('clam')
 
@@ -26,17 +34,39 @@ class EstadoCidadeSelector(tk.Toplevel):
         self.style.configure("TEntry", font=self.entry_font, padding=6, relief="flat")
         self.style.configure("Accent.TButton", background=self.accent, foreground="white", font=self.entry_font, padding=6, relief="flat")
         self.style.map("Accent.TButton",
-                        background=[('active', '#1976d2')],
-                        relief=[('pressed', 'sunken'), ('!pressed', 'raised')])
+                       background=[('active', '#1976d2')],
+                       relief=[('pressed', 'sunken'), ('!pressed', 'raised')])
 
-        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-        json_path = os.path.join(base_dir, 'estados-cidades.json')
-        with open(json_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        self.states = sorted(item['sigla'] for item in data)
-        self.cities_by_state = {item['sigla']: item['cidades'] for item in data}
+    def load_data(self):
+        try:
+            json_path = self.resolve_json_path()
+            with open(json_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            self.states = sorted(item['sigla'] for item in data)
+            self.cities_by_state = {item['sigla']: item['cidades'] for item in data}
+        except FileNotFoundError:
+            messagebox.showerror("Erro", "Arquivo 'estados-cidades.json' não encontrado.")
+            self.states = []
+            self.cities_by_state = {}
         self.selected_state = None
 
+    def resolve_json_path(self):
+        base_dir = Path(__file__).resolve().parent.parent
+        candidates = [
+            base_dir.parent / 'estados-cidades.json',
+            base_dir / 'estados-cidades.json',
+            Path.cwd() / 'estados-cidades.json',
+        ]
+        for c in candidates:
+            if c.exists():
+                return str(c)
+        for ancestor in Path(__file__).resolve().parents:
+            test = ancestor / 'estados-cidades.json'
+            if test.exists():
+                return str(test)
+        raise FileNotFoundError
+
+    def create_widgets(self):
         header = ttk.Label(self, text="Selecione Estado e Cidade", style="Header.TLabel")
         header.pack(pady=(15, 10))
 
@@ -49,13 +79,11 @@ class EstadoCidadeSelector(tk.Toplevel):
         self.state_var = tk.StringVar(self)
         self.state_entry = ttk.Entry(state_frame, textvariable=self.state_var, style="TEntry")
         self.state_entry.pack(fill='x', pady=(0, 8))
-        self.state_entry.bind("<KeyRelease>", lambda e: (self.update_state_list(), self.verificar_selecao()))
 
         self.state_listbox = tk.Listbox(state_frame, height=5, font=self.entry_font,
                                         bd=1, relief="flat", highlightbackground="#ddd",
                                         highlightthickness=1, selectbackground=self.accent, selectforeground="white")
         self.state_listbox.pack(fill='both', expand=True)
-        self.state_listbox.bind("<<ListboxSelect>>", self.on_state_select)
 
         # Cidade
         city_frame = ttk.Labelframe(container, text="Cidade", padding=10)
@@ -63,34 +91,42 @@ class EstadoCidadeSelector(tk.Toplevel):
         self.city_var = tk.StringVar(self)
         self.city_entry = ttk.Entry(city_frame, textvariable=self.city_var, style="TEntry", state='disabled')
         self.city_entry.pack(fill='x', pady=(0, 8))
-        self.city_entry.bind("<KeyRelease>", lambda e: (self.update_city_list(), self.verificar_selecao()))
 
         self.city_listbox = tk.Listbox(city_frame, height=5, font=self.entry_font,
-                                        bd=1, relief="flat", highlightbackground="#ddd",
-                                        highlightthickness=1, selectbackground=self.accent, selectforeground="white")
+                                       bd=1, relief="flat", highlightbackground="#ddd",
+                                       highlightthickness=1, selectbackground=self.accent, selectforeground="white")
         self.city_listbox.pack(fill='both', expand=True)
-        self.city_listbox.bind("<<ListboxSelect>>", self.on_city_select)
 
         # Botões
         btn_frame = ttk.Frame(self)
         btn_frame.pack(pady=15)
 
         self.confirm_btn = ttk.Button(btn_frame, text="Confirmar", style="Accent.TButton",
-                                        command=self.confirm_selection, state='disabled')
+                                      command=self.confirm_selection, state='disabled')
         self.confirm_btn.pack(side='left', padx=10)
 
-        
+    def bind_events(self):
+        self.state_entry.bind("<KeyRelease>", self.on_state_change)
+        self.state_listbox.bind("<<ListboxSelect>>", self.on_state_select)
+        self.city_entry.bind("<KeyRelease>", self.on_city_change)
+        self.city_listbox.bind("<<ListboxSelect>>", self.on_city_select)
 
-        self.update_state_list()
+    def on_state_change(self, event=None):
+        self.refresh_state_list()
+        self.verify_selection()
 
-    def update_state_list(self, event=None):
+    def on_city_change(self, event=None):
+        self.refresh_city_list()
+        self.verify_selection()
+
+    def refresh_state_list(self, event=None):
         search = self.state_var.get().lower()
         self.state_listbox.delete(0, tk.END)
         for state in self.states:
             if search in state.lower():
-                self.state_listbox.press_insert(tk.END, state)
+                self.state_listbox.insert(tk.END, state)
 
-    def on_state_select(self, event):
+    def on_state_select(self, event=None):
         sel = self.state_listbox.curselection()
         if sel:
             state = self.state_listbox.get(sel[0])
@@ -98,10 +134,10 @@ class EstadoCidadeSelector(tk.Toplevel):
             self.selected_state = state
             self.city_entry.config(state='normal')
             self.city_var.set('')
-            self.update_city_list()
-        self.verificar_selecao()
+            self.refresh_city_list()
+        self.verify_selection()
 
-    def update_city_list(self, event=None):
+    def refresh_city_list(self, event=None):
         if not self.selected_state:
             return
         search = self.city_var.get().lower()
@@ -109,17 +145,16 @@ class EstadoCidadeSelector(tk.Toplevel):
         self.city_listbox.delete(0, tk.END)
         for city in cities:
             if search in city.lower():
-                self.city_listbox.press_insert(tk.END, city)
+                self.city_listbox.insert(tk.END, city)
 
-    def on_city_select(self, event):
+    def on_city_select(self, event=None):
         sel = self.city_listbox.curselection()
         if sel:
             city = self.city_listbox.get(sel[0])
             self.city_var.set(city)
-        self.verificar_selecao()
+        self.verify_selection()
 
-
-    def verificar_selecao(self, event=None):
+    def verify_selection(self, event=None):
         estado_ok = bool(self.state_var.get().strip())
         cidade_ok = bool(self.city_var.get().strip())
         if estado_ok and cidade_ok:
@@ -131,22 +166,10 @@ class EstadoCidadeSelector(tk.Toplevel):
         cidade = self.city_var.get()
         estado = self.state_var.get()
         if cidade and estado:
-            self.resultado = f"{cidade} - {estado}"
+            self.result = f"{cidade} - {estado}"
         else:
-            self.resultado = None
+            self.result = None
         self.destroy()
 
 
-def selecionar_estado_cidade(master=None):
-    app = EstadoCidadeSelector(master)
-    app.grab_set()  # bloqueia interação com a janela principal até fechar
-    app.wait_window()
-    return app.resultado
-
-
-if __name__ == "__main__":
-    # Permite testar apenas o seletor de Estado/Cidade
-    root = tk.Tk()
-    root.withdraw()
-    valor = selecionar_estado_cidade(root)
-    print("Selecionado:", valor)
+    

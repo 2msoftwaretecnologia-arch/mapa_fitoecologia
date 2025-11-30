@@ -73,3 +73,6 @@ def WAIT(seconds: int) -> None:
     """
     # Usa o módulo 'time' para interromper a execução temporariamente
     time.sleep(seconds)
+
+def esperar(seconds: int) -> None:
+    time.sleep(seconds)

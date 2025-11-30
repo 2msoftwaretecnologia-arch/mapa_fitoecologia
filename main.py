@@ -15,19 +15,19 @@ from scripts.salvar_mapa import salvar_mapas
 
 # Interface e janelas
 from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW, confirmar_inicio, escolher_tipo_mapa
-from buildkite.interfaces.formulario_inicial import formulario_incial
+from buildkite.interfaces.initial_form import InitialForm
 from buildkite.Windows.abrir_documentos import abrir_documento, caminho_atual_mapa, caminho_word_nota_tecnica
 
 # Ajuste de monitores
 from ajustar_monitores import verificar_resolucao
 
 
-def executar_fluxo_principal():
+def main_flow():
     """Executa toda a automação na ordem correta."""
     BRAKE_WINDOW(mensage ='⚠️ ATENÇÃO: siga as instruções exibidas na tela com atenção.')
     BRAKE_WINDOW(mensage ='⚙️ Aguarde o carregamento completo dos documentos antes de prosseguir.')
     
-    formulario_incial()
+    InitialForm().run()
     selecionar_apr()
     ajustar_escala()
     fazer_grid()
@@ -48,7 +48,7 @@ if __name__ == "__main__":
         caminho = caminho_atual_mapa()
         abrir_documento(caminho)
         abrir_documento(caminho_word_nota_tecnica)
-        executar_fluxo_principal()
+        main_flow()
         print("✅ Processo concluído com sucesso.")
     else:
         print("❌ Processo cancelado pelo usuário.")
