@@ -9,7 +9,7 @@ from buildkite.Windows.manipular_windos import esperar
 from database.coordenadas import coordinates
 import pyautogui
 
-def fazer_grid():
+def set_grid():
     try:
         espaco_branco_coordenadas = get_or_set_coordinate(2,"clique em um espaço vazio fora do mapa para eu saber onde fica")
         coordinates.x_espaco_Branco = espaco_branco_coordenadas[0]

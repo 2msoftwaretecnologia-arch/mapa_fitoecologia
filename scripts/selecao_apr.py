@@ -13,7 +13,7 @@ from buildkite.utils.helpers import find_aii,BRAKE_WINDOW
 from database.requests import get_or_set_coordinate
 from utils_info import tipos_de_mapa
 
-def selecionar_apr():
+def select_apr():
     
     var_apr = find_shp_file("escolha o shp da apr")
     var_aii = find_aii(var_apr)

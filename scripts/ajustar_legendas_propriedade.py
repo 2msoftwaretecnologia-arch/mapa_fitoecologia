@@ -11,7 +11,7 @@ from database.coordenadas import coordinates
 from database.requests import get_or_set_coordinate
 import pyautogui
 
-def ajustar_info_propriedade():
+def set_info_property():
     posicoes = [
         ("23,2921","1,876","0,9878","0,3125"),
         ("27,8184","1,8989","0,8466","0,3125")]

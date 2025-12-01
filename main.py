@@ -4,13 +4,13 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(BASE_DIR)
 
 # Scripts principais
-from scripts.ajustar_grid import fazer_grid
-from scripts.ajustar_escala import ajustar_escala
+from scripts.ajustar_grid import set_grid
+from scripts.ajustar_escala import set_scale
 from scripts.fazer_legenda_fitoecologias import fazer_parte_legenda
 from scripts.ajustar_nota_Tecnica import fazer_nota_tencnica
 from scripts.ajustar_quadrados import ajustar_quadrados_mapa
-from scripts.ajustar_legendas_propriedade import ajustar_info_propriedade
-from scripts.selecao_apr import selecionar_apr
+from scripts.ajustar_legendas_propriedade import set_info_property
+from scripts.selecao_apr import select_apr
 from scripts.salvar_mapa import salvar_mapas
 
 # Interface e janelas
@@ -28,10 +28,10 @@ def main_flow():
     BRAKE_WINDOW(mensage ='⚙️ Aguarde o carregamento completo dos documentos antes de prosseguir.')
     
     InitialForm().run()
-    selecionar_apr()
-    ajustar_escala()
-    fazer_grid()
-    ajustar_info_propriedade()
+    select_apr()
+    set_scale()
+    set_grid()
+    set_info_property()
     fazer_parte_legenda()
     ajustar_quadrados_mapa()
     fazer_nota_tencnica()

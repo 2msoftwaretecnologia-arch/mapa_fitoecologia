@@ -7,7 +7,7 @@ from buildkite.Windows.manipular_windos import esperar , limpar_area_transferenc
 from database.requests import get_or_set_coordinate
 import pyautogui
 
-def ajustar_escala():
+def set_scale():
 
     refazer_escala = pyautogui.confirm(text="Deseja substituir a escala?", buttons=["sim", "não"])
     if refazer_escala == "sim":
