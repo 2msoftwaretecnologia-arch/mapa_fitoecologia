@@ -29,40 +29,111 @@ def click_center_screen(ammount: int = 1) -> None:
 # ============================================================
 # FUNÇÕES DE TECLADO BÁSICAS
 # ============================================================
-
-
-
-def press_home(ammount: int = 1, wait_time: float = 0) -> None:
+class KeyboardBasicFunctions:
     """
-    Pressiona a tecla 'Home' repetidamente.
-
-    Parameters
-    ----------
-    ammount : int, optional
-        Quantas vezes pressionar (padrão: 1).
-    wait_time : float, optional
-        Intervalo entre as pressões (padrão: 0 segundos).
+    Classe que contém funções básicas para pressionar teclas do teclado.
     """
-    for _ in range(ammount):
-        pyautogui.press('home')
-        time.sleep(wait_time)
+
+    def __init__(self):
+        pass
+
+    def _press_home(ammount: int = 1, wait_time: float = 0) -> None:
+        """
+        Pressiona a tecla 'Home' repetidamente.
+
+        Parameters
+        ----------
+        ammount : int, optional
+            Quantas vezes pressionar (padrão: 1).
+        wait_time : float, optional
+            Intervalo entre as pressões (padrão: 0 segundos).
+        """
+        for _ in range(ammount):
+            pyautogui.press('home')
+            time.sleep(wait_time)
 
 
-def press_tab(ammount: int = 1, wait_time: float = 0.3) -> None:
-    """
-    Pressiona a tecla 'Tab' repetidamente.
+    def _press_tab(ammount: int = 1, wait_time: float = 0.3) -> None:
+        """
+        Pressiona a tecla 'Tab' repetidamente.
 
-    Parameters
-    ----------
-    ammount : int, optional
-        Quantidade de pressões (padrão: 1).
-    wait_time : float, optional
-        Intervalo entre as pressões (padrão: 0.3 segundos).
-    """
-    for _ in range(ammount):
-        pyautogui.press('tab')
-        time.sleep(wait_time)
+        Parameters
+        ----------
+        ammount : int, optional
+            Quantidade de pressões (padrão: 1).
+        wait_time : float, optional
+            Intervalo entre as pressões (padrão: 0.3 segundos).
+        """
+        for _ in range(ammount):
+            pyautogui.press('tab')
+            time.sleep(wait_time)
+    def _press_space(ammount: int = 1, wait_time: float = 0) -> None:
+        """Pressiona a tecla 'Espaço' repetidamente."""
+        for _ in range(ammount):
+            pyautogui.press('space')
+            time.sleep(wait_time)
 
+
+    def _copy() -> None:
+        """Executa o atalho Ctrl + C (copiar)."""
+        pyautogui.hotkey('ctrl', 'c')
+
+
+    def _paste() -> None:
+        """Executa o atalho Ctrl + V (colar)."""
+        pyautogui.hotkey('ctrl', 'v')
+        time.sleep(0.5)
+
+
+    def _press_enter(ammount: int = 1, wait_time: float = 0.3) -> None:
+        """Pressiona a tecla 'Enter' repetidamente."""
+        for _ in range(ammount):
+            pyautogui.press('enter')
+            time.sleep(wait_time)
+
+
+    def _press_esc(ammount: int = 1, wait_time: float = 0.1) -> None:
+        """Pressiona a tecla 'Esc' repetidamente."""
+        for _ in range(ammount):
+            pyautogui.press('esc')
+            time.sleep(wait_time)
+
+
+    # ============================================================
+    # MOVIMENTAÇÃO ENTRE CAMPOS E SELEÇÃO
+    # ============================================================
+
+
+    def _press_insert(ammount: int = 1, wait_time: float = 0.2) -> None:
+        """Pressiona a tecla 'insert' repetidamente."""
+        for _ in range(ammount):
+            pyautogui.press('insert')
+            time.sleep(wait_time)
+
+
+    def _select_all(ammount: int = 1, wait_time: float = 0.2) -> None:
+        """Seleciona todo o conteúdo (Ctrl + A)."""
+        for _ in range(ammount):
+            pyautogui.hotkey('ctrl', 'a')
+            time.sleep(wait_time)
+
+
+    def _press_key(key: str, ammount: int = 1, wait_time: float = 0.1) -> None:
+        """
+        Pressiona qualquer tecla especificada repetidamente.
+
+        Parameters
+        ----------
+        key : str
+            Nome da tecla (ex.: 'enter', 'tab', 'a', 'f1').
+        ammount : int, optional
+            Quantas vezes pressionar (padrão: 1).
+        wait_time : float, optional
+            Intervalo entre as pressões (padrão: 0.1 segundos).
+        """
+        for _ in range(ammount):
+            pyautogui.press(key)
+            time.sleep(wait_time)
 
 def write_text(text: str, speed: float = 0.01) -> None:
     """
@@ -78,196 +149,139 @@ def write_text(text: str, speed: float = 0.01) -> None:
     keyboard.write(text=text, delay=speed)
 
 
-def press_space(ammount: int = 1, wait_time: float = 0) -> None:
-    """Pressiona a tecla 'Espaço' repetidamente."""
-    for _ in range(ammount):
-        pyautogui.press('space')
-        time.sleep(wait_time)
-
-
-def copy() -> None:
-    """Executa o atalho Ctrl + C (copiar)."""
-    pyautogui.hotkey('ctrl', 'c')
-
-
-def paste() -> None:
-    """Executa o atalho Ctrl + V (colar)."""
-    pyautogui.hotkey('ctrl', 'v')
-    time.sleep(0.5)
-
-
-def press_enter(ammount: int = 1, wait_time: float = 0.3) -> None:
-    """Pressiona a tecla 'Enter' repetidamente."""
-    for _ in range(ammount):
-        pyautogui.press('enter')
-        time.sleep(wait_time)
-
-
-def press_esc(ammount: int = 1, wait_time: float = 0.1) -> None:
-    """Pressiona a tecla 'Esc' repetidamente."""
-    for _ in range(ammount):
-        pyautogui.press('esc')
-        time.sleep(wait_time)
-
-
-# ============================================================
-# MOVIMENTAÇÃO ENTRE CAMPOS E SELEÇÃO
-# ============================================================
-
-
-def press_insert(ammount: int = 1, wait_time: float = 0.2) -> None:
-    """Pressiona a tecla 'insert' repetidamente."""
-    for _ in range(ammount):
-        pyautogui.press('insert')
-        time.sleep(wait_time)
-
-
-def select_all(ammount: int = 1, wait_time: float = 0.2) -> None:
-    """Seleciona todo o conteúdo (Ctrl + A)."""
-    for _ in range(ammount):
-        pyautogui.hotkey('ctrl', 'a')
-        time.sleep(wait_time)
-
-
-def press_key(key: str, ammount: int = 1, wait_time: float = 0.1) -> None:
-    """
-    Pressiona qualquer tecla especificada repetidamente.
-
-    Parameters
-    ----------
-    key : str
-        Nome da tecla (ex.: 'enter', 'tab', 'a', 'f1').
-    ammount : int, optional
-        Quantas vezes pressionar (padrão: 1).
-    wait_time : float, optional
-        Intervalo entre as pressões (padrão: 0.1 segundos).
-    """
-    for _ in range(ammount):
-        pyautogui.press(key)
-        time.sleep(wait_time)
-
-
 # ============================================================
 # ATALHOS ESPECÍFICOS DO MICROSOFT WORD
 # ============================================================
-
-def select_all_in_Word(ammount: int = 1, wait_time: float = 0.5) -> None:
-    """Seleciona todo o texto no Word (Ctrl + T)."""
-    for _ in range(ammount):
-        pyautogui.hotkey('ctrl', 't')
-        time.sleep(wait_time)
-
-
-def center_text_in_Word(ammount: int = 1, wait_time: float = 0.2) -> None:
-    """Centraliza o texto no Word (Ctrl + E)."""
-    for _ in range(ammount):
-        pyautogui.hotkey('ctrl', 'e')
-        time.sleep(wait_time)
-
-
-def choose_font_in_Word(ammount: int = 1, wait_time: float = 0.5) -> None:
-    """Abre a janela de seleção de fonte no Word (Ctrl + Shift + F)."""
-    for _ in range(ammount):
-        pyautogui.hotkey('ctrl', 'shift', 'f')
-        time.sleep(wait_time)
-
-
-def open_page_margin_Word(ammount: int = 1, wait_time: float = 0.2) -> None:
+class WordKeyboardFunctions:
     """
-    Abre a janela de configuração de margens no Word (Ctrl + L).
-
-    Parameters
-    ----------
-    ammount : int, optional
-        Quantidade de vezes que o atalho será repetido (padrão: 1).
-    wait_time : float, optional
-        Intervalo entre repetições (padrão: 0.2 segundos).
+    Classe que contém funções específicas para atalhos do Microsoft Word.
     """
-    for _ in range(ammount):
-        pyautogui.hotkey('ctrl', 'l')
-        time.sleep(wait_time)
+    def __init__(self):
+        pass
+    def _select_all_in_Word(ammount: int = 1, wait_time: float = 0.5) -> None:
+        """Seleciona todo o texto no Word (Ctrl + T)."""
+        for _ in range(ammount):
+            pyautogui.hotkey('ctrl', 't')
+            time.sleep(wait_time)
+
+
+    def _center_text_in_Word(ammount: int = 1, wait_time: float = 0.2) -> None:
+        """Centraliza o texto no Word (Ctrl + E)."""
+        for _ in range(ammount):
+            pyautogui.hotkey('ctrl', 'e')
+            time.sleep(wait_time)
+
+
+    def _choose_font_in_Word(ammount: int = 1, wait_time: float = 0.5) -> None:
+        """Abre a janela de seleção de fonte no Word (Ctrl + Shift + F)."""
+        for _ in range(ammount):
+            pyautogui.hotkey('ctrl', 'shift', 'f')
+            time.sleep(wait_time)
+
+
+    def _open_page_margin_Word(ammount: int = 1, wait_time: float = 0.2) -> None:
+        """
+        Abre a janela de configuração de margens no Word (Ctrl + L).
+
+        Parameters
+        ----------
+        ammount : int, optional
+            Quantidade de vezes que o atalho será repetido (padrão: 1).
+        wait_time : float, optional
+            Intervalo entre repetições (padrão: 0.2 segundos).
+        """
+        for _ in range(ammount):
+            pyautogui.hotkey('ctrl', 'l')
+            time.sleep(wait_time)
 
 # ============================================================
 # FUNÇÕES DE TECLADO ARCGIS
 # ============================================================
-
-def press_ctrl_home(ammount: int = 1, wait_time: float = 0) -> None:
+class ArcGISKeyboardFunctions:
     """
-    Pressiona a tecla 'Ctrl + Home' repetidamente.
-
-    Parameters
-    ----------
-    ammount : int, optional
-        Quantidade de vezes que a tecla será pressionada (padrão: 1).
-    wait_time : float, optional
-        Intervalo entre cada pressionamento (padrão: 0.0 segundos).
+    Classe que contém funções específicas para atalhos do ArcGIS.
     """
-    for _ in range(ammount):
-        pyautogui.hotkey('ctrl', 'home')
-        time.sleep(wait_time)
+    def __init__(self):
+        pass
+    def _press_ctrl_home(ammount: int = 1, wait_time: float = 0) -> None:
+        """
+        Pressiona a tecla 'Ctrl + Home' repetidamente.
+
+        Parameters
+        ----------
+        ammount : int, optional
+            Quantidade de vezes que a tecla será pressionada (padrão: 1).
+        wait_time : float, optional
+            Intervalo entre cada pressionamento (padrão: 0.0 segundos).
+        """
+        for _ in range(ammount):
+            pyautogui.hotkey('ctrl', 'home')
+            time.sleep(wait_time)
+    def _press_ctrl_end(ammount: int = 1, wait_time: float = 0.1) -> None:
+        """
+        Pressiona a tecla 'Ctrl + End' repetidamente.
+
+        Parameters
+        ----------
+        ammount : int, optional
+            Quantidade de vezes que a tecla será pressionada (padrão: 1).
+        wait_time : float, optional
+            Intervalo entre cada pressionamento (padrão: 0.1 segundos).
+        """
+        for _ in range(ammount):
+            pyautogui.hotkey('ctrl', 'end')
+            time.sleep(wait_time)
+
+    def rename_arcgis(ammount: int = 1, wait_time: float = 0.2) -> None:
+        """
+        Renomeia o objeto no ArcGIS (F2).
+
+        Parameters
+        ----------
+        ammount : int, optional
+            Quantidade de vezes que a tecla será pressionada (padrão: 1).
+        wait_time : float, optional
+            Intervalo entre cada pressionamento (padrão: 0.2 segundos).
+        """
+        for _ in range(ammount):
+            pyautogui.press('f2')
+            time.sleep(wait_time)
     
-def press_ctrl_end(ammount: int = 1, wait_time: float = 0.1) -> None:
-    """
-    Pressiona a tecla 'Ctrl + End' repetidamente.
+    def _create_text(wait_time: float = 0) -> None:
+        """
+        Cria um novo texto no ArcGIS (Ctrl + H).
 
-    Parameters
-    ----------
-    ammount : int, optional
-        Quantidade de vezes que a tecla será pressionada (padrão: 1).
-    wait_time : float, optional
-        Intervalo entre cada pressionamento (padrão: 0.1 segundos).
-    """
-    for _ in range(ammount):
-        pyautogui.hotkey('ctrl', 'end')
+        Parameters
+        ----------
+        ammount : int, optional
+            Quantidade de vezes que a tecla será pressionada (padrão: 1).
+        wait_time : float, optional
+            Intervalo entre o pressionamento da tecla (padrão: 0.0 segundos).
+        """
+        for _ in range(ammount):
+            pyautogui.hotkey('ctrl','h')
+            time.sleep(wait_time)
+
+    def save_mxj(wait_time=0.2):
+        """
+        Salva o mapa como um arquivo MXJ no ArcGIS (Ctrl + J).
+
+        Parameters
+        ----------
+        wait_time : float, optional
+            Intervalo entre o pressionamento da tecla (padrão: 0.2 segundos).
+        """
+        pyautogui.hotkey('ctrl','j')
         time.sleep(wait_time)
 
-def rename_arcgis(ammount: int = 1, wait_time: float = 0.2) -> None:
-    """
-    Renomeia o objeto no ArcGIS (F2).
+    def save_mapa_export(wait_time=0.2):
+        """
+        Exporta o mapa atual para um arquivo no ArcGIS (Ctrl + K).
 
-    Parameters
-    ----------
-    ammount : int, optional
-        Quantidade de vezes que a tecla será pressionada (padrão: 1).
-    wait_time : float, optional
-        Intervalo entre cada pressionamento (padrão: 0.2 segundos).
-    """
-    for _ in range(ammount):
-        pyautogui.press('f2')
+        Parameters
+        ----------
+        wait_time : float, optional
+            Intervalo entre o pressionamento da tecla (padrão: 0.2 segundos).
+        """
+        pyautogui.hotkey('ctrl','k')
         time.sleep(wait_time)
-    
-def create_text(wait_time = 0):
-    """
-    Cria um novo texto no ArcGIS (Ctrl + H).
-
-    Parameters
-    ----------
-    wait_time : float, optional
-        Intervalo entre o pressionamento da tecla (padrão: 0.0 segundos).
-    """
-    pyautogui.hotkey('ctrl','h')
-    time.sleep(wait_time)
-
-def save_mxj(wait_time=0.2):
-    """
-    Salva o mapa como um arquivo MXJ no ArcGIS (Ctrl + J).
-
-    Parameters
-    ----------
-    wait_time : float, optional
-        Intervalo entre o pressionamento da tecla (padrão: 0.2 segundos).
-    """
-    pyautogui.hotkey('ctrl','j')
-    time.sleep(wait_time)
-
-def save_mapa_export(wait_time=0.2):
-    """
-    Exporta o mapa atual para um arquivo no ArcGIS (Ctrl + K).
-
-    Parameters
-    ----------
-    wait_time : float, optional
-        Intervalo entre o pressionamento da tecla (padrão: 0.2 segundos).
-    """
-    pyautogui.hotkey('ctrl','k')
-    time.sleep(wait_time)
