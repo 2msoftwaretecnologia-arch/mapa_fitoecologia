@@ -1,3 +1,4 @@
+from mimetypes import types_map
 import os
 import sys
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -49,7 +50,7 @@ if __name__ == "__main__":
         botoes=("Sim", "Não"),
     )
     if start:
-        tipo = choose_kind_mapa()
+        type_map = choose_kind_mapa()
         caminho = path_current_map()
         open_document(caminho)
         open_document(path_word)
