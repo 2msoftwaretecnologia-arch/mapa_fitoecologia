@@ -1,5 +1,6 @@
 import os
 import sys
+from tkinter import Button
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(BASE_DIR)
 
@@ -14,9 +15,9 @@ from scripts.selecao_apr import select_apr
 from scripts.salvar_mapa import salvar_mapas
 
 # Interface e janelas
-from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW, choose_kind_mapa
+from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
 from buildkite.interfaces.initial_form import InitialForm
-from buildkite.Windows.abrir_documentos import open_document, path_current_map, path_word
+from buildkite.Windows.abrir_documentos import open_document, choose_kind_mapa, path_word
 from buildkite.interfaces.simple_interface import simple_choices
 
 # Ajuste de monitores
@@ -43,15 +44,10 @@ def main_flow():
 # ==========================================
 if __name__ == "__main__":
     verificar_resolucao()
-    start = simple_choices(
-        title="Início",
-        text="Deseja começar o processo?",
-        botoes=("Sim", "Não"),
-    )
+    start = simple_choices(title="Início",text="Deseja começar o processo?",choices_buttons=["Sim", "Não"])
     if start:
-        type_map = choose_kind_mapa()
-        caminho = path_current_map()
-        open_document(caminho)
+        path_map = choose_kind_mapa()
+        open_document(path_map)
         open_document(path_word)
         main_flow()
         print("✅ Processo concluído com sucesso.")

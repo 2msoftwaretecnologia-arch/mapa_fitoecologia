@@ -57,17 +57,17 @@ class InitialForm:
         # 1. Abre a janela de entrada Tkinter
         # ===============================
         fields = InitialForm._open_window()
-
+        print("abriu a janela de entrada Tkinter")
         # ===============================
         # 2. Armazena dados textuais
         # ===============================
         InitialForm._save_infos(fields)
-
+        print("armazenou os dados de textos")
         # ===============================
         # 3. Captura coordenadas via clique (ou simulação em modo teste)
         # ===============================
         x_arcgis, y_arcgis = InitialForm._get_arcgis_coordinates()
-
+        print("pegou as coordenadas do arcgis")
         # ===============================
         # 4. Armazena coordenadas globais
         # ===============================
@@ -88,18 +88,14 @@ class InitialForm:
         # Suporta cancelamento/fechamento da janela sem confirmar
         fields = fields or {}
         Text_infos.nome_propriedade = fields.get('nome_propriedade', '')
-        Text_infos.proprietario = fields.get('proprietario', '')
-        Text_infos.matricula = fields.get('matricula', '')
-        Text_infos.cidade_uf = fields.get('cidade_uf', '')
+        Text_infos.owner = fields.get('proprietario', '')
+        Text_infos.registration_property = fields.get('matricula', '')
+        Text_infos.city_uf = fields.get('cidade_uf', '')
 
     @staticmethod
     def _get_arcgis_coordinates() -> tuple[float, float]:
         """Captura coordenadas via clique ou gera valores simulados em modo teste."""
-        if os.getenv("FORM_INICIAL_TEST", "0") == "1":
-            # Em modo teste, gera coordenadas simuladas
-            return (123.45, 67.89)
-        else:
-            return capturar_clique("clique na janela do arcgis para eu saber onde fica")
+        return capturar_clique("clique na janela do arcgis para eu saber onde fica")
 
     @staticmethod
     def _save_arcgis_coordinates(x: float, y: float) -> None:
