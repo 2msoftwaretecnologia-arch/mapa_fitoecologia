@@ -3,35 +3,35 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from database.text_infos import Text_infos
 
-def tamano_quadrados(quantidade):
+def size_squares(ammount):
     
-    if quantidade == 1:
+    if ammount == 1:
         return "0,3745 cm" , "7,687 cm"
-    if quantidade == 2:
+    if ammount == 2:
         return "0,3745 cm" , "3,6106 cm"
-    if quantidade == 3:
+    if ammount == 3:
         return "0,3745 cm" , "2,3464 cm"
-    if quantidade == 4:
+    if ammount == 4:
         return "0,3745 cm" , "1,5012 cm"    
 
     
 
-def posicao_quadrados(quantidade):
-    if quantidade == 1:
+def position_squares(ammount):
+    if ammount == 1:
         return [("22,2462 cm", "4,3233 cm")]
     
-    if quantidade == 2:
+    if ammount == 2:
         return [("22,3185 cm", "8,3997 cm"),("22,3185 cm","4,3233 cm")]
     
-    if quantidade == 3:
+    if ammount == 3:
         return [("22,3185 cm", "9,6639 cm"),("22,3185 cm","6,9771 cm"),("22,3185 cm","4,3233 cm")]
     
-    if quantidade == 4:
+    if ammount == 4:
         return [("22,3185 cm", "10,5091 cm"),("22,3185 cm","8,3997 cm"),("22,3185 cm","6,5792 cm"),("22,3185 cm","4,3233 cm")]
     
 
-def estilos_atuais():
-    if Text_infos.tipo_mapa == 'Fitoecologia':
+def style_itens():
+    if Text_infos.kind_mapa == 'Fitoecologia':
             return {
                 "Floresta Estacional" : [59 , 105 , 0],
                 "Floresta Ombrófila Aberta" : [255 , 115, 0],
@@ -43,7 +43,7 @@ def estilos_atuais():
                 "Rio" : [168 , 214 , 255]
             }
 
-    if Text_infos.tipo_mapa == 'Geologia':
+    if Text_infos.kind_mapa == 'Geologia':
         return {
             "Cabeceiras do Parnaíba": [0, 128, 255],  # Azul → nascentes / cabeceiras
             "Chapada das Mangabeiras": [139, 69, 19],  # Marrom → chapada rochosa
@@ -72,7 +72,7 @@ def estilos_atuais():
             "Serras de Santo Antônio -- João Damião": [192, 192, 192],
             "Vãos da Bacia do Alto Parnaíba": [72, 209, 204]  # Azul esverdeado → várzeas/vãos
         }
-    if Text_infos.tipo_mapa == 'Pedologia':
+    if Text_infos.kind_mapa == 'Pedologia':
         return {
             "Afl. Rochoso": (230, 25, 25),      # vermelho rochoso
             "ARGISSOLOS": (241, 163, 64),       # laranja argiloso
@@ -87,7 +87,7 @@ def estilos_atuais():
             "Planossolos": (182, 227, 182),     # verde claro
             "Plintossolos": (153, 153, 153)     # cinza plintítico
         }
-    if Text_infos.tipo_mapa == 'Regioes_climaticas':
+    if Text_infos.kind_mapa == 'Regioes_climaticas':
         return {
             "B1wA'a'": (114, 178, 255),  
             "B2rA'a'": (0, 60, 132),    
@@ -95,7 +95,7 @@ def estilos_atuais():
             "C2rA'a'": (0, 172, 240),  
             "C2wA'a'": (255, 235, 190) 
         }
-    if Text_infos.tipo_mapa == 'Declividade':
+    if Text_infos.kind_mapa == 'Declividade':
         return {
             "A (declive igual ou inferior a 5%)": (255, 191, 0),
             "B (declive maior que 5% e igual ou inferior a 10%)": (166, 251, 254),
@@ -110,7 +110,7 @@ def estilos_atuais():
             "CD - Mosaico com predomínio de C sobre D": (0, 130, 0),
             "DC - Mosaico com predomínio de D sobre C": (255, 145, 145),
         }
-    if Text_infos.tipo_mapa == 'Erodibilidade':
+    if Text_infos.kind_mapa == 'Erodibilidade':
         return {
             "1 - Muito Fraca a Fraca": (254, 250, 114),
             "2 - Ligeira": (254, 249, 193),

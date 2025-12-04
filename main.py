@@ -8,7 +8,7 @@ from scripts.ajustar_grid import set_grid
 from scripts.ajustar_escala import set_scale
 from scripts.fazer_legenda_fitoecologias import build_subtitle
 from scripts.ajustar_nota_Tecnica import fazer_nota_tencnica
-from scripts.ajustar_quadrados import ajustar_quadrados_mapa
+from scripts.ajustar_quadrados import build_squares
 from scripts.ajustar_legendas_propriedade import set_info_property
 from scripts.selecao_apr import select_apr
 from scripts.salvar_mapa import salvar_mapas
@@ -33,7 +33,7 @@ def main_flow():
     set_grid()
     set_info_property()
     build_subtitle()
-    ajustar_quadrados_mapa()
+    build_squares()
     fazer_nota_tencnica()
     #salvar_mapas()
 
