@@ -1,1 +1,0 @@
-tipos_de_mapa  = ["Geologia","Pedologia","Regioes_climaticas","Declividade","Erodibilidade"]

@@ -1,0 +1,1 @@
+kinds_maps  = ["Geologia","Pedologia","Regioes_climaticas","Declividade","Erodibilidade"]

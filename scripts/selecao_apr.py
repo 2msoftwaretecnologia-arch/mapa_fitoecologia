@@ -11,7 +11,7 @@ from buildkite.manipular_textos.fast_formatter import format_path
 from buildkite.functions_pyautogui.mause_complexo import click                                                                  
 from buildkite.utils.helpers import find_aii,BRAKE_WINDOW
 from database.requests import get_or_set_coordinate
-from utils_info import tipos_de_mapa
+from buildkite.utils.small_utils import kinds_maps
 
 def select_apr():
     
@@ -68,7 +68,7 @@ def select_apr():
     press_enter()
     WAIT(1)
     #modificando a camada de baixo
-    if Text_infos.tipo_mapa in tipos_de_mapa:
+    if Text_infos.tipo_mapa in kinds_maps:
         press_down(ammount=10,wait_time=0.002)
     else:
         if Text_infos.tipo_mapa == 'Fitoecologia':
