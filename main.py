@@ -6,7 +6,7 @@ sys.path.append(BASE_DIR)
 # Scripts principais
 from scripts.ajustar_grid import set_grid
 from scripts.ajustar_escala import set_scale
-from scripts.fazer_legenda_fitoecologias import fazer_parte_legenda
+from scripts.fazer_legenda_fitoecologias import build_subtitle
 from scripts.ajustar_nota_Tecnica import fazer_nota_tencnica
 from scripts.ajustar_quadrados import ajustar_quadrados_mapa
 from scripts.ajustar_legendas_propriedade import set_info_property
@@ -32,7 +32,7 @@ def main_flow():
     set_scale()
     set_grid()
     set_info_property()
-    fazer_parte_legenda()
+    build_subtitle()
     ajustar_quadrados_mapa()
     fazer_nota_tencnica()
     #salvar_mapas()

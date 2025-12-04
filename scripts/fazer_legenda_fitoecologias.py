@@ -15,7 +15,7 @@ from buildkite.functions_tkinter.interfaces import exit_checkbox
 from database.requests import get_or_set_coordinate
 
 
-def fazer_parte_legenda():
+def build_subtitle():
     Text_infos.current_items = criar_interface_opcoes(
         opcoes_disponiveis=kind_maps_options[Text_infos.kind_mapa]
     )
