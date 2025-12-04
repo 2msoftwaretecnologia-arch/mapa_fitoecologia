@@ -37,7 +37,7 @@ class Text_infos:
         matricula (str):
             Número da matrícula do imóvel (registro cartorial).
 
-        cidade_uf (str):
+        city_uf (str):
             Cidade e UF onde a propriedade está localizada.
 
         nome_propriedade (str):
@@ -70,9 +70,9 @@ class Text_infos:
     def __init__(
         self,
         lista_camadas: list,
-        proprietario: str,
-        matricula: str,
-        cidade_uf: str,
+        owner: str,
+        registration_property: str,
+        city_uf: str,
         nome_propriedade: str,
         tipo_dominante_fitoecologia: str,
         tipo_dominante_geologia: str,
@@ -94,7 +94,7 @@ class Text_infos:
             lista_camadas (list): Lista com nomes das camadas carregadas.
             proprietario (str): Nome do proprietário.
             matricula (str): Número da matrícula.
-            cidade_uf (str): Cidade e estado (ex: "Porto Nacional - TO").
+            city_uf (str): Cidade e estado (ex: "Porto Nacional - TO").
             nome_propriedade (str): Nome da propriedade.
             tipo_dominante_fitoecologia (str): Vegetação dominante.
             tipo_dominante_geologia (str): Formação geológica dominante.
@@ -110,9 +110,9 @@ class Text_infos:
         # 📦 ATRIBUTOS BÁSICOS
         # ============================================================
         self._lista_camadas = lista_camadas
-        self.proprietario = proprietario
-        self.matricula = matricula
-        self.cidade_uf = cidade_uf
+        self.owner = owner
+        self.registration_property = registration_property
+        self.city_uf = city_uf
         self.nome_propriedade = nome_propriedade
 
         # ============================================================
@@ -153,28 +153,28 @@ class Text_infos:
         self._caminho_mapa_atual = nova_caminho_mapa_atual
 
     @property
-    def proprietario(self) -> str:
-        return self._proprietario
+    def owner(self) -> str:
+        return self._owner
     
-    @proprietario.setter
-    def proprietario(self, novo_proprietario: str) -> None:
-        self._proprietario = novo_proprietario
+    @owner.setter
+    def owner(self, novo_owner: str) -> None:
+        self._owner = novo_owner
     
     @property
-    def matricula(self) -> str:
-        return self._matricula
+    def registration_property(self) -> str:
+        return self._registration_property
     
-    @matricula.setter
-    def matricula(self, nova_matricula: str) -> None:
-        self._matricula = nova_matricula
+    @registration_property.setter
+    def registration_property(self, nova_registration_property: str) -> None:
+        self._registration_property = nova_registration_property
 
     @property
-    def cidade_uf(self) -> str:
-        return self._cidade_uf
+    def city_uf(self) -> str:
+        return self._city_uf
     
-    @cidade_uf.setter
-    def cidade_uf(self, nova_cidade_uf: str) -> None:
-        self._cidade_uf = nova_cidade_uf
+    @city_uf.setter
+    def city_uf(self, nova_city_uf: str) -> None:
+        self._city_uf = nova_city_uf
 
     @property
     def nome_propriedade(self) -> str:

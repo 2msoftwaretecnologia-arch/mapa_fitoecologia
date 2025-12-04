@@ -1,102 +1,97 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import press_enter,write_text,press_tab,open_page_margin_Word,open_page_margin_Word,press_ctrl_end
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import press_enter,write_text,press_tab,press_ctrl_end,select_all,create_text
+from buildkite.functions_pyautogui.mause_complexo import click
 from buildkite.functions_pyautogui.arrows_keyboard import ArrowsKeyboard
 from buildkite.manipular_textos.manipular_textos import quebrar_texto
 from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
 from buildkite.Windows.manipular_windos import WAIT
+from buildkite.utils.info_arcgis import Positions_subtitles,property_infos
 from database.text_infos import Text_infos
 from database.coordenadas import coordinates
 from database.requests import get_or_set_coordinate
 import pyautogui
 
 def set_info_property():
-    Positions = [
-        ("23,2921","1,876","0,9878","0,3125"),
-        ("27,8184","1,8989","0,8466","0,3125")]
-    property_infos = [Text_infos.proprietario,Text_infos.matricula]
-    for position,info in zip(Positions,property_infos):
-        
-        click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
-        esperar(0.2)
-        abrir_textos()
-        esperar(0.3)
-        selecionar_tudo()
-        escrever_texto(info)
-        enter(tempo=0.5)
+    for position,info in zip(Positions_subtitles,property_infos):        
+        click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,wait_time=0.1)
+        WAIT(0.2)
+        create_text()
+        WAIT(0.3)
+        select_all()
+        write_text(info)
+        press_enter(wait_time=0.5)
         ponto_incial_coordenadas = get_or_set_coordinate(9,"clique sobre texto para eu enteder onde fica")
-        coordinates.x_ponto_incial = ponto_incial_coordenadas[0]
-        coordinates.y_ponto_incial = ponto_incial_coordenadas[1]
-        esperar(0.3)
-        click(ponto_incial_coordenadas[0],ponto_incial_coordenadas[1])
-        esperar(0.3)
-        click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
-        esperar(0.3)
-        click(ponto_incial_coordenadas[0],ponto_incial_coordenadas[1],botao='right')
-        esperar(0.6)
-        apertar_ctrl_end()
-        enter()
+        coordinates.x_start_point = ponto_incial_coordenadas[0]
+        coordinates.y_start_point = ponto_incial_coordenadas[1]
+        WAIT(0.3)
+        click(coordinates.x_start_point,coordinates.y_start_point)
+        WAIT(0.3)
+        click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,wait_time=0.1)
+        WAIT(0.3)
+        click(coordinates.x_start_point,coordinates.y_start_point,botao='right')
+        WAIT(0.6)
+        press_ctrl_end()
+        press_enter(wait_time=0.5)
         BRAKE_WINDOW("espere abrir e aperte 'OK'")
-        text_coordenadas = get_or_set_coordinate(13,"clique em 'Text' pra eu entender como fica")
-        esperar(0.3)
-        click(text_coordenadas[0],text_coordenadas[1],clicks_quant=3)
-        direita()
-        apertar_Tab(tempo_espera=0.1)
-        escrever_texto(position[0])
-        apertar_Tab(tempo_espera=0.1)
-        escrever_texto(position[1])
-        apertar_Tab(3,tempo_espera=0.1)
-        escrever_texto(position[2])
-        apertar_Tab(tempo_espera=0.1)
-        esperar(0.3)
-        selecionar_tudo()
-        escrever_texto(position[3])
-        enter(tempo=0.7)
+        text_coordinators = get_or_set_coordinate(13,"clique em 'Text' pra eu entender como fica")
+        WAIT(0.3)
+        click(coordinates.x_start_point,coordinates.y_start_point,clicks_quant=3)
+        ArrowsKeyboard._press_right()
+        press_tab(wait_time=0.1)
+        write_text(position[0])
+        press_tab(wait_time=0.1)
+        write_text(position[1])
+        press_tab(3,wait_time=0.1)
+        write_text(position[2])
+        press_tab(wait_time=0.1)
+        WAIT(0.3)
+        select_all()
+        write_text(position[3])
+        press_enter(wait_time=0.7)
 
 
-    cidade_estado = Text_infos.cidade_uf
-    if len(cidade_estado) > 16:
-        p1,p2 = quebrar_texto(cidade_estado,16,False,True)
-    click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
-    abrir_textos()
-    esperar(0.3)
-    selecionar_tudo()
-    if len(cidade_estado) > 16:
-        escrever_texto(p1)
+    if len(Text_infos.city_uf) > 16:
+        p1,p2 = quebrar_texto(Text_infos.city_uf,16,multi=False,duas_variaveis=True)
+    click(coordinates.x_blank_space,coordinates.y_blank_space,wait_time=0.1)
+    create_text(wait_time=0.3)
+    select_all()
+    if len(Text_infos.city_uf) > 16:
+        write_text(p1)
         pyautogui.hotkey("ctrl","enter")
-        escrever_texto(p2)
-    if len(cidade_estado) <= 16:
-        escrever_texto(cidade_estado)
-    enter(tempo=0.5)
-    click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
-    esperar(0.3)
+        write_text(p2)
+    if len(Text_infos.city_uf) <= 16:
+        write_text(Text_infos.city_uf)
+    press_enter(wait_time=0.5)
+    click(coordinates.x_blank_space,coordinates.y_blank_space,wait_time=0.1)
+    WAIT(0.3)
     click(ponto_incial_coordenadas[0],ponto_incial_coordenadas[1],botao='right')
-    esperar(0.6)
-    apertar_ctrl_end()
-    enter(tempo=0.5)
-    click(text_coordenadas[0],text_coordenadas[1],clicks_quant=3)
-    direita()
-    if len(cidade_estado) > 16: 
-        apertar_Tab(tempo_espera=0.1)
-        escrever_texto("27,965")
-        apertar_Tab(tempo_espera=0.1)
-        escrever_texto("0,5747")
-        apertar_Tab(3,tempo_espera=0.1)
-        escrever_texto("1,4216")
-        apertar_Tab(tempo_espera=0.1)
-        esperar(0.3)
-        selecionar_tudo()
-        escrever_texto("0,4778")
-    if len(cidade_estado) <= 16:
-        apertar_Tab(tempo_espera=0.1)
-        escrever_texto("27,931")
-        apertar_Tab(tempo_espera=0.1)
-        escrever_texto("0,7082")
-        apertar_Tab(3,tempo_espera=0.1)
-        escrever_texto("0,9406")
-        apertar_Tab(tempo_espera=0.1)
-        esperar(0.3)
-        selecionar_tudo()
-        escrever_texto("0,2344")
-    enter(tempo=0.5)
+    WAIT(0.6)
+    press_ctrl_end()
+    press_enter(wait_time=0.5)  
+    click(text_coordinators[0],text_coordinators[1],clicks_quant=3)
+    ArrowsKeyboard._press_right()
+    if len(Text_infos.city_uf) > 16: 
+        press_tab(wait_time=0.1)
+        write_text("27,965")
+        press_tab(wait_time=0.1)
+        write_text("0,5747")
+        press_tab(3,wait_time=0.1)
+        write_text("1,4216")
+        press_tab(wait_time=0.1)
+        WAIT(0.3)
+        select_all()
+        write_text("0,4778")
+    if len(Text_infos.city_uf) <= 16:
+        press_tab(wait_time=0.1)
+        write_text("27,931")
+        press_tab(wait_time=0.1)
+        write_text("0,7082")
+        press_tab(3,wait_time=0.1)
+        write_text("0,9406")
+        press_tab(wait_time=0.1)
+        WAIT(0.3)
+        select_all()
+        write_text("0,2344")
+    press_enter(wait_time=0.5)

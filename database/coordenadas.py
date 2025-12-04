@@ -45,8 +45,8 @@ class coordinates:
         altura_atual: int,
         x_blank_space: int,
         y_blank_space: int,
-        x_ponto_incial: int,
-        y_ponto_incial: int,
+        x_start_point: int,
+        y_start_point: int,
         x_size_position: int,
         y_size_position: int,
        
@@ -72,8 +72,8 @@ class coordinates:
         self.altura_atual = altura_atual
         self.x_blank_space = x_blank_space
         self.y_blank_space = y_blank_space
-        self.x_ponto_incial = x_ponto_incial
-        self.y_ponto_incial = y_ponto_incial
+        self.x_start_point = x_start_point
+        self.y_start_point = y_start_point
         self.x_size_position = x_size_position
         self.y_size_position = y_size_position
 
@@ -126,20 +126,20 @@ class coordinates:
         self._y_blank_space = new_y_blank_space
     
     @property
-    def x_ponto_incial(self) -> int:
-        return self._x_ponto_incial
+    def x_start_point(self) -> int:
+        return self._x_start_point
     
-    @x_ponto_incial.setter
-    def x_ponto_incial(self, new_x_ponto_incial: int) -> None:
-        self._x_ponto_incial = new_x_ponto_incial
+    @x_start_point.setter
+    def x_start_point(self, new_x_start_point: int) -> None:
+        self._x_start_point = new_x_start_point
     
     @property
-    def y_ponto_incial(self) -> int:
-        return self._y_ponto_incial
+    def y_start_point(self) -> int:
+        return self._y_start_point
     
-    @y_ponto_incial.setter
-    def y_ponto_incial(self, new_y_ponto_incial: int) -> None:
-        self._y_ponto_incial = new_y_ponto_incial
+    @y_start_point.setter
+    def y_start_point(self, new_y_start_point: int) -> None:
+        self._y_start_point = new_y_start_point
 
     @property
     def x_size_position(self) -> int:
