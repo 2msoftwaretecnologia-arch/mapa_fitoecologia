@@ -2,108 +2,62 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from buildkite.Windows.abrir_documentos import abrir_documento,caminho_word_nota_tecnica
-from buildkite.Windows.manipular_windos import esperar
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import (click_center_screen,enter,escrever_texto,apertar_Tab,click,
-                                                                 colar,selecionar_tudo,apertar_ctrl_end,copiar,escolher_fonte_Word,
-                                                                 abrir_margen_pagina_Word,selecionar_tudo_Word,centralizar_texto_Word,
+from buildkite.Windows.abrir_documentos import open_document,path_word
+from buildkite.Windows.manipular_windos import WAIT
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import (click_center_screen,press_enter,write_text,press_tab,
+                                                                 paste,select_all,press_ctrl_end,copy,choose_font_in_Word,
+                                                                 open_page_margin_Word,select_all_in_Word,center_text_in_Word,
                                                                  press_ctrl_home)
-from database.text_infos import Text_infos
+from buildkite.functions_pyautogui.mause_complexo import click
 from database.coordenadas import coordinates
+from buildkite.utils.techinal_notes import get_techinal_note_text
 from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
-import pyautogui
-
-def fazer_nota_tencnica():
-    if Text_infos.tipo_mapa == 'Fitoecologia':
-        fito_predominante = pyautogui.confirm(title="Fitofisionomia Predominante",text="Qual a fitofisionomia predominante da propriedade?",buttons=Text_infos.itens_atuais)
-        Text_infos.tipo_dominante_fitoecologia = fito_predominante
-        texto_nota_tecnica = f"""Nota Técnica
-
-O mapa de Fitofisionomias da propriedade {Text_infos.nome_propriedade} detalha as formações vegetais da área, com destaque para a {Text_infos.tipo_dominante_fitoecologia}.
-Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
-    
-    if Text_infos.tipo_mapa == 'Geologia':
-        geologia_predominante = pyautogui.confirm(title="Geologia Predominante",text="Qual a Geologia predominante da propriedade?",buttons=Text_infos.itens_atuais)
-        Text_infos.tipo_dominante_geologia = geologia_predominante        
-        texto_nota_tecnica= f"""Nota Técnica
-
-O mapa geológico da propriedade {Text_infos.nome_propriedade} detalha as formações litológicas presentes na área, com destaque para a {Text_infos.tipo_dominante_geologia}.
-Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
-
-    if Text_infos.tipo_mapa == 'Pedologia':
-        pedologia_predominante = pyautogui.confirm(title="Pedologia Predominante",text="Qual a Pedologia predominante da propriedade?",buttons=Text_infos.itens_atuais)
-        Text_infos.tipo_dominante_pedologia = pedologia_predominante
-        texto_nota_tecnica= f"""Nota Técnica
-
-O mapa pedológico da propriedade {Text_infos.nome_propriedade} detalha as formações solares presentes na área, com destaque para a {Text_infos.tipo_dominante_pedologia}.
-Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
-
-    if Text_infos.tipo_mapa == 'Regioes_climaticas':
-        regiao_climatica_predominante = pyautogui.confirm(title="Região Climática Predominante",text="Qual a Região Climática predominante da propriedade?",buttons=Text_infos.itens_atuais)
-        Text_infos.tipo_dominante_regiao_climatica = regiao_climatica_predominante
-        texto_nota_tecnica= f"""Nota Técnica 
-
-O mapa de Regiões Climáticas da propriedade {Text_infos.nome_propriedade} detalha as regiões climáticas predominantes na área, com destaque para a {Text_infos.tipo_dominante_regiao_climatica}.
-Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
-
-    if Text_infos.tipo_mapa == 'Declividade':
-        declividade_predominante = pyautogui.confirm(title="Declividade Predominante",text="Qual a Declividade predominante da propriedade?",buttons=Text_infos.itens_atuais)
-        Text_infos.tipo_dominante_declividade = declividade_predominante
-        texto_nota_tecnica= f"""Nota Técnica
-
-O mapa de Declividade da propriedade {Text_infos.nome_propriedade} detalha as declividades predominantes na área, com destaque para a {Text_infos.tipo_dominante_declividade}.
-Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado."""
-
-    if Text_infos.tipo_mapa == 'Erodibilidade':
-        erodibilidade_predominante = pyautogui.confirm(title="Erodibilidade Predominante",text="Qual a Erodibilidade predominante da propriedade?",buttons=Text_infos.itens_atuais)
-        Text_infos.tipo_dominante_erodibilidade = erodibilidade_predominante
-        texto_nota_tecnica= f"""Nota Técnica
-
-O mapa de Erodibilidade da propriedade {Text_infos.nome_propriedade} detalha as erodibilidades predominantes na área, com destaque para a {Text_infos.tipo_dominante_erodibilidade}.
-Esses dados são fundamentais para o planejamento ambiental, regularização fundiária e ações de conservação. Os direitos autorais e a propriedade intelectual deste mapeamento pertencem à ENVIMAP. Qualquer uso, reprodução ou distribuição deste registro técnico deve ser devidamente referenciado e autorizado.
-"""
 
 
-    abrir_documento(caminho_word_nota_tecnica)
+def build_techinal_note():
+    text_note_techinical = get_techinal_note_text()
+
+
+    open_document(path_word)
     BRAKE_WINDOW("espere o word abrir e aperte em OK")
     click_center_screen()
-    esperar(0.5)
-    abrir_margen_pagina_Word(4)
-    apertar_Tab(3, tempo_espera=0.1)
-    escrever_texto('7,5')
-    enter()
-    esperar(0.5)
-    selecionar_tudo_Word()
-    esperar(0.5)
-    escrever_texto(texto=texto_nota_tecnica,velocidade=0.005)
-    esperar(0.2)
+    WAIT(0.5)
+    open_page_margin_Word(4)
+    press_tab(3, wait_time=0.1)
+    write_text('7,5')
+    press_enter()
+    WAIT(0.5)
+    select_all_in_Word()
+    WAIT(0.5)
+    write_text(texto=text_note_techinical,velocidade=0.005)
+    WAIT(0.2)
     press_ctrl_home()
-    centralizar_texto_Word()
-    selecionar_tudo_Word()
-    escolher_fonte_Word()
-    escrever_texto("Times New Roman")
-    enter()
-    esperar(0.5)
-    copiar()
+    center_text_in_Word()
+    select_all_in_Word()
+    choose_font_in_Word()
+    write_text("Times New Roman")
+    press_enter()
+    WAIT(0.5)
+    copy()
     click(coordinates.x_arcgis,coordinates.y_arcgis)#clicando na janela do arggis
-    esperar(0.7)
-    click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
-    esperar(0.3)
-    colar()
-    esperar(1)
-    click(coordinates.x_ponto_incial,coordinates.y_ponto_incial,botao='right')
-    esperar(0.6)
-    apertar_ctrl_end()
-    enter()
-    esperar(0.3)
+    WAIT(0.7)
+    click(coordinates.x_blank_space,coordinates.y_blank_space,tempo=0.1)
+    WAIT(0.3)
+    paste()
+    WAIT(1)
+    click(coordinates.x_start_point,coordinates.y_start_point,botao='right')
+    WAIT(0.6)
+    press_ctrl_end()
+    press_enter()
+    WAIT(0.3)
     click(coordinates.x_size_position,coordinates.y_size_position, clicks_quant=3)
-    apertar_Tab(tempo_espera=0.1)
-    escrever_texto("0,4822 cm")
-    apertar_Tab(tempo_espera=0.1)
-    escrever_texto("0,1517 cm")
-    apertar_Tab(3,tempo_espera=0.1)
-    escrever_texto("6,3994 cm")
-    apertar_Tab(tempo_espera=0.4)
-    selecionar_tudo()
-    escrever_texto("3,7103 cm")
-    enter(tempo=0.5)
+    press_tab(wait_time=0.1)
+    write_text("0,4822 cm")
+    press_tab(wait_time=0.1)
+    write_text("0,1517 cm")
+    press_tab(3,wait_time=0.1)
+    write_text("6,3994 cm")
+    press_tab(wait_time=0.4)
+    select_all()
+    write_text("3,7103 cm")
+    press_enter(tempo=0.5)

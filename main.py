@@ -7,7 +7,7 @@ sys.path.append(BASE_DIR)
 from scripts.ajustar_grid import set_grid
 from scripts.ajustar_escala import set_scale
 from scripts.fazer_legenda_fitoecologias import build_subtitle
-from scripts.ajustar_nota_Tecnica import fazer_nota_tencnica
+from scripts.ajustar_nota_Tecnica import build_techinal_note    
 from scripts.ajustar_quadrados import build_squares
 from scripts.ajustar_legendas_propriedade import set_info_property
 from scripts.selecao_apr import select_apr
@@ -16,7 +16,7 @@ from scripts.salvar_mapa import salvar_mapas
 # Interface e janelas
 from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW, confirmar_inicio, escolher_tipo_mapa
 from buildkite.interfaces.initial_form import InitialForm
-from buildkite.Windows.abrir_documentos import abrir_documento, caminho_atual_mapa, caminho_word_nota_tecnica
+from buildkite.Windows.abrir_documentos import open_document, path_current_map, path_word
 
 # Ajuste de monitores
 from ajustar_monitores import verificar_resolucao
@@ -34,7 +34,7 @@ def main_flow():
     set_info_property()
     build_subtitle()
     build_squares()
-    fazer_nota_tencnica()
+    build_techinal_note()
     #salvar_mapas()
 
 # ==========================================
