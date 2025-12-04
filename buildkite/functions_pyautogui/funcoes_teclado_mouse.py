@@ -30,24 +30,6 @@ def click_center_screen(ammount: int = 1) -> None:
 # FUNÇÕES DE TECLADO BÁSICAS
 # ============================================================
 
-def press_down(ammount: int = 1, wait_time: float = 0.1) -> None:
-    """
-    Pressiona a tecla 'seta para baixo' repetidamente.
-
-    Parameters
-    ----------
-    ammount : int, optional
-        Quantas vezes pressionar (padrão: 1).
-    tempo_espera : float, optional
-        Intervalo entre as pressões (padrão: 0.1 segundos).
-
-    Returns
-    -------
-    None
-    """
-    for _ in range(ammount):
-        pyautogui.press('down')
-        time.sleep(wait_time)
 
 
 def press_home(ammount: int = 1, wait_time: float = 0) -> None:
@@ -131,26 +113,6 @@ def press_esc(ammount: int = 1, wait_time: float = 0.1) -> None:
 # ============================================================
 # MOVIMENTAÇÃO ENTRE CAMPOS E SELEÇÃO
 # ============================================================
-
-def press_left(ammount: int = 1, wait_time: float = 0.1) -> None:
-    """Move o cursor para a esquerda."""
-    for _ in range(ammount):
-        pyautogui.press('left')
-        time.sleep(wait_time)
-
-
-def press_right(ammount: int = 1, wait_time: float = 0.1) -> None:
-    """Move o cursor para a direita."""
-    for _ in range(ammount):
-        pyautogui.press('right')
-        time.sleep(wait_time)
-
-
-def press_up(ammount: int = 1, wait_time: float = 0.2) -> None:
-    """Move o cursor para cima."""
-    for _ in range(ammount):
-        pyautogui.press('up')
-        time.sleep(wait_time)
 
 
 def press_insert(ammount: int = 1, wait_time: float = 0.2) -> None:

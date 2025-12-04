@@ -1,7 +1,8 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import click_center_screen,press_up,press_enter ,press_tab,write_text,press_insert
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import click_center_screen,press_enter ,press_tab,write_text,press_insert
+from buildkite.functions_pyautogui.arrows_keyboard import ArrowsKeyboard
 from buildkite.functions_pyautogui.mause_complexo import click
 from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW,input_texto_dinamico
 from buildkite.interfaces.simple_interface import simple_choices
@@ -25,9 +26,9 @@ def set_grid():
             press_insert()
             click_center_screen()
             WAIT(0.5)
-            pyautogui.click(button="right")#TODO: ajustar essa função aqui depois
+            click(button_side="right")
             WAIT(0.5)
-            press_up()
+            ArrowsKeyboard._press_up()
             press_enter()
             
             BRAKE_WINDOW("espere a janela de propriedades abrir")

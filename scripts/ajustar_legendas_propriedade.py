@@ -1,29 +1,29 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import click,enter,escrever_texto,apertar_Tab,direita,selecionar_tudo,abrir_textos,apertar_ctrl_end
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import press_enter,write_text,press_tab,open_page_margin_Word,open_page_margin_Word,press_ctrl_end
+from buildkite.functions_pyautogui.arrows_keyboard import ArrowsKeyboard
 from buildkite.manipular_textos.manipular_textos import quebrar_texto
 from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
-from buildkite.Windows.manipular_windos import esperar
+from buildkite.Windows.manipular_windos import WAIT
 from database.text_infos import Text_infos
 from database.coordenadas import coordinates
 from database.requests import get_or_set_coordinate
 import pyautogui
 
 def set_info_property():
-    posicoes = [
+    Positions = [
         ("23,2921","1,876","0,9878","0,3125"),
         ("27,8184","1,8989","0,8466","0,3125")]
-    informacoes = [Text_infos.proprietario,Text_infos.matricula]
-    for posicao,informacao in zip(posicoes,informacoes):
+    property_infos = [Text_infos.proprietario,Text_infos.matricula]
+    for position,info in zip(Positions,property_infos):
         
         click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1)
         esperar(0.2)
         abrir_textos()
         esperar(0.3)
         selecionar_tudo()
-        escrever_texto(informacao)
+        escrever_texto(info)
         enter(tempo=0.5)
         ponto_incial_coordenadas = get_or_set_coordinate(9,"clique sobre texto para eu enteder onde fica")
         coordinates.x_ponto_incial = ponto_incial_coordenadas[0]
@@ -43,15 +43,15 @@ def set_info_property():
         click(text_coordenadas[0],text_coordenadas[1],clicks_quant=3)
         direita()
         apertar_Tab(tempo_espera=0.1)
-        escrever_texto(posicao[0])
+        escrever_texto(position[0])
         apertar_Tab(tempo_espera=0.1)
-        escrever_texto(posicao[1])
+        escrever_texto(position[1])
         apertar_Tab(3,tempo_espera=0.1)
-        escrever_texto(posicao[2])
+        escrever_texto(position[2])
         apertar_Tab(tempo_espera=0.1)
         esperar(0.3)
         selecionar_tudo()
-        escrever_texto(posicao[3])
+        escrever_texto(position[3])
         enter(tempo=0.7)
 
 
