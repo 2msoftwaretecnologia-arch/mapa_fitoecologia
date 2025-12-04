@@ -14,9 +14,10 @@ from scripts.selecao_apr import select_apr
 from scripts.salvar_mapa import salvar_mapas
 
 # Interface e janelas
-from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW, confirmar_inicio, escolher_tipo_mapa
+from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW, choose_kind_mapa
 from buildkite.interfaces.initial_form import InitialForm
 from buildkite.Windows.abrir_documentos import open_document, path_current_map, path_word
+from buildkite.interfaces.simple_interface import simple_choices
 
 # Ajuste de monitores
 from ajustar_monitores import verificar_resolucao
@@ -42,12 +43,16 @@ def main_flow():
 # ==========================================
 if __name__ == "__main__":
     verificar_resolucao()
-    
-    if confirmar_inicio():
-        tipo = escolher_tipo_mapa()
-        caminho = caminho_atual_mapa()
-        abrir_documento(caminho)
-        abrir_documento(caminho_word_nota_tecnica)
+    start = simple_choices(
+        title="Início",
+        text="Deseja começar o processo?",
+        botoes=("Sim", "Não"),
+    )
+    if start:
+        tipo = choose_kind_mapa()
+        caminho = path_current_map()
+        open_document(caminho)
+        open_document(path_word)
         main_flow()
         print("✅ Processo concluído com sucesso.")
     else:

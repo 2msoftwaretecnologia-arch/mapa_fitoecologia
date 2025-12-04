@@ -16,31 +16,6 @@ if ROOT_DIR not in sys.path:
 from database.text_infos import Text_infos  # Import específico em vez de wildcard
 
 
-def input_texto_dinamico(mensagem: str, titulo: str = "Entrada de Texto") -> Optional[str]:
-    """
-    Solicita ao usuário um texto livre via caixa de diálogo.
-
-    Parameters
-    ----------
-    mensagem : str
-        Texto exibido na janela (ex.: "Digite o nome do proprietário:").
-    titulo : str, optional
-        Título da janela (padrão: "Entrada de Texto").
-
-    Returns
-    -------
-    Optional[str]
-        String digitada pelo usuário. Retorna `None` se o usuário cancelar/fechar a janela.
-
-    Examples
-    --------
-    >>> nome = input_texto_dinamico("Digite o seu nome:")
-    >>> if nome:
-    ...     print(f"Olá, {nome}!")
-    """
-    resposta = pyautogui.prompt(text=mensagem, title=titulo)  # None se Cancelar
-    return resposta
-
 
 
 def BRAKE_WINDOW(mensage="Pausa no código"):
@@ -105,46 +80,11 @@ def BRAKE_WINDOW(mensage="Pausa no código"):
 
 
 
-def confirmar_inicio(
-    titulo: str = "Confirmação",
-    texto: str = "Começar o processo?",
-    botoes: Sequence[str] = ("Sim", "Não"),
-) -> bool:
-    """
-    Pergunta ao usuário se deseja iniciar um processo e retorna True/False.
 
-    Parameters
-    ----------
-    titulo : str, optional
-        Título da janela de confirmação (padrão: "Confirmação").
-    texto : str, optional
-        Texto exibido na janela (padrão: "Começar o processo?").
-    botoes : Sequence[str], optional
-        Botões exibidos na confirmação (padrão: ("Sim", "Não")).
-
-    Returns
-    -------
-    bool
-        `True` se o usuário clicar em "Sim".
-        `False` se clicar em "Não" ou se fechar/cancelar a janela.
-
-    Examples
-    --------
-    >>> if confirmar_inicio():
-    ...     print("Iniciando...")
-    ... else:
-    ...     print("Ação cancelada.")
-    """
-    resposta = pyautogui.confirm(title=titulo, text=texto, buttons=list(botoes))
-    return resposta == "Sim"
-
-
-
-
-def escolher_tipo_mapa(
+def choose_kind_mapa(
     opcoes: Sequence[str] = ("Fitoecologia", "Geologia","Pedologia","Regioes_climaticas","Declividade","Erodibilidade"),
-    titulo: str = "Tipo de Mapa",
-    texto: str = "Qual o tipo do mapa?",
+    title: str = "Tipo de Mapa",
+    text: str = "Qual o tipo do mapa?",
     definir_em_text_infos: bool = True,
 ) -> Optional[str]:
     """
@@ -154,9 +94,9 @@ def escolher_tipo_mapa(
     ----------
     opcoes : Sequence[str], optional
         Opções apresentadas ao usuário (padrão: ("Fitoecologia", "Geologia")).
-    titulo : str, optional
+    title : str, optional
         Título da janela (padrão: "Tipo de Mapa").
-    texto : str, optional
+    text : str, optional
         Texto exibido na janela (padrão: "Qual o tipo do mapa?").
     definir_em_text_infos : bool, optional
         Se `True`, atribui o valor escolhido em `Text_infos.tipo_mapa` (padrão: True).
@@ -182,14 +122,14 @@ def escolher_tipo_mapa(
     # ===========================================
     # Definição local do tipo literal permitido
     # ===========================================
-    TipoMapa = Literal["Fitoecologia", "Geologia","Pedologia","Regioes_climaticas"]
+    TipoMapa = Literal["Fitoecologia", "Geologia","Pedologia","Regioes_climaticas","Declividade","Erodibilidade"]
 
     # ===========================================
     # Exibe a janela de seleção para o usuário
     # ===========================================
     tipo: TipoMapa | None = pyautogui.confirm( # type: ignore
-        title=titulo,
-        text=texto,
+        title=title,
+        text=text,
         buttons=list(opcoes)
     )
 
