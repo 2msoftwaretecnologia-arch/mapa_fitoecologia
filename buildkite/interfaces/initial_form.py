@@ -10,7 +10,7 @@ if PROJECT_ROOT not in sys.path:
 from buildkite.interfaces.build.build_initial_form import PropertyInfosWindowBuild    
 from buildkite.Windows.capturar_click import capturar_clique
 from database.coordenadas import coordinates
-from database.text_infos import Text_infos
+
 
 
 class InitialForm:
