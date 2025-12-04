@@ -10,10 +10,10 @@ import pyperclip
 # ============================================================
 
 
-def limpar_area_transferencia() -> None:
+def clear_clipboard() -> None:
     """
     ============================================================
-    🧠 FUNÇÃO: limpar_area_transferencia()
+    🧠 FUNÇÃO: clear_clipboard()
     ============================================================
 
     📋 DESCRIÇÃO:
@@ -31,7 +31,7 @@ def limpar_area_transferencia() -> None:
         None — apenas executa a limpeza.
 
     💡 EXEMPLO DE USO:
-        limpar_area_transferencia()
+        clear_clipboard()
         # → "Área de transferência limpa." será exibido no console.
 
     ============================================================
@@ -72,7 +72,4 @@ def WAIT(seconds: int) -> None:
     ============================================================
     """
     # Usa o módulo 'time' para interromper a execução temporariamente
-    time.sleep(seconds)
-
-def esperar(seconds: int) -> None:
     time.sleep(seconds)

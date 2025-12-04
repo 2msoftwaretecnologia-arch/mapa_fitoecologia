@@ -27,7 +27,7 @@ def main_flow():
     BRAKE_WINDOW(mensage ='⚠️ ATENÇÃO: siga as instruções exibidas na tela com atenção.')
     BRAKE_WINDOW(mensage ='⚙️ Aguarde o carregamento completo dos documentos antes de prosseguir.')
     
-    InitialForm().run()
+    InitialForm().run()#inicializar o formulário
     select_apr()
     set_scale()
     set_grid()
