@@ -43,8 +43,8 @@ class coordinates:
         Y_arcgis: int,
         largura_atual: int,
         altura_atual: int,
-        x_espaco_Branco: int,
-        y_espaco_Branco: int,
+        x_blank_space: int,
+        y_blank_space: int,
         x_ponto_incial: int,
         y_ponto_incial: int,
         x_size_position: int,
@@ -70,8 +70,8 @@ class coordinates:
         self.Y_arcgis = Y_arcgis
         self.largura_atual = largura_atual
         self.altura_atual = altura_atual
-        self.x_espaco_Branco = x_espaco_Branco
-        self.y_espaco_Branco = y_espaco_Branco
+        self.x_blank_space = x_blank_space
+        self.y_blank_space = y_blank_space
         self.x_ponto_incial = x_ponto_incial
         self.y_ponto_incial = y_ponto_incial
         self.x_size_position = x_size_position
@@ -82,77 +82,77 @@ class coordinates:
         return self._x_arcgis
     
     @x_arcgis.setter
-    def x_arcgis(self, novo_x_arcgis: int) -> None:
-        self._x_arcgis = novo_x_arcgis
+    def x_arcgis(self, new_x_arcgis: int) -> None:
+        self._x_arcgis = new_x_arcgis
 
     @property
     def y_arcgis(self) -> int:
         return self._y_arcgis
     
     @y_arcgis.setter
-    def y_arcgis(self, nova_y_arcgis: int) -> None:
-        self._y_arcgis = nova_y_arcgis
+    def y_arcgis(self, new_y_arcgis: int) -> None:
+        self._y_arcgis = new_y_arcgis
 
     @property
     def largura_atual(self) -> int:
         return self._largura_atual
     
     @largura_atual.setter
-    def largura_atual(self, novo_largura_atual: int) -> None:
-        self._largura_atual = novo_largura_atual
+    def largura_atual(self, new_largura_atual: int) -> None:
+        self._largura_atual = new_largura_atual
 
     @property
     def altura_atual(self) -> int:
         return self._altura_atual
     
     @altura_atual.setter
-    def altura_atual(self, nova_altura_atual: int) -> None:
-        self._altura_atual = nova_altura_atual
+    def altura_atual(self, new_altura_atual: int) -> None:
+        self._altura_atual = new_altura_atual
 
     @property
-    def x_espaco_Branco(self) -> int:
-        return self._x_espaco_Branco
+    def x_blank_space(self) -> int:
+        return self._x_blank_space
     
-    @x_espaco_Branco.setter
-    def x_espaco_Branco(self, novo_x_espaco_Branco: int) -> None:
-        self._x_espaco_Branco = novo_x_espaco_Branco
+    @x_blank_space.setter
+    def x_blank_space(self, new_x_blank_space: int) -> None:
+        self._x_blank_space = new_x_blank_space
         
     @property
-    def y_espaco_Branco(self) -> int:
-        return self._y_espaco_Branco
+    def y_blank_space(self) -> int:
+        return self._y_blank_space
     
-    @y_espaco_Branco.setter
-    def y_espaco_Branco(self, novo_y_espaco_Branco: int) -> None:
-        self._y_espaco_Branco = novo_y_espaco_Branco
+    @y_blank_space.setter
+    def y_blank_space(self, new_y_blank_space: int) -> None:
+        self._y_blank_space = new_y_blank_space
     
     @property
     def x_ponto_incial(self) -> int:
         return self._x_ponto_incial
     
     @x_ponto_incial.setter
-    def x_ponto_incial(self, novo_x_ponto_incial: int) -> None:
-        self._x_ponto_incial = novo_x_ponto_incial
+    def x_ponto_incial(self, new_x_ponto_incial: int) -> None:
+        self._x_ponto_incial = new_x_ponto_incial
     
     @property
     def y_ponto_incial(self) -> int:
         return self._y_ponto_incial
     
     @y_ponto_incial.setter
-    def y_ponto_incial(self, novo_y_ponto_incial: int) -> None:
-        self._y_ponto_incial = novo_y_ponto_incial
+    def y_ponto_incial(self, new_y_ponto_incial: int) -> None:
+        self._y_ponto_incial = new_y_ponto_incial
 
     @property
     def x_size_position(self) -> int:
         return self._x_size_position
     
     @x_size_position.setter
-    def x_size_position(self, novo_x_size_position: int) -> None:
-        self._x_size_position = novo_x_size_position
+    def x_size_position(self, new_x_size_position: int) -> None:
+        self._x_size_position = new_x_size_position
         
     @property
     def y_size_position(self) -> int:
         return self._y_size_position
     
     @y_size_position.setter
-    def y_size_position(self, novo_y_size_position: int) -> None:
-        self._y_size_position = novo_y_size_position
+    def y_size_position(self, new_y_size_position: int) -> None:
+        self._y_size_position = new_y_size_position
