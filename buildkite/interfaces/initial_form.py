@@ -56,13 +56,9 @@ class InitialForm:
         # ===============================
         # 1. Abre a janela de entrada Tkinter
         # ===============================
-        fields = InitialForm._open_window()
+        PropertyInfosWindowBuild().open()
         print("abriu a janela de entrada Tkinter")
-        # ===============================
-        # 2. Armazena dados textuais
-        # ===============================
-        InitialForm._save_infos(fields)
-        print("armazenou os dados de textos")
+    
         # ===============================
         # 3. Captura coordenadas via clique (ou simulação em modo teste)
         # ===============================
@@ -77,20 +73,7 @@ class InitialForm:
     # Métodos auxiliares (separados para melhor organização)
     # ----------------------------------------------------------
 
-    @staticmethod
-    def _open_window    () -> dict:
-        """Abre a janela Tkinter e retorna os campos preenchidos."""
-        return PropertyInfosWindowBuild().open()
-
-    @staticmethod
-    def _save_infos(fields: dict) -> None:
-        """Salva os dados textuais no objeto Text_infos."""
-        # Suporta cancelamento/fechamento da janela sem confirmar
-        fields = fields or {}
-        Text_infos.nome_propriedade = fields.get('nome_propriedade', '')
-        Text_infos.owner = fields.get('proprietario', '')
-        Text_infos.registration_property = fields.get('matricula', '')
-        Text_infos.city_uf = fields.get('cidade_uf', '')
+    
 
     @staticmethod
     def _get_arcgis_coordinates() -> tuple[float, float]:
