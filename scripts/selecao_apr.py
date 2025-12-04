@@ -5,10 +5,10 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from database.text_infos import Text_infos
 from buildkite.Windows.manipular_windos import WAIT
 from buildkite.functions_tkinter.interfaces import find_shp_file
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFunctions,ArcGISKeyboardFunctions,click_center_screen,write_text
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFunctions,ArcGISKeyboardFunctions
 from buildkite.functions_pyautogui.arrows_keyboard import ArrowsKeyboard                                                                 
 from buildkite.manipular_textos.fast_formatter import format_path                                                                 
-from buildkite.functions_pyautogui.mause_complexo import click                                                                  
+from buildkite.functions_pyautogui.mause_complexo import click, click_center_screen                                                                 
 from buildkite.utils.helpers import find_aii,BRAKE_WINDOW
 from database.requests import get_or_set_coordinate
 from buildkite.utils.small_utils import kinds_maps
@@ -34,7 +34,7 @@ def select_apr():
     WAIT(0.5)
     BRAKE_WINDOW("Espere a seleção ser concluída e aperte Entendi")
     source_cordenadas = get_or_set_coordinate(objeto_id=12,mensagem="Clique no botão 'Source'")
-    click(source_cordenadas[0],source_cordenadas[1],clicks_quant=3)
+    click(source_cordenadas[0],source_cordenadas[1],ammount_click=3)
     WAIT(0.3)
     KeyboardBasicFunctions._press_tab(6,wait_time=0.01)
     KeyboardBasicFunctions._press_enter()
@@ -43,7 +43,7 @@ def select_apr():
     path_input_codinator = get_or_set_coordinate(14,"Clique no campo onde digitamos o caminho do shp")
     WAIT(0.3)
     click(path_input_codinator[0],path_input_codinator[1])
-    write_text(var_apr,speed=0.002)
+    KeyboardBasicFunctions._write_text(var_apr,speed=0.002)
     KeyboardBasicFunctions._press_enter()
     WAIT(0.2)
     KeyboardBasicFunctions._press_tab(1)
@@ -51,7 +51,7 @@ def select_apr():
     KeyboardBasicFunctions._press_enter()
     WAIT(0.2)
     KeyboardBasicFunctions._press_key("f2",wait_time=0.4)
-    write_text(f'{Text_infos.nome_propriedade} - A.P.R',speed=0.002)
+    KeyboardBasicFunctions._write_text(f'{Text_infos.nome_propriedade} - A.P.R',speed=0.002)
     KeyboardBasicFunctions._press_enter(wait_time=0.5)
     ArrowsKeyboard._press_down(ammount=2,wait_time=0.002)
     WAIT(0.2)
@@ -62,7 +62,7 @@ def select_apr():
     KeyboardBasicFunctions._press_tab(6,wait_time=0.01)
     KeyboardBasicFunctions._press_enter()
     WAIT(0.5)
-    write_text(var_aii,speed=0.002)
+    KeyboardBasicFunctions._write_text(var_aii,speed=0.002)
     KeyboardBasicFunctions._press_enter()
     WAIT(0.2)
     KeyboardBasicFunctions._press_tab(1)
@@ -84,7 +84,7 @@ def select_apr():
     KeyboardBasicFunctions._press_tab(6,wait_time=0.01)
     KeyboardBasicFunctions._press_enter()
     WAIT(1)
-    write_text(var_apr,speed=0.002)
+    KeyboardBasicFunctions._write_text(var_apr,speed=0.002)
     KeyboardBasicFunctions._press_enter()
     WAIT(0.2)
     KeyboardBasicFunctions._press_tab(1)
@@ -92,7 +92,7 @@ def select_apr():
     KeyboardBasicFunctions._press_enter()
     WAIT(0.2)
     KeyboardBasicFunctions._press_key("f2",wait_time=0.4)
-    write_text(f'{Text_infos.nome_propriedade} - A.P.R',speed=0.002)
+    KeyboardBasicFunctions._write_text(f'{Text_infos.nome_propriedade} - A.P.R',speed=0.002)
     KeyboardBasicFunctions._press_enter(wait_time=0.5)
     ArrowsKeyboard._press_down(ammount=2,wait_time=0.002)
     WAIT(0.2)
@@ -103,7 +103,7 @@ def select_apr():
     KeyboardBasicFunctions._press_tab(6,wait_time=0.01)
     KeyboardBasicFunctions._press_enter()
     WAIT(0.5)
-    write_text(var_aii,speed=0.002)
+    KeyboardBasicFunctions._write_text(var_aii,speed=0.002)
     KeyboardBasicFunctions._press_enter()
     WAIT(0.2)
     KeyboardBasicFunctions._press_tab(1)

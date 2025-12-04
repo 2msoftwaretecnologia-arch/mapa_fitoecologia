@@ -3,28 +3,6 @@ import keyboard
 import time
 
 
-# ============================================================
-# FUNÇÕES DE CLIQUE E POSICIONAMENTO DO MOUSE
-# ============================================================
-
-def click_center_screen(ammount: int = 1) -> None:
-    """
-    Clica no centro da tela uma ou mais vezes.
-
-    Parameters
-    ----------
-    ammount : int, optional
-        ammount de cliques no centro da tela (padrão: 1).
-
-    Returns
-    -------
-    None
-    """
-    for _ in range(ammount):
-        width, height = pyautogui.size()
-        pyautogui.click(width // 2, height // 2, duration=0.25)
-        time.sleep(0.25)
-
 
 # ============================================================
 # FUNÇÕES DE TECLADO BÁSICAS
@@ -135,19 +113,18 @@ class KeyboardBasicFunctions:
             pyautogui.press(key)
             time.sleep(wait_time)
 
-def write_text(text: str, speed: float = 0.01) -> None:
-    """
-    Digita texto simulando digitação humana.
+    def _write_text(text: str, speed: float = 0.01) -> None:
+        """
+        Digita texto simulando digitação humana.
 
-    Parameters
-    ----------
-    text : str
-        Texto a ser digitado.
-    speed : float, optional
-        Intervalo entre cada caractere (padrão: 0.01 segundos).
-    """
-    keyboard.write(text=text, delay=speed)
-
+        Parameters
+        ----------
+        text : str
+            Texto a ser digitado.
+        speed : float, optional
+            Intervalo entre cada caractere (padrão: 0.01 segundos).
+        """
+        keyboard.write(text=text, delay=speed)
 
 # ============================================================
 # ATALHOS ESPECÍFICOS DO MICROSOFT WORD
@@ -232,7 +209,7 @@ class ArcGISKeyboardFunctions:
             pyautogui.hotkey('ctrl', 'end')
             time.sleep(wait_time)
 
-    def rename_arcgis(ammount: int = 1, wait_time: float = 0.2) -> None:
+    def _rename_arcgis(ammount: int = 1, wait_time: float = 0.2) -> None:
         """
         Renomeia o objeto no ArcGIS (F2).
 
@@ -262,7 +239,7 @@ class ArcGISKeyboardFunctions:
             pyautogui.hotkey('ctrl','h')
             time.sleep(wait_time)
 
-    def save_mxj(wait_time=0.2):
+    def _save_mxj(wait_time=0.2):
         """
         Salva o mapa como um arquivo MXJ no ArcGIS (Ctrl + J).
 
@@ -274,7 +251,7 @@ class ArcGISKeyboardFunctions:
         pyautogui.hotkey('ctrl','j')
         time.sleep(wait_time)
 
-    def save_mapa_export(wait_time=0.2):
+    def _save_mapa_export(wait_time=0.2):
         """
         Exporta o mapa atual para um arquivo no ArcGIS (Ctrl + K).
 

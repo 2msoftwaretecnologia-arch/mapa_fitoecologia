@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # ============================================================
 # 'manipular_windos' → funções auxiliares para pausas, janelas, etc.
 # 'janelas_dinamicas' → exibe caixas de diálogo interativas (alertas Tkinter)
-from buildkite.Windows.manipular_windos import esperar
+from buildkite.Windows.manipular_windos import WAIT
 from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
 
 # ============================================================
@@ -95,7 +95,7 @@ def capturar_clique(texto: str) -> tuple[int, int]:
     listener.stop()
 
     # Pequena pausa para garantir que o listener finalize corretamente
-    esperar(0.5)
+    WAIT(0.5)
 
     # ============================================================
     # 📤 RETORNA AS COORDENADAS CAPTURADAS

@@ -57,7 +57,7 @@ def click(
     x: int | None = None,
     y: int | None = None,
     wait_time: float = 0.2,
-    amount_click: int = 1,
+    ammount_click: int = 1,
     button_side: Literal["left", "right"] = "left"
 ) -> None:
     """
@@ -71,7 +71,7 @@ def click(
         Coordenada Y (vertical) onde clicar. Se None, clica na posição atual.
     wait_time : float, optional
         Tempo em segundos para mover o mouse até (x, y) antes de clicar (padrão: 0.2).
-    amount_click : int, optional
+    ammount_click : int, optional
         Número de cliques a realizar (padrão: 1).
     button_side : Literal["left", "right"], optional
         Botão do mouse a usar (padrão: "left").
@@ -81,8 +81,27 @@ def click(
     None
     """
     if x is None and y is None:
-        pyautogui.click(clicks=amount_click, button=button_side)
+        pyautogui.click(clicks=ammount_click, button=button_side)
     elif x is not None and y is not None:
-        pyautogui.click(x, y, duration=wait_time, clicks=amount_click, button=button_side)
+        pyautogui.click(x, y, duration=wait_time, clicks=ammount_click, button=button_side)
     else:
         raise ValueError("Ambos x e y devem ser fornecidos ou ambos devem ser None.")
+
+
+def click_center_screen(ammount: int = 1) -> None:
+    """
+    Clica no centro da tela uma ou mais vezes.
+
+    Parameters
+    ----------
+    ammount : int, optional
+        ammount de cliques no centro da tela (padrão: 1).
+
+    Returns
+    -------
+    None
+    """
+    for _ in range(ammount):
+        width, height = pyautogui.size()
+        pyautogui.click(width // 2, height // 2, duration=0.25)
+        time.sleep(0.25)

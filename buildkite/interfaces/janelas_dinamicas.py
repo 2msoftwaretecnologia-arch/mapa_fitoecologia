@@ -144,3 +144,29 @@ def choose_kind_mapa(
     # Retorna a escolha do usuário
     # ===========================================
     return tipo  # Pode ser "Fitoecologia", "Geologia" ou None
+
+
+def dynamic_text_input(message: str, title: str = "Entrada de Texto") -> Optional[str]:
+    """
+    Solicita ao usuário um texto livre via caixa de diálogo.
+
+    Parameters
+    ----------
+q    message : str
+        Texto exibido na janela (ex.: "Digite o nome do proprietário:").
+    title : str, optional
+        Título da janela (padrão: "Entrada de Texto").
+
+    Returns
+    -------
+    Optional[str]
+        String digitada pelo usuário. Retorna `None` se o usuário cancelar/fechar a janela.
+
+    Examples
+    --------
+    >>> nome = dynamic_text_input("Digite o seu nome:")
+    >>> if nome:
+    ...     print(f"Olá, {nome}!")
+    """
+    resposta = pyautogui.prompt(text=message, title=title)  # None se Cancelar
+    return resposta

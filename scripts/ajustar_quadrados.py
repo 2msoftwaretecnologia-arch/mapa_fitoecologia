@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 
 from buildkite.functions_pyautogui.mause_complexo import desenhar_quadrado
 from buildkite.utils.info_arcgis import style_itens,position_squares,size_squares
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import write_text,press_enter,press_tab, press_key
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFunctions
 from buildkite.functions_pyautogui.arrows_keyboard import ArrowsKeyboard
 from buildkite.functions_pyautogui.mause_complexo import click
 from buildkite.Windows.manipular_windos import WAIT
@@ -25,7 +25,7 @@ def build_squares():
     square_coordinates = get_or_set_coordinate(4,"Clique em um lugar para desenhar o quadrado") #local que vai ser desenhado o quadrado
     for position,type in zip(position_list,Text_infos.current_items):
         click(rectangle_coordinates[0],rectangle_coordinates[1])
-        press_key('r')
+        KeyboardBasicFunctions._press_key('r')
         desenhar_quadrado(square_coordinates[0],square_coordinates[1],largura=80)
         WAIT(0.5)
         click(square_coordinates[0]+10,square_coordinates[1]+10,clicks_quant=2)#aqui to colocando alguns pixels a mais pra ele conseguir clicar mais ou menos no centro do quadrado
@@ -37,31 +37,31 @@ def build_squares():
         click(fill_color_coordinates[0],fill_color_coordinates[1],tempo=0.1)
         ArrowsKeyboard()._press_up(2)
         WAIT(0.5)
-        press_enter()
+        KeyboardBasicFunctions._press_enter()
         write_text(str(current_style[type][0]))
-        press_tab(tempo_espera=0.1)
+        KeyboardBasicFunctions._press_tab(wait_time=0.1)
         write_text(str(current_style[type][1]))
-        press_tab(tempo_espera=0.1)
+        KeyboardBasicFunctions._press_tab(wait_time=0.1)
         write_text(str(current_style[type][2]))
-        press_enter()
+        KeyboardBasicFunctions._press_enter()
         outline_cordenadas =  get_or_set_coordinate(7,"Clique em 'fill color'")
         click(symbol_cordenadas[0],symbol_cordenadas[1],tempo=0.1)
         click(outline_cordenadas[0],outline_cordenadas[1],tempo=0.1)
         ArrowsKeyboard()._press_up(1)
         WAIT(0.5)
-        press_enter()
-        press_tab(tempo_espera=0.1)
+        KeyboardBasicFunctions._press_enter()
+        KeyboardBasicFunctions._press_tab(wait_time=0.1)
         write_text("0,40")
         click(symbol_cordenadas[0],symbol_cordenadas[1],tempo=0.1, clicks_quant=3)
         ArrowsKeyboard()._press_right(2)
         WAIT(0.5)
-        press_tab(tempo_espera=0.1)
+        KeyboardBasicFunctions._press_tab(wait_time=0.1)
         write_text(position[0])
-        press_tab(tempo_espera=0.1)
+        KeyboardBasicFunctions._press_tab(wait_time=0.1)
         write_text(position[1])
-        press_tab(tempo_espera=0.1)
+        KeyboardBasicFunctions._press_tab(wait_time=0.1)
         write_text(str(x_size_square))
-        press_tab(tempo_espera=0.1)
+        KeyboardBasicFunctions._press_tab(wait_time=0.1)
         write_text(str(y_size_square))
         WAIT(0.5)
-        press_enter()
+        KeyboardBasicFunctions._press_enter()

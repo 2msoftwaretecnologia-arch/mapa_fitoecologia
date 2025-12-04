@@ -61,7 +61,7 @@ class Text_infos:
         descricao_mapa_atual (dict):
             Dicionário com detalhes do mapa (ex: legenda, escala, título).
 
-        caminho_mapa_atual (str):
+        current_map_path (str):
             Caminho absoluto do arquivo de mapa atual (.mxd, .shp, etc.).
 
     ============================================================
@@ -80,7 +80,7 @@ class Text_infos:
         kind_mapa: str,
         requied_quantity_current_map: int,
         descricao_mapa_atual: dict,
-        caminho_mapa_atual: str,
+        current_map_path: str,
     ) -> None:
         """
         ============================================================
@@ -102,7 +102,7 @@ class Text_infos:
             kind_mapa (str): Tipo do mapa atual ("Fitoecologia", "Geologia", etc.).
             requied_quantity_current_map (int): Quantidade mínima de camadas obrigatórias.
             descricao_mapa_atual (dict): Informações descritivas (legenda, escala, etc.).
-            caminho_mapa_atual (str): Caminho absoluto do arquivo do mapa atual.
+            current_map_path (str): Caminho absoluto do arquivo do mapa atual.
         ============================================================
         """
 
@@ -124,8 +124,8 @@ class Text_infos:
         self.kind_mapa = kind_mapa
         self.requied_quantity_current_map = requied_quantity_current_map
         self.descricao_mapa_atual = descricao_mapa_atual
-        self.caminho_mapa_atual = caminho_mapa_atual
-        self.caminho_mapa_atual = caminho_mapa_atual
+        self.current_map_path = current_map_path
+        self.current_map_path = current_map_path
         
 
     @property
@@ -133,93 +133,93 @@ class Text_infos:
         return self._lista_camadas
 
     @lista_camadas.setter
-    def lista_camadas(self, nova_lista_camadas: list) -> None:
-        self._lista_camadas = nova_lista_camadas
+    def lista_camadas(self, new_lista_camadas: list) -> None:
+        self._lista_camadas = new_lista_camadas
 
     @property
     def descricao_mapa_atual(self) -> list:
         return self._descricao_mapa_atual
 
     @descricao_mapa_atual.setter
-    def descricao_mapa_atual(self, nova_descricao_mapa_atual: list) -> None:
-        self._descricao_mapa_atual = nova_descricao_mapa_atual
+    def descricao_mapa_atual(self, new_descricao_mapa_atual: list) -> None:
+        self._descricao_mapa_atual = new_descricao_mapa_atual
 
     @property
-    def caminho_mapa_atual(self) -> str:
-        return self._caminho_mapa_atual
+    def current_map_path(self) -> str:
+        return self._current_map_path
 
-    @caminho_mapa_atual.setter
-    def caminho_mapa_atual(self, nova_caminho_mapa_atual: str) -> None:
-        self._caminho_mapa_atual = nova_caminho_mapa_atual
+    @current_map_path.setter
+    def current_map_path(self, new_current_map_path: str) -> None:
+        self._current_map_path = new_current_map_path
 
     @property
     def owner(self) -> str:
         return self._owner
     
     @owner.setter
-    def owner(self, novo_owner: str) -> None:
-        self._owner = novo_owner
+    def owner(self, new_owner: str) -> None:
+        self._owner = new_owner
     
     @property
     def registration_property(self) -> str:
         return self._registration_property
     
     @registration_property.setter
-    def registration_property(self, nova_registration_property: str) -> None:
-        self._registration_property = nova_registration_property
+    def registration_property(self, new_registration_property: str) -> None:
+        self._registration_property = new_registration_property
 
     @property
     def city_uf(self) -> str:
         return self._city_uf
     
     @city_uf.setter
-    def city_uf(self, nova_city_uf: str) -> None:
-        self._city_uf = nova_city_uf
+    def city_uf(self, new_city_uf: str) -> None:
+        self._city_uf = new_city_uf
 
     @property
     def nome_propriedade(self) -> str:
         return self._nome_propriedade
     
     @nome_propriedade.setter
-    def nome_propriedade(self, novo_nome_propriedade: str) -> None:
-        self._nome_propriedade = novo_nome_propriedade
+    def nome_propriedade(self, new_nome_propriedade: str) -> None:
+        self._nome_propriedade = new_nome_propriedade
 
     @property
     def tipo_dominante_fitoecologia(self) -> str:
         return self._tipo_dominante_fitoecologia
     
     @tipo_dominante_fitoecologia.setter
-    def tipo_dominante_fitoecologia(self, novo_tipo_dominante_fitoecologia: str) -> None:
-        self._tipo_dominante_fitoecologia = novo_tipo_dominante_fitoecologia
+    def tipo_dominante_fitoecologia(self, new_tipo_dominante_fitoecologia: str) -> None:
+        self._tipo_dominante_fitoecologia = new_tipo_dominante_fitoecologia
 
     @property
     def tipo_dominante_geologia(self) -> str:
         return self._tipo_dominante_geologia
     
     @tipo_dominante_geologia.setter
-    def tipo_dominante_geologia(self, novo_tipo_dominante_geologia: str) -> None:
-        self._tipo_dominante_geologia = novo_tipo_dominante_geologia
+    def tipo_dominante_geologia(self, new_tipo_dominante_geologia: str) -> None:
+        self._tipo_dominante_geologia = new_tipo_dominante_geologia
 
     @property
     def current_items(self) -> list:
         return self._current_items
     
     @current_items.setter
-    def current_items(self, novo_current_items: list) -> None:
-        self._current_items = novo_current_items
+    def current_items(self, new_current_items: list) -> None:
+        self._current_items = new_current_items
 
     @property
     def kind_mapa(self) -> str:
         return self._kind_mapa
     
     @kind_mapa.setter
-    def kind_mapa(self, novo_kind_mapa: str) -> None:
-        self._kind_mapa = novo_kind_mapa
+    def kind_mapa(self, new_kind_mapa: str) -> None:
+        self._kind_mapa = new_kind_mapa
 
     @property
     def requied_quantity_current_map(self) -> int:
         return self._requied_quantity_current_map
     
     @requied_quantity_current_map.setter
-    def requied_quantity_current_map(self, novo_requied_quantity_current_map: int) -> None:
-        self._requied_quantity_current_map = novo_requied_quantity_current_map
+    def requied_quantity_current_map(self, new_requied_quantity_current_map: int) -> None:
+        self._requied_quantity_current_map = new_requied_quantity_current_map

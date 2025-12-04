@@ -108,14 +108,14 @@ def exit_checkbox() -> None:
     # Inicia o loop da interface (bloqueante até fechar)
     root.mainloop()
 
-def selecionar_pasta(pasta_inicial: str = None) -> str:
+def select_folder(start_folder: str = None) -> str:
     """
     Abre uma janela para o usuário selecionar uma pasta.
     Caso o parâmetro seja um arquivo, o caminho será ajustado
     automaticamente para a pasta onde o arquivo está.
 
     Parâmetros:
-        pasta_inicial (str): Caminho inicial (pode ser pasta ou arquivo).
+        start_folder (str): Caminho inicial (pode ser pasta ou arquivo).    
 
     Retorna:
         str: Caminho completo da pasta selecionada com barra invertida no final.
@@ -124,16 +124,16 @@ def selecionar_pasta(pasta_inicial: str = None) -> str:
     root.withdraw()  # Oculta a janela principal do Tkinter
 
     # Define pasta inicial padrão
-    if not pasta_inicial:
-        pasta_inicial = "C:\\"
+    if not start_folder:
+        start_folder = "C:\\"
     else:
         # Se for arquivo, converte para a pasta onde ele está
-        if os.path.isfile(pasta_inicial):
-            pasta_inicial = os.path.dirname(pasta_inicial)
+        if os.path.isfile(start_folder):
+            start_folder = os.path.dirname(start_folder)
 
     # Abre o seletor de pastas
     caminho_pasta = filedialog.askdirectory(
-        initialdir=pasta_inicial,
+        initialdir=start_folder,
         title="Selecione uma pasta"
     )
 
