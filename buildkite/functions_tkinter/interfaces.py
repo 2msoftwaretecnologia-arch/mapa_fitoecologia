@@ -57,7 +57,7 @@ def find_shp_file(title: str = "Selecione um arquivo Shapefile") -> Optional[str
 # FUNÇÃO: ABRIR JANELA COM CHECKBOX DE CONFIRMAÇÃO
 # ============================================================
 
-def abrir_checkbox_saida() -> None:
+def exit_checkbox() -> None:
     """
     Exibe uma janela com uma checkbox que, ao ser marcada, fecha o programa.
 
@@ -78,7 +78,7 @@ def abrir_checkbox_saida() -> None:
 
     Examples
     --------
-    >>> abrir_checkbox_saida()
+    >>> exit_checkbox()
     # Mostra a janela "Atenção!!!" com a mensagem:
     # "SÓ APERTE AQUI DEPOIS QUE VOCÊ TERMINAR A TAREFA"
     """

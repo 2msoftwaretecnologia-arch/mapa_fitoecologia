@@ -49,13 +49,13 @@ class Text_infos:
         tipo_dominante_geologia (str):
             Tipo de formação predominante (para mapa de geologia/geomorfologia).
 
-        itens_atuais (list):
+        current_items (list):
             Lista de elementos ativos no mapa atual (ex: polígonos, shapefiles, legendas etc.).
 
-        tipo_mapa (str):
+        kind_mapa (str):
             Tipo do mapa em uso. Exemplos: "Fitoecologia", "Geologia".
 
-        quantidade_necessario_mapa_atual (int):
+        requied_quantity_current_map (int):
             Número de elementos obrigatórios para o mapa estar completo.
 
         descricao_mapa_atual (dict):
@@ -76,9 +76,9 @@ class Text_infos:
         nome_propriedade: str,
         tipo_dominante_fitoecologia: str,
         tipo_dominante_geologia: str,
-        itens_atuais: list,
-        tipo_mapa: str,
-        quantidade_necessario_mapa_atual: int,
+        current_items: list,
+        kind_mapa: str,
+        requied_quantity_current_map: int,
         descricao_mapa_atual: dict,
         caminho_mapa_atual: str,
     ) -> None:
@@ -98,9 +98,9 @@ class Text_infos:
             nome_propriedade (str): Nome da propriedade.
             tipo_dominante_fitoecologia (str): Vegetação dominante.
             tipo_dominante_geologia (str): Formação geológica dominante.
-            itens_atuais (list): Lista de itens ativos do mapa.
-            tipo_mapa (str): Tipo do mapa atual ("Fitoecologia", "Geologia", etc.).
-            quantidade_necessario_mapa_atual (int): Quantidade mínima de camadas obrigatórias.
+            current_items (list): Lista de itens ativos do mapa.
+            kind_mapa (str): Tipo do mapa atual ("Fitoecologia", "Geologia", etc.).
+            requied_quantity_current_map (int): Quantidade mínima de camadas obrigatórias.
             descricao_mapa_atual (dict): Informações descritivas (legenda, escala, etc.).
             caminho_mapa_atual (str): Caminho absoluto do arquivo do mapa atual.
         ============================================================
@@ -120,9 +120,9 @@ class Text_infos:
         # ============================================================
         self.tipo_dominante_fitoecologia = tipo_dominante_fitoecologia
         self.tipo_dominante_geologia = tipo_dominante_geologia
-        self.itens_atuais = itens_atuais
-        self.tipo_mapa = tipo_mapa
-        self.quantidade_necessario_mapa_atual = quantidade_necessario_mapa_atual
+        self.current_items = current_items
+        self.kind_mapa = kind_mapa
+        self.requied_quantity_current_map = requied_quantity_current_map
         self.descricao_mapa_atual = descricao_mapa_atual
         self.caminho_mapa_atual = caminho_mapa_atual
         self.caminho_mapa_atual = caminho_mapa_atual
@@ -201,25 +201,25 @@ class Text_infos:
         self._tipo_dominante_geologia = novo_tipo_dominante_geologia
 
     @property
-    def itens_atuais(self) -> list:
-        return self._itens_atuais
+    def current_items(self) -> list:
+        return self._current_items
     
-    @itens_atuais.setter
-    def itens_atuais(self, novo_itens_atuais: list) -> None:
-        self._itens_atuais = novo_itens_atuais
+    @current_items.setter
+    def current_items(self, novo_current_items: list) -> None:
+        self._current_items = novo_current_items
 
     @property
-    def tipo_mapa(self) -> str:
-        return self._tipo_mapa
+    def kind_mapa(self) -> str:
+        return self._kind_mapa
     
-    @tipo_mapa.setter
-    def tipo_mapa(self, novo_tipo_mapa: str) -> None:
-        self._tipo_mapa = novo_tipo_mapa
+    @kind_mapa.setter
+    def kind_mapa(self, novo_kind_mapa: str) -> None:
+        self._kind_mapa = novo_kind_mapa
 
     @property
-    def quantidade_necessario_mapa_atual(self) -> int:
-        return self._quantidade_necessario_mapa_atual
+    def requied_quantity_current_map(self) -> int:
+        return self._requied_quantity_current_map
     
-    @quantidade_necessario_mapa_atual.setter
-    def quantidade_necessario_mapa_atual(self, novo_quantidade_necessario_mapa_atual: int) -> None:
-        self._quantidade_necessario_mapa_atual = novo_quantidade_necessario_mapa_atual
+    @requied_quantity_current_map.setter
+    def requied_quantity_current_map(self, novo_requied_quantity_current_map: int) -> None:
+        self._requied_quantity_current_map = novo_requied_quantity_current_map

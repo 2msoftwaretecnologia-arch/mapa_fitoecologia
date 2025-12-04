@@ -1,108 +1,81 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from buildkite.Windows.abrir_documentos import abrir_documento,caminho_word_nota_tecnica
-from buildkite.utils.info_arcgis import (regioes_fitoecologias,classes_solos_pedologia,
-                                        Regioes_geologicas,regioes_climaticas,Declividade,
-                                        Erodibilidade)
+from buildkite.Windows.abrir_documentos import open_document,path_word
 from scripts.ajustar_quadrados import Text_infos
 from buildkite.interfaces.multiplas_opcoes import criar_interface_opcoes
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import (click_center_screen,abrir_margen_pagina_Word,selecionar_tudo,escrever_texto,click,
-                                                                 selecionar_tudo_Word,escolher_fonte_Word,colar,copiar,apertar_ctrl_end,apertar_Tab,enter)
-
-from buildkite.Windows.manipular_windos import esperar
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import (click_center_screen,open_page_margin_Word,select_all,write_text,
+                                                                 select_all_in_Word,choose_font_in_Word,copy,paste,press_ctrl_end,press_tab,press_enter)
+from buildkite.functions_pyautogui.mause_complexo import click
+from buildkite.utils.info_arcgis import kind_maps_options
+from buildkite.Windows.manipular_windos import WAIT
 from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
 from database.coordenadas import coordinates
-from buildkite.functions_tkinter.interfaces import abrir_checkbox_saida
+from buildkite.functions_tkinter.interfaces import exit_checkbox
 from database.requests import get_or_set_coordinate
 
 
 def fazer_parte_legenda():
-    if Text_infos.tipo_mapa == 'Fitoecologia':
-        itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=regioes_fitoecologias)
-        Text_infos.itens_atuais = itens_mapa_atual
-                
-
-    if Text_infos.tipo_mapa == 'Geologia':
-        itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=Regioes_geologicas)
-        Text_infos.itens_atuais = itens_mapa_atual
-        
-
-    if Text_infos.tipo_mapa == 'Pedologia':
-        itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=classes_solos_pedologia)
-        Text_infos.itens_atuais = itens_mapa_atual
-
-        
-    if Text_infos.tipo_mapa == 'Regioes_climaticas':
-        itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=regioes_climaticas)
-        Text_infos.itens_atuais = itens_mapa_atual
-
-    if Text_infos.tipo_mapa == 'Declividade':
-        itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=Declividade)
-        Text_infos.itens_atuais = itens_mapa_atual
-        
-    if Text_infos.tipo_mapa == 'Erodibilidade':
-        itens_mapa_atual = criar_interface_opcoes(opcoes_disponiveis=Erodibilidade)
-        Text_infos.itens_atuais = itens_mapa_atual
-
-    Text_infos.quantidade_necessario_mapa_atual = len(Text_infos.itens_atuais)
+    Text_infos.current_items = criar_interface_opcoes(
+        opcoes_disponiveis=kind_maps_options[Text_infos.kind_mapa]
+    )
+    Text_infos.requied_quantity_current_map = len(Text_infos.current_items)
     
-    
-    abrir_documento(caminho_word_nota_tecnica)
-    esperar(0.5)
+    open_document(path_word)
+    WAIT(0.5)
     click_center_screen()
-    esperar(0.5)
-    abrir_margen_pagina_Word(4)
+    WAIT(0.5)
+    open_page_margin_Word(4)
     #colocar a borda no word
-    apertar_Tab(3, tempo_espera=0.01)
-    escrever_texto("8,75")
-    esperar(0.3)
-    enter(tempo=0.5)
-    esperar(1)
+    press_tab(3, wait_time=0.01)
+    write_text("8,75")
+    WAIT(0.3)
+    press_enter(tempo=0.5)
+    WAIT(1)
 
     #colocar a fonte da letra no word
-    selecionar_tudo_Word()
-    escolher_fonte_Word()
-    escrever_texto("Times New Roman")
-    esperar(0.3)
-    enter(tempo=0.3)
+    select_all_in_Word()
+    choose_font_in_Word()
+    write_text("Times New Roman")
+    WAIT(0.3)
+    press_enter(tempo=0.3)
 
     BRAKE_WINDOW("Faça a descrição do seu texto entre 1100 e 1200 caractes")
-    abrir_checkbox_saida()
+    exit_checkbox("Saída")
     click_center_screen()
-    esperar(0.2)
-    selecionar_tudo_Word()
-    copiar()
-    esperar(0.2)
+    WAIT(0.2)
+    select_all_in_Word()
+    copy()
+    WAIT(0.2)
 
     click(coordinates.x_arcgis,coordinates.y_arcgis)  # foca na janela do ArcGIS
-    esperar(0.5)
+    WAIT(0.5)
     
     
-    click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,tempo=0.1) # clica “em nada”
-    esperar(0.5)
-    colar()
-    esperar(1.5)
-    click(coordinates.x_ponto_incial,coordinates.y_ponto_incial,botao="right")#lugar no arcgis que as coisas vão quando são coladas
-    esperar(0.5)
-    apertar_ctrl_end(tempo=0.2)
-    enter()
-    esperar(0.5)
+    click(coordinates.x_blank_space,coordinates.y_blank_space,tempo=0.1) # clica em um espaço em branco
+    WAIT(0.5)
+    paste()
+    WAIT(1.5)
+    click(coordinates.x_start_point,coordinates.y_start_point,button_side="right")#lugar no arcgis que as coisas vão quando são coladas
+    WAIT(0.5)
+    press_ctrl_end(tempo=0.2)
+    press_enter()
+    WAIT(0.5)
     BRAKE_WINDOW("Ative o 'preserve aspect radio' se estiver desativo")
     size_position_coordenadas = get_or_set_coordinate(11,"clique em 'size and position' pra eu entender como fica")
     coordinates.x_size_position = size_position_coordenadas[0]
     coordinates.y_size_position = size_position_coordenadas[1]
-    esperar(0.3)
+    WAIT(0.3)
     # "Size and Position"
-    click(size_position_coordenadas[0],size_position_coordenadas[1], clicks_quant=3)
-    apertar_Tab(tempo_espera=0.1)
-    escrever_texto("22,9201 cm")
-    apertar_Tab(tempo_espera=0.1)
-    escrever_texto("4,3233 cm")
-    apertar_Tab(3, tempo_espera=0.1)
-    escrever_texto("6,475 cm")
-    apertar_Tab(tempo_espera=0.1)
-    esperar(0.3)
-    selecionar_tudo()
-    escrever_texto("7,6116 cm")
-    enter(tempo=0.5)
+    click(coordinates.x_size_position,coordinates.y_size_position, clicks_quant=3)
+    press_tab(wait_time=0.1)
+    write_text("22,9201 cm")
+    press_tab(wait_time=0.1)
+    write_text("4,3233 cm")
+    press_tab(3, wait_time=0.1)
+    write_text("6,475 cm")
+    press_tab(wait_time=0.1)
+    WAIT(0.3)
+    select_all()
+    write_text("7,6116 cm")
+    press_enter(tempo=0.5)
