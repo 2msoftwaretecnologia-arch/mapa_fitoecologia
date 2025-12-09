@@ -1,3 +1,4 @@
+from cgitb import text
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -10,7 +11,7 @@ from database.requests import get_or_set_coordinate
 
 def set_scale():
 
-    do_scale = simple_choices(text_content="Deseja substituir a escala?",choices_buttons=["sim", "não"])
+    do_scale = simple_choices(text="Deseja substituir a escala?",choices_buttons=["sim", "não"])
     if do_scale == "sim":
         scale_coordinator = get_or_set_coordinate(10,"clique em escala para eu saber onde fica")
         WAIT(0.3)

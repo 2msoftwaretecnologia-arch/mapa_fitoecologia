@@ -124,7 +124,7 @@ class KeyboardBasicFunctions:
         speed : float, optional
             Intervalo entre cada caractere (padrão: 0.01 segundos).
         """
-        keyboard.write(text=text, delay=speed)
+        keyboard.write(text, delay=speed)
 
 # ============================================================
 # ATALHOS ESPECÍFICOS DO MICROSOFT WORD
@@ -230,14 +230,12 @@ class ArcGISKeyboardFunctions:
 
         Parameters
         ----------
-        ammount : int, optional
-            Quantidade de vezes que a tecla será pressionada (padrão: 1).
         wait_time : float, optional
             Intervalo entre o pressionamento da tecla (padrão: 0.0 segundos).
         """
-        for _ in range(ammount):
-            pyautogui.hotkey('ctrl','h')
-            time.sleep(wait_time)
+        
+        pyautogui.hotkey('ctrl','h')
+        time.sleep(wait_time)
 
     def _save_mxj(wait_time=0.2):
         """

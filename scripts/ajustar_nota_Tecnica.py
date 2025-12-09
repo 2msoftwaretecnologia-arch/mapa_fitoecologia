@@ -45,7 +45,7 @@ def build_techinal_note():
     ArcGISKeyboardFunctions._press_ctrl_end()
     KeyboardBasicFunctions._press_enter()
     WAIT(0.3)
-    click(coordinates.x_size_position,coordinates.y_size_position, clicks_quant=3)
+    click(coordinates.x_size_position,coordinates.y_size_position, ammount_click=3)
     KeyboardBasicFunctions._press_tab(wait_time=0.1)
     KeyboardBasicFunctions._write_text("0,4822 cm")
     KeyboardBasicFunctions._press_tab(wait_time=0.1)

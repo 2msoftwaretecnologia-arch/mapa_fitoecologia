@@ -28,10 +28,10 @@ def build_squares():
         KeyboardBasicFunctions._press_key('r')
         desenhar_quadrado(square_coordinates[0],square_coordinates[1],largura=80)
         WAIT(0.5)
-        click(square_coordinates[0]+10,square_coordinates[1]+10,clicks_quant=2)#aqui to colocando alguns pixels a mais pra ele conseguir clicar mais ou menos no centro do quadrado
+        click(square_coordinates[0]+10,square_coordinates[1]+10,ammount_click=2)#aqui to colocando alguns pixels a mais pra ele conseguir clicar mais ou menos no centro do quadrado
         symbol_coordinates = get_or_set_coordinate(5,"Clique em 'symbol'")
         WAIT(0.2)
-        click(symbol_coordinates[0],symbol_coordinates[1],tempo=0.1, clicks_quant=3)
+        click(symbol_coordinates[0],symbol_coordinates[1],tempo=0.1, ammount_click=3)
         fill_color_coordinates =  get_or_set_coordinate(6,"Clique em 'fill color'")
         click(symbol_coordinates[0],symbol_coordinates[1],tempo=0.1)
         click(fill_color_coordinates[0],fill_color_coordinates[1],tempo=0.1)
@@ -52,7 +52,7 @@ def build_squares():
         KeyboardBasicFunctions._press_enter()
         KeyboardBasicFunctions._press_tab(wait_time=0.1)
         write_text("0,40")
-        click(symbol_cordenadas[0],symbol_cordenadas[1],tempo=0.1, clicks_quant=3)
+        click(symbol_cordenadas[0],symbol_cordenadas[1],tempo=0.1, ammount_click=3)
         ArrowsKeyboard()._press_right(2)
         WAIT(0.5)
         KeyboardBasicFunctions._press_tab(wait_time=0.1)

@@ -66,7 +66,7 @@ def build_subtitle():
     coordinates.y_size_position = size_position_coordenadas[1]
     WAIT(0.3)
     # "Size and Position"
-    click(coordinates.x_size_position,coordinates.y_size_position, clicks_quant=3)
+    click(coordinates.x_size_position,coordinates.y_size_position, ammount_click=3)
     KeyboardBasicFunctions._press_tab(wait_time=0.1)
     KeyboardBasicFunctions._write_text("22,9201 cm")
     KeyboardBasicFunctions._press_tab(wait_time=0.1)

@@ -35,7 +35,7 @@ def set_grid():
             BRAKE_WINDOW(mensagem='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi')
             grid_coordinates = get_or_set_coordinate(8,"aperte no grid")
             WAIT(0.3)
-            click(grid_coordinates[0] , grid_coordinates[1],clicks_quant=3)
+            click(grid_coordinates[0] , grid_coordinates[1],ammount_click=3)
             KeyboardBasicFunctions._press_tab(5,tempo_espera=0.01)
             KeyboardBasicFunctions._press_enter()   
             

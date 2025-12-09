@@ -15,7 +15,7 @@ import pyautogui
 
 def set_info_property():
     for position,info in zip(Positions_subtitles,property_infos):        
-        click(coordinates.x_espaco_Branco,coordinates.y_espaco_Branco,wait_time=0.1)
+        click(coordinates.x_blank_space,coordinates.y_blank_space,wait_time=0.1)
         WAIT(0.2)
         ArcGISKeyboardFunctions._create_text()
         WAIT(0.3)
@@ -37,7 +37,7 @@ def set_info_property():
         BRAKE_WINDOW("espere abrir e aperte 'OK'")
         text_coordinators = get_or_set_coordinate(13,"clique em 'Text' pra eu entender como fica")
         WAIT(0.3)
-        click(coordinates.x_start_point,coordinates.y_start_point,clicks_quant=3)
+        click(coordinates.x_start_point,coordinates.y_start_point,ammount_click=3)
         ArrowsKeyboard._press_right()
         KeyboardBasicFunctions._press_tab(wait_time=0.1)
         KeyboardBasicFunctions._write_text(position[0])
@@ -70,7 +70,7 @@ def set_info_property():
     WAIT(0.6)
     ArcGISKeyboardFunctions._press_ctrl_end()
     KeyboardBasicFunctions._press_enter(wait_time=0.5)  
-    click(text_coordinators[0],text_coordinators[1],clicks_quant=3)
+    click(text_coordinators[0],text_coordinators[1],ammount_click=3)
     ArrowsKeyboard._press_right()
     if len(Text_infos.city_uf) > 16: 
         KeyboardBasicFunctions._press_tab(wait_time=0.1)
