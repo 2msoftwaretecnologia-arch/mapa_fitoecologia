@@ -1,6 +1,8 @@
 import pyautogui
 from typing import Literal
 
+from buildkite.Windows.manipular_windos import WAIT
+
 def desenhar_quadrado(
     x1: int,
     y1: int,
@@ -104,4 +106,4 @@ def click_center_screen(ammount: int = 1) -> None:
     for _ in range(ammount):
         width, height = pyautogui.size()
         pyautogui.click(width // 2, height // 2, duration=0.25)
-        time.sleep(0.25)
+        WAIT(0.25)

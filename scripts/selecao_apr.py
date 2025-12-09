@@ -57,7 +57,7 @@ def select_apr():
     WAIT(0.2)
     KeyboardBasicFunctions._press_enter()
     BRAKE_WINDOW("Espere a seleção ser concluída e aperte Entendi")
-    click(source_cordenadas[0],source_cordenadas[1],clicks_quant=3)
+    click(source_cordenadas[0],source_cordenadas[1],ammount_click=3)
     WAIT(0.5)
     KeyboardBasicFunctions._press_tab(6,wait_time=0.01)
     KeyboardBasicFunctions._press_enter()
@@ -73,7 +73,7 @@ def select_apr():
     if Text_infos.kind_mapa in kinds_maps:
         ArrowsKeyboard._press_down(ammount=10,wait_time=0.002)
     else:
-        if Text_infos.tipo_mapa == 'Fitoecologia':
+        if Text_infos.kind_mapa == 'Fitoecologia':
             ArrowsKeyboard._press_down(ammount=18,wait_time=0.002)
     
     WAIT(0.2)

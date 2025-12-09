@@ -53,11 +53,9 @@ class InitialForm:
         None
             No return — data is written directly to global instances.
         """
-        # ===============================
-        # 1. Abre a janela de entrada Tkinter
-        # ===============================
-        PropertyInfosWindowBuild().open()
         print("abriu a janela de entrada Tkinter")
+        form = PropertyInfosWindowBuild()
+        form.open_async()
     
         # ===============================
         # 3. Captura coordenadas via clique (ou simulação em modo teste)

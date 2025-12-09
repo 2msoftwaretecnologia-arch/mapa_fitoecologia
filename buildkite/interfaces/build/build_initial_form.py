@@ -1,7 +1,9 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import os, sys
+import threading
 from .build_get_city_state import GetCityStateBuild
+from database.text_infos import Text_infos
         
 class PropertyInfosWindowBuild:
     def __init__(self):
@@ -86,6 +88,10 @@ class PropertyInfosWindowBuild:
         self.result['proprietario'] = self.entry_owner.get().strip()
         self.result['matricula'] = self.entry_registration.get().strip()
         self.result['cidade_uf'] = self.entry_city_state.get().strip()
+        Text_infos.nome_propriedade = self.result['nome_propriedade']
+        Text_infos.proprietario = self.result['proprietario']
+        Text_infos.matricula = self.result['matricula']
+        Text_infos.cidade_uf = self.result['cidade_uf']
         print("Dados coletados:", self.result)
 
     def _confirm(self):
@@ -112,3 +118,6 @@ class PropertyInfosWindowBuild:
     def open(self) -> dict:
         self.root.mainloop()
         return self.result
+
+    def open_async(self) -> None:
+        threading.Thread(target=self.root.mainloop, daemon=True).start()
