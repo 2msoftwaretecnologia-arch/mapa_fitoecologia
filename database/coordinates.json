@@ -9,48 +9,48 @@
                     "id": 1,
                     "nome": "camada",
                     "coordenadas": {
-                        "x": 149,
-                        "y": 269
+                        "x": 108,
+                        "y": 196
                     }
                 },
                 {
                     "id": 2,
                     "nome": "espaco_Branco",
                     "coordenadas": {
-                        "x": 583,
-                        "y": 387
+                        "x": 543,
+                        "y": 258
                     }
                 },
                 {
                     "id": 3,
                     "nome": "retangulo",
                     "coordenadas": {
-                        "x": 0,
-                        "y": 0
+                        "x": 171,
+                        "y": 993
                     }
                 },
                 {
                     "id": 4,
                     "nome": "desenhar_quadradro",
                     "coordenadas": {
-                        "x": 0,
-                        "y": 0
+                        "x": 518,
+                        "y": 340
                     }
                 },
                 {
                     "id": 5,
                     "nome": "symbol_quadrado",
                     "coordenadas": {
-                        "x": 0,
-                        "y": 0
+                        "x": 810,
+                        "y": 382
                     }
                 },
                 {
                     "id": 6,
                     "nome": "fill_color_quadrado",
                     "coordenadas": {
-                        "x": 0,
-                        "y": 0
+                        "x": 901,
+                        "y": 432
                     }
                 },
                 {
@@ -73,8 +73,8 @@
                     "id": 9,
                     "nome": "incio",
                     "coordenadas": {
-                        "x": 0,
-                        "y": 0
+                        "x": 1180,
+                        "y": 565
                     }
                 },
                 {
@@ -89,8 +89,8 @@
                     "id": 11,
                     "nome": "size_position",
                     "coordenadas": {
-                        "x": 0,
-                        "y": 0
+                        "x": 926,
+                        "y": 314
                     }
                 },
                 {
@@ -105,16 +105,16 @@
                     "id": 13,
                     "nome": "text",
                     "coordenadas": {
-                        "x": 0,
-                        "y": 0
+                        "x": 803,
+                        "y": 363
                     }
                 },
                 {
                     "id": 14,
                     "nome": "input_campo_selecao_apr",
                     "coordenadas": {
-                        "x": 883,
-                        "y": 619
+                        "x": 820,
+                        "y": 621
                     }
                 },
                 {

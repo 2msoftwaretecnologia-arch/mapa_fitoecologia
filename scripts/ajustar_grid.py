@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFunctions
 from buildkite.functions_pyautogui.arrows_keyboard import ArrowsKeyboard
 from buildkite.functions_pyautogui.mause_complexo import click ,click_center_screen
-from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW,dynamic_text_input
+from buildkite.interfaces.janelas_dinamicas import BrakeWindow,dynamic_text_input
 from buildkite.interfaces.simple_interface import simple_choices
 from database.requests import get_or_set_coordinate
 from buildkite.Windows.manipular_windos import WAIT
@@ -20,7 +20,7 @@ def set_grid():
         WAIT(0.3)
         click(blank_space_coordinates[0],blank_space_coordinates[1])
         WAIT(1)
-        build_grid = simple_choices(text_content="Deseja substituir o grid?", choices_buttons=["sim", "não"])
+        build_grid = simple_choices(text="Deseja substituir o grid?", choices_buttons=["sim", "não"])
         while build_grid == 'sim':
             click_center_screen()
             KeyboardBasicFunctions._press_insert()
@@ -31,8 +31,8 @@ def set_grid():
             ArrowsKeyboard._press_up()
             KeyboardBasicFunctions._press_enter()
             
-            BRAKE_WINDOW("espere a janela de propriedades abrir")
-            BRAKE_WINDOW(mensagem='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi')
+            BrakeWindow("espere a janela de propriedades abrir").show()
+            BrakeWindow(mensage='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi').show()
             grid_coordinates = get_or_set_coordinate(8,"aperte no grid")
             WAIT(0.3)
             click(grid_coordinates[0] , grid_coordinates[1],ammount_click=3)

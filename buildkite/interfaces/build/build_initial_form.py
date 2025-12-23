@@ -84,14 +84,14 @@ class PropertyInfosWindowBuild:
 
     def _save_data(self):
         """Coleta e salva os dados nos resultados."""
-        self.result['nome_propriedade'] = self.entry_name.get().strip()
+        self.result['property_name'] = self.entry_name.get().strip()
         self.result['proprietario'] = self.entry_owner.get().strip()
         self.result['matricula'] = self.entry_registration.get().strip()
         self.result['cidade_uf'] = self.entry_city_state.get().strip()
-        Text_infos.nome_propriedade = self.result['nome_propriedade']
-        Text_infos.proprietario = self.result['proprietario']
-        Text_infos.matricula = self.result['matricula']
-        Text_infos.cidade_uf = self.result['cidade_uf']
+        Text_infos.property_name = self.result['property_name']
+        Text_infos.owner = self.result['proprietario']
+        Text_infos.registration_property = self.result['matricula']
+        Text_infos.city_uf = self.result['cidade_uf']
         print("Dados coletados:", self.result)
 
     def _confirm(self):

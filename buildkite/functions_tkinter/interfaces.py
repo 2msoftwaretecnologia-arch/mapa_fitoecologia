@@ -57,56 +57,52 @@ def find_shp_file(title: str = "Selecione um arquivo Shapefile") -> Optional[str
 # FUNÇÃO: ABRIR JANELA COM CHECKBOX DE CONFIRMAÇÃO
 # ============================================================
 
-def exit_checkbox() -> None:
+class ExitCheckboxWindow:
     """
-    Exibe uma janela com uma checkbox que, ao ser marcada, fecha o programa.
-
-    Essa janela serve como uma pausa controlada em fluxos automatizados —
-    o script só continua (ou encerra) após o usuário confirmar manualmente
-    que terminou uma tarefa, como digitar um texto em outro software.
-
-    Returns
-    -------
-    None
-        A função não retorna valor; apenas bloqueia o programa até o usuário interagir.
-
-    Behavior
-    --------
-    1. Cria uma janela de 300x100 pixels.
-    2. Exibe uma mensagem de alerta com uma checkbox.
-    3. Quando o usuário marcar a checkbox, a janela é encerrada.
-
-    Examples
-    --------
-    >>> exit_checkbox()
-    # Mostra a janela "Atenção!!!" com a mensagem:
-    # "SÓ APERTE AQUI DEPOIS QUE VOCÊ TERMINAR A TAREFA"
+    Janela modal com checkbox de confirmação.
+    O programa só prossegue (ou encerra) após o usuário marcar a checkbox.
     """
-    def sair() -> None:
-        """Fecha a janela principal ao clicar na checkbox."""
-        root.destroy()
 
-    # Criação da janela principal
-    root = tk.Tk()
-    root.title("Atenção!!!")
-    root.geometry("300x100")
+    def __init__(self) -> None:
+        """Construtor: configura a janela e os widgets."""
+        self._build_window()
+        self._create_widgets()
 
-    # Variável de controle do estado da checkbox (0 = desmarcado, 1 = marcado)
-    var = tk.IntVar()
+    def _build_window(self) -> None:
+        """Cria e configura a janela principal."""
+        self.root = tk.Tk()
+        self.root.title("Atenção!!!")
+        self.root.geometry("300x100")
+        # Garante que a janela será destruída ao fechar
+        self.root.protocol("WM_DELETE_WINDOW", self._close_window)
 
-    # Criação da checkbox interativa
-    checkbox = tk.Checkbutton(
-        root,
-        text="SÓ APERTE AQUI DEPOIS QUE\nVOCÊ TERMINAR A TAREFA",
-        variable=var,
-        command=sair
-    )
+    def _create_widgets(self) -> None:
+        """Cria a checkbox e a posiciona na janela."""
+        self.var = tk.IntVar()
+        self.checkbox = tk.Checkbutton(
+            self.root,
+            text="SÓ APERTE AQUI SOMENTE\nDEPOIS QUE VOCÊ TERMINAR A TAREFA",
+            variable=self.var,
+            command=self._on_checked
+        )
+        self.checkbox.pack(expand=True, pady=20)
 
-    # Centraliza a checkbox na janela
-    checkbox.pack(expand=True, pady=20)
+    def _close_window(self) -> None:
+        """Encerra o loop e destrói a janela."""
+        print("DEBUG: Fechando ExitCheckboxWindow...")
+        self.root.quit()
+        self.root.destroy()
 
-    # Inicia o loop da interface (bloqueante até fechar)
-    root.mainloop()
+    def _on_checked(self) -> None:
+        """Fecha a janela quando a checkbox é marcada."""
+        print("DEBUG: Checkbox marcado.")
+        self._close_window()
+        
+
+    def show(self) -> None:
+        """Exibe a janela modal (bloqueante)."""
+        self.root.mainloop()
+
 
 def select_folder(start_folder: str = None) -> str:
     """

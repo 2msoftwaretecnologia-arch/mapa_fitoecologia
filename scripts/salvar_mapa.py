@@ -4,14 +4,14 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFunctions,ArcGISKeyboardFunctions
 from buildkite.functions_pyautogui.mause_complexo import click_center_screen, click                                                           
-from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
-from buildkite.functions_tkinter.interfaces import exit_checkbox,select_folder
+from buildkite.interfaces.janelas_dinamicas import BrakeWindow
+from buildkite.functions_tkinter.interfaces import ExitCheckboxWindow,select_folder
 from buildkite.Windows.manipular_windos import WAIT
 from database.requests import get_or_set_coordinate
 from database.text_infos import Text_infos
 
 def salvar_mapas():
-    exit_checkbox()
+    ExitCheckboxWindow().show()
     click_center_screen()
     ArcGISKeyboardFunctions._save_mxj(wait_time=1)
     folder_save = select_folder(Text_infos.caminho_mapa_atual)
@@ -37,9 +37,9 @@ def salvar_mapas():
         KeyboardBasicFunctions._write_text("Mapa A4- Erodibilidade.mxd",velocidade=0.002)
     KeyboardBasicFunctions._press_key("enter")
     WAIT(0.2)
-    BRAKE_WINDOW("espere o globo no canto esquerdo finalizar e aperte ok")
+    BrakeWindow("espere o globo no canto esquerdo finalizar e aperte ok").show()
     ArcGISKeyboardFunctions._save_mapa_export()
-    BRAKE_WINDOW("espere abrir e aperte ok")
+    BrakeWindow("espere abrir e aperte ok").show()
     input_fild_save_pdf_jpeg_coordinators = get_or_set_coordinate(16,"Clique onde digita o caminho pra eu entender onde fica")
     click(input_fild_save_pdf_jpeg_coordinators[0],input_fild_save_pdf_jpeg_coordinators[1],ammount_click=3)   
     KeyboardBasicFunctions._select_all(wait_time=0.3)
@@ -61,9 +61,9 @@ def salvar_mapas():
     KeyboardBasicFunctions._press_key("tab",wait_time_espera=0.1)
     KeyboardBasicFunctions._press_key("j",wait_time=0.3)
     KeyboardBasicFunctions._press_key("enter")
-    BRAKE_WINDOW("espere o globo no canto esquerdo finalizar e aperte ok")
+    BrakeWindow("espere o globo no canto esquerdo finalizar e aperte ok").show()
     ArcGISKeyboardFunctions._save_mapa_export()
-    BRAKE_WINDOW("espere abrir e aperte ok")
+    BrakeWindow("espere abrir e aperte ok").show()
     click(input_fild_save_pdf_jpeg_coordinators[0],input_fild_save_pdf_jpeg_coordinators[1],ammount_click=3)
     KeyboardBasicFunctions._select_all(wait_time=0.3)
     KeyboardBasicFunctions._write_text(folder_save,velocidade=0.002)

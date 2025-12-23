@@ -9,7 +9,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Importa a função personalizada 'BRAKE_WINDOW'
-from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
+from buildkite.interfaces.janelas_dinamicas import BrakeWindow
 
 
 def find_aii(shp_path: str) -> str:
@@ -65,11 +65,11 @@ def find_aii(shp_path: str) -> str:
     while not os.path.isfile(caminho_aii):
         # Chama a função BRAKE_WINDOW (interface gráfica)
         # para alertar o usuário e solicitar que ele confirme quando o arquivo existir
-        BRAKE_WINDOW(
+        BrakeWindow(
             "O 'AII.shp' não foi encontrado na pasta.\n"
             "Confirme se o nome está em CAIXA ALTA e se o arquivo está na pasta\n"
             "antes de clicar em 'OK'."
-        )
+        ).show()
 
     # Quando o arquivo for detectado, exibe mensagem e retorna o caminho completo
     print("✅ Arquivo encontrado:", caminho_aii)

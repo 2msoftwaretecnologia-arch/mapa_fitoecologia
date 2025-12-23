@@ -8,13 +8,13 @@ from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFun
 from buildkite.functions_pyautogui.mause_complexo import click, click_center_screen
 from database.coordenadas import coordinates
 from buildkite.utils.techinal_notes import get_techinal_note_text
-from buildkite.interfaces.janelas_dinamicas import BRAKE_WINDOW
+from buildkite.interfaces.janelas_dinamicas import BrakeWindow
 
 
 def build_techinal_note():
     text_note_techinical = get_techinal_note_text()
     open_document(path_word)
-    BRAKE_WINDOW("espere o word abrir e aperte em OK")
+    BrakeWindow("espere o word abrir e aperte em OK").show()
     click_center_screen()
     WAIT(0.5)
     WordKeyboardFunctions._open_page_margin_Word(4)

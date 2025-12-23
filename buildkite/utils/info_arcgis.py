@@ -217,8 +217,6 @@ Positions_subtitles = [
         ("23,2921","1,876","0,9878","0,3125"),
         ("27,8184","1,8989","0,8466","0,3125")]
         
-property_infos = [Text_infos.owner,Text_infos.registration_property]
-
 kind_maps_options = {
         'Fitoecologia': regioes_fitoecologias,
         'Geologia': Regioes_geologicas,

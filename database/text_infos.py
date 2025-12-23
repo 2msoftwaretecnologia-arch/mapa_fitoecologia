@@ -40,7 +40,7 @@ class Text_infos:
         city_uf (str):
             Cidade e UF onde a propriedade está localizada.
 
-        nome_propriedade (str):
+        property_name (str):
             Nome oficial da fazenda/propriedade.
 
         tipo_dominante_fitoecologia (str):
@@ -73,7 +73,7 @@ class Text_infos:
         owner: str,
         registration_property: str,
         city_uf: str,
-        nome_propriedade: str,
+        property_name: str,
         tipo_dominante_fitoecologia: str,
         tipo_dominante_geologia: str,
         current_items: list,
@@ -95,7 +95,7 @@ class Text_infos:
             proprietario (str): Nome do proprietário.
             matricula (str): Número da matrícula.
             city_uf (str): Cidade e estado (ex: "Porto Nacional - TO").
-            nome_propriedade (str): Nome da propriedade.
+            property_name (str): Nome da propriedade.
             tipo_dominante_fitoecologia (str): Vegetação dominante.
             tipo_dominante_geologia (str): Formação geológica dominante.
             current_items (list): Lista de itens ativos do mapa.
@@ -113,7 +113,7 @@ class Text_infos:
         self.owner = owner
         self.registration_property = registration_property
         self.city_uf = city_uf
-        self.nome_propriedade = nome_propriedade
+        self.property_name = property_name
 
         # ============================================================
         # 🌳 INFORMAÇÕES TÉCNICAS DE MAPA
@@ -177,12 +177,12 @@ class Text_infos:
         self._city_uf = new_city_uf
 
     @property
-    def nome_propriedade(self) -> str:
-        return self._nome_propriedade
+    def property_name(self) -> str:
+        return self._property_name
     
-    @nome_propriedade.setter
-    def nome_propriedade(self, new_nome_propriedade: str) -> None:
-        self._nome_propriedade = new_nome_propriedade
+    @property_name.setter
+    def property_name(self, new_property_name: str) -> None:
+        self._property_name = new_property_name
 
     @property
     def tipo_dominante_fitoecologia(self) -> str:
