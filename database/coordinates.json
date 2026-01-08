@@ -17,8 +17,8 @@
                     "id": 2,
                     "nome": "espaco_Branco",
                     "coordenadas": {
-                        "x": 543,
-                        "y": 258
+                        "x": 553,
+                        "y": 409
                     }
                 },
                 {
@@ -49,7 +49,7 @@
                     "id": 6,
                     "nome": "fill_color_quadrado",
                     "coordenadas": {
-                        "x": 901,
+                        "x": 887,
                         "y": 432
                     }
                 },
@@ -57,16 +57,16 @@
                     "id": 7,
                     "nome": "out_line_color_quadrado",
                     "coordenadas": {
-                        "x": 0,
-                        "y": 0
+                        "x": 886,
+                        "y": 482
                     }
                 },
                 {
                     "id": 8,
                     "nome": "grid",
                     "coordenadas": {
-                        "x": 0,
-                        "y": 0
+                        "x": 1156,
+                        "y": 247
                     }
                 },
                 {

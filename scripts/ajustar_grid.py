@@ -1,8 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFunctions
-from buildkite.functions_pyautogui.arrows_keyboard import ArrowsKeyboard
+from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFunctions,ArcGISKeyboardFunctions
 from buildkite.functions_pyautogui.mause_complexo import click ,click_center_screen
 from buildkite.interfaces.janelas_dinamicas import BrakeWindow,dynamic_text_input
 from buildkite.interfaces.simple_interface import simple_choices
@@ -14,29 +13,26 @@ import pyautogui
 def set_grid():
     try:
         blank_space_coordinates = get_or_set_coordinate(2,"clique em um espaço vazio fora do mapa para eu saber onde fica")
+        layers_coordinates = get_or_set_coordinate(1, "clique na camada")
         coordinates.x_blank_space = blank_space_coordinates[0]
         coordinates.y_blank_space = blank_space_coordinates[1]
-        click_center_screen()
         WAIT(0.3)
-        click(blank_space_coordinates[0],blank_space_coordinates[1])
-        WAIT(1)
         build_grid = simple_choices(text="Deseja substituir o grid?", choices_buttons=["sim", "não"])
         while build_grid == 'sim':
             click_center_screen()
             KeyboardBasicFunctions._press_insert()
-            click_center_screen()
             WAIT(0.5)
-            click(button_side="right")
+            click(layers_coordinates[0],layers_coordinates[1])
             WAIT(0.5)
-            ArrowsKeyboard._press_up()
+            ArcGISKeyboardFunctions._press_ctrl_home()
+            WAIT(0.5)
             KeyboardBasicFunctions._press_enter()
-            
             BrakeWindow("espere a janela de propriedades abrir").show()
             BrakeWindow(mensage='ATENÇÃO!!!, aperte no grid ate que ele fique embaixo antes de apertar Entendi').show()
             grid_coordinates = get_or_set_coordinate(8,"aperte no grid")
             WAIT(0.3)
             click(grid_coordinates[0] , grid_coordinates[1],ammount_click=3)
-            KeyboardBasicFunctions._press_tab(5,tempo_espera=0.01)
+            KeyboardBasicFunctions._press_tab(5,wait_time=0.01)
             KeyboardBasicFunctions._press_enter()   
             
             WAIT(0.5)
@@ -53,10 +49,10 @@ def set_grid():
             KeyboardBasicFunctions._write_text(str(".000000"))
             KeyboardBasicFunctions._press_enter()
             WAIT(0.5)
-            KeyboardBasicFunctions._press_tab(2,tempo_espera=0.01)
+            KeyboardBasicFunctions._press_tab(2,wait_time=0.01)
             KeyboardBasicFunctions._press_enter()
             WAIT(0.5)
             click(blank_space_coordinates[0],blank_space_coordinates[1])
-            build_grid = pyautogui.confirm(text="Deseja substituir o grid?", buttons=["sim", "não"])
+            build_grid = simple_choices(text="Deseja substituir o grid?", choices_buttons=["sim", "não"])
     except Exception as e:
         print(f"Erro ao ajustar o grid: {e}")
