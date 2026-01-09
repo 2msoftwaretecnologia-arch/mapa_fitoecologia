@@ -44,7 +44,7 @@ def main_flow():
 if __name__ == "__main__":
     verificar_resolucao()
     start = simple_choices(title="Início",text="Deseja começar o processo?",choices_buttons=["Sim", "Não"])
-    if start:
+    if start == 'Sim':
         path_map = choose_kind_mapa()
         open_document(path_map)
         open_document(path_word)
