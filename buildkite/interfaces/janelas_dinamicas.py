@@ -1,0 +1,102 @@
+from typing import Optional, Sequence, Literal
+import pyautogui
+import os
+import sys
+import tkinter as tk
+import threading
+
+
+# === Corrigir o caminho para o RAIZ do projeto (map_fitoecologia) ===
+CURRENT_DIR = os.path.dirname(__file__)                                  # ...\buildkite\interfaces
+ROOT_DIR = os.path.abspath(os.path.join(CURRENT_DIR, '..', '..'))        # ...\map_fitoecologia
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)  # prioriza o raiz do projeto
+
+
+from database.text_infos import Text_infos  # Import específico em vez de wildcard
+
+
+
+
+class BrakeWindow:
+    """
+    Cria uma janela de pausa que bloqueia a execução até o usuário decidir continuar ou parar.
+    """
+    def __init__(self, mensage: str = "Pausa no código"):
+        self.mensage = mensage
+        self.resultado = {"continuar": None}
+
+    def continuar(self):
+        self.resultado["continuar"] = True
+        self.janela.quit()
+        self.janela.destroy()
+
+    def parar(self):
+        self.resultado["continuar"] = False
+        self.janela.quit()
+        self.janela.destroy()
+        sys.exit()
+
+    def show(self) -> bool:
+        # Criar a janela de pausa
+        self.janela = tk.Tk()
+        self.janela.title("Pausa Dinâmica")
+        self.janela.geometry("400x200")
+        self.janela.resizable(False, False)
+
+        # Configurar o protocolo de fechamento para parar o código
+        self.janela.protocol("WM_DELETE_WINDOW", self.parar)
+
+        # Frame principal
+        frame = tk.Frame(self.janela, padx=20, pady=20)
+        frame.pack(fill=tk.BOTH, expand=True)
+
+        # Mensagem
+        label_mensagem = tk.Label(frame, text=self.mensage, font=("Arial", 12), wraplength=350)
+        label_mensagem.pack(pady=20)
+
+        # Frame dos botões
+        frame_botoes = tk.Frame(frame)
+        frame_botoes.pack(pady=20)
+
+        # Botão continuar
+        botao_continuar = tk.Button(frame_botoes, text="Continuar", command=self.continuar,
+                                    bg="green", fg="white", font=("Arial", 10, "bold"))
+        botao_continuar.pack()
+
+        # Centralizar a janela na tela
+        self.janela.update_idletasks()
+        x = (self.janela.winfo_screenwidth() // 2) - (self.janela.winfo_width() // 2)
+        y = (self.janela.winfo_screenheight() // 2) - (self.janela.winfo_height() // 2)
+        self.janela.geometry(f"+{x}+{y}")
+
+        # Executar a janela (bloqueia até ser fechada)
+        self.janela.mainloop()
+
+        return self.resultado["continuar"]
+
+
+def dynamic_text_input(message: str, title: str = "Entrada de Texto") -> Optional[str]:
+    """
+    Solicita ao usuário um texto livre via caixa de diálogo.
+
+    Parameters
+    ----------
+    message : str
+        Texto exibido na janela (ex.: "Digite o nome do proprietário:").
+    title : str, optional
+        Título da janela (padrão: "Entrada de Texto").
+
+    Returns
+    -------
+    Optional[str]
+        String digitada pelo usuário. Retorna `None` se o usuário cancelar/fechar a janela.
+
+    Examples
+    --------
+    >>> nome = dynamic_text_input("Digite o seu nome:")
+    >>> if nome:
+    ...     print(f"Olá, {nome}!")
+    """
+    resposta = pyautogui.prompt(text=message, title=title)  # None se Cancelar
+    return resposta

@@ -1,33 +1,54 @@
-import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+import sys
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(BASE_DIR)
 
-from functions.manipular_textos.manipular_textos import *
-from functions.manipular_windos.manipular_windos import *
-from functions.pyaytogui.funcoes_teclado_mouse import *
-from functions.pyaytogui.localizacao import *
-from functions.manipular_arcgis.ajustar_grid import *
-from functions.manipular_arcgis.ajustar_escala import *
-from functions.manipular_arcgis.scritpts_leves import *
-from functions.manipular_arcgis.fazer_legenda_fitoecologias import *
-from functions.manipular_arcgis.ajustar_nota_Tecnica import *
-from functions.manipular_arcgis.ajustar_quadrados import *
-from functions.manipular_arcgis.ajustar_legendas_propriedade import *
-from functions.outras_funcoes.helpers import *
-from functions.kivy.input_Texto_dinamico import *
-from functions.kivy.campo_dinamico_opcoes import *
-from functions.kivy.alerta_dinamico import *
-from functions.kivy.alerta_simples import *
+# Scripts principais
+from scripts.ajustar_grid import set_grid
+from scripts.ajustar_escala import set_scale
+from scripts.fazer_legenda_fitoecologias import build_subtitle
+from scripts.ajustar_nota_Tecnica import build_techinal_note    
+from scripts.ajustar_quadrados import build_squares
+from scripts.ajustar_legendas_propriedade import set_info_property
+from scripts.selecao_apr import select_apr
+from scripts.salvar_mapa import salvar_mapas
 
-Fechar = selecionar_resposta(title="Realmente deseja abrir a automação?\ndo mapa de Fitosionomia?", options_list=["Sim", "não"])
-if Fechar[0] == "Sim":
+# Interface e janelas
+from buildkite.interfaces.janelas_dinamicas import BrakeWindow
+from buildkite.interfaces.initial_form import InitialForm
+from buildkite.Windows.abrir_documentos import open_document, choose_kind_mapa, path_word
+from buildkite.interfaces.simple_interface import simple_choices
 
-    show_alert_dinamic(texto='ATENÇÃO!!!,\n se atente a todos as mensagens de texto que ira aparecer na sua tela').run()
-    colar_scripts()
-    fazer_grid()
-    ajustar_escala()
-    ajustar_quadrados_fitoecologia()
-    ajustar_info_propriedade()
-    fazer_nota_tencnica()
-    fazer_parte_legenda()
-    janela_de_protecao
+# Ajuste de monitores
+from ajustar_monitores import verificar_resolucao
+
+
+def main_flow():
+    """Executa toda a automação na ordem correta."""
+    BrakeWindow(mensage ='⚠️ ATENÇÃO: siga as instruções exibidas na tela com atenção.').show()
+    BrakeWindow(mensage ='⚙️ Aguarde o carregamento completo dos documentos antes de prosseguir.').show()
+    
+    InitialForm().run()#inicializar o formulário
+    select_apr()
+    set_scale()
+    set_grid()
+    set_info_property()
+    build_subtitle()
+    build_squares()
+    build_techinal_note()
+    #salvar_mapas()
+
+# ==========================================
+#           Execução principal                      
+# ==========================================
+if __name__ == "__main__":
+    verificar_resolucao()
+    start = simple_choices(title="Início",text="Deseja começar o processo?",choices_buttons=["Sim", "Não"])
+    if start:
+        path_map = choose_kind_mapa()
+        open_document(path_map)
+        open_document(path_word)
+        main_flow()
+        print("✅ Processo concluído com sucesso.")
+    else:
+        print("❌ Processo cancelado pelo usuário.")
