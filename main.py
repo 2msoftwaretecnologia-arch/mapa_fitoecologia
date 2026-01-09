@@ -28,7 +28,7 @@ def main_flow():
     BrakeWindow(mensage ='⚠️ ATENÇÃO: siga as instruções exibidas na tela com atenção.').show()
     BrakeWindow(mensage ='⚙️ Aguarde o carregamento completo dos documentos antes de prosseguir.').show()
     
-    InitialForm().run()#inicializar o formulário
+    InitialForm().run()
     select_apr()
     set_scale()
     set_grid()
