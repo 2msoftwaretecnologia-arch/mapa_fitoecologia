@@ -27,7 +27,7 @@ def build_subtitle():
     WordKeyboardFunctions._open_page_margin_Word(4)
     #colocar a borda no word
     KeyboardBasicFunctions._press_tab(3, wait_time=0.01)
-    KeyboardBasicFunctions._write_text("8,75")
+    KeyboardBasicFunctions._write_text("8,5")
     WAIT(0.3)
     KeyboardBasicFunctions._press_enter(wait_time=0.5)
     WAIT(1)
@@ -39,7 +39,7 @@ def build_subtitle():
     WAIT(0.3)
     KeyboardBasicFunctions._press_enter(wait_time=0.3)
     print("DEBUG: Exibindo BrakeWindow. Se fechar no 'X', o script encerra aqui.")
-    BrakeWindow("Faça a descrição do seu texto entre 1100 e 1200 caractes").show()
+    BrakeWindow("Faça a descrição do seu texto de ate 1213 caracters, se não conseguir coloque menos e preencha com espaço").show()
     print("DEBUG: Passou do BrakeWindow. Exibindo ExitCheckboxWindow.")
     ExitCheckboxWindow().show()
     print("DEBUG: Passou do ExitCheckboxWindow. Executando click_center_screen.")
