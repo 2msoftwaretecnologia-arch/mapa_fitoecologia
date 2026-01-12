@@ -1,0 +1,11 @@
+atalhos a fazer no word
+
+ctrl + L = configurar as margens da pagina
+mostrar a quantidade de caracteres
+
+
+atalhos no arcgis
+
+Ctrl + H = criar texto
+Ctrl + J = salvar mxd
+Ctrl + K = export mapa
