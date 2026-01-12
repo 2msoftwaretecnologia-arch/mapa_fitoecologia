@@ -66,20 +66,19 @@ class PropertyInfosWindowBuild:
 
     def _select_city_state(self):
         if self.root.winfo_exists():
-            #chama o selector de cidade
-            root = tk.Tk()
-            root.withdraw()
-            value = GetCityStateBuild(root)
+            # Usa Toplevel ao invés de criar novo Tk
+            top = tk.Toplevel(self.root)
+            top.withdraw()  # Oculta a janela até o diálogo ser exibido
+            value = GetCityStateBuild(top)
             value.grab_set()  # bloqueia interação com a janela principal até fechar
             value.wait_window()
-            
+            top.destroy()
             if value.result:
-                # Alterna para 'normal' para permitir atualização visual e volta para 'readonly'
                 self.entry_city_state.config(state='normal')
                 self.entry_city_state.delete(0, 'end')
                 self.entry_city_state.insert(0, value.result)
                 self.entry_city_state.config(state='readonly')
-                self.result['cidade_uf'] = value.result  # <-- Atualiza o dicionário imediatamente
+                self.result['cidade_uf'] = value.result
                 self._update_confirm_state()
 
     def _save_data(self):

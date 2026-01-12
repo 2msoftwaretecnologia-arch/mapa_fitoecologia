@@ -55,7 +55,7 @@ class InitialForm:
         """
         print("abriu a janela de entrada Tkinter")
         form = PropertyInfosWindowBuild()
-        form.open_async()
+        form.open()
     
         # ===============================
         # 3. Captura coordenadas via clique (ou simulação em modo teste)

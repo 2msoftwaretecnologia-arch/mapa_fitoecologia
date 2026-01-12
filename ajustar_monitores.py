@@ -160,7 +160,7 @@ class App:
             nome = r.get("nome") or f"Res_{r.get('largura','?')}x{r.get('altura','?')}"
             largura = r.get("largura", "?")
             altura = r.get("altura", "?")
-            self.lista.press_insert(END, f"{nome} ({largura}x{altura})")
+            self.lista.insert(END, f"{nome} ({largura}x{altura})")
 
     def add_resolucao(self):
         nome = simpledialog.askstring("Nova Resolução", "Nome da resolução (ex.: FullHD, 1920x1080, etc.):")
