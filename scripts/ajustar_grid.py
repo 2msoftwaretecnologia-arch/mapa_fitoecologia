@@ -8,7 +8,7 @@ from buildkite.interfaces.simple_interface import simple_choices
 from database.requests import get_or_set_coordinate
 from buildkite.Windows.manipular_windos import WAIT
 from database.coordenadas import coordinates
-import pyautogui
+
 
 def set_grid():
     try:
@@ -37,15 +37,17 @@ def set_grid():
             
             WAIT(0.5)
             
-            grid_atual = dynamic_text_input("Digite o valor do grid lembrando\n que esse valor vai ser multiplicado por 100")
+            grid_eixo_x = dynamic_text_input("Digite o valor do grid (eixo X) lembrando\n que esse valor vai ser multiplicado por 100")
+            grid_eixo_y = dynamic_text_input("Digite o valor do grid (eixo Y) lembrando\n que esse valor vai ser multiplicado por 100")
             
             KeyboardBasicFunctions._press_tab(1)
-            grid_atual = int(grid_atual)*100
-            KeyboardBasicFunctions._write_text(str(grid_atual))
+            grid_eixo_x = int(grid_eixo_x)*100
+            grid_eixo_y = int(grid_eixo_y)*100
+            KeyboardBasicFunctions._write_text(str(grid_eixo_x))
             KeyboardBasicFunctions._write_text(str(".000000"))
             WAIT(0.2)
-            KeyboardBasicFunctions._press_tab(1)
-            KeyboardBasicFunctions._write_text(str(grid_atual))
+            KeyboardBasicFunctions._press_tab(2)
+            KeyboardBasicFunctions._write_text(str(grid_eixo_y))
             KeyboardBasicFunctions._write_text(str(".000000"))
             KeyboardBasicFunctions._press_enter()
             WAIT(0.5)
