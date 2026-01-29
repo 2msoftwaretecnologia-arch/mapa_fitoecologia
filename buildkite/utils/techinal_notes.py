@@ -14,7 +14,7 @@ def get_techinal_note_text():
             'items_attr': 'current_items',
             'template': (
                 "O mapa de Fitofisionomias da propriedade {nome} detalha as formações vegetais da área, "
-                "com destaque para a {{{attr}}}."
+                "com destaque para a {attr}."
             )
         },
         'Geologia': {
@@ -24,7 +24,7 @@ def get_techinal_note_text():
             'items_attr': 'itens_atuais',
             'template': (
                 "O mapa geológico da propriedade {nome} detalha as formações litológicas presentes na área, "
-                "com destaque para a {{{attr}}}."
+                "com destaque para a {attr}."
             )
         },
         'Pedologia': {
@@ -34,7 +34,7 @@ def get_techinal_note_text():
             'items_attr': 'itens_atuais',
             'template': (
                 "O mapa pedológico da propriedade {nome} detalha as formações solares presentes na área, "
-                "com destaque para a {{{attr}}}."
+                "com destaque para a {attr}."
             )
         },
         'Regioes_climaticas': {
@@ -44,7 +44,7 @@ def get_techinal_note_text():
             'items_attr': 'itens_atuais',
             'template': (
                 "O mapa de Regiões Climáticas da propriedade {nome} detalha as regiões climáticas predominantes na área, "
-                "com destaque para a {{{attr}}}."
+                "com destaque para a {attr}."
             )
         },
         'Declividade': {
@@ -54,7 +54,7 @@ def get_techinal_note_text():
             'items_attr': 'itens_atuais',
             'template': (
                 "O mapa de Declividade da propriedade {nome} detalha as declividades predominantes na área, "
-                "com destaque para a {{{attr}}}."
+                "com destaque para a {attr}."
             )
         },
         'Erodibilidade': {
@@ -64,7 +64,7 @@ def get_techinal_note_text():
             'items_attr': 'itens_atuais',
             'template': (
                 "O mapa de Erodibilidade da propriedade {nome} detalha as erodibilidades predominantes na área, "
-                "com destaque para a {{{attr}}}."
+                "com destaque para a {attr}."
             )
         }
     }
@@ -77,7 +77,7 @@ def get_techinal_note_text():
     escolha = cfg['interface'](text=cfg['prompt'], choices_buttons=items)
     setattr(Text_infos, cfg['attr'], escolha)
 
-    corpo = cfg['template'].format(nome=nome, attr=cfg['attr'])
+    corpo = cfg['template'].format(nome=nome, attr=escolha)
     return f"""Nota Técnica
 
 {corpo}

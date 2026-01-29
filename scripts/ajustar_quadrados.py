@@ -8,14 +8,12 @@ from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFun
 from buildkite.functions_pyautogui.arrows_keyboard import ArrowsKeyboard
 from buildkite.functions_pyautogui.mause_complexo import click
 from buildkite.Windows.manipular_windos import WAIT
-from buildkite.interfaces.janelas_dinamicas import BrakeWindow
 from database.requests import get_or_set_coordinate
 from database.text_infos import Text_infos
 from database.coordenadas import coordinates
 
 
 def build_squares():
-    BrakeWindow("espere o arcgis se normalizar e parte ok").show()
     current_style = style_itens()
     x_size_square,y_size_square = size_squares(Text_infos.requied_quantity_current_map)
     position_list = position_squares(Text_infos.requied_quantity_current_map)
