@@ -7,15 +7,13 @@ from buildkite.interfaces.janelas_dinamicas import BrakeWindow,dynamic_text_inpu
 from buildkite.interfaces.simple_interface import simple_choices
 from database.requests import get_or_set_coordinate
 from buildkite.Windows.manipular_windos import WAIT
-from database.coordenadas import coordinates
+
 
 
 def set_grid():
     try:
         blank_space_coordinates = get_or_set_coordinate(2,"clique em um espaço vazio fora do mapa para eu saber onde fica")
         layers_coordinates = get_or_set_coordinate(1, "clique na camada")
-        coordinates.x_blank_space = blank_space_coordinates[0]
-        coordinates.y_blank_space = blank_space_coordinates[1]
         WAIT(0.3)
         build_grid = simple_choices(text="Deseja substituir o grid?", choices_buttons=["sim", "não"])
         while build_grid == 'sim':

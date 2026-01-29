@@ -10,14 +10,15 @@ from buildkite.functions_pyautogui.mause_complexo import click
 from buildkite.Windows.manipular_windos import WAIT
 from database.requests import get_or_set_coordinate
 from database.text_infos import Text_infos
-from database.coordenadas import coordinates
+
 
 
 def build_squares():
+    blank_space_coordinates = get_or_set_coordinate(2,"clique em um espaço vazio fora do mapa para eu saber onde fica")
     current_style = style_itens()
     x_size_square,y_size_square = size_squares(Text_infos.requied_quantity_current_map)
     position_list = position_squares(Text_infos.requied_quantity_current_map)
-    click(coordinates.x_blank_space,coordinates.y_blank_space,wait_time=0.1)
+    click(blank_space_coordinates[0],blank_space_coordinates[1],wait_time=0.1)
     WAIT(0.5)
     rectangle_coordinates = get_or_set_coordinate(3,"Clique na seta do retangulo pra eu saber onde fica") #local que pega a forma geometrica  do retangulo
     square_coordinates = get_or_set_coordinate(4,"Clique em um lugar para desenhar o quadrado") #local que vai ser desenhado o quadrado

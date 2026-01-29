@@ -7,11 +7,14 @@ from buildkite.Windows.manipular_windos import WAIT
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFunctions,WordKeyboardFunctions,ArcGISKeyboardFunctions
 from buildkite.functions_pyautogui.mause_complexo import click, click_center_screen
 from database.coordenadas import coordinates
+from database.requests import get_or_set_coordinate
 from buildkite.utils.techinal_notes import get_techinal_note_text
 from buildkite.interfaces.janelas_dinamicas import BrakeWindow
 
 
 def build_techinal_note():
+    blank_space_coordinates = get_or_set_coordinate(2,"clique em um espaço vazio fora do mapa para eu saber onde fica")
+    start_point_coordinators = get_or_set_coordinate(9,"clique sobre texto")
     text_note_techinical = get_techinal_note_text()
     open_document(path_word)
     BrakeWindow("espere o word abrir e aperte em OK").show()
@@ -36,16 +39,16 @@ def build_techinal_note():
     KeyboardBasicFunctions._copy()
     click(coordinates.x_arcgis,coordinates.y_arcgis)#clicando na janela do arggis
     WAIT(0.7)
-    click(coordinates.x_blank_space,coordinates.y_blank_space,wait_time=0.1)
+    click(blank_space_coordinates[0],blank_space_coordinates[1],wait_time=0.1)
     WAIT(0.3)
     KeyboardBasicFunctions._paste()
     WAIT(1)
-    click(coordinates.x_start_point,coordinates.y_start_point,button_side='right')
+    click(start_point_coordinators[0],start_point_coordinators[1],button_side='right')
     WAIT(0.6)
     ArcGISKeyboardFunctions._press_ctrl_end()
     KeyboardBasicFunctions._press_enter()
     WAIT(0.3)
-    click(coordinates.x_size_position,coordinates.y_size_position, ammount_click=3)
+    click(size_position_coordinators[0],size_position_coordinators[1], ammount_click=3)
     KeyboardBasicFunctions._press_tab(wait_time=0.1)
     KeyboardBasicFunctions._write_text("0,4822 cm")
     KeyboardBasicFunctions._press_tab(wait_time=0.1)

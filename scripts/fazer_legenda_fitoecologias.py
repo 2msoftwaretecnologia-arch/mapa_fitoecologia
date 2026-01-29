@@ -15,6 +15,8 @@ from database.requests import get_or_set_coordinate
 
 
 def build_subtitle():
+    blank_space_coordinates = get_or_set_coordinate(2,"clique em um espaço vazio fora do mapa para eu saber onde fica")
+    start_point_coordinators = get_or_set_coordinate(9,"clique sobre texto")
     Text_infos.current_items = criar_interface_opcoes(
         opcoes_disponiveis=kind_maps_options[Text_infos.kind_mapa]
     )
@@ -50,22 +52,20 @@ def build_subtitle():
     WAIT(0.2)
     click(coordinates.x_arcgis,coordinates.y_arcgis)  # foca na janela do ArcGIS
     WAIT(0.5)
-    click(coordinates.x_blank_space,coordinates.y_blank_space,wait_time=0.1) # clica em um espaço em branco
+    click(blank_space_coordinates[0],blank_space_coordinates[1],wait_time=0.1)
     WAIT(0.5)
     KeyboardBasicFunctions._paste()
     WAIT(1.5)
-    click(coordinates.x_start_point,coordinates.y_start_point,button_side="right")#lugar no arcgis que as coisas vão quando são coladas
+    click(start_point_coordinators[0],start_point_coordinators[1],button_side="right")#lugar no arcgis que as coisas vão quando são coladas
     WAIT(0.5)
     ArcGISKeyboardFunctions._press_ctrl_end(wait_time=0.2)
     KeyboardBasicFunctions._press_enter()
     WAIT(0.5)
     BrakeWindow("Ative o 'preserve aspect radio' se estiver desativo").show()
-    size_position_coordenadas = get_or_set_coordinate(11,"clique em 'size and position' pra eu entender como fica")
-    coordinates.x_size_position = size_position_coordenadas[0]
-    coordinates.y_size_position = size_position_coordenadas[1]
+    size_position_coordenadas = get_or_set_coordinate(11,"clique em 'size and position'")
     WAIT(0.3)
     # "Size and Position"
-    click(coordinates.x_size_position,coordinates.y_size_position, ammount_click=3)
+    click(size_position_coordenadas[0],size_position_coordenadas[1], ammount_click=3)
     KeyboardBasicFunctions._press_tab(wait_time=0.1)
     KeyboardBasicFunctions._write_text("22,9201 cm")
     KeyboardBasicFunctions._press_tab(wait_time=0.1)

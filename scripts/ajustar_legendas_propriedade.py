@@ -9,29 +9,27 @@ from buildkite.interfaces.janelas_dinamicas import BrakeWindow
 from buildkite.Windows.manipular_windos import WAIT
 from buildkite.utils.info_arcgis import Positions_subtitles
 from database.text_infos import Text_infos
-from database.coordenadas import coordinates
 from database.requests import get_or_set_coordinate
 import pyautogui
 
 def set_info_property():
     property_infos = [Text_infos.owner,Text_infos.registration_property]
+    blank_space_coordinates = get_or_set_coordinate(2,"clique em um espaço vazio fora do mapa para eu saber onde fica")
     for position,info in zip(Positions_subtitles,property_infos):        
-        click(coordinates.x_blank_space,coordinates.y_blank_space,wait_time=0.1)
+        click(blank_space_coordinates[0],blank_space_coordinates[1],wait_time=0.1)
         WAIT(0.2)
         ArcGISKeyboardFunctions._create_text()
         WAIT(0.3)
         KeyboardBasicFunctions._select_all()
         KeyboardBasicFunctions._write_text(text=info)
         KeyboardBasicFunctions._press_enter(wait_time=0.5)
-        start_point_coordinators = get_or_set_coordinate(9,"clique sobre texto para eu enteder onde fica")
-        coordinates.x_start_point = start_point_coordinators[0]
-        coordinates.y_start_point = start_point_coordinators[1]
+        start_point_coordinators = get_or_set_coordinate(9,"clique sobre texto")
         WAIT(0.3)
-        click(coordinates.x_start_point,coordinates.y_start_point)
+        click(start_point_coordinators[0],start_point_coordinators[1])
         WAIT(0.3)
-        click(coordinates.x_blank_space,coordinates.y_blank_space,wait_time=0.1)
+        click(blank_space_coordinates[0],blank_space_coordinates[1],wait_time=0.1)
         WAIT(0.3)
-        click(coordinates.x_start_point,coordinates.y_start_point,button_side='right')
+        click(start_point_coordinators[0],start_point_coordinators[1],button_side='right')
         WAIT(0.6)
         ArcGISKeyboardFunctions._press_ctrl_end()
         KeyboardBasicFunctions._press_enter(wait_time=0.5)
@@ -55,7 +53,7 @@ def set_info_property():
 
     if len(Text_infos.city_uf) > 16:
         p1,p2 = quebrar_texto(Text_infos.city_uf,16,multi=False,duas_variaveis=True)
-    click(coordinates.x_blank_space,coordinates.y_blank_space,wait_time=0.1)
+    click(blank_space_coordinates[0],blank_space_coordinates[1],wait_time=0.1)
     ArcGISKeyboardFunctions._create_text(wait_time=0.3)
     KeyboardBasicFunctions._select_all()
     if len(Text_infos.city_uf) > 16:
@@ -65,7 +63,7 @@ def set_info_property():
     if len(Text_infos.city_uf) <= 16:
         KeyboardBasicFunctions._write_text(Text_infos.city_uf)
     KeyboardBasicFunctions._press_enter(wait_time=0.5)
-    click(coordinates.x_blank_space,coordinates.y_blank_space,wait_time=0.1)
+    click(blank_space_coordinates[0],blank_space_coordinates[1],wait_time=0.1)
     WAIT(0.3)
     click(start_point_coordinators[0],start_point_coordinators[1],button_side='right')
     WAIT(0.6)

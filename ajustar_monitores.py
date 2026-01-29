@@ -23,7 +23,7 @@ OBJETOS_PADRAO = [
     {"id": 6, "nome": "fill_color_quadrado", "coordenadas": {"x": 0, "y": 0}},
     {"id": 7, "nome": "out_line_color_quadrado", "coordenadas": {"x": 0, "y": 0}},
     {"id": 8, "nome": "grid", "coordenadas": {"x": 0, "y": 0}},
-    {"id": 9, "nome": "incio", "coordenadas": {"x": 0, "y": 0}},
+    {"id": 9, "nome": "inicio", "coordenadas": {"x": 0, "y": 0}},
     {"id": 10, "nome": "escala", "coordenadas": {"x": 0, "y": 0}},
     {"id": 11, "nome": "size_position", "coordenadas": {"x": 0, "y": 0}},
     {"id": 12, "nome": "source", "coordenadas": {"x": 0, "y": 0}},
