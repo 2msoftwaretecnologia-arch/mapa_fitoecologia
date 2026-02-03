@@ -5,7 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from buildkite.Windows.abrir_documentos import open_document,path_word
 from buildkite.Windows.manipular_windos import WAIT
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFunctions,WordKeyboardFunctions,ArcGISKeyboardFunctions
-from buildkite.functions_pyautogui.mause_complexo import click, click_center_screen
+from buildkite.functions_pyautogui.mause_complexo import click, click_center_screen, select_text_with_mouse
 from database.coordenadas import coordinates
 from database.requests import get_or_set_coordinate
 from buildkite.utils.techinal_notes import get_techinal_note_text
@@ -31,6 +31,15 @@ def build_techinal_note():
     WAIT(0.2)
     ArcGISKeyboardFunctions._press_ctrl_home()
     WordKeyboardFunctions._center_text_in_Word()
+    coordinate_inicial_select_texto_with_mouse = get_or_set_coordinate(17,"clique sobre o texto inicial")
+    coordinate_final_select_texto_with_mouse = get_or_set_coordinate(18,"clique sobre o texto final")
+    select_text_with_mouse(
+        x_inifical=coordinate_inicial_select_texto_with_mouse[0]
+        ,y_inicial=coordinate_inicial_select_texto_with_mouse[1]
+        ,x_final=coordinate_final_select_texto_with_mouse[0]
+        ,y_final=coordinate_final_select_texto_with_mouse[1]
+    )
+    WordKeyboardFunctions._make_bold()
     WordKeyboardFunctions._select_all_in_Word()
     WordKeyboardFunctions._choose_font_in_Word()
     KeyboardBasicFunctions._write_text("Times New Roman")
@@ -48,7 +57,8 @@ def build_techinal_note():
     ArcGISKeyboardFunctions._press_ctrl_end()
     KeyboardBasicFunctions._press_enter()
     WAIT(0.3)
-    click(size_position_coordinators[0],size_position_coordinators[1], ammount_click=3)
+    size_position_coordenadas = get_or_set_coordinate(11,"clique em size and position")
+    click(size_position_coordenadas[0],size_position_coordenadas[1], ammount_click=3)
     KeyboardBasicFunctions._press_tab(wait_time=0.1)
     KeyboardBasicFunctions._write_text("0,4822 cm")
     KeyboardBasicFunctions._press_tab(wait_time=0.1)

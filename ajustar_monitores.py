@@ -31,6 +31,8 @@ OBJETOS_PADRAO = [
     {"id": 14, "nome": "input_campo_selecao_apr", "coordenadas": {"x": 0, "y": 0}},
     {"id": 15, "nome": "input_campo_salvar_mxd", "coordenadas": {"x": 0, "y": 0}},
     {"id": 16, "nome": "input_campo_salvar_pdf_jpeg", "coordenadas": {"x": 0, "y": 0}},
+    {"id": 17, "nome": "cordenada_inicial_select_texto_with_mouse", "coordenadas": {"x": 979, "y": 348}},
+    {"id": 18, "nome": "cordenada_final_select_texto_with_mouse", "coordenadas": {"x": 1088, "y": 349}},
 ]
 
 # ============================

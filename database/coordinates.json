@@ -132,6 +132,22 @@
                         "x": 0,
                         "y": 0
                     }
+                },
+                {
+                    "id": 17,
+                    "nome": "cordenada_inicial_select_texto_with_mouse",
+                    "coordenadas": {
+                        "x": 987,
+                        "y": 345
+                    }
+                },
+                {
+                    "id": 18,
+                    "nome": "cordenada_final_select_texto_with_mouse",
+                    "coordenadas": {
+                        "x": 1086,
+                        "y": 346
+                    }
                 }
             ]
         }

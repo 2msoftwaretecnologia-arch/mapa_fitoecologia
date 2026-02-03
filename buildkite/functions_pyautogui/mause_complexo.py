@@ -89,6 +89,24 @@ def click(
     else:
         raise ValueError("Ambos x e y devem ser fornecidos ou ambos devem ser None.")
 
+def select_text_with_mouse(
+    x_inifical: int
+    ,y_inicial: int
+    ,x_final: int
+    ,y_final: int
+    ,duracao: float = 0.2) -> None:
+    """
+    Seleciona um texto na tela do mapa.
+
+    Parâmetros:
+    x_inifical (int): Coordenada X inicial do texto.
+    y_inicial (int): Coordenada Y inicial do texto.
+    x_final (int): Coordenada X final do texto.
+    y_final (int): Coordenada Y final do texto.
+    duracao (float, opcional): Duração do arrasto em segundos. Padrão é 0.2.
+    """
+    pyautogui.moveTo(x_inifical, y_inicial)
+    pyautogui.dragTo(x_final, y_final, duration=duracao, button='left')
 
 def click_center_screen(ammount: int = 1) -> None:
     """

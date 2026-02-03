@@ -170,6 +170,20 @@ class WordKeyboardFunctions:
         for _ in range(ammount):
             pyautogui.hotkey('ctrl', 'l')
             time.sleep(wait_time)
+    def _make_bold(ammount: int = 1, wait_time: float = 0.2) -> None:
+        """
+        Mantém o texto em negrito (Ctrl + N).
+
+        Parameters
+        ----------
+        ammount : int, optional
+            Quantidade de vezes que a tecla será pressionada (padrão: 1).
+        wait_time : float, optional
+            Intervalo entre cada pressionamento (padrão: 0.2 segundos).
+        """
+        for _ in range(ammount):
+            pyautogui.hotkey('ctrl', 'n')
+            time.sleep(wait_time)
 
 # ============================================================
 # FUNÇÕES DE TECLADO ARCGIS
