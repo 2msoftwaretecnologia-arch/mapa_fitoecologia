@@ -6,6 +6,7 @@ from buildkite.functions_pyautogui.mause_complexo import click
 from buildkite.functions_pyautogui.arrows_keyboard import ArrowsKeyboard
 from buildkite.manipular_textos.manipular_textos import quebrar_texto
 from buildkite.interfaces.janelas_dinamicas import BrakeWindow
+from buildkite.interfaces.simple_interface import  operation_mode
 from buildkite.Windows.manipular_windos import WAIT
 from buildkite.utils.info_arcgis import Positions_subtitles
 from database.text_infos import Text_infos
@@ -33,7 +34,7 @@ def set_info_property():
         WAIT(0.6)
         ArcGISKeyboardFunctions._press_ctrl_end()
         KeyboardBasicFunctions._press_enter(wait_time=0.5)
-        BrakeWindow("espere abrir e aperte 'OK'").show()
+        operation_mode(secod_option=lambda: BrakeWindow("espere abrir e aperte 'OK'").show())
         text_coordinators = get_or_set_coordinate(13,"clique em 'Text' pra eu entender como fica")
         WAIT(0.3)
         click(text_coordinators[0],text_coordinators[1],ammount_click=3)

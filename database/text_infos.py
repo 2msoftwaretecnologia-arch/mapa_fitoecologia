@@ -81,6 +81,7 @@ class Text_infos:
         requied_quantity_current_map: int,
         descricao_mapa_atual: dict,
         current_map_path: str,
+        operation_mode: str = "normal"
     ) -> None:
         """
         ============================================================
@@ -126,6 +127,7 @@ class Text_infos:
         self.descricao_mapa_atual = descricao_mapa_atual
         self.current_map_path = current_map_path
         self.current_map_path = current_map_path
+        self.operation_mode = operation_mode
         
 
     @property
@@ -223,3 +225,11 @@ class Text_infos:
     @requied_quantity_current_map.setter
     def requied_quantity_current_map(self, new_requied_quantity_current_map: int) -> None:
         self._requied_quantity_current_map = new_requied_quantity_current_map
+
+    @property
+    def operation_mode(self) -> str:
+        return self._operation_mode
+    
+    @operation_mode.setter
+    def operation_mode(self, new_operation_mode: str) -> None:
+        self._operation_mode = new_operation_mode

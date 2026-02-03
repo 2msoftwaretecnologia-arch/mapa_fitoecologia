@@ -12,6 +12,7 @@ from buildkite.functions_pyautogui.mause_complexo import click, click_center_scr
 from buildkite.utils.helpers import find_aii,BrakeWindow
 from database.requests import get_or_set_coordinate
 from buildkite.utils.small_utils import kinds_maps
+from buildkite.interfaces.simple_interface import  operation_mode
 
 
 def select_apr():
@@ -32,13 +33,13 @@ def select_apr():
     WAIT(0.2)
     KeyboardBasicFunctions._press_enter()
     WAIT(0.5)
-    BrakeWindow("Espere a seleção ser concluída e aperte Entendi").show()
+    operation_mode(secod_option=lambda: BrakeWindow("Espere a seleção ser concluída e aperte Entendi").show())
     source_cordenadas = get_or_set_coordinate(objeto_id=12,mensagem="Clique no botão 'Source'")
     click(source_cordenadas[0],source_cordenadas[1],ammount_click=3)
     WAIT(0.3)
     KeyboardBasicFunctions._press_tab(6,wait_time=0.01)
     KeyboardBasicFunctions._press_enter()
-    BrakeWindow("Espere a seleção ser concluída e aperte Entendi").show()
+    operation_mode(secod_option=lambda: BrakeWindow("Espere a seleção ser concluída e aperte Entendi").show())
     WAIT(0.3)
     path_input_codinator = get_or_set_coordinate(14,"Clique no campo onde digitamos o caminho do shp")
     WAIT(0.3)
@@ -57,7 +58,7 @@ def select_apr():
     WAIT(0.2)
     KeyboardBasicFunctions._press_enter()
     WAIT(0.5)
-    BrakeWindow("Espere a seleção ser concluída e aperte Entendi").show()
+    operation_mode(secod_option=lambda: BrakeWindow("Espere a seleção ser concluída e aperte Entendi").show())
     click(source_cordenadas[0],source_cordenadas[1],ammount_click=3)
     WAIT(0.5)
     KeyboardBasicFunctions._press_tab(6,wait_time=0.01)
@@ -79,7 +80,7 @@ def select_apr():
     
     WAIT(0.2)
     KeyboardBasicFunctions._press_enter()
-    BrakeWindow("Espere a seleção ser concluída e aperte Entendi").show()
+    operation_mode(secod_option=lambda: BrakeWindow("Espere a seleção ser concluída e aperte Entendi").show())
     click(source_cordenadas[0],source_cordenadas[1],ammount_click=3)
     WAIT(0.5)
     KeyboardBasicFunctions._press_tab(6,wait_time=0.01)
@@ -98,7 +99,7 @@ def select_apr():
     ArrowsKeyboard._press_down(ammount=2,wait_time=0.002)
     WAIT(0.2)
     KeyboardBasicFunctions._press_enter()
-    BrakeWindow("Espere a seleção ser concluída e aperte Entendi").show()
+    operation_mode(secod_option=lambda: BrakeWindow("Espere a seleção ser concluída e aperte Entendi").show())
     click(source_cordenadas[0],source_cordenadas[1],ammount_click=3)
     WAIT(0.2)
     KeyboardBasicFunctions._press_tab(6,wait_time=0.01)

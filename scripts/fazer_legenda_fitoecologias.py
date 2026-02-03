@@ -12,6 +12,7 @@ from buildkite.interfaces.janelas_dinamicas import BrakeWindow
 from database.coordenadas import coordinates
 from buildkite.functions_tkinter.interfaces import ExitCheckboxWindow
 from database.requests import get_or_set_coordinate
+from buildkite.interfaces.simple_interface import  operation_mode
 
 
 def build_subtitle():
@@ -61,7 +62,7 @@ def build_subtitle():
     ArcGISKeyboardFunctions._press_ctrl_end(wait_time=0.2)
     KeyboardBasicFunctions._press_enter()
     WAIT(0.5)
-    BrakeWindow("Ative o 'preserve aspect radio' se estiver desativo").show()
+    operation_mode(secod_option=lambda: BrakeWindow("Ative o 'preserve aspect radio' se estiver desativo").show())
     size_position_coordenadas = get_or_set_coordinate(11,"clique em 'size and position'")
     WAIT(0.3)
     # "Size and Position"

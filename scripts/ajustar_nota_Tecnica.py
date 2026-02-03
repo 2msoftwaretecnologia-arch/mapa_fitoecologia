@@ -10,6 +10,7 @@ from database.coordenadas import coordinates
 from database.requests import get_or_set_coordinate
 from buildkite.utils.techinal_notes import get_techinal_note_text
 from buildkite.interfaces.janelas_dinamicas import BrakeWindow
+from buildkite.interfaces.simple_interface import  operation_mode
 
 
 def build_techinal_note():
@@ -17,7 +18,7 @@ def build_techinal_note():
     start_point_coordinators = get_or_set_coordinate(9,"clique sobre texto")
     text_note_techinical = get_techinal_note_text()
     open_document(path_word)
-    BrakeWindow("espere o word abrir e aperte em OK").show()
+    operation_mode(secod_option=lambda: BrakeWindow("espere o word abrir e aperte em OK").show())
     click_center_screen()
     WAIT(0.5)
     WordKeyboardFunctions._open_page_margin_Word(4)
