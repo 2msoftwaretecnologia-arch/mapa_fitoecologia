@@ -76,7 +76,7 @@ class InitialForm:
     @staticmethod
     def _get_arcgis_coordinates() -> tuple[float, float]:
         """Captura coordenadas via clique ou gera valores simulados em modo teste."""
-        return capturar_clique("clique na janela do arcgis para eu saber onde fica")
+        return capturar_clique("clique em 'continuar' e depois clique ja na janela do ARCGIS")
 
     @staticmethod
     def _save_arcgis_coordinates(x: float, y: float) -> None:
