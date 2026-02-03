@@ -148,6 +148,14 @@
                         "x": 1086,
                         "y": 346
                     }
+                },
+                {
+                    "id": 19,
+                    "nome": "area_influencia_direta",
+                    "coordenadas": {
+                        "x": 158,
+                        "y": 234
+                    }
                 }
             ]
         }

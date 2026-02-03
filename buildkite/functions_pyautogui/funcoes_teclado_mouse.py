@@ -274,3 +274,17 @@ class ArcGISKeyboardFunctions:
         """
         pyautogui.hotkey('ctrl','k')
         time.sleep(wait_time)
+
+    def _zoom_to_layer(wait_time: float = 0.2) -> None:
+        """
+        Ajusta o zoom para o nível do camada atual (z).
+
+        Parameters
+        ----------
+        ammount : int, optional
+            Quantidade de vezes que a tecla será pressionada (padrão: 1).
+        wait_time : float, optional
+            Intervalo entre cada pressionamento (padrão: 0.2 segundos).
+        """
+        pyautogui.press("z")
+        time.sleep(wait_time)

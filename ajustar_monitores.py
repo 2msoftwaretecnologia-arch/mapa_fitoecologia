@@ -33,6 +33,7 @@ OBJETOS_PADRAO = [
     {"id": 16, "nome": "input_campo_salvar_pdf_jpeg", "coordenadas": {"x": 0, "y": 0}},
     {"id": 17, "nome": "cordenada_inicial_select_texto_with_mouse", "coordenadas": {"x": 979, "y": 348}},
     {"id": 18, "nome": "cordenada_final_select_texto_with_mouse", "coordenadas": {"x": 1088, "y": 349}},
+    {"id": 19, "nome": "area_influencia_direta", "coordenadas": {"x": 0, "y": 0}},
 ]
 
 # ============================
