@@ -28,7 +28,7 @@ def main_flow():
     """Executa toda a automação na ordem correta."""
     operation_mode(secod_option=lambda: BrakeWindow(mensage ='⚠️ ATENÇÃO: siga as instruções exibidas na tela com atenção.').show())
     operation_mode(secod_option=lambda: BrakeWindow(mensage ='⚙️ Aguarde o carregamento completo dos documentos antes de prosseguir.').show())
-    
+    BrakeWindow("volte ao word e depois aperte `continuar").show()
     InitialForm().run()
     select_apr()
     set_scale()
