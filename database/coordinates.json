@@ -1,7 +1,7 @@
 {
     "resolucoes": [
         {
-            "nome": "original",
+            "nome": "computer_vitor",
             "largura": 1920,
             "altura": 1080,
             "objetos": [
@@ -9,79 +9,79 @@
                     "id": 1,
                     "nome": "camada",
                     "coordenadas": {
-                        "x": 108,
-                        "y": 196
+                        "x": 82,
+                        "y": 209
                     }
                 },
                 {
                     "id": 2,
                     "nome": "espaco_Branco",
                     "coordenadas": {
-                        "x": 553,
-                        "y": 409
+                        "x": 363,
+                        "y": 379
                     }
                 },
                 {
                     "id": 3,
                     "nome": "retangulo",
                     "coordenadas": {
-                        "x": 171,
-                        "y": 993
+                        "x": 178,
+                        "y": 999
                     }
                 },
                 {
                     "id": 4,
                     "nome": "desenhar_quadradro",
                     "coordenadas": {
-                        "x": 518,
-                        "y": 340
+                        "x": 321,
+                        "y": 342
                     }
                 },
                 {
                     "id": 5,
                     "nome": "symbol_quadrado",
                     "coordenadas": {
-                        "x": 810,
-                        "y": 382
+                        "x": 793,
+                        "y": 381
                     }
                 },
                 {
                     "id": 6,
                     "nome": "fill_color_quadrado",
                     "coordenadas": {
-                        "x": 887,
-                        "y": 432
+                        "x": 891,
+                        "y": 437
                     }
                 },
                 {
                     "id": 7,
                     "nome": "out_line_color_quadrado",
                     "coordenadas": {
-                        "x": 886,
-                        "y": 482
+                        "x": 885,
+                        "y": 487
                     }
                 },
                 {
                     "id": 8,
                     "nome": "grid",
                     "coordenadas": {
-                        "x": 1156,
-                        "y": 247
+                        "x": 1157,
+                        "y": 248
                     }
                 },
                 {
                     "id": 9,
                     "nome": "inicio",
                     "coordenadas": {
-                        "x": 1180,
-                        "y": 565
+                        "x": 1087,
+                        "y": 552
                     }
                 },
                 {
                     "id": 10,
                     "nome": "escala",
                     "coordenadas": {
-                        "x": 354,
+                        "x": 362,
                         "y": 59
                     }
                 },
@@ -90,31 +90,31 @@
                     "nome": "size_position",
                     "coordenadas": {
                         "x": 926,
-                        "y": 314
+                        "y": 312
                     }
                 },
                 {
                     "id": 12,
                     "nome": "source",
                     "coordenadas": {
-                        "x": 701,
-                        "y": 280
+                        "x": 705,
+                        "y": 283
                     }
                 },
                 {
                     "id": 13,
                     "nome": "text",
                     "coordenadas": {
-                        "x": 803,
-                        "y": 363
+                        "x": 795,
+                        "y": 361
                     }
                 },
                 {
                     "id": 14,
                     "nome": "input_campo_selecao_apr",
                     "coordenadas": {
-                        "x": 820,
-                        "y": 621
+                        "x": 839,
+                        "y": 619
                     }
                 },
                 {
@@ -137,24 +137,24 @@
                     "id": 17,
                     "nome": "cordenada_inicial_select_texto_with_mouse",
                     "coordenadas": {
-                        "x": 987,
-                        "y": 345
+                        "x": 826,
+                        "y": 299
                     }
                 },
                 {
                     "id": 18,
                     "nome": "cordenada_final_select_texto_with_mouse",
                     "coordenadas": {
-                        "x": 1086,
-                        "y": 346
+                        "x": 908,
+                        "y": 299
                     }
                 },
                 {
                     "id": 19,
                     "nome": "area_influencia_direta",
                     "coordenadas": {
-                        "x": 158,
-                        "y": 234
+                        "x": 99,
+                        "y": 211
                     }
                 }
             ]

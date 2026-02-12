@@ -41,10 +41,8 @@ def build_subtitle():
     KeyboardBasicFunctions._write_text("Times New Roman")
     WAIT(0.3)
     KeyboardBasicFunctions._press_enter(wait_time=0.3)
-    print("DEBUG: Exibindo BrakeWindow. Se fechar no 'X', o script encerra aqui.")
     BrakeWindow("Faça a descrição do seu texto de ate 1213 caracters, se não conseguir coloque menos e preencha com espaço").show()
-    print("DEBUG: Passou do BrakeWindow. Exibindo ExitCheckboxWindow.")
-    ExitCheckboxWindow().show()
+    ExitCheckboxWindow().show()#aparece checkbox para confirmar
     print("DEBUG: Passou do ExitCheckboxWindow. Executando click_center_screen.")
     click_center_screen()
     WAIT(0.2)
@@ -78,3 +76,4 @@ def build_subtitle():
     WordKeyboardFunctions._select_all_in_Word()
     KeyboardBasicFunctions._write_text("7,6116 cm")
     KeyboardBasicFunctions._press_enter(wait_time=0.5)
+    ExitCheckboxWindow().show()#aparece checkbox para confirmar

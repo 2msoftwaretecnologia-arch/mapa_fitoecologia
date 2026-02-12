@@ -16,5 +16,5 @@ def delete_pycache(base_directory):
     print(f"\nTotal '__pycache__' folders deleted: {total_deleted}")
 
 # Example usage
-directory = r"C:\\Users\\2mbet\\Desktop\\automacoes_envimap\\map_fitoecologia\\"
+directory = r"C:\\Users\\V1CT0R\\Downloads\\softwares\\envimap\\mapa_fitoecologia\\"
 delete_pycache(directory)

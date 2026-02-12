@@ -75,7 +75,7 @@ def capturar_clique(texto: str) -> tuple[int, int]:
     # ============================================================
     # Esta função é chamada automaticamente pelo Listener do mouse
     # toda vez que o usuário pressiona ou solta um botão.
-    def on_click(x, y, pressed):
+    def on_click(x, y,button, pressed):
         if pressed:
             coordenadas['x'] = x
             coordenadas['y'] = y

@@ -11,27 +11,27 @@ import os
 
 # 📄 Documento modelo da Nota Técnica
 path_word = (
-    r"C:\\Users\\2mbet\\Desktop\\automacoes_envimap\\map_fitoecologia\\documents\\nota_tecnica_formatacao.docx"
+    r"C:\\Users\\V1CT0R\\Downloads\\softwares\\envimap\\mapa_fitoecologia\\documents\\nota_tecnica_formatacao.docx"
 )
 # 🗺️ Mapas em formato MXD (ArcGIS) — modelos base de layout
 path_fitoecoclogia_map = (
-    r"C:\\Users\\2mbet\\Desktop\\automacoes_envimap\\tipos_mapas\\Mapa A4- Fitofisionomias.mxd"
+    r"C:\\Users\\V1CT0R\\Downloads\\softwares\\envimap\\tipos_mapas\\Mapa A4- Fitofisionomias.mxd"
 )
 path_geologia_map = (
-    r"C:\\Users\\2mbet\\Desktop\\automacoes_envimap\\tipos_mapas\\Mapa A4- Geofomologia.mxd"
+    r"C:\\Users\\V1CT0R\\Downloads\\softwares\\envimap\\tipos_mapas\\Mapa A4- Geofomologia.mxd"
 )
 path_pedologia_map = (
-    r"C:\\Users\\2mbet\\Desktop\\automacoes_envimap\\tipos_mapas\\Mapa A4- Pedolgia.mxd"
+    r"C:\\Users\\V1CT0R\\Downloads\\softwares\\envimap\\tipos_mapas\\Mapa A4- Pedolgia.mxd"
 )
 path_regioes_climaticas_map = (
-    r"C:\\Users\\2mbet\\Desktop\\automacoes_envimap\\tipos_mapas\\Mapa A4- Regioes_climaticas.mxd"
+    r"C:\\Users\\V1CT0R\\Downloads\\softwares\\envimap\\tipos_mapas\\Mapa A4- Regioes_climaticas.mxd"
 )
 path_declividade_map = (
-    r"C:\\Users\\2mbet\\Desktop\\automacoes_envimap\\tipos_mapas\\Mapa A4- Declividade.mxd"
+    r"C:\\Users\\V1CT0R\\Downloads\\softwares\\envimap\\tipos_mapas\\Mapa A4- Declividade.mxd"
 )
 
 path_erodibilidade_map = (
-    r"C:\\Users\\2mbet\\Desktop\\automacoes_envimap\\tipos_mapas\\Mapa A4- Erodibilidade.mxd"
+    r"C:\\Users\\V1CT0R\\Downloads\\softwares\\envimap\\tipos_mapas\\Mapa A4- Erodibilidade.mxd"
 )
 
 def choose_kind_mapa(
