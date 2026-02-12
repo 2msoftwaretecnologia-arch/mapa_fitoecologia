@@ -16,13 +16,21 @@ import pyautogui
 def set_info_property():
     property_infos = [Text_infos.owner,Text_infos.registration_property]
     blank_space_coordinates = get_or_set_coordinate(2,"clique em um espaço vazio fora do mapa para eu saber onde fica")
-    for position,info in zip(Positions_subtitles,property_infos):        
+    for position,info in zip(Positions_subtitles(),property_infos):        
         click(blank_space_coordinates[0],blank_space_coordinates[1],wait_time=0.1)
         WAIT(0.2)
         ArcGISKeyboardFunctions._create_text()
         WAIT(0.3)
-        KeyboardBasicFunctions._select_all()
-        KeyboardBasicFunctions._write_text(text=info)
+        if info == Text_infos.registration_property:
+            if len(info) > 16:
+                p1,p2 = quebrar_texto(info,16,multi=False,duas_variaveis=True)
+                KeyboardBasicFunctions._write_text(p1)
+                pyautogui.hotkey("ctrl", "enter")
+                KeyboardBasicFunctions._write_text(p2)
+            else:
+                KeyboardBasicFunctions._write_text(text=info)
+        else:
+            KeyboardBasicFunctions._write_text(text=info)
         KeyboardBasicFunctions._press_enter(wait_time=0.5)
         start_point_coordinators = get_or_set_coordinate(9,"clique sobre texto")
         WAIT(0.3)

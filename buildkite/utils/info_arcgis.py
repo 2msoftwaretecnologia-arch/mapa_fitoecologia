@@ -213,9 +213,15 @@ Erodibilidade = [
     "6 - Especial",
 ]
 
-Positions_subtitles = [
-        ("23,2921","1,876","0,9878","0,3125"),
-        ("27,8184","1,8989","0,8466","0,3125")]
+def Positions_subtitles():
+    if len(Text_infos.registration_property) > 16:
+        return [
+        ("23,2921","1,876","0,9878","0,3125"),#proprietário
+        ("27,8654","1,8191","1,3758","0,4778")]#matrícula
+    else:
+        return [
+        ("23,2921","1,876","0,9878","0,3125"),#proprietário
+        ("27,8184","1,8989","0,8466","0,3125")]#matrícula
         
 kind_maps_options = {
         'Fitoecologia': regioes_fitoecologias,
