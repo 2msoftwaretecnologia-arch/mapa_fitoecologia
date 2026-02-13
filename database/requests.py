@@ -10,6 +10,7 @@ from buildkite.Windows.capturar_click import capturar_clique
 # Objeto 'coordinates' com informações sobre a resolução atual
 from database.coordenadas import coordinates
 import json
+import pyautogui
 
 
 # ============================================================
@@ -73,6 +74,12 @@ def request(action: str, objeto_id: int, x: int = None, y: int = None, default=(
     # Obtém a resolução atual da tela a partir do objeto coordinates
     largura = coordinates.largura_atual
     altura = coordinates.altura_atual
+
+    # Fallback: se ainda forem descriptors/property, usar resolução real
+    if not isinstance(largura, int) or not isinstance(altura, int):
+        largura, altura = pyautogui.size()
+        coordinates.largura_atual = largura
+        coordinates.altura_atual = altura
 
     # Carrega o arquivo JSON contendo as resoluções e objetos
     with open(ARQUIVO, "r", encoding="utf-8") as f:

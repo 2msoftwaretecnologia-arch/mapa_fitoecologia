@@ -17,8 +17,8 @@
                     "id": 2,
                     "nome": "espaco_Branco",
                     "coordenadas": {
-                        "x": 363,
-                        "y": 379
+                        "x": 1678,
+                        "y": 422
                     }
                 },
                 {
@@ -119,18 +119,18 @@
                 },
                 {
                     "id": 15,
-                    "nome": "input_campo_salvar_mxd",
+                    "nome": "file",
                     "coordenadas": {
-                        "x": 0,
-                        "y": 0
+                        "x": 15,
+                        "y": 29
                     }
                 },
                 {
                     "id": 16,
                     "nome": "input_campo_salvar_pdf_jpeg",
                     "coordenadas": {
-                        "x": 0,
-                        "y": 0
+                        "x": 992,
+                        "y": 527
                     }
                 },
                 {
@@ -155,6 +155,22 @@
                     "coordenadas": {
                         "x": 99,
                         "y": 211
+                    }
+                },
+                {
+                    "id": 20,
+                    "nome": "save as",
+                    "coordenadas": {
+                        "x": 83,
+                        "y": 128
+                    }
+                },
+                {
+                    "id": 21,
+                    "nome": "export map",
+                    "coordenadas": {
+                        "x": 71,
+                        "y": 339
                     }
                 }
             ]

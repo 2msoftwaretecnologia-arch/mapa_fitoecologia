@@ -251,30 +251,6 @@ class ArcGISKeyboardFunctions:
         pyautogui.hotkey('ctrl','h')
         time.sleep(wait_time)
 
-    def _save_mxj(wait_time=0.2):
-        """
-        Salva o mapa como um arquivo MXJ no ArcGIS (Ctrl + J).
-
-        Parameters
-        ----------
-        wait_time : float, optional
-            Intervalo entre o pressionamento da tecla (padrão: 0.2 segundos).
-        """
-        pyautogui.hotkey('ctrl','j')
-        time.sleep(wait_time)
-
-    def _save_mapa_export(wait_time=0.2):
-        """
-        Exporta o mapa atual para um arquivo no ArcGIS (Ctrl + K).
-
-        Parameters
-        ----------
-        wait_time : float, optional
-            Intervalo entre o pressionamento da tecla (padrão: 0.2 segundos).
-        """
-        pyautogui.hotkey('ctrl','k')
-        time.sleep(wait_time)
-
     def _zoom_to_layer(wait_time: float = 0.2) -> None:
         """
         Ajusta o zoom para o nível do camada atual (z).

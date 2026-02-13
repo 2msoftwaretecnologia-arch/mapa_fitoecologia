@@ -11,7 +11,7 @@ from scripts.ajustar_nota_Tecnica import build_techinal_note
 from scripts.ajustar_quadrados import build_squares
 from scripts.ajustar_legendas_propriedade import set_info_property
 from scripts.selecao_apr import select_apr
-from scripts.salvar_mapa import salvar_mapas
+from scripts.salvar_mapa import save_map
 from database.text_infos import Text_infos
 
 # Interface e janelas
@@ -20,8 +20,9 @@ from buildkite.interfaces.initial_form import InitialForm
 from buildkite.Windows.abrir_documentos import open_document, choose_kind_mapa, path_word
 from buildkite.interfaces.simple_interface import simple_choices , operation_mode
 
-# Ajuste de monitores
+# Ajustes externos
 from ajustar_monitores import verificar_resolucao
+from verficar_resolucoes import verificar_cordenadas
 
 
 def main_flow():
@@ -37,7 +38,7 @@ def main_flow():
     build_subtitle()
     build_squares()
     build_techinal_note()
-    #salvar_mapas()
+    save_map()
 
 # ==========================================
 #           Execução principal                      
@@ -46,6 +47,7 @@ if __name__ == "__main__":
     type_operation = simple_choices(title="Escolha o modo de operação", choices_buttons=["rapido","normal"])
     Text_infos.operation_mode = type_operation
     verificar_resolucao()
+    verificar_cordenadas()
     start = simple_choices(title="Início",text="Deseja começar o processo?",choices_buttons=["Sim", "Não"])
     if start == 'Sim':
         path_map = choose_kind_mapa()
