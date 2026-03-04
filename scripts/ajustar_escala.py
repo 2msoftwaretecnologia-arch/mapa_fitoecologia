@@ -1,5 +1,6 @@
 import sys
 import os
+from types import NoneType
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from buildkite.functions_pyautogui.funcoes_teclado_mouse import KeyboardBasicFunctions
 from buildkite.functions_pyautogui.mause_complexo import click,click_center_screen
@@ -19,7 +20,7 @@ def set_scale():
 
         while do_again != "não":
             set_scale_number = dynamic_text_input(message="digite sua escla\nse voce não digitar nada e confirmar com 'ok' ou 'enter'\nvamos confirmar que voce não quer mais ajustar\na escala")
-            if set_scale_number.strip() == "":
+            if set_scale_number is None or set_scale_number.strip() == "":
                 do_again = "não"
             else:
                 WAIT(1)

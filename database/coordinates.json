@@ -1,7 +1,7 @@
 {
     "resolucoes": [
         {
-            "nome": "computer_vitor",
+            "nome": "pc marco antonio",
             "largura": 1920,
             "altura": 1080,
             "objetos": [
@@ -9,168 +9,168 @@
                     "id": 1,
                     "nome": "camada",
                     "coordenadas": {
-                        "x": 82,
-                        "y": 209
+                        "x": 129,
+                        "y": 248
                     }
                 },
                 {
                     "id": 2,
                     "nome": "espaco_Branco",
                     "coordenadas": {
-                        "x": 1678,
-                        "y": 422
+                        "x": 633,
+                        "y": 319
                     }
                 },
                 {
                     "id": 3,
                     "nome": "retangulo",
                     "coordenadas": {
-                        "x": 178,
-                        "y": 999
+                        "x": 215,
+                        "y": 978
                     }
                 },
                 {
                     "id": 4,
                     "nome": "desenhar_quadradro",
                     "coordenadas": {
-                        "x": 321,
-                        "y": 342
+                        "x": 633,
+                        "y": 549
                     }
                 },
                 {
                     "id": 5,
                     "nome": "symbol_quadrado",
                     "coordenadas": {
-                        "x": 793,
-                        "y": 381
+                        "x": 747,
+                        "y": 349
                     }
                 },
                 {
                     "id": 6,
                     "nome": "fill_color_quadrado",
                     "coordenadas": {
-                        "x": 891,
-                        "y": 437
+                        "x": 865,
+                        "y": 411
                     }
                 },
                 {
                     "id": 7,
                     "nome": "out_line_color_quadrado",
                     "coordenadas": {
-                        "x": 885,
-                        "y": 487
+                        "x": 862,
+                        "y": 471
                     }
                 },
                 {
                     "id": 8,
                     "nome": "grid",
                     "coordenadas": {
-                        "x": 1157,
-                        "y": 248
+                        "x": 1203,
+                        "y": 177
                     }
                 },
                 {
                     "id": 9,
                     "nome": "inicio",
                     "coordenadas": {
-                        "x": 1087,
-                        "y": 552
+                        "x": 1249,
+                        "y": 568
                     }
                 },
                 {
                     "id": 10,
                     "nome": "escala",
                     "coordenadas": {
-                        "x": 362,
-                        "y": 59
+                        "x": 453,
+                        "y": 75
                     }
                 },
                 {
                     "id": 11,
                     "nome": "size_position",
                     "coordenadas": {
-                        "x": 926,
-                        "y": 312
+                        "x": 925,
+                        "y": 256
                     }
                 },
                 {
                     "id": 12,
                     "nome": "source",
                     "coordenadas": {
-                        "x": 705,
-                        "y": 283
+                        "x": 645,
+                        "y": 217
                     }
                 },
                 {
                     "id": 13,
                     "nome": "text",
                     "coordenadas": {
-                        "x": 795,
-                        "y": 361
+                        "x": 752,
+                        "y": 316
                     }
                 },
                 {
                     "id": 14,
                     "nome": "input_campo_selecao_apr",
                     "coordenadas": {
-                        "x": 839,
-                        "y": 619
+                        "x": 838,
+                        "y": 644
                     }
                 },
                 {
                     "id": 15,
                     "nome": "file",
                     "coordenadas": {
-                        "x": 15,
-                        "y": 29
+                        "x": 22,
+                        "y": 44
                     }
                 },
                 {
                     "id": 16,
                     "nome": "input_campo_salvar_pdf_jpeg",
                     "coordenadas": {
-                        "x": 992,
-                        "y": 527
+                        "x": 1006,
+                        "y": 523
                     }
                 },
                 {
                     "id": 17,
                     "nome": "cordenada_inicial_select_texto_with_mouse",
                     "coordenadas": {
-                        "x": 826,
-                        "y": 299
+                        "x": 1028,
+                        "y": 403
                     }
                 },
                 {
                     "id": 18,
                     "nome": "cordenada_final_select_texto_with_mouse",
                     "coordenadas": {
-                        "x": 908,
-                        "y": 299
+                        "x": 1129,
+                        "y": 404
                     }
                 },
                 {
                     "id": 19,
                     "nome": "area_influencia_direta",
                     "coordenadas": {
-                        "x": 99,
-                        "y": 211
+                        "x": 179,
+                        "y": 294
                     }
                 },
                 {
                     "id": 20,
                     "nome": "save as",
                     "coordenadas": {
-                        "x": 83,
-                        "y": 128
+                        "x": 64,
+                        "y": 160
                     }
                 },
                 {
                     "id": 21,
                     "nome": "export map",
                     "coordenadas": {
-                        "x": 71,
-                        "y": 339
+                        "x": 90,
+                        "y": 425
                     }
                 }
             ]
