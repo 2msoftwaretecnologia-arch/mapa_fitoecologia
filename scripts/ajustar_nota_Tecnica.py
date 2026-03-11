@@ -43,6 +43,7 @@ def build_techinal_note():
         ,y_inicial=coordinate_inicial_select_texto_with_mouse[1]
         ,x_final=coordinate_final_select_texto_with_mouse[0]
         ,y_final=coordinate_final_select_texto_with_mouse[1]
+        ,duracao=0.5
     )
     WordKeyboardFunctions._make_bold()
     WordKeyboardFunctions._select_all_in_Word()
